@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
+use UniSharp\LaravelFilemanager\Lfm;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,12 @@ Route::prefix('/admin')->group(function () {
 
         Route::prefix('posts')->group(function () {
             Route::get('/', [PostController::class, 'index'])->name('admin.posts.index');
+            Route::post('/', [PostController::class, 'store'])->name('admin.posts.store');
+            Route::get('/create', [PostController::class, 'create'])->name('admin.posts.create');
+            Route::get('/{id}', [PostController::class, 'show'])->name('admin.posts.show');
+            Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update');
+            Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
+            Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
         });
 
         Route::prefix('categories')->group(function () {
@@ -56,5 +63,8 @@ Route::prefix('/admin')->group(function () {
             Route::get('/', [TagController::class, 'index'])->name('admin.tags.index');
         });
 
+        Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {
+            Lfm::routes();
+        });
     });
 });

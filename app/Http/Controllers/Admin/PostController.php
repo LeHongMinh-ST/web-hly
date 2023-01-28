@@ -3,39 +3,50 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Post\PostRepository;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct(private PostRepository $postRepository)
+    {
+    }
+
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|Factory|View
      */
-    public function index()
+    public function index(Request $request): Factory|View|Application
     {
-        //
+        $data = $request->only(['q', 'limit']);
+
+        return view('admin.pages.post.index');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function create()
+    public function create(): Factory|View|Application
     {
-        //
+        return view('admin.pages.post.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|Factory|View
      */
-    public function store(Request $request)
+    public function store(Request $request): Factory|View|Application
     {
-        //
+        dd($request->all());
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -63,7 +74,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

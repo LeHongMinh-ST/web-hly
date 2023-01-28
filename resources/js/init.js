@@ -19,7 +19,8 @@ $(document).ready(function () {
         }, 1000)
     }
 
-});
+})
+
 
 const init = {
     conf: {

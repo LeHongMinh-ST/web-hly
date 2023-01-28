@@ -11,5 +11,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface PostRepository extends RepositoryInterface
 {
-    //
+    public function getPostPaginate(array $data);
 }
