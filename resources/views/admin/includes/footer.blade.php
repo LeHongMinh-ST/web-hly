@@ -1,3 +1,3 @@
 <div class="footer text-muted">
-    &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+    &copy; 2023. <a href="#">Sản phẩm được phát triển bởi</a> by <a href="#" target="_blank">Nhóm ST</a>
 </div>

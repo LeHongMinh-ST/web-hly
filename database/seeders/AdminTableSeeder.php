@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AdminTableSeeder extends Seeder
 {
@@ -11,10 +12,10 @@ class AdminTableSeeder extends Seeder
     {
         self::checkIssetBeforeCreate([
             'username' => 'admin',
-            'full_name' => 'Super Admin',
+            'fullname' => 'Super Admin',
             'email' => 'superadmin@st.vn',
             'is_super_admin' => true,
-            'password' => '123456aA@',
+            'password' => Hash::make('123456aA@'),
         ]);
     }
 
