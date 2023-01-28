@@ -21,7 +21,7 @@ use UniSharp\LaravelFilemanager\Lfm;
 */
 
 Route::get('/', function () {
-    return view('frontend.page.index');
+    return view('cms.page.index');
 });
 
 
