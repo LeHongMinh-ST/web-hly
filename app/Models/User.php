@@ -18,9 +18,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
+        'fullname',
+        'phone_number',
         'email',
         'password',
+        'role_id',
+        'is_super_admin',
+        'status',
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -41,4 +48,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function createBy(): BelongsTo
+    {
+        return $this->belongsTo(self::class, 'create_by');
+    }
+
+    public function updateBy(): BelongsTo
+    {
+        return $this->belongsTo(self::class, 'update_by');
+    }
 }
