@@ -31,7 +31,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
     Route::middleware(['auth'])->group(function () {
-        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('/', function () {
+            return redirect()->route('admin.dashboard');
+        });
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
         Route::prefix('users')->group(function () {
             Route::get('/', [UserController::class, 'index'])->name('admin.users.index');
