@@ -24,6 +24,22 @@ Route::get('/', function () {
     return view('cms.page.index');
 });
 
+Route::get('/gioi-thieu', function () {
+    return view('cms.page.introduce');
+});
+
+Route::get('/linh-vuc-hoat-dong', function () {
+    return view('cms.page.activity');
+});
+
+Route::get('/tin-tuc-su-kien', function () {
+    return view('cms.page.news');
+});
+
+Route::get('/lien-he', function () {
+    return view('cms.page.contact');
+});
+
 
 
 Route::prefix('/admin')->group(function () {

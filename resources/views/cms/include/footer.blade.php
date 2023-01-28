@@ -12,8 +12,8 @@
         <div class="row">
             <div class="left">
                 <div>
-                    <h4>Tập đoàn Abc(AbcJSC)</h4>
-                    <p>© Bản quyền Abc2019</p>
+                    <h4>Tập đoàn HLY(HLYJSC)</h4>
+                    <p>© Bản quyền HLY2019</p>
                 </div>
                 <div>
                     <p>N02 - LK1, Hà Trì, Phường Hà Cầu, Quận Hà Đông, Thành phố Hà Nội, Việt Nam</p>

@@ -1,17 +1,17 @@
 var wScreen = $(window).width(),
     isRunMenu = !1,
-    VINGROUP = {
+    HLY = {
         init: function() {
-            VINGROUP.global.OpenSubmenu(), VINGROUP.global.OpenMenu(), VINGROUP.global.bannerHome(), VINGROUP.global.crsCate(), VINGROUP.global.scrollPage(), VINGROUP.global.subMenuPage(), setTimeout(function() {
-                VINGROUP.global.detectMaxHeight()
+          HLY.global.OpenSubmenu(), HLY.global.OpenMenu(), HLY.global.bannerHome(), HLY.global.crsCate(), HLY.global.scrollPage(), HLY.global.subMenuPage(), setTimeout(function() {
+            HLY.global.detectMaxHeight()
             }, 500), $(window).resize(function(e) {
-                VINGROUP.global.detectMaxHeight()
+            HLY.global.detectMaxHeight()
             }), $(".loading").fadeOut(function() {
-                $(window).innerWidth() > 767 && VINGROUP.global.animationScroll()
+                $(window).innerWidth() > 767 && HLY.global.animationScroll()
             }), $(".nano").nanoScroller()
         }
     };
-VINGROUP.global = {
+HLY.global = {
     scrollPage: function() {
         $("body").on("click", ".js-scrollCt", function() {
             var e = $(this).attr("data");
@@ -32,7 +32,7 @@ VINGROUP.global = {
         $(".slider").on("init", function(e, a) {
             $(".slider").animate({
                 opacity: 1
-            }), VINGROUP.global.addVideo()
+            }), HLY.global.addVideo()
         });
         var e = $(".slider").slick({
             infinite: !0,
@@ -44,7 +44,7 @@ VINGROUP.global = {
             adaptiveHeight: !0
         });
         e.on("beforeChange", function(e, a, t, i) {}), e.on("afterChange", function(e, a, t, i) {
-            $(".hasVideo").html(""), VINGROUP.global.addVideo()
+            $(".hasVideo").html(""), HLY.global.addVideo()
         })
     },
     addVideo: function() {
@@ -254,7 +254,7 @@ VINGROUP.global = {
             }).setTween(l).addTo(o)
         })
     }
-}, VINGROUP.init();
+}, HLY.init();
 var stopAllYouTubeVideos = function() {
         var e = document.querySelectorAll("iframe");
         Array.prototype.forEach.call(e, function(e) {
