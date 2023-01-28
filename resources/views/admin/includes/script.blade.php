@@ -19,7 +19,18 @@
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/styling/uniform.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/notifications/sweet_alert.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/selects/select2.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/selects/bootstrap_select.min.js') }}"></script>
+<script type="text/javascript"
+        src="{{ asset('assets/admin/js/plugins/forms/selects/bootstrap_select.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/styling/switch.min.js') }}"></script>
 <script type="text/javascript" src="{{asset('assets/admin/js/core/app.js')}}"></script>
 <!-- /theme JS files -->
+
+@production
+    @php
+        $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+    @endphp
+    <script type="module" src="/build/{{ $manifest['resources/css/app.css']['file'] }}"></script>
+    <script type="module" src="/build/{{ $manifest['resources/js/init.js']['file'] }}"></script>
+    @else
+        @vite(['resources/js/init.js', 'resources/css/app.css'])
+@endproduction
