@@ -24,7 +24,7 @@
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/styling/switch.min.js') }}"></script>
 <script type="text/javascript" src="{{asset('assets/admin/js/core/app.js')}}"></script>
 <script type="text/javascript" src="{{asset('libs/ckeditor/ckeditor.js')}}"></script>
-<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+<script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
 <!-- /theme JS files -->
 
 @production
@@ -44,11 +44,5 @@
         filebrowserUploadUrl: '/admin/filemanager/upload?type=Files&_token=',
         language: 'vi'
     }
-
-    const routePrefix = "/admin/filemanager";
-    $('#lfm').filemanager('image', {prefix: routePrefix});
-    $('#lfmUpdate').filemanager('image', {prefix: routePrefix});
-    $('#lfms').filemanager('image', {prefix: routePrefix});
-
     $.datepicker.setDefaults($.datepicker.regional['vi']);
 </script>

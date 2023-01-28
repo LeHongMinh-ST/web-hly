@@ -3,4 +3,5 @@ $(document).ready(function () {
 
     $(".datepicker").datepicker()
 
+    $('#lfm').filemanager('image', {prefix: '/admin/filemanager'});
 })

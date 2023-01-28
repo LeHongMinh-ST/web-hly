@@ -5,3 +5,8 @@
 .display-none {
     display: none !important;
 }
+
+.image-preview img{
+    width: 100%!important;
+    height: 100%!important;
+}
