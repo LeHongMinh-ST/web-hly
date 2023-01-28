@@ -32,8 +32,12 @@
                 <ul class="navigation navigation-main navigation-accordion">
 
                     <!-- Main -->
-                    <li class="navigation-header"><span>Quản trị</span> <i class="icon-menu" title="Main pages"></i></li>
-                    <li class="active"><a href="index.html"><i class="icon-home4"></i> <span>Bản điều khiển</span></a></li>
+                    @if(checkPermission('dashboard-index'))
+                        <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}"><a
+                                href="{{route('admin.dashboard')}}"><i class="icon-home4"></i>
+                                <span>Bảng điều khiển</span></a>
+                        </li>
+                    @endif
                     @if(checkPermission('posts-index') || checkPermission('categories-index') || checkPermission('tags-index'))
                         <li class="navigation-header"><span>Tin tức</span> <i class="icon-menu"
                                                                                   title="Tin tức"></i>
