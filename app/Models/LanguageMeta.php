@@ -15,5 +15,6 @@ class LanguageMeta extends Model
         'reference_id',
         'reference_type',
         'language_meta_origin',
+        'language_code',
     ];
 }

@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\Language;
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Repositories\Post\PostRepository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    public function __construct(private PostRepository $postRepository)
+    public function __construct(
+        private PostRepository $postRepository,
+        private LanguageMetaService $languageMetaService
+    )
     {
     }
 
@@ -45,7 +51,23 @@ class PostController extends Controller
      */
     public function store(Request $request): Factory|View|Application
     {
-        dd($request->all());
+        $data = $request->all();
+
+        $post = $this->postRepository->create(array_merge($data, [
+            'create_by' => auth()->id(),
+            'update_by' => auth()->id()
+        ]));
+
+        $post?->categories()->attach(@$data['category_ids'] ?? []);
+
+        $post?->tags()->attach(@$data['tags'] ?? []);
+
+        $post?->slug()->create(['content' => Str::slug($post?->title)]);
+
+        $refLanguage = $data['ref_language'] ?? Language::Vietnamese;
+
+        $this->languageMetaService->createPost($post->id, Post::class, $refLanguage, $data['from_id']);
+
         return redirect()->route('admin.posts.index');
     }
 
