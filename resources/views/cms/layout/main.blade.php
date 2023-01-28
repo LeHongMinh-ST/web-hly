@@ -8,18 +8,18 @@
     <meta http-equiv="content-language" content="en"/>
 
     <title>@yield('title')</title>
-    <meta name="title" content="Abc - Mãi mãi tinh thần khởi nghiệp"/>
+    <meta name="title" content="HLY - Mãi mãi tinh thần khởi nghiệp"/>
     <meta name="description"
-          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào Abc cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
+          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
     />
     <meta property="og:locale" content="vi_VN"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Abc - Mãi mãi tinh thần khởi nghiệp"/>
+    <meta property="og:title" content="HLY - Mãi mãi tinh thần khởi nghiệp"/>
     <meta property="og:description"
-          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào Abc cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
+          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
     />
-    <meta property="og:url" content="http://Abc.net/"/>
-    <meta property="og:site_name" content="Abc"/>
+{{--    <meta property="og:url" content="http://Abc.net/"/>--}}
+{{--    <meta property="og:site_name" content="Abc"/>--}}
     <meta property="og:image" content="./assets/fe/images/share-social.jpg"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
@@ -42,12 +42,12 @@
 </head>
 
 <body>
-@include('frontend.include.header')
+@include('cms.include.header')
 <main id="pHome">
 
     @yield('content')
 
-    @include('frontend.include.footer')
+    @include('cms.include.footer')
 </main>
 <div id="popup" class="helper-hide">
     <div class="holder helper-centerbox register"></div>

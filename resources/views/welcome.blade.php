@@ -8,15 +8,15 @@
     <meta http-equiv="content-language" content="en"/>
 
     <title>Trang chủ - Tập đoàn Abc</title>
-    <meta name="title" content="Abc - Mãi mãi tinh thần khởi nghiệp"/>
+    <meta name="title" content="HLY - Mãi mãi tinh thần khởi nghiệp"/>
     <meta name="description"
-          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào Abc cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
+          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
     />
     <meta property="og:locale" content="vi_VN"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Abc - Mãi mãi tinh thần khởi nghiệp"/>
+    <meta property="og:title" content="HLY - Mãi mãi tinh thần khởi nghiệp"/>
     <meta property="og:description"
-          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào Abc cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
+          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
     />
     <meta property="og:url" content="http://Abc.net/"/>
     <meta property="og:site_name" content="Abc"/>

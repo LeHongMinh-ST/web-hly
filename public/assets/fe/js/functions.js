@@ -1,7 +1,7 @@
-var VINAPP = {
+var HLYAPP = {
     init: function() {
-        VINAPP.Contact.init();
-        VINAPP.Paging.init();
+      HLYAPP.Contact.init();
+      HLYAPP.Paging.init();
 
         $('.js-select-redirect').change(function() {
             location.href = $(this).val();
@@ -14,9 +14,9 @@ var VINAPP = {
 };
 
 
-VINAPP.Contact = {
+HLYAPP.Contact = {
     init: function() {
-        var self = VINAPP.Contact;
+        var self = HLYAPP.Contact;
         self.submitForm();
     },
     submitForm: function() {
@@ -29,9 +29,9 @@ VINAPP.Contact = {
 
         function sendData() {
             container.find('input').removeClass('has-error');
-            var pass = VINAPP.Form.checkRequireds(container);
-            pass && (pass = VINAPP.Form.checkMail(container));
-            pass && (pass = VINAPP.Form.checkPhone(container));
+            var pass = HLYAPP.Form.checkRequireds(container);
+            pass && (pass = HLYAPP.Form.checkMail(container));
+            pass && (pass = HLYAPP.Form.checkPhone(container));
             if (pass) {
                 var recaptcha = grecaptcha.getResponse();
                 if (recaptcha.length == 0) {
@@ -57,7 +57,7 @@ VINAPP.Contact = {
     }
 }
 
-VINAPP.Form = {
+HLYAPP.Form = {
     checkMail: function(_container) {
         var email = _container.find('.js-email');
         if (!BE.functions.checkEmail(email.val())) {
@@ -101,9 +101,9 @@ VINAPP.Form = {
     }
 }
 
-VINAPP.Paging = {
+HLYAPP.Paging = {
     init: function() {
-        var self = VINAPP.Paging;
+        var self = HLYAPP.Paging;
         self.loadData();
     },
     loadData: function() {
@@ -133,5 +133,5 @@ VINAPP.Paging = {
 }
 
 jQuery(document).ready(function() {
-    VINAPP.init();
+  HLYAPP.init();
 });

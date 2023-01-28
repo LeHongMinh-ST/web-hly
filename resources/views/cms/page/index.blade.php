@@ -1,4 +1,4 @@
-@extends('frontend.layout.main')
+@extends('cms.layout.main')
 @section('title')
     Trang chủ - Tập đoàn Abc
 @endsection
