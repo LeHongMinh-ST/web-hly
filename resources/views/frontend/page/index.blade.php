@@ -1,105 +1,19 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="content-language" content="en"/>
-
-    <title>Trang chủ - Tập đoàn Abc</title>
-    <meta name="title" content="Abc - Mãi mãi tinh thần khởi nghiệp"/>
-    <meta name="description"
-          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào Abc cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
-    />
-    <meta property="og:locale" content="vi_VN"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Abc - Mãi mãi tinh thần khởi nghiệp"/>
-    <meta property="og:description"
-          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào Abc cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
-    />
-    <meta property="og:url" content="http://Abc.net/"/>
-    <meta property="og:site_name" content="Abc"/>
-    <meta property="og:image" content="./assets/fe/images/share-social.jpg"/>
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="630"/>
-    <meta property="fb:app_id" content="810525242676524"/>
-
-
-    <meta name="webroot" content="."/>
-    <!-- Viewport and mobile -->
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-
-    <!-- FAVICON -->
-    <link rel="image_src" href="./assets/favicon.ico"/>
-    <link rel="icon" type="image/jpeg" href="./assets/favicon.ico"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/fe/css/main.css">
-    <link rel="stylesheet" href="./assets/fe/css/styles.css">
-</head>
-
-<body>
-<header>
-    <!-- Thường chứa LOGO, MENU NAVIGATION,... -->
-    <div class="hdContainer">
-        <a class="logo" href="/" style="background-image: url('./assets/fe/images/logo.png');">
-            <img src="./assets/fe/images/logo.png">
-        </a>
-        <div class="hamburger-menu">
-            <div class="bar"></div>
-        </div>
-        <div class="botHd">
-            <a class="btnSearch" href="/tim-kiem"></a>
-            <p>
-                <a href="/en">EN</a><em>|</em><span>VN</span>
-            </p>
-        </div>
-    </div>
-
-    <div class="ctMenu">
-        <nav>
-            <ul id="nav">
-                <li><a href="./index.html" class="active">Trang chủ</a></li>
-                <li><a href="./gioi-thieu.html" class="">Giới thiệu HLY</a></li>
-                <li class="hasSub">
-                    <a href="./linh-vuc-hoat-dong.html" class="">Lĩnh v&#7921;c ho&#7841;t đ&#7897;ng</a>
-                    <div class="submenu">
-                        <a href="./linh-vuc-hoat-dong.html">Công ngh&#7879;  - Công nghi&#7879;p</a>
-                        <a href="./linh-vuc-hoat-dong.html">Thương m&#7841;i  D&#7883;ch v&#7909;</a>
-                        <a href="./linh-vuc-hoat-dong.html">Thi&#7879;n nguy&#7879;n  Xã h&#7897;i</a>
-                    </div>
-                </li>
-                <li>
-                </li>
-                <li><a href="./tin-tuc-su-kien.html" class="">Phát triển bền vững</a></li>
-                <li><a href="./tin-tuc-su-kien.html" class="">Quan hệ cổ đông</a></li>
-                <li><a href="./tin-tuc-su-kien.html" class="">Tin tức mới</a></li>
-            </ul>
-            <div class="subLink">
-                <a href="https://tuyendung.vingroup.net/" target="_blank" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Tuyển dụng</a>
-                <a href="/lien-he" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Liên hệ</a>
-            </div>
-        </nav>
-    </div>
-</header>
-<main id="pHome">
-
+@extends('frontend.layout.main')
+@section('title')
+    Trang chủ - Tập đoàn Abc
+@endsection
+@section('content')
 
     <section id="bannerHome">
         <script src="https://www.youtube.com/player_api"></script>
         <div class="bannerHome slider stagger-up">
             <div class="item" style="background: url('./assets/fe/images/hl2.jpg') center no-repeat; box-shadow: rgb(14 100 71 / 72%) 50vw 0 70vw 0 inset;">
-                <!--                    <img class="img" src="https://ircdn.vingroup.net/storage/Uploads/Photos/Landmark81banner.jpg">-->
-                <!--                    <div class="copy">-->
-                <!--                        <h2>Rừng xanh <br> hạnh phúc </h2>-->
-                <!--                    </div>-->
+{{--                                    <img class="img" src="https://ircdn.vingroup.net/storage/Uploads/Photos/Landmark81banner.jpg">--}}
+                                    <div class="copy">
+                                       <h2>Rừng xanh <br> hạnh phúc </h2>
+                                   </div>
                 <div class="slideBanner">
                     <div class="itemSlide">
-                        <div class="mainSlide">
-                            <img src="./assets/fe/images/hg2.jpg" alt="">
-                        </div>
                         <div class="subSlide">
                             <div class="title-slide">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, minima?
@@ -107,12 +21,10 @@
                             <div class="desc-slide">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae debitis modi pariatur quas rerum similique unde voluptates? Culpa debitis impedit in, labore, maxime minus necessitatibus nesciunt nihil optio placeat quas qui sint tempora? A a
                             </div>
+                            <div class="btn-show-more">Xem thêm</div>
                         </div>
                     </div>
                     <div class="itemSlide">
-                        <div class="mainSlide">
-                            <img src="./assets/fe/images/hg3.jpg" alt="">
-                        </div>
                         <div class="subSlide">
                             <div class="title-slide">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, minima?
@@ -120,12 +32,10 @@
                             <div class="desc-slide">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae debitis modi pariatur quas rerum similique unde voluptates? Culpa debitis impedit in, labore, maxime minus necessitatibus nesciunt nihil optio placeat quas qui sint tempora? A a
                             </div>
+                            <div class="btn-show-more">Xem thêm</div>
                         </div>
                     </div>
                     <div class="itemSlide">
-                        <div class="mainSlide">
-                            <img src="./assets/fe/images/hl1.jpg" alt="">
-                        </div>
                         <div class="subSlide">
                             <div class="title-slide">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, minima?
@@ -133,16 +43,17 @@
                             <div class="desc-slide">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae debitis modi pariatur quas rerum similique unde voluptates? Culpa debitis impedit in, labore, maxime minus necessitatibus nesciunt nihil optio placeat quas qui sint tempora? A a
                             </div>
+                            <div class="btn-show-more">Xem thêm</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--        <a class="scrolldown js-scrollCt" data='.newsHomeWrap' href="">-->
-        <!--            &lt;!&ndash; <span>Scroll Down</span> &ndash;&gt;-->
-        <!--            <span>Cuộn<br/>xuống</span>-->
-        <!--            <img class="ar" src="./assets/fe/images/scrolldown-icon.png">-->
-        <!--        </a>-->
+                <a class="scrolldown js-scrollCt" data='.newsHomeWrap' href="">
+{{--                    &lt;!&ndash; <span>Scroll Down</span> &ndash;&gt;--}}
+                    <span>Cuộn<br/>xuống</span>
+                    <img class="ar" src="./assets/fe/images/scrolldown-icon.png">
+                </a>
     </section>
 
     <section class="newsHomeWrap">
@@ -328,77 +239,4 @@
             </div>
         </div>
     </section>
-
-
-    <footer>
-        <!-- Chứa footer -->
-        <div class="loading">
-            <div>
-                <div class="outerCircle"></div>
-                <div class="innerCircle"></div>
-            </div>
-        </div>
-
-        <div class="container">
-
-            <div class="row">
-                <div class="left">
-                    <div>
-                        <h4>Tập đoàn Abc(AbcJSC)</h4>
-                        <p>© Bản quyền Abc2019</p>
-                    </div>
-                    <div>
-                        <p>N02 - LK1, Hà Trì, Phường Hà Cầu, Quận Hà Đông, Thành phố Hà Nội, Việt Nam</p>
-                    </div>
-                </div>
-                <div class="right">
-                    <ul>
-                        <li><a href="/"><strong>Trang chủ</strong> </a></li>
-                        <li><a href="/gioi-thieu"><strong>Giới thiệu HYL</strong> </a></li>
-                        <li><a href="/linh-vuc-hoat-dong/cong-nghe"><strong>Lĩnh vực hoạt động</strong> </a>
-                        </li>
-                        <li><a href="/quan-he-co-dong"><strong>Quan hệ cổ đông</strong> </a></li>
-                        <li><a href="/tin-tuc-su-kien">Tin tức sự kiện</a> </li>
-                    </ul>
-                    <ul>
-                        <li><a href="/tuyen-dung" target="_blank" rel="noopener">Tuyển dụng</a>
-                        </li>
-                        <li><a href="/lien-he">Liên hệ</a> </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="botFooter">
-                <p><a href="./chinh-sach-quyen-rieng-tu">Chính sách quyền riêng tư</a></p>
-            </div>
-        </div>
-    </footer>
-</main>
-<div id="popup" class="helper-hide">
-    <div class="holder helper-centerbox register"></div>
-    <div class="holder helper-centerbox login"></div>
-</div>
-<div id="preloader" class="helper-hide">
-    <div class="loader helper-centerbox">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10"/>
-        </svg>
-    </div>
-</div>
-<script>
-  var path_resource = "./assets/fe/";
-</script>
-<script src="./assets/fe/js/libraries/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js" integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script type="text/javascript">
-  $('.slideBanner').slick({
-    autoplay: true,
-    dots: true
-  })
-</script>
-<script src="./assets/fe/js/plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="./assets/fe/js/main.js"></script>
-<script src="./assets/fe/js/app.js"></script>
-<script src="./assets/fe/js/functions.js"></script>
-</body>
-
-</html>
+@endsection
