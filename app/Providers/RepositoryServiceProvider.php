@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 use App\Repositories\Category\CategroyRepository;
-use App\Repositories\Category\CategroyRepositoryEloquent;
+use App\Repositories\Category\CategoryRepositoryEloquent;
 use App\Repositories\LanguageMata\LanguageMetaRepository;
 use App\Repositories\LanguageMata\LanguageMetaRepositoryEloquent;
 use App\Repositories\MemberBrand\MemberBrandRepository;
@@ -30,7 +30,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(UserRepository::class, UserRepositoryEloquent::class);
         $this->app->bind(PostRepository::class, PostRepositoryEloquent::class);
-        $this->app->bind(CategroyRepository::class, CategroyRepositoryEloquent::class);
+        $this->app->bind(CategroyRepository::class, CategoryRepositoryEloquent::class);
         $this->app->bind(RoleRepository::class, RoleRepositoryEloquent::class);
         $this->app->bind(TagRepository::class, TagRepositoryEloquent::class);
         $this->app->bind(PermissionRepository::class, PermissionRepositoryEloquent::class);

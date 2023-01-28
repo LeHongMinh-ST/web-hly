@@ -2,11 +2,9 @@
 
 namespace App\Repositories\Role;
 
+use App\Models\Role;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Role\RoleRepository;
-use App\Entities\Role\Role;
-use App\Validators\Role\RoleValidator;
 
 /**
  * Class RoleRepositoryEloquent.

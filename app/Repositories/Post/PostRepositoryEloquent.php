@@ -2,11 +2,9 @@
 
 namespace App\Repositories\Post;
 
+use App\Models\Post;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Post\PostRepository;
-use App\Entities\Post\Post;
-use App\Validators\Post\PostValidator;
 
 /**
  * Class PostRepositoryEloquent.

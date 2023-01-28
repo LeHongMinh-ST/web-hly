@@ -2,11 +2,10 @@
 
 namespace App\Repositories\Tag;
 
+use App\Models\Tag;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\Tag\TagRepository;
-use App\Entities\Tag\Tag;
-use App\Validators\Tag\TagValidator;
 
 /**
  * Class TagRepositoryEloquent.

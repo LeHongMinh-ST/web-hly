@@ -2,9 +2,7 @@
 
 namespace App\Repositories\User;
 
-use App\Entities\User\User;
-use App\Validators\User\UserValidator;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 
@@ -33,10 +31,12 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function getUsersPaginate(Request $request)
+    public function getUsersPaginate($data)
     {
+        $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
+
         return $this->scopeQuery(function ($query) {
             return $query->orderBy('created_at', 'desc');
-        })->paginate();
+        })->with(['role', 'createBy'])->paginate($limit);
     }
 }
