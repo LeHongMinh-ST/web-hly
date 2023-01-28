@@ -9,6 +9,9 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/init.js',
                 'resources/js/login/index.js',
+
+                //Post
+                'resources/js/post/create.js',
             ],
             refresh: true,
         }),

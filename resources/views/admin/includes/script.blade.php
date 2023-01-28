@@ -23,6 +23,8 @@
         src="{{ asset('assets/admin/js/plugins/forms/selects/bootstrap_select.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/styling/switch.min.js') }}"></script>
 <script type="text/javascript" src="{{asset('assets/admin/js/core/app.js')}}"></script>
+<script type="text/javascript" src="{{asset('libs/ckeditor/ckeditor.js')}}"></script>
+<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 <!-- /theme JS files -->
 
 @production
@@ -34,3 +36,19 @@
     @else
         @vite(['resources/js/init.js', 'resources/css/app.css'])
 @endproduction
+<script>
+    const options = {
+        filebrowserImageBrowseUrl: '/admin/filemanager?type=Images',
+        filebrowserImageUploadUrl: '/admin/filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/admin/filemanager?type=Files',
+        filebrowserUploadUrl: '/admin/filemanager/upload?type=Files&_token=',
+        language: 'vi'
+    }
+
+    const routePrefix = "/admin/filemanager";
+    $('#lfm').filemanager('image', {prefix: routePrefix});
+    $('#lfmUpdate').filemanager('image', {prefix: routePrefix});
+    $('#lfms').filemanager('image', {prefix: routePrefix});
+
+    $.datepicker.setDefaults($.datepicker.regional['vi']);
+</script>
