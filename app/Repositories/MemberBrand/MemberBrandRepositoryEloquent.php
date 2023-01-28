@@ -2,11 +2,9 @@
 
 namespace App\Repositories\MemberBrand;
 
+use App\Models\MemberBrand;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\MemberBrand\MemberBrandRepository;
-use App\Entities\MemberBrand\MemberBrand;
-use App\Validators\MemberBrand\MemberBrandValidator;
 
 /**
  * Class MemberBrandRepositoryEloquent.

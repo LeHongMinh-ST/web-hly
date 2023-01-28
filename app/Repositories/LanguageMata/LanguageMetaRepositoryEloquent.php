@@ -2,11 +2,9 @@
 
 namespace App\Repositories\LanguageMata;
 
+use App\Models\LanguageMeta;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\LanguageMata\LanguageMetaRepository;
-use App\Entities\LanguageMata\LanguageMeta;
-use App\Validators\LanguageMata\LanguageMetaValidator;
 
 /**
  * Class LanguageMetaRepositoryEloquent.
@@ -25,7 +23,7 @@ class LanguageMetaRepositoryEloquent extends BaseRepository implements LanguageM
         return LanguageMeta::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
@@ -34,5 +32,5 @@ class LanguageMetaRepositoryEloquent extends BaseRepository implements LanguageM
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

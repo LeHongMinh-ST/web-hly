@@ -2,7 +2,6 @@
 
 namespace App\Repositories\User;
 
-use Illuminate\Http\Request;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
@@ -12,5 +11,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface UserRepository extends RepositoryInterface
 {
-    public function getUsersPaginate(Request $request);
+    public function getUsersPaginate(array $data);
 }

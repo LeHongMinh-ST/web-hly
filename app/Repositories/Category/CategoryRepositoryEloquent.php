@@ -2,18 +2,16 @@
 
 namespace App\Repositories\Category;
 
+use App\Models\Category;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Category\CategroyRepository;
-use App\Entities\Category\Categroy;
-use App\Validators\Category\CategroyValidator;
 
 /**
  * Class CategroyRepositoryEloquent.
  *
  * @package namespace App\Repositories\Category;
  */
-class CategroyRepositoryEloquent extends BaseRepository implements CategroyRepository
+class CategoryRepositoryEloquent extends BaseRepository implements CategroyRepository
 {
     /**
      * Specify Model class name
@@ -22,7 +20,7 @@ class CategroyRepositoryEloquent extends BaseRepository implements CategroyRepos
      */
     public function model(): string
     {
-        return Categroy::class;
+        return Category::class;
     }
 
 
