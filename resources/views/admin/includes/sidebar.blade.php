@@ -34,23 +34,43 @@
                     <!-- Main -->
                     <li class="navigation-header"><span>Quản trị</span> <i class="icon-menu" title="Main pages"></i></li>
                     <li class="active"><a href="index.html"><i class="icon-home4"></i> <span>Bản điều khiển</span></a></li>
-                    <li class="navigation-header"><span>Quản lý blog</span> <i class="icon-menu" title="Main pages"></i></li>
+                    @if(checkPermission('posts-index') || checkPermission('categories-index') || checkPermission('tags-index'))
+                        <li class="navigation-header"><span>Tin tức</span> <i class="icon-menu"
+                                                                                  title="Tin tức"></i>
+                        </li>
+                        @if(checkPermission('posts-index'))
+                            <li class="{{ request()->is('admin/posts*') ? 'active' : '' }}"><a
+                                    href="{{ route('admin.posts.index') }}"><i
+                                        class="icon-magazine"></i> <span>Bài viết</span></a></li>
+                        @endif
+                        @if(checkPermission('categories-index'))
+                            <li class="{{ request()->is('admin/categories*') ? 'active' : '' }}"><a
+                                    href="{{ route('admin.categories.index') }}"><i class="icon-stack"></i> <span>Danh mục bài viết</span></a>
+                            </li>
+                        @endif
+                        @if(checkPermission('tags-index'))
+                            <li class="{{ request()->is('admin/tags*') ? 'active' : '' }}"><a
+                                    href="{{ route('admin.tags.index') }}"><i class="icon-price-tag2"></i>
+                                    <span>Tag</span></a></li>
+                        @endif
+                    @endif
 
-                    <li>
-                        <a href="#"><i class="icon-stack2"></i> <span>Page layouts</span></a>
-                        <ul>
-                            <li><a href="layout_navbar_fixed.html">Fixed navbar</a></li>
-                            <li><a href="layout_navbar_sidebar_fixed.html">Fixed navbar &amp; sidebar</a></li>
-                            <li><a href="layout_sidebar_fixed_native.html">Fixed sidebar native scroll</a></li>
-                            <li><a href="layout_navbar_hideable.html">Hideable navbar</a></li>
-                            <li><a href="layout_navbar_hideable_sidebar.html">Hideable &amp; fixed sidebar</a></li>
-                            <li><a href="layout_footer_fixed.html">Fixed footer</a></li>
-                            <li class="navigation-divider"></li>
-                            <li><a href="boxed_default.html">Boxed with default sidebar</a></li>
-                            <li><a href="boxed_mini.html">Boxed with mini sidebar</a></li>
-                            <li><a href="boxed_full.html">Boxed full width</a></li>
-                        </ul>
-                    </li>
+
+                    @if(checkPermission('users-index') || checkPermission('roles-index'))
+                        <li class="navigation-header"><span>Hệ thống</span> <i class="icon-menu" title="Hệ thống"></i>
+                        </li>
+                        @if(checkPermission('users-index'))
+                            <li class="{{ request()->is('admin/users*') ? 'active' : '' }}"><a
+                                    href="{{ route('admin.users.index') }}"><i class=" icon-users"></i> <span>Tài khoản</span></a>
+                            </li>
+                        @endif
+                        @if(checkPermission('roles-index'))
+                            <li class="{{ request()->is('admin/roles*') ? 'active' : '' }}"><a
+                                    href="{{ route('admin.roles.index') }}"><i class="icon-lock"></i>
+                                    <span>Vai trò</span></a>
+                            </li>
+                    @endif
+                @endif
                     <!-- /page kits -->
 
                 </ul>

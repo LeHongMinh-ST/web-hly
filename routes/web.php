@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +36,22 @@ Route::prefix('/admin')->group(function () {
         Route::prefix('users')->group(function () {
             Route::get('/', [UserController::class, 'index'])->name('admin.users.index');
         });
+
+        Route::prefix('roles')->group(function () {
+            Route::get('/', [UserController::class, 'index'])->name('admin.roles.index');
+        });
+
+        Route::prefix('posts')->group(function () {
+            Route::get('/', [PostController::class, 'index'])->name('admin.posts.index');
+        });
+
+        Route::prefix('categories')->group(function () {
+            Route::get('/', [CategoryController::class, 'index'])->name('admin.categories.index');
+        });
+
+        Route::prefix('tags')->group(function () {
+            Route::get('/', [TagController::class, 'index'])->name('admin.tags.index');
+        });
+
     });
 });
