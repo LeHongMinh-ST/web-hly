@@ -32,12 +32,16 @@
           content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
 
     <!-- FAVICON -->
-    <link rel="image_src" href="./assets/favicon.ico"/>
-    <link rel="icon" type="image/jpeg" href="./assets/favicon.ico"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/fe/css/main.css">
-    <link rel="stylesheet" href="./assets/fe/css/styles.css">
+    <link rel="image_src" href="{{ asset('assets/fe/favicon.ico') }}"/>
+    <link rel="icon" type="image/jpeg" href="{{ asset('assets/fe/favicon.ico') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+          integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+          integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{{ asset('/assets/fe/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/fe/css/styles.css') }}">
     @yield('css')
 </head>
 
@@ -61,20 +65,22 @@
     </div>
 </div>
 <script>
-  var path_resource = "./assets/fe/";
+    const path_resource = "/assets/fe/";
 </script>
-<script src="./assets/fe/js/libraries/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js" integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{ asset('assets/fe/js/libraries/jquery.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"
+        integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
-  $('.slideBanner').slick({
-    autoplay: true,
-    // dots: true
-  })
+    $('.slideBanner').slick({
+        autoplay: true,
+        // dots: true
+    })
 </script>
-<script src="./assets/fe/js/plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="./assets/fe/js/main.js"></script>
-<script src="./assets/fe/js/app.js"></script>
-<script src="./assets/fe/js/functions.js"></script>
+<script src="{{ asset('/assets/fe/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+<script src="{{asset('/assets/fe/js/main.js')}}"></script>
+<script src="{{ asset('/assets/fe/js/app.js') }}"></script>
+<script src="{{ asset('/assets/fe/js/functions.js') }}"></script>
 @yield('js')
 </body>
 

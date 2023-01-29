@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Tag;
+namespace App\Repositories\Slug;
 
-use App\Models\Tag;
+use App\Models\Slug;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 
@@ -11,7 +11,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
  *
  * @package namespace App\Repositories\Tag;
  */
-class TagRepositoryEloquent extends BaseRepository implements TagRepository
+class SlugRepositoryEloquent extends BaseRepository implements SlugRepository
 {
     /**
      * Specify Model class name
@@ -20,7 +20,7 @@ class TagRepositoryEloquent extends BaseRepository implements TagRepository
      */
     public function model(): string
     {
-        return Tag::class;
+        return Slug::class;
     }
 
 

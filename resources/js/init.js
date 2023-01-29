@@ -26,12 +26,17 @@ const init = {
     conf: {
         ajaxSending: false
     },
-    showNoty: function (text, type, title = '') {
+    showNoty: function (text, success = true, title = '') {
         new PNotify({
             title: title,
             text: text,
             addclass: 'alert-styled-left alert-arrow-left text-sky-royal',
             type: type
+        });
+
+        $.jGrowl(text, {
+            header: title,
+            theme: success ? 'bg-teal' : 'bg-danger'
         });
     },
 

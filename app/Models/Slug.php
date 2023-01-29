@@ -15,7 +15,7 @@ class Slug extends Model
     protected $fillable = [
         'content',
         'slugable_id',
-        'slugableType',
+        'slugable_type',
     ];
 
     public function slugable(): MorphTo
