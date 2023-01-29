@@ -1,8 +1,8 @@
 <header>
     <!-- Thường chứa LOGO, MENU NAVIGATION,... -->
     <div class="hdContainer">
-        <a class="logo" href="/" style="background-image: url('./assets/fe/images/logo.png');">
-            <img src="./assets/fe/images/logo.png">
+        <a class="logo" href="/" style="background-image: url('/assets/fe/images/logo.png');">
+            <img src="/assets/fe/images/logo.png">
         </a>
         <div class="hamburger-menu">
             <div class="bar"></div>

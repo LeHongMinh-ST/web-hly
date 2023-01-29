@@ -13,6 +13,8 @@ use App\Repositories\Post\PostRepository;
 use App\Repositories\Post\PostRepositoryEloquent;
 use App\Repositories\Role\RoleRepository;
 use App\Repositories\Role\RoleRepositoryEloquent;
+use App\Repositories\Slug\SlugRepository;
+use App\Repositories\Slug\SlugRepositoryEloquent;
 use App\Repositories\Tag\TagRepository;
 use App\Repositories\Tag\TagRepositoryEloquent;
 use App\Repositories\User\UserRepository;
@@ -33,6 +35,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(CategroyRepository::class, CategoryRepositoryEloquent::class);
         $this->app->bind(RoleRepository::class, RoleRepositoryEloquent::class);
         $this->app->bind(TagRepository::class, TagRepositoryEloquent::class);
+        $this->app->bind(SlugRepository::class, SlugRepositoryEloquent::class);
         $this->app->bind(PermissionRepository::class, PermissionRepositoryEloquent::class);
         $this->app->bind(MemberBrandRepository::class, MemberBrandRepositoryEloquent::class);
         $this->app->bind(LanguageMetaRepository::class, LanguageMetaRepositoryEloquent::class);

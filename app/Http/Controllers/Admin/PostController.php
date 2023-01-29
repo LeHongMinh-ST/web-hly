@@ -71,7 +71,7 @@ class PostController extends Controller
             $this->languageMetaService->createPost($post->id, Post::class, $refLanguage, @$data['from_id']);
 
             DB::commit();
-
+            $request->session()->flash('success', 'Tạo mới bài viết thành công');
             return redirect()->route('admin.posts.index');
 
         } catch (\Exception $exception) {

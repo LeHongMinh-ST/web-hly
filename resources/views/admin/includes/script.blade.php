@@ -16,6 +16,7 @@
 <script type="text/javascript" src="{{asset('assets/admin/js/plugins/pickers/daterangepicker.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/admin/js/plugins/pickers/date-vi.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/notifications/pnotify.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/admin/js/plugins/notifications/jgrowl.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/styling/uniform.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/notifications/sweet_alert.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/selects/select2.min.js') }}"></script>
@@ -37,6 +38,21 @@
         @vite(['resources/js/init.js', 'resources/css/app.css'])
 @endproduction
 <script>
+   $(document).ready(function () {
+       @if(\session()->has('success'))
+           $.jGrowl('{{ \session()->pull('success') }}', {
+               header: 'Thành công',
+               theme: 'bg-teal'
+           });
+       @endif
+
+       @error('error')
+           $.jGrowl('{{ $message }}', {
+               header: 'Lỗi',
+               theme: 'bg-danger'
+           });
+       @enderror
+   })
     const options = {
         filebrowserImageBrowseUrl: '/admin/filemanager?type=Images',
         filebrowserImageUploadUrl: '/admin/filemanager/upload?type=Images&_token=',
@@ -45,4 +61,5 @@
         language: 'vi'
     }
     $.datepicker.setDefaults($.datepicker.regional['vi']);
+
 </script>

@@ -3,8 +3,8 @@
 namespace App\Repositories\Post;
 
 use App\Models\Post;
-use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
  * Class PostRepositoryEloquent.
@@ -41,5 +41,6 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
             return $query->orderBy('created_at', 'desc');
         })->with(['role', 'createBy'])->paginate($limit);
     }
+
 
 }
