@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\LanguageMata;
+namespace App\Repositories\LanguageMeta;
 
 use App\Models\LanguageMeta;
 use Prettus\Repository\Eloquent\BaseRepository;

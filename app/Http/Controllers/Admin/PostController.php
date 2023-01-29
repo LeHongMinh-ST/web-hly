@@ -6,10 +6,14 @@ use App\Enums\Language;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Repositories\Post\PostRepository;
+use App\Services\LanguageMeta\LanguageMetaService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -43,32 +47,45 @@ class PostController extends Controller
         return view('admin.pages.post.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Application|Factory|View
-     */
-    public function store(Request $request): Factory|View|Application
+
+    public function store(Request $request): RedirectResponse
     {
-        $data = $request->all();
+        DB::beginTransaction();
+        try {
+            $data = $request->all();
 
-        $post = $this->postRepository->create(array_merge($data, [
-            'create_by' => auth()->id(),
-            'update_by' => auth()->id()
-        ]));
+            $post = $this->postRepository->create(array_merge($data, [
+                'create_by' => auth()->id(),
+                'update_by' => auth()->id(),
+                'views' => 0
+            ]));
 
-        $post?->categories()->attach(@$data['category_ids'] ?? []);
+            $post?->categories()->attach(@$data['category_ids'] ?? []);
 
-        $post?->tags()->attach(@$data['tags'] ?? []);
+            $post?->tags()->attach(@$data['tags'] ?? []);
 
-        $post?->slug()->create(['content' => Str::slug($post?->title)]);
+            $post?->slug()->create(['content' => Str::slug($post?->title)]);
 
-        $refLanguage = $data['ref_language'] ?? Language::Vietnamese;
+            $refLanguage = $data['ref_language'] ?? Language::Vietnamese;
 
-        $this->languageMetaService->createPost($post->id, Post::class, $refLanguage, $data['from_id']);
+            $this->languageMetaService->createPost($post->id, Post::class, $refLanguage, @$data['from_id']);
 
-        return redirect()->route('admin.posts.index');
+            DB::commit();
+
+            return redirect()->route('admin.posts.index');
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error('Error store post', [
+                'method' => __METHOD__,
+                'message' => $exception->getMessage()
+            ]);
+
+            return redirect()->back()
+                ->withErrors(['error' => ['Không thể tạo mới bài viết']])
+                ->withInput();
+        }
+
     }
 
     /**

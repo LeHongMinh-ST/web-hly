@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string("title")->nullable();
-            $table->string("content")->nullable();
+            $table->text("content")->nullable();
             $table->tinyInteger("status")->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('thumbnail')->nullable();
             $table->tinyInteger('language')->nullable();
             $table->integer('views')->default(0);
