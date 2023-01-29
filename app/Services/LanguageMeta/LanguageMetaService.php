@@ -1,6 +1,7 @@
 <?php
+namespace App\Services\LanguageMeta;
 
-use App\Repositories\LanguageMata\LanguageMetaRepository;
+use App\Repositories\LanguageMeta\LanguageMetaRepository;
 
 class LanguageMetaService
 {
@@ -8,7 +9,7 @@ class LanguageMetaService
     {
     }
 
-    public function createPost($referenceId,$referenceType, $languageCode, $formId = null)
+    public function createPost($referenceId, $referenceType, $languageCode, $formId = null)
     {
         $data = [
             'reference_id' => $referenceId,
@@ -17,7 +18,7 @@ class LanguageMetaService
             'language_meta_origin' => md5($referenceId . $referenceType . time()),
         ];
 
-        if($formId) {
+        if ($formId) {
             $language = $this->languageMetaRepository->findWhere([
                 'reference_id' => $formId,
                 'reference_type' => $referenceType,

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('content')->nullable();;
             $table->bigInteger('slugable_id')->nullable();
-            $table->string('slugableType')->nullable();
+            $table->string('slugable_type')->nullable();
             $table->bigInteger('create_by')->nullable();
             $table->bigInteger('update_by')->nullable();
             $table->timestamps();

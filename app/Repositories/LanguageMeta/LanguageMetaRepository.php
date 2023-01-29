@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\LanguageMata;
+namespace App\Repositories\LanguageMeta;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 
