@@ -18,8 +18,8 @@ class Category extends Model
         'name',
         'order',
         'status',
-        'created_by',
-        'updated_by',
+        'create_by',
+        'update_by',
     ];
 
     public function posts(): BelongsToMany
@@ -34,11 +34,11 @@ class Category extends Model
 
     public function createBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo(User::class, 'create_by');
     }
 
     public function updateBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'updated_by');
+        return $this->belongsTo(User::class, 'update_by');
     }
 }

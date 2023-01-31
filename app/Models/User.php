@@ -27,8 +27,8 @@ class User extends Authenticatable
         'role_id',
         'is_super_admin',
         'status',
-        'created_by',
-        'updated_by'
+        'create_by',
+        'update_by'
     ];
 
     /**
