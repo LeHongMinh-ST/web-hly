@@ -6,6 +6,7 @@ use App\Enums\Language;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Repositories\Post\PostRepository;
+use App\Services\Helper\SlugService;
 use App\Services\LanguageMeta\LanguageMetaService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -14,13 +15,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
     public function __construct(
         private PostRepository $postRepository,
-        private LanguageMetaService $languageMetaService
+        private LanguageMetaService $languageMetaService,
+        private SlugService $slugService
     )
     {
     }
@@ -34,7 +35,9 @@ class PostController extends Controller
     {
         $data = $request->only(['q', 'limit']);
 
-        return view('admin.pages.post.index');
+        $posts = $this->postRepository->getPostPaginate($data);
+
+        return view('admin.pages.post.index')->with(compact('posts'));
     }
 
     /**
@@ -64,7 +67,8 @@ class PostController extends Controller
 
             $post?->tags()->attach(@$data['tags'] ?? []);
 
-            $post?->slug()->create(['content' => Str::slug($post?->title)]);
+
+            $post?->slug()->create(['content' => $this->slugService->generateSlug(Post::class, $post->title)]);
 
             $refLanguage = $data['ref_language'] ?? Language::Vietnamese;
 
