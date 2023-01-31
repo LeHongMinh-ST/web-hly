@@ -67,7 +67,6 @@ class PostController extends Controller
 
             $post?->tags()->attach(@$data['tags'] ?? []);
 
-
             $post?->slug()->create(['content' => $this->slugService->generateSlug(Post::class, $post->title)]);
 
             $refLanguage = $data['ref_language'] ?? Language::Vietnamese;

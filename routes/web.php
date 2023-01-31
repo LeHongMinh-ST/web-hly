@@ -48,44 +48,48 @@ Route::get('/lien-he', function () {
 
 
 Route::prefix('/admin')->group(function () {
-    Route::get('/login', [AuthController::class, 'getLoginForm'])->name('admin.getLoginForm');
-    Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
-    Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
-    Route::middleware(['auth'])->group(function () {
-        Route::get('/', function () {
-            return redirect()->route('admin.dashboard');
-        });
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::middleware(['preventBackHistory'])->group(function () {
 
-        Route::prefix('users')->group(function () {
-            Route::get('/', [UserController::class, 'index'])->name('admin.users.index');
-        });
+        Route::get('/login', [AuthController::class, 'getLoginForm'])->name('admin.getLoginForm');
+        Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
+        Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
-        Route::prefix('roles')->group(function () {
-            Route::get('/', [UserController::class, 'index'])->name('admin.roles.index');
-        });
+        Route::middleware(['auth'])->group(function () {
+            Route::get('/', function () {
+                return redirect()->route('admin.dashboard');
+            });
+            Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-        Route::prefix('posts')->group(function () {
-            Route::get('/', [PostController::class, 'index'])->name('admin.posts.index');
-            Route::post('/', [PostController::class, 'store'])->name('admin.posts.store');
-            Route::get('/create', [PostController::class, 'create'])->name('admin.posts.create');
-            Route::get('/{id}', [PostController::class, 'show'])->name('admin.posts.show');
-            Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update');
-            Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
-            Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
-        });
+            Route::prefix('users')->group(function () {
+                Route::get('/', [UserController::class, 'index'])->name('admin.users.index');
+            });
 
-        Route::prefix('categories')->group(function () {
-            Route::get('/', [CategoryController::class, 'index'])->name('admin.categories.index');
-        });
+            Route::prefix('roles')->group(function () {
+                Route::get('/', [UserController::class, 'index'])->name('admin.roles.index');
+            });
 
-        Route::prefix('tags')->group(function () {
-            Route::get('/', [TagController::class, 'index'])->name('admin.tags.index');
-        });
+            Route::prefix('posts')->group(function () {
+                Route::get('/', [PostController::class, 'index'])->name('admin.posts.index');
+                Route::post('/', [PostController::class, 'store'])->name('admin.posts.store');
+                Route::get('/create', [PostController::class, 'create'])->name('admin.posts.create');
+                Route::get('/{id}', [PostController::class, 'show'])->name('admin.posts.show');
+                Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update');
+                Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
+                Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
+            });
 
-        Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {
-            Lfm::routes();
+            Route::prefix('categories')->group(function () {
+                Route::get('/', [CategoryController::class, 'index'])->name('admin.categories.index');
+            });
+
+            Route::prefix('tags')->group(function () {
+                Route::get('/', [TagController::class, 'index'])->name('admin.tags.index');
+            });
+
+            Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {
+                Lfm::routes();
+            });
         });
     });
 });
