@@ -21,8 +21,9 @@ class SlugService
         ])->first();
 
         if ($slugExist) {
-            $maxSlug =  $this->slugRepository->scopeQuery(function ($q) use ($slug){
-                return $q->where('content','like', "{$slug}%");
+            $maxSlug =  $this->slugRepository->scopeQuery(function ($q) use ($slug, $type){
+                return $q->where('content','like', "{$slug}%")
+                    ->where('slugable_type', $type);
             })->latest('id')->first();
 
             $max = $maxSlug->content;
