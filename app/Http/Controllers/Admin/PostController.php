@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\Language;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StorePostRequest;
 use App\Models\Post;
 use App\Repositories\Post\PostRepository;
 use App\Services\Helper\SlugService;
@@ -51,7 +52,13 @@ class PostController extends Controller
     }
 
 
-    public function store(Request $request): RedirectResponse
+    /**
+     * Store the specified resource from storage.
+     *
+     * @param StorePostRequest $request
+     * @return RedirectResponse
+     */
+    public function store(StorePostRequest $request): RedirectResponse
     {
         DB::beginTransaction();
         try {
@@ -92,47 +99,91 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show the form for creating a new resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int|string $id
+     * @return Application|Factory|View
      */
-    public function show($id)
+    public function edit(int|string $id): Factory|View|Application
     {
-        //
-    }
+        $post = $this->postRepository->find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return view('admin.pages.post.edit')->with(compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param StorePostRequest $request
+     * @param int|string $id
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(StorePostRequest $request, int|string $id): RedirectResponse
     {
-        //
+        DB::beginTransaction();
+        try {
+            $data = $request->all();
+            $post = $this->postRepository->find($id);
+
+            $post?->fill(array_merge($data, [
+                'update_by' => auth()->id(),
+            ]));
+
+            $post?->save();
+
+            $post?->categories()->attach(@$data['category_ids'] ?? []);
+
+            $post?->tags()->attach(@$data['tags'] ?? []);
+
+            $post?->slug()->create(['content' => $this->slugService->generateSlug(Post::class, $post->title, $id)]);
+
+            DB::commit();
+
+            $request->session()->flash('success', 'Cập nhật bài viết thành công');
+
+            return redirect()->route('admin.posts.index');
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error('Error update post', [
+                'method' => __METHOD__,
+                'message' => $exception->getMessage()
+            ]);
+
+            return redirect()->back()
+                ->withErrors(['error' => ['Không thể cập nhật bài viết']])
+                ->withInput();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int | string $id
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(int|string $id): RedirectResponse
     {
-        //
+        DB::beginTransaction();
+        try {
+            $this->postRepository->delete($id);
+
+            DB::commit();
+
+            session()->flash('success', 'Xóa bài viết thành công');
+
+            return redirect()->route('admin.posts.index');
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error('Error delete post', [
+                'method' => __METHOD__,
+                'message' => $exception->getMessage()
+            ]);
+
+            return redirect()->back()
+                ->withErrors(['error' => ['Không thể xóa bài viết']])
+                ->withInput();
+        }
     }
 }

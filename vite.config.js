@@ -11,7 +11,9 @@ export default defineConfig({
                 'resources/js/login/index.js',
 
                 //Post
+                'resources/js/post/index.js',
                 'resources/js/post/create.js',
+                'resources/js/post/edit.js',
             ],
             refresh: true,
         }),

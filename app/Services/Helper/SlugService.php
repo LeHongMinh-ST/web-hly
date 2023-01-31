@@ -11,12 +11,13 @@ class SlugService
     {
     }
 
-    public function generateSlug($type, $name): array|string|null
+    public function generateSlug($type, $name, $formId = null): array|string|null
     {
         $slug = Str::slug($name);
 
         $slugExist = $this->slugRepository->findWhere([
             'content' => Str::slug($name),
+            ['slugable_id', '<>', $formId],
             'slugable_type' => $type
         ])->first();
 

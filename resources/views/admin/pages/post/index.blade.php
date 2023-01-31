@@ -1,4 +1,15 @@
 @extends('admin.layouts.master')
+@section('custom_js')
+    @production
+        @php
+            $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+        @endphp
+        <script type="module" src="/build/{{ $manifest['resources/js/post/index.js']['file'] }}"></script>
+        @else
+            @vite(['resources/js/post/index.js'])
+            @endproduction
+@endsection
+
 @section('content')
     <div class="content-wrapper">
 
@@ -67,7 +78,7 @@
                         <div class="panel-body">
                             <div class="table">
 
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" id="post-table">
                                     <thead>
                                     <tr>
                                         <th style="width: 5%; text-align: center">STT</th>
@@ -97,10 +108,10 @@
                                                 <span style="font-weight: bold"><a
                                                             href="">{{ $post->title ?? ''}}</a></span>
                                             </td>
-                                            <td>{{ $post->slug->content ?? '' }}</td>
-                                            <td style="text-align: center">{{ $post->textDatePublish ?? '' }}</td>
-                                            <td style="text-align: center">{{ $post->user->name ?? '' }}</td>
-                                            <td style="text-align: center">{!! $post->isActiveText !!}</td>
+                                            <td>{{ @$post->slug->content ?? '' }}</td>
+                                            <td style="text-align: center">{{ @$post->textDatePublish }}</td>
+                                            <td style="text-align: center">{{ @$post->createBy->fullname }}</td>
+                                            <td style="text-align: center">{!! @$post->isActiveText !!}</td>
                                             <td style="text-align: center">
                                                 <ul class="icons-list">
                                                     <li class="dropdown">
@@ -109,8 +120,8 @@
                                                         <ul class="dropdown-menu dropdown-menu-right">
                                                             <li><a href="{{ route('admin.posts.edit', $post->id) }}"><i
                                                                             class="icon-pencil7"></i> Chỉnh sửa</a></li>
-                                                            <li><a href="#"><i
-                                                                            class="icon-trash"></i> Xóa</a>
+                                                            <li>
+                                                                <a href="javascript:void(0);" class="btn-delete" data-id="{{$post->id}}"><i class="icon-trash"></i> Xóa</a>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -147,6 +158,10 @@
             <!-- Footer -->
         @include('admin.includes.footer')
         <!-- /footer -->
+            <form action="" method="post" id="frm-delete">
+                @csrf
+                @method('delete')
+            </form>
 
         </div>
         <!-- /content area -->
