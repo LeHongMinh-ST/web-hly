@@ -25,6 +25,112 @@
     <div class="content">
 
         <!-- Dashboard content -->
+        <div class="row">
+            <div class="col">
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text"  class="form-control" placeholder="Tìm kiếm...">
+                                    <div class="form-control-feedback">
+                                        <i class="icon-search4 text-size-base"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-9"></div>
+                                    <div class="col-md-3">
+                                        <div class="form-group has-feedback has-feedback-left" style="text-align: end">
+                                            <a type="button" href="{{ route('admin.posts.create') }}" class="btn btn-primary"><i
+                                                        class="icon-add"></i>
+                                                Thêm mới</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel panel-flat">
+                    <div class="panel-body">
+                        <div class="table">
+
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th style="width: 5%; text-align: center">STT</th>
+                                    <th width="100px" style="text-align: center">Ảnh</th>
+                                    <th>Tên bài viết</th>
+                                    <th>Slug</th>
+                                    <th style="text-align: center">Ngày đăng</th>
+                                    <th style="text-align: center">Người đăng</th>
+                                    <th style="text-align: center">Hiển thị</th>
+                                    <th style="width: 150px; text-align: center">Hành động</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @forelse($posts as $post)
+                                    <tr>
+                                        <td style="text-align: center">{{ $loop->index + 1 + $posts->perPage() * ($posts->currentPage() - 1)   }}</td>
+                                        <td>
+                                            @if($post->thumbnail)
+                                                <img style="width: 100px; height: 100px;object-fit: cover" src="{{ $post->thumbnail }}" alt="">
+                                            @else
+                                                <img style="width: 100px; height: 100px;object-fit: cover" src="{{ asset('assets/admin/images/default.jpg') }}" alt="">
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <span style="font-weight: bold"><a href="">{{ $post->title ?? ''}}</a></span>
+                                        </td>
+                                        <td>{{ $post->slug->content ?? '' }}</td>
+                                        <td style="text-align: center">{{ $post->textDatePublish ?? '' }}</td>
+                                        <td style="text-align: center">{{ $post->user->name ?? '' }}</td>
+                                        <td style="text-align: center">{!! $post->isActiveText !!}</td>
+                                        <td style="text-align: center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                                       aria-expanded="false"><i class="icon-menu7"></i></a>
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="{{ route('admin.posts.edit', $post->id) }}"><i class="icon-pencil7"></i> Chỉnh sửa</a></li>
+                                                        <li><a href="#"><i
+                                                                        class="icon-trash"></i> Xóa</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="8" style="text-align: center">
+                                            <img src="{{ asset('assets\admin\images\empty.png') }}" width="450px" alt="">
+                                        </td>
+                                    </tr>
+                                @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px">
+                            <div class="per_page">
+
+                            </div>
+                            <div class="pagination">
+                                {{ $posts->appends(request()->input())->links() }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- /dashboard content -->
 
 

@@ -60,16 +60,6 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label text-bold">Đường dẫn<span class="text-danger">*</span>:
-                                    </label>
-                                    {{--                                <span>{{ asset('post/' . $slug) }} </span>--}}
-                                    @error('slug')
-                                    <label id="basic-error" class="validation-error-label"
-                                           for="basic">{{ $message }}</label>
-                                    @enderror
-                                </div>
-
 
                                 <div class="form-group">
                                     <label class="control-label text-bold">Mô tả</label>
@@ -78,21 +68,19 @@
                                   class="form-control"
                                   aria-required="true"></textarea>
                                     </div>
-                                    @error('description')
-                                    <label id="basic-error" class="validation-error-label"
-                                           for="basic">{{ $message }}</label>
-                                    @enderror
+
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label text-bold">Nội dung</label>
+                                    <label class="control-label text-bold">Nội dung<span
+                                                class="text-danger">*</span></label>
                                     <div>
                         <textarea rows="5" id="editorContent" style="resize: vertical" cols="5" name="content"
                                   class="form-control"
                                   aria-required="true"></textarea>
                                     </div>
                                     @error('content')
-                                    <label id="basic-error" class="validation-error-label"
+                                    <label id="error-content" class="validation-error-label"
                                            for="basic">{{ $message }}</label>
                                     @enderror
                                 </div>

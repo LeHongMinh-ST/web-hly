@@ -24,7 +24,6 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     }
 
 
-
     /**
      * Boot up the repository, pushing criteria
      */
@@ -39,7 +38,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
 
         return $this->scopeQuery(function ($query) {
             return $query->orderBy('created_at', 'desc');
-        })->with(['role', 'createBy'])->paginate($limit);
+        })->with(['categories', 'updateBy', 'createBy'])->paginate($limit);
     }
 
 
