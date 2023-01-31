@@ -21,17 +21,22 @@ class SlugService
         ])->first();
 
         if ($slugExist) {
-            $max =  $this->slugRepository->scopeQuery(function ($q) use ($slug){
-                return $q->where('content','like', "{$slug}%");
-            })->latest('id')->skip(1)->value('content');
+            $maxSlug =  $this->slugRepository->scopeQuery(function ($q) use ($slug, $type){
+                return $q->where('content','like', "{$slug}%")
+                    ->where('slugable_type', $type);
+            })->latest('id')->first();
+
+            $max = $maxSlug->content;
 
             if (isset($max[-1]) && is_numeric($max[-1])) {
                 return preg_replace_callback('/(\d+)$/', function ($mathces) {
                     return $mathces[1] + 1;
                 }, $max);
             }
+
             return "{$slug}-2";
         }
+
         return $slug;
     }
 }
