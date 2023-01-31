@@ -10,3 +10,10 @@
     width: 100%!important;
     height: 100%!important;
 }
+a.text-link {
+    color: #333333;
+}
+
+a.text-link:visited {
+    color: #333333;
+}

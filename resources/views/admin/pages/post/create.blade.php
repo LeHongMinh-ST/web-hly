@@ -18,7 +18,8 @@
         <div class="page-header">
             <div class="page-header-content">
                 <div class="page-title">
-                    <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Bài viết</span> -
+                    <h4><a href="{{ route('admin.posts.index') }}" class="text-link"><i
+                                    class="icon-arrow-left52 position-left"></i></a>  <span class="text-semibold">Bài viết</span> -
                         Tạo mới </h4>
                 </div>
 
