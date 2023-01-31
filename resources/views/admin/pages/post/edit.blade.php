@@ -5,10 +5,10 @@
         @php
             $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
         @endphp
-            <script type="module" src="/build/{{ $manifest['resources/js/post/create.js']['file'] }}"></script>
+        <script type="module" src="/build/{{ $manifest['resources/js/post/edit.js']['file'] }}"></script>
         @else
-            @vite(['resources/js/post/create.js'])
-    @endproduction
+            @vite(['resources/js/post/edit.js'])
+            @endproduction
 @endsection
 
 @section('content')
@@ -19,8 +19,9 @@
             <div class="page-header-content">
                 <div class="page-title">
                     <h4><a href="{{ route('admin.posts.index') }}" class="text-link"><i
-                                    class="icon-arrow-left52 position-left"></i></a>  <span class="text-semibold">Bài viết</span> -
-                        Tạo mới </h4>
+                                class="icon-arrow-left52 position-left"></i></a> <span
+                            class="text-semibold">Bài viết</span> -
+                        Chỉnh sửa </h4>
                 </div>
 
             </div>
@@ -30,7 +31,7 @@
                     <li><a href="{{route('admin.dashboard')}}"><i class="icon-home2 position-left"></i> Bảng điều khiển</a>
                     </li>
                     <li><a href="{{route('admin.posts.index')}}">Bài viết</a></li>
-                    <li class="active">Tạo mới</li>
+                    <li class="active">Chỉnh sửa</li>
                 </ul>
             </div>
         </div>
@@ -42,8 +43,9 @@
 
             <!-- Dashboard content -->
             <div class="row">
-                <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.posts.update', @$post->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                     <div class="col-md-9">
                         <div class="panel panel-white">
                             <div class="panel-heading">
@@ -54,7 +56,8 @@
                                     <label class="control-label text-bold">Tiêu đề<span
                                             class="text-danger">*</span></label>
                                     <div>
-                                        <input type="text" name="title" id="title" value="{{ old('title') }}" class="form-control">
+                                        <input type="text" name="title" id="title" value="{{ old('title', @$post->title) }}"
+                                               class="form-control">
                                         @error('title')
                                         <label id="error-title" class="validation-error-label"
                                                for="basic">{{ $message }}</label>
@@ -65,22 +68,23 @@
                                 <div class="form-group">
                                     <label class="control-label text-bold">Mô tả</label>
                                     <div>
-                                <textarea rows="5" id="editorDescription" style="resize: vertical" cols="5" name="description"
-                                  class="form-control"
-                                  aria-required="true"></textarea>
+                                <textarea rows="5" id="editorDescription" style="resize: vertical" cols="5"
+                                          name="description"
+                                          class="form-control"
+                                          aria-required="true"></textarea>
                                     </div>
 
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label text-bold">Nội dung<span
-                                                class="text-danger">*</span></label>
+                                            class="text-danger">*</span></label>
                                     <div>
-                        <textarea rows="5" id="editorContent" style="resize: vertical" cols="5" name="content"
-                                  class="form-control"
-                                  aria-required="true">
-                            {{ old('content') }}
-                        </textarea>
+                                        <textarea rows="5" id="editorContent" style="resize: vertical" cols="5" name="content"
+                                                  class="form-control"
+                                                  aria-required="true">
+                                            {!! old('content', @$post->content) !!}
+                                        </textarea>
                                     </div>
                                     @error('content')
                                     <label id="error-content" class="validation-error-label"
@@ -97,8 +101,7 @@
                             </div>
                             <div class="panel-body">
                                 <div>
-                                    <button class="btn btn-primary"><i class=" icon-paperplane"></i> Tạo
-                                        mới
+                                    <button class="btn btn-success"><i class=" icon-paperplane"></i> Lưu
                                     </button>
                                     <a href="{{ route('admin.posts.index') }}" class="btn btn-default"><i
                                             class=" icon-close2"></i>
@@ -151,12 +154,13 @@
                                 <div>
                                     <input id="image" type="text" hidden name="thumbnail">
                                     <a id="lfm" data-input="image" data-preview="holder">Chọn ảnh</a>
-                                    <div id="holder" class="image-preview" style="margin-top:15px;max-height:150px; max-width: 150px">
+                                    <div id="holder" class="image-preview"
+                                         style="margin-top:15px;max-height:150px; max-width: 150px">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
+                        </div>
                     </div>
                 </form>
 
