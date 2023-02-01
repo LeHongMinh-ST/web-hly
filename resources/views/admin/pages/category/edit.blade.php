@@ -5,10 +5,10 @@
         @php
             $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
         @endphp
-            <script type="module" src="/build/{{ $manifest['resources/js/category/create.js']['file'] }}"></script>
+        <script type="module" src="/build/{{ $manifest['resources/js/category/edit.js']['file'] }}"></script>
         @else
-            @vite(['resources/js/category/create.js'])
-    @endproduction
+            @vite(['resources/js/category/edit.js'])
+            @endproduction
 @endsection
 
 @section('content')
@@ -18,8 +18,10 @@
         <div class="page-header">
             <div class="page-header-content">
                 <div class="page-title">
-                    <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Danh mục</span> -
-                        Tạo mới </h4>
+                    <h4><a href="{{ route('admin.categories.index') }}" class="text-link"><i
+                                class="icon-arrow-left52 position-left"></i></a> <span
+                            class="text-semibold">Danh mục</span> -
+                        Chỉnh sửa </h4>
                 </div>
 
             </div>
@@ -29,7 +31,7 @@
                     <li><a href="{{route('admin.dashboard')}}"><i class="icon-home2 position-left"></i> Bảng điều khiển</a>
                     </li>
                     <li><a href="{{route('admin.categories.index')}}">Danh mục</a></li>
-                    <li class="active">Tạo mới</li>
+                    <li class="active">Chỉnh sửa</li>
                 </ul>
             </div>
         </div>
@@ -41,8 +43,9 @@
 
             <!-- Dashboard content -->
             <div class="row">
-                <form action="{{ route('admin.categories.store') }}" method="post" >
+                <form action="{{ route('admin.categories.update', @$category->id) }}" method="post" >
                     @csrf
+                    @method('put')
                     <div class="col-md-9">
                         <div class="panel panel-white">
                             <div class="panel-heading">
@@ -53,7 +56,8 @@
                                     <label class="control-label text-bold">Tên<span
                                             class="text-danger">*</span></label>
                                     <div>
-                                        <input type="text" name="name" id="name" class="form-control">
+                                        <input type="text" name="name" id="name" class="form-control"
+                                        value="{{ old('name', @$category->name) }}">
                                         @error('name')
                                         <label id="basic-error" class="validation-error-label"
                                                for="basic">{{ $message }}</label>
@@ -63,7 +67,9 @@
                                 <div class="form-group">
                                     <label class="control-label text-bold">Order</label>
                                     <div>
-                                    <input class="form-control" type="number" name="order" value="0" min="0">
+                                    <input class="form-control" type="number" name="order"  min="0"
+                                    value="{{ old('order', @$category->order) }}"
+                                    >
                                     </div>
                                     @error('description')
                                     <label id="basic-error" class="validation-error-label"
@@ -80,8 +86,7 @@
                             </div>
                             <div class="panel-body">
                                 <div>
-                                    <button class="btn btn-primary"><i class=" icon-paperplane"></i> Tạo
-                                        mới
+                                     <button class="btn btn-success"><i class=" icon-paperplane"></i> Lưu
                                     </button>
                                     <a href="{{ route('admin.categories.index') }}" class="btn btn-default"><i
                                             class=" icon-close2"></i>
