@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SlugController;
 use App\Http\Controllers\CMS\BlogController;
+use App\Http\Controllers\CMS\HomeController;
 use Illuminate\Support\Facades\Route;
 use UniSharp\LaravelFilemanager\Lfm;
 
@@ -22,9 +23,7 @@ use UniSharp\LaravelFilemanager\Lfm;
 |
 */
 
-Route::get('/', function () {
-    return view('cms.page.index');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/gioi-thieu', function () {
     return view('cms.page.introduce');
@@ -35,9 +34,7 @@ Route::get('/linh-vuc-hoat-dong', function () {
 });
 
 Route::prefix('/tin-tuc-su-kien')->group(function () {
-    Route::get('/', function () {
-        return view('cms.page.news');
-    })->name('cms.news');
+    Route::get('/', [HomeController::class, 'postPage'])->name('cms.news');
 
     Route::get('bai-viet/{slug}', [BlogController::class, 'getPost'])->name('cms.news.post');
 });
