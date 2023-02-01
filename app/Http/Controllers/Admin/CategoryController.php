@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Models\Category;
 use App\Enums\Language;
-use App\Repositories\Category\CategroyRepository;
+use App\Repositories\Category\CategoryRepository;
 use App\Services\LanguageMeta\LanguageMetaService;
 use App\Services\Helper\SlugService;
 use Illuminate\Contracts\Foundation\Application;
@@ -22,9 +22,9 @@ class CategoryController extends Controller
 {
 
     public function __construct(
-        private CategroyRepository $categoryRepository,
+        private CategoryRepository  $categoryRepository,
         private LanguageMetaService $languageMetaService,
-        private SlugService $slugService
+        private SlugService         $slugService
     )
     {
     }
@@ -123,7 +123,7 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  StoreCategoryRequest  $request
-     * @param  int  $id
+     * @param  int | string $id
      * @return RedirectResponse
      */
     public function update(StoreCategoryRequest $request, int|string $id): RedirectResponse

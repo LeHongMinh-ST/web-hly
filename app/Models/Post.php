@@ -67,7 +67,7 @@ class Post extends Model
         });
     }
 
-    public function getTextDatePublishAttribute()
+    public function getTextDatePublishAttribute(): string
     {
         return Carbon::createFromTimeString($this->created_at)->format('H:m d/m/Y');
     }
