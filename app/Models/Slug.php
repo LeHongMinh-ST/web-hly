@@ -16,10 +16,22 @@ class Slug extends Model
         'content',
         'slugable_id',
         'slugable_type',
+        'create_by',
+        'update_by'
     ];
 
     public function slugable(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function createBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'create_by');
+    }
+
+    public function updateBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'update_by');
     }
 }

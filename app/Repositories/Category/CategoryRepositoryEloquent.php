@@ -33,4 +33,13 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategroyRepos
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
+    public function getCategoryPaginate(array $data)
+    {
+        $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
+
+        return $this->scopeQuery(function ($query) {
+            return $query->orderBy('created_at', 'desc');
+        })->with([ 'updateBy', 'createBy'])->paginate($limit);
+    }
+
 }

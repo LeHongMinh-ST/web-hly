@@ -14,8 +14,8 @@ class Tag extends Model
 
     protected $fillable = [
         'name',
-        'created_by',
-        'updated_by',
+        'create_by',
+        'update_by',
     ];
 
     public function posts(): BelongsToMany
@@ -30,12 +30,12 @@ class Tag extends Model
 
     public function createBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo(User::class, 'create_by');
     }
 
     public function updateBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'updated_by');
+        return $this->belongsTo(User::class, 'update_by');
     }
 
 }

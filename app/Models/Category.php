@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,8 +19,8 @@ class Category extends Model
         'name',
         'order',
         'status',
-        'created_by',
-        'updated_by',
+        'create_by',
+        'update_by',
     ];
 
     public function posts(): BelongsToMany
@@ -34,11 +35,24 @@ class Category extends Model
 
     public function createBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo(User::class, 'create_by');
     }
 
     public function updateBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'updated_by');
+        return $this->belongsTo(User::class, 'update_by');
+    }
+
+    public function getTextDatePublishAttribute()
+    {
+        return Carbon::createFromTimeString($this->created_at)->format('H:m d/m/Y');
+    }
+
+    public function getIsActiveTextAttribute(): string
+    {
+        return match ((int)$this->status) {
+            1 => '<span class="label label-primary">Công khai</span>',
+            0 => '<span class="label label-danger">Ẩn</span>',
+        };
     }
 }
