@@ -6,6 +6,7 @@ use App\Enums\Language;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Models\Post;
+use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Post\PostRepository;
 use App\Services\Helper\SlugService;
 use App\Services\LanguageMeta\LanguageMetaService;
@@ -20,9 +21,10 @@ use Illuminate\Support\Facades\Log;
 class PostController extends Controller
 {
     public function __construct(
-        private PostRepository $postRepository,
+        private PostRepository      $postRepository,
+        private CategoryRepository  $categoryRepository,
         private LanguageMetaService $languageMetaService,
-        private SlugService $slugService
+        private SlugService         $slugService
     )
     {
     }
@@ -48,7 +50,9 @@ class PostController extends Controller
      */
     public function create(): Factory|View|Application
     {
-        return view('admin.pages.post.create');
+        $categories = $this->categoryRepository->getCategory();
+
+        return view('admin.pages.post.create')->with(compact('categories'));
     }
 
 
@@ -107,8 +111,8 @@ class PostController extends Controller
     public function edit(int|string $id): Factory|View|Application
     {
         $post = $this->postRepository->find($id);
-
-        return view('admin.pages.post.edit')->with(compact('post'));
+        $categories = $this->categoryRepository->getCategory();
+        return view('admin.pages.post.edit')->with(compact('post', 'categories'));
     }
 
     /**
@@ -131,9 +135,9 @@ class PostController extends Controller
 
             $post?->save();
 
-            $post?->categories()->attach(@$data['category_ids'] ?? []);
+            $post?->categories()->sync(@$data['category_ids'] ?? []);
 
-            $post?->tags()->attach(@$data['tags'] ?? []);
+            $post?->tags()->sync(@$data['tags'] ?? []);
 
             $post?->slug()->create(['content' => $this->slugService->generateSlug(Post::class, $post->title, $id)]);
 

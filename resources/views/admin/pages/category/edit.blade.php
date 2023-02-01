@@ -57,7 +57,7 @@
                                             class="text-danger">*</span></label>
                                     <div>
                                         <input type="text" name="name" id="name" class="form-control"
-                                        value="{{ old('name', @$category->name) }}">
+                                        value="{{ old('name', @$category->name) }}" >
                                         @error('name')
                                         <label id="basic-error" class="validation-error-label"
                                                for="basic">{{ $message }}</label>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label text-bold">Order</label>
+                                    <label class="control-label text-bold">Thứ tự</label>
                                     <div>
                                     <input class="form-control" type="number" name="order"  min="0"
                                     value="{{ old('order', @$category->order) }}"

@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label text-bold">Order</label>
+                                    <label class="control-label text-bold">Thứ tự</label>
                                     <div>
                                     <input class="form-control" type="number" name="order" value="0" min="0">
                                     </div>

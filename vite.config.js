@@ -14,6 +14,12 @@ export default defineConfig({
                 'resources/js/post/index.js',
                 'resources/js/post/create.js',
                 'resources/js/post/edit.js',
+
+                //Post
+                'resources/js/category/index.js',
+                'resources/js/category/create.js',
+                'resources/js/category/edit.js',
+
             ],
             refresh: true,
         }),

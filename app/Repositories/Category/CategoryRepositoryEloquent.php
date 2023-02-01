@@ -3,15 +3,15 @@
 namespace App\Repositories\Category;
 
 use App\Models\Category;
-use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
  * Class CategroyRepositoryEloquent.
  *
  * @package namespace App\Repositories\Category;
  */
-class CategoryRepositoryEloquent extends BaseRepository implements CategroyRepository
+class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
 {
     /**
      * Specify Model class name
@@ -39,7 +39,14 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategroyRepos
 
         return $this->scopeQuery(function ($query) {
             return $query->orderBy('created_at', 'desc');
-        })->with([ 'updateBy', 'createBy'])->paginate($limit);
+        })->with(['updateBy', 'createBy', 'slug'])->paginate($limit);
+    }
+
+    public function getCategory()
+    {
+        return $this->scopeQuery(function ($query) {
+            return $query->where('status', 1)->orderBy('created_at', 'desc');
+        })->with(['updateBy', 'createBy', 'slug'])->get();
     }
 
 }

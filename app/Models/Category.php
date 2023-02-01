@@ -43,7 +43,7 @@ class Category extends Model
         return $this->belongsTo(User::class, 'update_by');
     }
 
-    public function getTextDatePublishAttribute()
+    public function getTextDatePublishAttribute(): string
     {
         return Carbon::createFromTimeString($this->created_at)->format('H:m d/m/Y');
     }
@@ -54,5 +54,14 @@ class Category extends Model
             1 => '<span class="label label-primary">Công khai</span>',
             0 => '<span class="label label-danger">Ẩn</span>',
         };
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function (Category $post) {
+            $post->posts()->detach();
+        });
     }
 }

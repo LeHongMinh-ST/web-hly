@@ -71,7 +71,9 @@
                                 <textarea rows="5" id="editorDescription" style="resize: vertical" cols="5"
                                           name="description"
                                           class="form-control"
-                                          aria-required="true"></textarea>
+                                          aria-required="true">
+                                    {{ old('description', @$post->title) }}
+                                </textarea>
                                     </div>
 
                                 </div>
@@ -80,7 +82,8 @@
                                     <label class="control-label text-bold">Nội dung<span
                                             class="text-danger">*</span></label>
                                     <div>
-                                        <textarea rows="5" id="editorContent" style="resize: vertical" cols="5" name="content"
+                                        <textarea rows="5" id="editorContent" style="resize: vertical" cols="5"
+                                                  name="content"
                                                   class="form-control"
                                                   aria-required="true">
                                             {!! old('content', @$post->content) !!}
@@ -134,7 +137,9 @@
                                     @forelse(@$categories ?? [] as $category)
                                         <div>
                                             <label class="checkbox">
-                                                <input type="checkbox" name="category_ids" style="cursor: pointer"
+                                                <input type="checkbox" name="category_ids[]"
+                                                       @if(in_array($category->id, $post->categories->pluck('id')->toArray())) checked
+                                                       @endif style="cursor: pointer"
                                                        value="{{ $category->id }}">
                                                 <span
                                                     style="font-size: 16px; margin-left: 16px">{{ $category->name }}</span>
@@ -152,10 +157,13 @@
                             </div>
                             <div class="panel-body">
                                 <div>
-                                    <input id="image" type="text" hidden name="thumbnail">
+                                    <input id="image" type="text" value="{{ old('description', @$post->thumbnail) }}" hidden name="thumbnail">
                                     <a id="lfm" data-input="image" data-preview="holder">Chọn ảnh</a>
                                     <div id="holder" class="image-preview"
                                          style="margin-top:15px;max-height:150px; max-width: 150px">
+                                        @if(old('description', @$post->thumbnail))
+                                            <img style="width: 100%; height: 100%" src="{{ @$post->thumbnail }}" alt="">
+                                        @endif
                                     </div>
                                 </div>
                             </div>

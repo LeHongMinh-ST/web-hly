@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-use App\Repositories\Category\CategroyRepository;
+use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Category\CategoryRepositoryEloquent;
 use App\Repositories\LanguageMeta\LanguageMetaRepository;
 use App\Repositories\LanguageMeta\LanguageMetaRepositoryEloquent;
@@ -32,7 +32,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(UserRepository::class, UserRepositoryEloquent::class);
         $this->app->bind(PostRepository::class, PostRepositoryEloquent::class);
-        $this->app->bind(CategroyRepository::class, CategoryRepositoryEloquent::class);
+        $this->app->bind(CategoryRepository::class, CategoryRepositoryEloquent::class);
         $this->app->bind(RoleRepository::class, RoleRepositoryEloquent::class);
         $this->app->bind(TagRepository::class, TagRepositoryEloquent::class);
         $this->app->bind(SlugRepository::class, SlugRepositoryEloquent::class);

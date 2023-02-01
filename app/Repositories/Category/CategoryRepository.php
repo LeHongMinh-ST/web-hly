@@ -9,7 +9,9 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  *
  * @package namespace App\Repositories\Category;
  */
-interface CategroyRepository extends RepositoryInterface
+interface CategoryRepository extends RepositoryInterface
 {
-    //
+    public function getCategory();
+
+    public function getCategoryPaginate(array $data);
 }
