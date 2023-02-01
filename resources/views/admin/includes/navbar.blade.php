@@ -16,7 +16,12 @@
 
 
         <ul class="nav navbar-nav navbar-right">
-
+            <li class="">
+                <a href="{{ route('home') }}">
+                    <i class=" icon-home5"></i>
+                    <span class=" position-right">Trang chủ</span>
+                </a>
+            </li>
 
             <li class="dropdown dropdown-user">
                 <a class="dropdown-toggle" data-toggle="dropdown">

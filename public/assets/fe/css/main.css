@@ -6453,7 +6453,7 @@ select {
 
 .outerCircle {
     background-color: transparent;
-    border: 8px solid #ef1a22;
+    border: 8px solid #0f6548;
     opacity: .9;
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
@@ -6470,7 +6470,7 @@ select {
 
 .innerCircle {
     background-color: transparent;
-    border: 5px solid #fff31f;
+    border: 5px solid #e0fff1;
     opacity: .9;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
