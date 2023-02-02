@@ -7,14 +7,18 @@
         <div class="container">
             <h2 class="title stagger-up">Tin t&#7913;c s&#7921; ki&#7879;n</h2>
             <ul class="tabNews stagger-up">
-                <li><a class=active href="/tin-tuc-su-kien">T&#7845;t c&#7843;</a></li>
-                <li><a href="/tin-tuc-su-kien">Sức khỏe/Chăm sóc sức khỏe </a></li>
-                <li><a href="/tin-tuc-su-kien">Thực phẩm-Phân phối</a></li>
-                <li><a href="/tin-tuc-su-kien">Bất động sản</a></li>
-                <li><a href="/tin-tuc-su-kien">Du lịch-Dưỡng sinh-Dưỡng lão</a></li>
-                <li><a href="/tin-tuc-su-kien">Công nghệ</a></li>
-                <li><a href="/tin-tuc-su-kien">Đầu tư</a></li>
-                <li><a href="/tin-tuc-su-kien">Vĩnh hằng</a></li>
+                <li><a
+                            @if(!isset($_GET['category_id']))
+                            class="active"
+                            @endif
+                            href="/tin-tuc-su-kien">T&#7845;t c&#7843;</a></li>
+                @foreach($categories as $category)
+                <li><a
+                            @if(isset($_GET['category_id']) && $_GET['category_id'] == $category->id)
+                                    class="active"
+                                    @endif
+                            href="{{route('cms.news',['category_id'=>$category->id])}}">{{$category->name}} </a></li>
+                @endforeach
             </ul>
             <select class="slNews js-select-redirect">
                 <option selected=selected value="/tin-tuc-su-kien">T&#7845;t c&#7843;</option>
@@ -37,7 +41,18 @@
                             <img src="./assets/fe/images/news-gif.png">
                         </div>
                         <div class="copy">
-                            <h4>Tin Công nghi&#7879;p</h4>
+                            <h4>
+                                @if(count($post->categories) > 0)
+                                    @foreach($post->categories as $cate)
+                                        {{$cate->name}}
+                                        @if($cate->id != $post->categories[count($post->categories) - 1]->id)
+                                            ,
+                                        @endif
+                                    @endforeach
+                                @else
+                                    Tất cả danh mục
+                                @endif
+                            </h4>
                             <h3>
                             {{$post->title}}
                             </h3>
