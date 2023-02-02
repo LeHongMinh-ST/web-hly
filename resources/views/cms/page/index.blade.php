@@ -13,39 +13,19 @@
                                        <h2>Rừng xanh <br> hạnh phúc </h2>
                                    </div>
                 <div class="slideBanner">
+                    @foreach($posts as $post)
                     <div class="itemSlide">
                         <div class="subSlide">
                             <div class="title-slide">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, minima?
+                                {{$post->title}}
                             </div>
                             <div class="desc-slide">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae debitis modi pariatur quas rerum similique unde voluptates? Culpa debitis impedit in, labore, maxime minus necessitatibus nesciunt nihil optio placeat quas qui sint tempora? A a
+                                {{$post->description}}
                             </div>
                             <div class="btn-show-more">Xem thêm</div>
                         </div>
                     </div>
-                    <div class="itemSlide">
-                        <div class="subSlide">
-                            <div class="title-slide">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, minima?
-                            </div>
-                            <div class="desc-slide">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae debitis modi pariatur quas rerum similique unde voluptates? Culpa debitis impedit in, labore, maxime minus necessitatibus nesciunt nihil optio placeat quas qui sint tempora? A a
-                            </div>
-                            <div class="btn-show-more">Xem thêm</div>
-                        </div>
-                    </div>
-                    <div class="itemSlide">
-                        <div class="subSlide">
-                            <div class="title-slide">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, minima?
-                            </div>
-                            <div class="desc-slide">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae debitis modi pariatur quas rerum similique unde voluptates? Culpa debitis impedit in, labore, maxime minus necessitatibus nesciunt nihil optio placeat quas qui sint tempora? A a
-                            </div>
-                            <div class="btn-show-more">Xem thêm</div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -62,56 +42,27 @@
                 <h2 class="title">Tin tức sự kiện</h2>
             </a>
             <ul class="newsHomeList">
-
+                @php($i=0)
+                @foreach($posts as $post)
+                @if($i < 3)
                 <li>
                     <div class="itemNews">
                         <div class="img">
-                            <div style="background: url('./assets/fe/images/post1.jpg') center; width: 370px; height: 250px; object-fit: cover"></div>
-                            <img src="./assets/fe/images/post1.jpg" style="width: 370px; height: 250px;">
+                            <div style="background: url('{{ $post->thumbnail }}') center; width: 370px; height: 250px; object-fit: cover"></div>
+                            <img src="{{ $post->thumbnail }}" style="width: 370px; height: 250px;">
                         </div>
                         <div class="copy">
                             <h4>Tin Abcgroup</h4>
-                            <h3>Từ bỏ ngay những thói quen có thể âm thầm tàn phá xương khớp</h3>
-                            <p>09-01-2023</p>
+                            <h3>{{$post->title}}</h3>
+                            <p>{{date_format(date_create($post->created_at), 'd-m-Y')}}</p>
                         </div>
                         <a class="link"
                            href="post.html"></a>
                     </div>
                 </li>
-
-                <li>
-                    <div class="itemNews">
-                        <div class="img">
-                            <div style="background: url('./assets/fe/images/post2.jpg') center; width: 370px; height: 250px; object-fit: cover" ></div>
-                            <img src="./assets/fe/images/post2.jpg" style="width: 370px; height: 250px;">
-                        </div>
-                        <div class="copy">
-                            <h4>Tin Abcgroup</h4>
-                            <h3>Điều trị bệnh lý cơ xương khớp bằng
-                                phương pháp y học cổ truyền </h3>
-                            <p>09-01-2023</p>
-                        </div>
-                        <a class="link"
-                           href="post2.html"></a>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="itemNews">
-                        <div class="img">
-                            <div style="background: url('./assets/fe/images/post3.jpg') center;  width: 370px; height: 250px; object-fit: cover"></div>
-                            <img src="./assets/fe/images/post3.jpg" style="width: 370px; height: 250px;">
-                        </div>
-                        <div class="copy">
-                            <h4>Tin Abcgroup</h4>
-                            <h3>Điều trị bệnh lý cơ xương khớp theo y học cổ truyền
-                            </h3>
-                            <p>09-01-2023</p>
-                        </div>
-                        <a class="link"
-                           href="post3.html"></a>
-                    </div>
-                </li>
+                    @endif
+                    @php($i++)
+                @endforeach
             </ul>
             <div class="btn-wrap">
                 <a class="btn-2" href="/tin-tuc-su-kien.html">Xem t&#7845;t c&#7843;</a>
