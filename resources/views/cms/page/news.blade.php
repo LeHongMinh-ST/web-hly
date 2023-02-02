@@ -29,7 +29,7 @@
             </select>
 
             <ul class="newsList stagger-up">
-
+                @foreach($posts as $post)
                 <li>
                     <div class="itemNews">
                         <div class="img">
@@ -38,90 +38,18 @@
                         </div>
                         <div class="copy">
                             <h4>Tin Công nghi&#7879;p</h4>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis id, minima modi.</h3>
-
-                            <p>07-01-2023</p>
+                            <h3>
+                            {{$post->title}}
+                            </h3>
+                            <p>{{date_format(date_create($post->created_at), 'd-m-Y')}}</p>
                         </div>
                         <a class="link" href="post.html"></a>
                     </div>
                 </li>
-
-                <li>
-                    <div class="itemNews">
-                        <div class="img">
-                            <div style="background: url('./assets/fe/images/hl2.jpg') center"></div>
-                            <img src="./assets/fe/images/news-gif.png">
-                        </div>
-                        <div class="copy">
-                            <h4>Tin Công nghi&#7879;p</h4>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis id, minima modi.</h3>
-
-                            <p>06-01-2023</p>
-                        </div>
-                        <a class="link" href="post.html"></a>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="itemNews">
-                        <div class="img">
-                            <div style="background: url('./assets/fe/images/hg1.jpg') center"></div>
-                            <img src="./assets/fe/images/news-gif.png">
-                        </div>
-                        <div class="copy">
-                            <h4>Tin Công nghi&#7879;p</h4>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis id, minima modi.</h3>
-
-                            <p>06-01-2023</p>
-                        </div>
-                        <a class="link" href="post2.html"></a>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="itemNews">
-                        <div class="img">
-                            <div style="background: url('./assets/fe/images/hg2.jpg') center"></div>
-                            <img src="./assets/fe/images/news-gif.png">
-                        </div>
-                        <div class="copy">
-                            <h4>Tin Công nghi&#7879;p</h4>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis id, minima modi.</h3>
-
-                            <p>27-12-2022</p>
-                        </div>
-                        <a class="link" href="post.html"></a>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="itemNews">
-                        <div class="img">
-                            <div style="background: url('./assets/fe/images/hg3.jpg') center"></div>
-                            <img src="./assets/fe/images/news-gif.png">
-                        </div>
-                        <div class="copy">
-                            <h4>Tin Công ngh&#7879;</h4>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis id, minima modi.</h3>
-                            <p>26-12-2022</p>
-                        </div>
-                        <a class="link" href="post.html"></a>
-                    </div>
-                </li>
+                @endforeach
             </ul>
             {{ $posts->render('vendor.pagination.name') }}
 
-
-{{--            <div class="paging"><span>1</span><a target="_self" href="/tin-tuc-su-kien/tat-ca/2" class="">2</a><a--}}
-{{--                        target="_self" href="/tin-tuc-su-kien/tat-ca/3" class="">3</a><a target="_self"--}}
-{{--                                                                                         href="/tin-tuc-su-kien/tat-ca/4"--}}
-{{--                                                                                         class="">4</a><a target="_self"--}}
-{{--                                                                                                          href="/tin-tuc-su-kien/tat-ca/5"--}}
-{{--                                                                                                          class="">5</a><a--}}
-{{--                        target="_self" href="/tin-tuc-su-kien/tat-ca/2" class="next "><i--}}
-{{--                            class="fas fa-chevron-right"></i></a><a target="_self" href="/tin-tuc-su-kien/tat-ca/125"--}}
-{{--                                                                    class="last "><i--}}
-{{--                            class="fas fa-angle-double-right"></i></a></div>--}}
         </div>
     </section>
 
