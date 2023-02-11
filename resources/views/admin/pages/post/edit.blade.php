@@ -72,7 +72,7 @@
                                           name="description"
                                           class="form-control"
                                           aria-required="true">
-                                    {{ old('description', @$post->title) }}
+                                    {{ old('description', @$post->description) }}
                                 </textarea>
                                     </div>
 

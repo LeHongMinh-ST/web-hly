@@ -52,7 +52,7 @@
                             <img src="{{ $post->thumbnail }}" style="width: 370px; height: 250px;">
                         </div>
                         <div class="copy">
-                            <h4>Tin Abcgroup</h4>
+                            <h4>Tin {{$post->categories[0]->name}}</h4>
                             <h3>{{$post->title}}</h3>
                             <p>{{date_format(date_create($post->created_at), 'd-m-Y')}}</p>
                         </div>
@@ -75,10 +75,9 @@
             <div class="contentwrap">
                 <div class="infoCate">
                     <div section=".cateHomeWrap" data="-200" class="paralax-hor">
-                        <h2>Lorem ipsum<br/>dolor sit amet</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad, aperiam asperiores
-                            dolore, dolores ipsum iure magni nam nostrum obcaecati quam qui quo, saepe sit tenetur?
-                            Aperiam doloribus odio qui.</p>
+                        <h2>LĨNH VỰC<br/>TIÊN PHONG</h2>
+                        <p>Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại,
+                            ở bất cứ lĩnh vực nào HLYgroup cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng.</p>
                         <div class="dragMouse">
                             <img src="./assets/fe/images/mouse.png">
                             <p><img src="./assets/fe/images/ar-drag-l.png"><span>Trư&#7907;t đ&#7875; khám phá</span><img
@@ -91,13 +90,13 @@
                     <li>
                         <div class="item cate-1">
                             <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                            <h2>Lorem ipsum<br/>dolor sit amet</h2>
+                            <h2>CÔNG NGHỆ XANH</h2>
                             <div class="content">
                                 <div class="img" style="background: url('./assets/fe/images/hl1.jpg') center">
                                     <img src="./assets/fe/images/thumb-cate.gif">
                                 </div>
                                 <div class="copy">
-                                    <p></p>
+                                    <!-- <p>- Sản xuất thuốc</p> -->
                                     <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
                                 </div>
                             </div>
@@ -105,15 +104,16 @@
                         </div>
                     </li>
                     <li>
-                        <div class="item cate-1">
+                        <div class="item cate-3">
                             <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                            <h2>Lorem ipsum<br/>dolor sit amet</h2>
+                            <h2>THƯƠNG MẠI DỊCH VỤ</h2>
                             <div class="content">
                                 <div class="img" style="background: url('./assets/fe/images/hl2.jpg') center">
                                     <img src="./assets/fe/images/thumb-cate.gif">
                                 </div>
                                 <div class="copy">
-                                    <p></p>
+                                    <!-- <p>- Du lịch nghỉ dưỡng</p>
+                                    <p>- Dưỡng sinh</p> -->
                                     <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
                                 </div>
                             </div>
@@ -121,15 +121,31 @@
                         </div>
                     </li>
                     <li>
-                        <div class="item cate-1">
+                        <div class="item cate-2">
                             <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                            <h2>Lorem ipsum<br/>dolor sit amet</h2>
+                            <h2>NAM Y VÀ CHĂM SÓC SỨC KHỎE</h2>
                             <div class="content">
                                 <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
                                     <img src="./assets/fe/images/thumb-cate.gif">
                                 </div>
-                                <div class="copy">
-                                    <p></p>
+                                <div class="copy text-white">
+                                    <!-- <ul style="">
+                                        <li>
+                                            <p>
+                                                - Spa
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p >
+                                                - Trị liệu cơ sương khớp
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p >
+                                                - Phòng kê thuốc
+                                            </p>
+                                        </li>
+                                    </ul> -->
                                     <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
                                 </div>
                             </div>
@@ -145,25 +161,24 @@
     <section class="shareholdersHomeWrap">
         <div class="container">
             <a href="/quan-he-co-dong">
-                <h2 class="title">Lorem ipsum dolor sit amet</h2>
+                <h2 class="title">QUAN HỆ CỔ ĐÔNG</h2>
             </a>
             <div class="row">
                 <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor">
-                    <h3>Lorem ipsum dolor sit amet</h3>
+                    <h3>Công ty HLY smart</h3>
                     <img src="./assets/fe/images/hg1.jpg">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus facere minus necessitatibus nihil
-                    placeat quis recusandae sint veniam! Aliquam cumque debitis deserunt ex, id ipsum labore maxime nam
-                    quia quos.
+                    Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                    tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
                 </div>
                 <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor">
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                    <img src="./assets/fe/images/hl1.jpg">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus facere minus necessitatibus nihil
-                    placeat quis recusandae sint veniam! Aliquam cumque debitis deserunt ex, id ipsum labore maxime nam
-                    quia quos.
+                    <h3>Công ty HLY green</h3>
+                    <img src="./assets/fe/images/hg1.jpg">
+                    Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                    tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
                 </div>
 
             </div>
+
 
         </div>
     </section>

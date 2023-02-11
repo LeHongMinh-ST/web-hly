@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-    <section class="mapContact stagger-up">
+    <section class="mapContact stagger-up" style="padding-top: 40px;">
         <img src="./assets/fe/images/map.png" style="height: 540px; object-fit: cover; width: 100%">
         <div class="copy">
             <h2>T&#7853;p đoàn HLY</h2>

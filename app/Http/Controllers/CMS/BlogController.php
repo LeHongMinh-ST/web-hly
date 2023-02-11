@@ -4,6 +4,7 @@ namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Repositories\Post\PostRepository;
 use App\Repositories\Slug\SlugRepository;
 use App\Services\Blog\BlogService;
 use Illuminate\Contracts\Foundation\Application;
@@ -12,7 +13,9 @@ use Illuminate\Contracts\View\View;
 
 class BlogController extends Controller
 {
-    public function __construct(private SlugRepository $slugRepository)
+    public function __construct(
+        private SlugRepository $slugRepository,
+        private PostRepository     $postRepository)
     {
     }
 
@@ -27,8 +30,14 @@ class BlogController extends Controller
             abort(404);
         }
 
-        $data = $blogService->handleFrontRoutes($slug);
+        $posts = $this->postRepository->with(['categories', 'slug'])->limit(3);
 
-        return view($data['view'])->with($data['data']);
+        $data = $blogService->handleFrontRoutes($slug);
+//        dd($data['data']);
+//        $data['posts'] = $posts;
+        return view('cms.page.post', [
+            'post' => $data['data']['post'],
+            'posts' => $posts
+        ]);
     }
 }

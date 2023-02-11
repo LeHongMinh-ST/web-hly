@@ -3,7 +3,7 @@
     Tin tức sự kiện - Công ty cổ phần xã hội HLY
 @endsection
 @section('content')
-    <section class="newsWrap">
+    <section class="newsWrap" style="padding-top: 40px;">
         <div class="container">
             <h2 class="title stagger-up">Tin t&#7913;c s&#7921; ki&#7879;n</h2>
             <ul class="tabNews stagger-up">
@@ -37,7 +37,8 @@
                 <li>
                     <div class="itemNews">
                         <div class="img">
-                            <div style="background: url('./assets/fe/images/hl1.jpg') center"></div>
+                            <div style="background: url({{ $post->thumbnail }}) center"></div>
+{{--                            <img src="{{ $post->thumbnail }}" >--}}
                             <img src="./assets/fe/images/news-gif.png">
                         </div>
                         <div class="copy">
@@ -58,7 +59,7 @@
                             </h3>
                             <p>{{date_format(date_create($post->created_at), 'd-m-Y')}}</p>
                         </div>
-                        <a class="link" href="post.html"></a>
+                        <a class="link" href="/tin-tuc-su-kien/bai-viet/{{$post->slug->content}}"></a>
                     </div>
                 </li>
                 @endforeach

@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-    <section class="introWrap">
+    <section class="introWrap" style="padding-top: 40px;">
         <div class="container">
             <div class="breadcrumb">
                 <p>Giới thiệu HLY</p>
