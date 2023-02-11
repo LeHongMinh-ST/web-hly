@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-    <section class="bannerPd stagger-up">
+    <section class="bannerPd stagger-up" style="padding-top: 40px;">
 
 
         <img src="./assets/fe/images/hl3.jpg">

@@ -5,19 +5,25 @@ namespace App\Http\Controllers\CMS;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Repositories\Category\CategoryRepository;
+use App\Repositories\Post\PostRepository;
+use App\Services\Helper\SlugService;
+use App\Services\LanguageMeta\LanguageMetaService;
 use Illuminate\Http\Request;
 use function Termwind\ValueObjects\isEmpty;
 
 class HomeController extends Controller
 {
-    public function __construct()
+    public function __construct(
+        private PostRepository     $postRepository,
+        private CategoryRepository  $categoryRepository,
+    )
     {
-
     }
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = $this->postRepository->with('categories')->all();
         return view('cms.page.index')->with([
             'posts'=>$posts
         ]);
@@ -29,10 +35,10 @@ class HomeController extends Controller
                 $query->where('category_id', $request->input('category_id'));
             })->with(['categories'])->paginate(5);
         }else{
-            $posts = Post::with(['categories'])->paginate(5);
+            $posts = $this->postRepository->with(['categories', 'slug'])->paginate(5);
         }
-//        dd($posts);
         $categories = Category::where('status', 1)->orderBy('order')->get();
+
         return view('cms.page.news')->with([
             'posts'=>$posts,
             'categories'=>$categories,
