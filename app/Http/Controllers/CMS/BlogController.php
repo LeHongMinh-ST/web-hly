@@ -30,7 +30,7 @@ class BlogController extends Controller
             abort(404);
         }
 
-        $posts = $this->postRepository->with(['categories', 'slug'])->limit(3);
+        $posts = $this->postRepository->with(['categories', 'slug'])->limit(4);
 
         $data = $blogService->handleFrontRoutes($slug);
 //        dd($data['data']);

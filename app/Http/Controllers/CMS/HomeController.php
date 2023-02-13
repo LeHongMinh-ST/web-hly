@@ -35,7 +35,7 @@ class HomeController extends Controller
                 $query->where('category_id', $request->input('category_id'));
             })->with(['categories'])->paginate(5);
         }else{
-            $posts = $this->postRepository->with(['categories', 'slug'])->paginate(5);
+            $posts = $this->postRepository->with(['categories', 'slug'])->paginate(7);
         }
         $categories = Category::where('status', 1)->orderBy('order')->get();
 

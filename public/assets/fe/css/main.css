@@ -7573,7 +7573,7 @@ main {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1700px;
     padding: 0 10px;
     margin: 0 auto;
     position: relative
@@ -8050,7 +8050,7 @@ main {
 
 .listCateHome {
     opacity: 0;
-    width: 130%
+    width: 95%
 }
 
 .listCateHome .slick-slide {
@@ -8735,14 +8735,14 @@ main {
 }
 
 .newsList li {
-    width: 33.333%;
+    width: 25%;
     padding: 15px;
     display: block;
     float: left
 }
 
 .newsList li:first-child {
-    width: 66.6666% !important
+    width: 50% !important
 }
 
 .newsList li:first-child .itemNews,
@@ -8984,7 +8984,7 @@ main {
 }
 
 .historyPd .img {
-    width: 85%
+    width: 70%
 }
 
 .historyPd .img img {
