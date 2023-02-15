@@ -58,7 +58,7 @@
                             <h3>{{$post->title}}</h3>
                             <p>{{date_format(date_create($post->created_at), 'd-m-Y')}}</p>
                         </div>
-                        <a class="link" href="/tin-tuc-su-kien/bai-viet/{{$post->slug->content}}"></a>
+                        <a class="link" href="/tin-tuc-su-kien/bai-viet/{{$post->slug?->content}}"></a>
                     </div>
                 <!-- </div> -->
                     @endif
@@ -121,7 +121,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="item cate-2">
+                        <div class="item cate-3">
                             <div class="ico"><img src="./assets/fe/images/b.gif"></div>
                             <h2>NAM Y VÀ CHĂM SÓC SỨC KHỎE</h2>
                             <div class="content">

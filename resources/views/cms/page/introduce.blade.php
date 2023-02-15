@@ -56,7 +56,7 @@
         </div>
     </section>
     @include('cms.components.ecosystem')
-    <section id="block1" class="partnerWrap bgGray">
+    <section id="block1" class="partnerWrap">
 
         <div class="container">
             <div section="#block1" data="-200" class="copy paralax-hor">
