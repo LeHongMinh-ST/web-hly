@@ -3,9 +3,8 @@
     Giới thiệu - Tập đoàn Abc
 @endsection
 @section('content')
-    @include('cms.components.ecosystem')
-    <section class="introWrap" style="padding-top: 40px;">
-        <div class="container">
+<section class="introWrap" style="padding-top: 40px;">
+    <div class="container">
             <div class="breadcrumb">
                 <p>Giới thiệu HLY</p>
             </div>
@@ -56,8 +55,9 @@
             </ul>
         </div>
     </section>
-
+    @include('cms.components.ecosystem')
     <section id="block1" class="partnerWrap bgGray">
+
         <div class="container">
             <div section="#block1" data="-200" class="copy paralax-hor">
                 <h2 class="title">CÁC THƯƠNG HIỆU</h2>
