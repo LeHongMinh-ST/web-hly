@@ -15,7 +15,7 @@
                     @foreach($posts as $post)
                     <div class="" style="">
                         <div class="subSlide">
-                            <div style="display: flex; flex-direction: column; gap: 5px;">
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
                             <div class="title-slide line-clamp-2" title="{{$post->title}}">
                                 {{$post->title}}
                             </div>

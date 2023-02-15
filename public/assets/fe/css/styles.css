@@ -86,7 +86,7 @@ input.has-error:-moz-placeholder {
     width: 100%;
 }
 .slideBanner{
-    border-radius: 15px;
+    border-radius: 8px;
     overflow: hidden;
     width: 37%;
     height: auto;
@@ -141,8 +141,13 @@ max-width: none
 }
 
 .ecosytem {
-    padding: 20px 60px;
-    background: var(--color-green-blur1);
+    padding: 20px 0;
+    /* background: var(--color-green-blur1); */
+}
+
+.container-ecosytem {
+    margin: auto;
+    max-width: 1700px;
 }
 
 .wrapper-ecosytem {

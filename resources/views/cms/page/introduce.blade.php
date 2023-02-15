@@ -55,8 +55,7 @@
             </ul>
         </div>
     </section>
-    @include('cms.components.ecosystem')
-    <section id="block1" class="partnerWrap">
+    <section id="block1" class="partnerWrap bgGray">
 
         <div class="container">
             <div section="#block1" data="-200" class="copy paralax-hor">
@@ -78,50 +77,10 @@
                     </li><li style="width: 180px;">
                     <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/Logo_vinuni-20190724T080031613411.png">
                     <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/Public/2022/VFP.png">
-                    </li>
+                </li>
             </li>
         </ul>
-                           <!-- <ul section="#block1" data="200" class="crsPartner paralax-hor">
-                               <li>
-
-                                   <img src="https://ircdn.Abcgroup.net/storage/public/2019/07/logo_Vinfast-20190724T075546806189.png">
-                                   <img src="https://ircdn.Abcgroup.net/storage/public/2019/07/Logo_Vinsmart-20190724T080557080845.png">
-                               </li>
-                               <li>
-                                   <img src="https://ircdn.Abcgroup.net/storage/public/2019/07/logo_Vinhomes-20190724T080402028663.png">
-                                   <img src="https://ircdn.Abcgroup.net/storage/public/2019/07/logo_Vinpearl-20190724T075858560451.png">
-                               </li>
-                               <li>
-                                   <img src="https://ircdn.Abcgroup.net/storage/public/2019/07/Logo_vinschool-20190724T080746392057.png">
-                                   <img src="https://ircdn.Abcgroup.net/storage/public/2019/07/logo_Vinmec-20190724T080653218385.png">
-                               </li>
-                               <li>
-                                   <img src="https://ircdn.Abcgroup.net/storage/public/2019/07/Logo_vinuni-20190724T080031613411.png">
-                                   <img src="https://ircdn.Abcgroup.net/storage/Public/2022/VFP.png">
-                               </li>
-                               <li>
-                                   <img src="https://ircdn.Abcgroup.net/storage/Public/2022/QTT.png">
-                                   <img src="https://ircdn.Abcgroup.net/storage/public/2019/07/logo_Vincom-20190724T080508073752.png">
-                               </li>
-                               <li>
-                                   <img src="https://ircdn.Abcgroup.net/storage/Public/2022/VinIF.png">
-                                   <img src="https://ircdn.Abcgroup.net/storage/Uploads/Logos/VinAI.png">
-                               </li>
-                               <li>
-                                   <img src="https://ircdn.Abcgroup.net/storage/Uploads/Logos/2021/Vinbigdata.png">
-                                   <img src="https://ircdn.Abcgroup.net/storage/Uploads/Logos/CSS.png">
-                               </li>
-                               <li>
-                                   <img src="https://ircdn.Abcgroup.net/storage/Public/2022/Logo Vinbiocare.png">
-                                   <img src="https://ircdn.Abcgroup.net/storage/Public/VinHMS Logo.png">
-                               </li>
-                               <li>
-                                   <img src="https://ircdn.Abcgroup.net/storage/Uploads/Logos/2021/Vinbus.png">
-                                   <img src="https://ircdn.Abcgroup.net/storage/Public/logo-VB.png">
-                               </li>
-                               <li>
-                               </li>
-                           </ul> -->
         </div>
     </section>
+    @include('cms.components.ecosystem')
 @endsection

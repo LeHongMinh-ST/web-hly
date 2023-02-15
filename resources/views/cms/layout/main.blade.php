@@ -73,7 +73,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
     $('.slideBanner').slick({
-        // autoplay: true,
+        autoplay: true,
         // dots: true
     })
 </script>
