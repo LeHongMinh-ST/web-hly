@@ -793,6 +793,9 @@ select {
 .slick-dots li.slick-active button {
     background: white;
 }
+.relationshipShareholder .slick-dots li.slick-active button {
+    background: #0e6447 !important;
+}
 .slick-dots li button:before{
     content: '' !important;
 }
