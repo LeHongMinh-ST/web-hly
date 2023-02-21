@@ -6,6 +6,8 @@
 <section class="introWrap" style="padding-top: 40px;">
     <div class="container">
             <div class="breadcrumb">
+                <a href="/"><i class="fas fa-home"></i></a>
+                <i class="fas fa-chevron-right"></i>
                 <p>Giới thiệu HLY</p>
             </div>
             <div class="content stagger-up">
