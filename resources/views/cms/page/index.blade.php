@@ -129,23 +129,6 @@
                                     <img src="./assets/fe/images/thumb-cate.gif">
                                 </div>
                                 <div class="copy text-white">
-                                    <!-- <ul style="">
-                                        <li>
-                                            <p>
-                                                - Spa
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p >
-                                                - Trị liệu cơ sương khớp
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p >
-                                                - Phòng kê thuốc
-                                            </p>
-                                        </li>
-                                    </ul> -->
                                     <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
                                 </div>
                             </div>
@@ -157,6 +140,7 @@
             </div>
         </div>
     </section>
+    @include('cms.components.ecosystem')
 
     <section class="shareholdersHomeWrap">
         <div class="container">

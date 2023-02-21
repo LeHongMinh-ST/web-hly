@@ -1,4 +1,4 @@
-<section class="ecosytem">
+<section class="ecosytem" section=".cateHomeWrap">
     <div class="container-ecosytem">
         <h2 class="title">Hệ sinh thái</h2>
         <p>Tổng thể 3 khối ngành kinh doanh cốt lõi, sức mạnh gắn kết của 10 công ty thành viên</p>

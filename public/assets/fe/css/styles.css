@@ -86,7 +86,7 @@ input.has-error:-moz-placeholder {
     width: 100%;
 }
 .slideBanner{
-    border-radius: 8px;
+    /* border-radius: 8px; */
     overflow: hidden;
     width: 37%;
     height: auto;
@@ -178,7 +178,6 @@ max-width: none
 .wrapper-ecosytem .img-block {
     width: 60%;
     object-fit: cover;
-    border-radius: 30px;
 }
 
 .wrapper-ecosytem .block-info h3 {
