@@ -196,3 +196,159 @@ max-width: none
     margin: 30px 0;
     max-width: 120px;
 }
+.partnersWrap{
+    padding: 50px;
+}
+.partnersWrap .contentWrapPartners{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.partnersWrap .contentWrapPartners .content-leader {
+    position: relative;
+    width: 41.5%;
+    margin-right: 8.5%;
+}
+.partnersWrap .contentWrapPartners .content-leader .imageLeader{
+    border-radius: 0 33% 0 0;
+    margin: 12.5%;
+    width: 75%;
+}
+.partnersWrap .contentWrapPartners .content-leader .lineSoft{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 12.5%;
+}
+.partnersWrap .contentWrapPartners .content-list-partner{
+    width: 50%;
+    padding: 120px 50px 50px 50px;
+}
+.partnersWrap .contentWrapPartners .content-list-partner hr{
+    width:  100px;
+    height: 3px;
+    background-color: #008155;
+}
+.partnersWrap .contentWrapPartners .content-list-partner .list-partners{
+    padding-right: 30px;
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.partnersWrap .contentWrapPartners .content-list-partner .list-partners .item-partner{
+    padding: 30px 30px;
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+.partnersWrap .contentWrapPartners .content-list-partner .list-partners .item-partner img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.partnersWrap .mb .list-partners{
+   display: flex;
+    flex-wrap: wrap;
+}
+.partnersWrap .mb .list-partners .item-partner{
+    padding: 20px;
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+.partnersWrap .mb .list-partners .item-partner img{
+    width: 100%;
+    object-fit: cover;
+}
+.pc{
+    display: block;
+}
+.mb{
+    display: none;
+}
+@media (max-width: 1640px) {
+    .partnersWrap .contentWrapPartners .content-leader {
+        margin-right: 0;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        width: 58.5%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .partnersWrap .contentWrapPartners .content-list-partner .list-partners .item-partner{
+        padding: 20px 20px;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner .list-partners{
+        padding-right: 0;
+        padding-top: 0;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        padding: 70px 50px 50px 50px;
+    }
+}
+@media (max-width: 1165px) {
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        padding: 70px 10px 10px 50px;
+    }
+}
+
+@media (max-width: 1096px) {
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        padding: 50px 0px 10px 0px;
+    }
+}
+@media (max-width: 900px) {
+    .partnersWrap .contentWrapPartners .content-list-partner .title-partner{
+        font-size: 35px;
+        font-weight: bold;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner .list-partners .item-partner{
+        padding: 10px 10px 0 10px;
+    }
+    .pc{
+        display: none!important;
+    }
+    .mb{
+        display: block!important;
+    }
+    .partnersWrap .contentWrapPartners .content-leader {
+        width: 50%;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        width: 50%;
+    }
+}
+@media (max-width: 874px) {
+    .partnersWrap .contentWrapPartners .content-list-partner .title-partner {
+        font-size: 30px;
+        font-weight: bold;
+    }
+}
+@media (max-width: 600px) {
+    .partnersWrap{
+        padding: 50px 0;
+    }
+}
+@media (max-width: 550px) {
+    .partnersWrap .mb .list-partners .item-partner{
+        padding: 15px 15px 0 15px;
+    }
+}
+@media (max-width: 486px) {
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        padding: 20px 0px 10px 0px;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner .title-partner {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner hr{
+        margin: 10px 0;
+        width: 70px;
+    }
+    .partnersWrap .mb .list-partners .item-partner{
+        width: 25%;
+        padding: 10px 10px 0 10px;
+    }
+}
