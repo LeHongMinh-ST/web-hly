@@ -184,7 +184,6 @@
         </div>
     </section>
 
-
     <section class="historyPd">
         <div class="container">
             <div section=".historyPd" data="-200" class="img paralax-hor">
@@ -206,4 +205,7 @@
             </div>
         </div>
     </section>
+
+    @include('cms.components.partners')
+
 @endsection
