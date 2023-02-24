@@ -121,9 +121,9 @@ input.has-error:-moz-placeholder {
     color: gray;
 }
 .btn-show-more{
+    cursor: pointer;
     padding: 10px 20px;
     background-color: #008155;
-    border-radius:5px;
     color: white;
     margin: 30px 0 10px 0;
     max-width: 120px;
@@ -171,10 +171,6 @@ max-width: none
     padding: 20px;
 }
 
-.wrapper-ecosytem .block-info:hover {
-    border: 1px solid #ececef!important;;
-}
-
 .wrapper-ecosytem .img-block {
     width: 60%;
     object-fit: cover;
@@ -191,7 +187,7 @@ max-width: none
 .wrapper-ecosytem .block-info .btn-show-more {
     padding: 10px 20px;
     background-color: #008155;
-    border-radius:5px;
+    cursor: pointer;
     color: white;
     margin: 30px 0;
     max-width: 120px;

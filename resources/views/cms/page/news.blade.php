@@ -17,7 +17,7 @@
                             @if(isset($_GET['category_id']) && $_GET['category_id'] == $category->id)
                                     class="active"
                                     @endif
-                            href="{{route('cms.news',['category_id'=>$category->id])}}">{{$category->name}} </a></li>
+                            href="{{route('cms.news',['c.ategory_id'=>$category->id])}}">{{$category->name}} </a></li>
                 @endforeach
             </ul>
             <select class="slNews js-select-redirect">
