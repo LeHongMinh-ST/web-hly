@@ -442,3 +442,85 @@ max-width: none
         font-size: 18px; font-weight: 300;
     }
 }
+/*inventorsWrap*/
+.inventorsWrap{
+    padding: 50px;
+}
+.inventorsWrap .events{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.inventorsWrap .events .item-event{
+    padding: 60px 30px;
+    width: 32%;
+    max-width: 470px;
+    background: #00aaaa;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.inventorsWrap .events .item-event .title-event{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.inventorsWrap .events .item-event .description-event{
+    margin: 100px 0;
+}
+.inventorsWrap .events .item-event .description-event .content{
+    margin: 15px 0;
+}
+.inventorsWrap .events .item-event .description-event .content img{
+    width: 15px;
+    margin-right: 5px;
+}
+.inventorsWrap .events .item-event .icon-event{
+    margin-bottom: 50px;
+}
+
+.inventorsWrap .events .item-event .show-more-text a{
+    display: flex;
+    align-items: center;
+    color: #0a001f;
+}
+.inventorsWrap .events .item-event .show-more-text img{
+    width: 20px;
+    margin-left: 30px;
+}
+
+.stockInformation{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.stockInformation .chartStockWrap{
+    width: 60%;
+    background: transparent;
+}
+
+.stockInformation .chartStockWrap .titleChartWrap{
+    margin-bottom: 70px;
+}
+.stockInformation .chartStockWrap .titleChart .title1{
+    font-weight: bold;
+}
+.stockInformation .chartStockWrap .titleChart .title2 .bigTitle{
+    color: #16b14b;
+    font-size: 20px;
+    font-weight: bold;
+}
+.stockInformation .chartStockWrap .titleChart .title2 {
+    display: flex;
+    align-items: flex-end;
+}
+
+.stockInformation .newWrap{
+    width: 33%;
+}
+.stockInformation .newWrap img{
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+}
