@@ -24,7 +24,7 @@
         <nav>
             <ul id="nav">
                 <li><a href="{{ localized_route('home') }}" class="active">{{ __('Trang chủ') }}</a></li>
-                <li><a href="{{ localized_route('cms.introduce') }}" class="">{{ __('Giới thiệu HLY') }}</a></li>
+                <li><a href="{{ localized_route('cms.about') }}" class="">{{ __('Giới thiệu HLY') }}</a></li>
                 <li class="hasSub">
                     <a href="/linh-vuc-hoat-dong" class="">{{ __('Lĩnh vực hoạt động') }}</a>
                     <div class="submenu">

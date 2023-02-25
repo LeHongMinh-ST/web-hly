@@ -27,7 +27,7 @@ Route::multilingual('/', [HomeController::class, 'index'])->name('home');
 
 Route::multilingual('/gioi-thieu', function () {
     return view('cms.page.introduce');
-})->name('cms.introduce');
+})->name('cms.about');
 
 Route::multilingual('/linh-vuc-hoat-dong', function () {
     return view('cms.page.activity');
