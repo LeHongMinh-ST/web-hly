@@ -33,6 +33,10 @@ Route::get('/linh-vuc-hoat-dong', function () {
     return view('cms.page.activity');
 });
 
+Route::get('/he-sinh-thai/suc-khoe', function () {
+    return view('cms.page.ecosystem.health');
+});
+
 Route::prefix('/tin-tuc-su-kien')->group(function () {
     Route::get('/', [HomeController::class, 'postPage'])->name('cms.news');
 

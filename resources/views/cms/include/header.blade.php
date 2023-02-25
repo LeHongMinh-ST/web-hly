@@ -23,15 +23,16 @@
                 <li class="hasSub">
                     <a href="/linh-vuc-hoat-dong" class="">Lĩnh v&#7921;c ho&#7841;t đ&#7897;ng</a>
                     <div class="submenu">
-                        <a href="/linh-vuc-hoat-dong">Công ngh&#7879;  - Công nghi&#7879;p</a>
-                        <a href="/linh-vuc-hoat-dong">Thương m&#7841;i  D&#7883;ch v&#7909;</a>
-                        <a href="/linh-vuc-hoat-dong">Thi&#7879;n nguy&#7879;n  Xã h&#7897;i</a>
+                        <a href="/linh-vuc-hoat-dong">{{__("Công nghệ xanh")}}</a>
+                        <a href="/linh-vuc-hoat-dong">{{__("Thương mai dịch vụ")}}</a>
+                        <a href="/linh-vuc-hoat-dong">{{__("Thực phẩm xanh")}}</a>
+                        <a href="/linh-vuc-hoat-dong">{{__("Nam y và chăm sóc sức khỏe")}}</a>
                     </div>
                 </li>
                 <li>
                 </li>
                 <li><a href="/tin-tuc-su-kien" class="">Phát triển bền vững</a></li>
-                <li><a href="/tin-tuc-su-kien" class="">Quan hệ cổ đông</a></li>
+                <li><a href="/tin-tuc-su-kien" class="">Nhà đầu tư</a></li>
                 <li><a href="/tin-tuc-su-kien" class="">Tin tức mới</a></li>
             </ul>
             <div class="subLink">

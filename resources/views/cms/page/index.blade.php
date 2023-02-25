@@ -97,10 +97,10 @@
                                 </div>
                                 <div class="copy">
                                     <!-- <p>- Sản xuất thuốc</p> -->
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong.html"></a>
+                            <a class="link" href="/linh-vuc-hoat-dong"></a>
                         </div>
                     </li>
                     <li>
@@ -114,10 +114,25 @@
                                 <div class="copy">
                                     <!-- <p>- Du lịch nghỉ dưỡng</p>
                                     <p>- Dưỡng sinh</p> -->
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong.html"></a>
+                            <a class="link" href="/linh-vuc-hoat-dong"></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item cate-3">
+                            <div class="ico"><img src="./assets/fe/images/b.gif"></div>
+                            <h2>THỰC PHẨM XANH</h2>
+                            <div class="content">
+                                <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
+                                    <img src="./assets/fe/images/thumb-cate.gif">
+                                </div>
+                                <div class="copy text-white">
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                                </div>
+                            </div>
+                            <a class="link" href="/linh-vuc-hoat-dong"></a>
                         </div>
                     </li>
                     <li>
@@ -129,10 +144,10 @@
                                     <img src="./assets/fe/images/thumb-cate.gif">
                                 </div>
                                 <div class="copy text-white">
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong.html"></a>
+                            <a class="link" href="/linh-vuc-hoat-dong"></a>
                         </div>
                     </li>
                     <li></li>
@@ -145,7 +160,7 @@
     <section class="shareholdersHomeWrap">
         <div class="container">
             <a href="/quan-he-co-dong">
-                <h2 class="title">QUAN HỆ CỔ ĐÔNG</h2>
+                <h2 class="title">NHÀ ĐẦU TƯ</h2>
             </a>
             <div class="row">
                 <div class="relationshipShareholder">
@@ -205,7 +220,4 @@
             </div>
         </div>
     </section>
-
-    @include('cms.components.partners')
-
 @endsection

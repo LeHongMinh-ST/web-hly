@@ -11,7 +11,7 @@
                     <h3 >Công nghệ</h3>
                     <p>FPT là đối tác chiến lược quan trọng về tư vấn, đào tạo, triển khai chuyển đổi số của các tập đoàn, tổ chức hàng đầu trên thế giới và tại Việt Nam trong nhiều lĩnh vực</p>
                 </div>
-                <a type="button" style="" href="" class="btn-show-more">Xem thêm</a>
+                <a type="button" style="" href="/he-sinh-thai/suc-khoe" class="btn-show-more">Xem thêm</a>
             </div>
         </div>
         @endfor
