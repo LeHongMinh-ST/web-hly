@@ -455,11 +455,17 @@ max-width: none
     padding: 60px 30px;
     width: 32%;
     max-width: 470px;
-    background: #00aaaa;
+    background: #b7e0f1;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+.inventorsWrap .events .item-event:first-of-type{
+    background-color: #fddab0;
+}
+.inventorsWrap .events .item-event:last-of-type{
+    background-color: #dadada;
 }
 .inventorsWrap .events .item-event .title-event{
     font-size: 30px;
@@ -504,23 +510,59 @@ max-width: none
 .stockInformation .chartStockWrap .titleChartWrap{
     margin-bottom: 70px;
 }
-.stockInformation .chartStockWrap .titleChart .title1{
+.stockInformation .chartStockWrap .titleChart .titleStock1{
     font-weight: bold;
+    margin-bottom: 15px;
 }
-.stockInformation .chartStockWrap .titleChart .title2 .bigTitle{
+.stockInformation .chartStockWrap .titleChart .titleStock2 .bigTitle{
     color: #16b14b;
     font-size: 20px;
     font-weight: bold;
+    margin-left: 20px;
+    margin-right: 10px;
 }
-.stockInformation .chartStockWrap .titleChart .title2 {
+.stockInformation .chartStockWrap .titleChart .titleStock2 .smallTitle{
+    color: #16b14b;
+    font-weight: bold;
+}
+.stockInformation .chartStockWrap .titleChart .titleStock2 {
     display: flex;
     align-items: flex-end;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+.stockInformation .chartStockWrap .titleChart .titleStock3 {
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .stockInformation .newWrap{
     width: 33%;
+    position: relative;
 }
-.stockInformation .newWrap img{
+.stockInformation .newWrap .bgWrap{
     width: 100%;
+    height: 100%;
+    object-fit: fill;
     border-radius: 0 0 20px 20px;
+}
+
+.stockInformation .newWrap .contentWrap{
+    position: absolute;
+    width: 100%;
+    color: white;
+    bottom: 0;
+    padding: 30px;
+}
+.stockInformation .newWrap .contentWrap .show-more-text img{
+    width: 15px;
+}
+.stockInformation .newWrap .contentWrap .titleContentLeft{
+    margin-bottom: 25px;
+}
+
+.stockInformation .newWrap .contentWrap .descriptionContentLeft{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
 }

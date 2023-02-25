@@ -47,9 +47,7 @@ Route::get('/lien-he', function () {
     return view('cms.page.contact');
 });
 
-Route::get('/nha-dau-tu', function () {
-    return view('cms.page.investor');
-});
+Route::get('/nha-dau-tu', [HomeController::class, 'investors']);
 
 
 
