@@ -6,7 +6,7 @@
     <section class="newsWrap stagger-up" style="padding-top: 40px;">
         <div class="container">
             <div class="breadcrumb">
-                <a href="{{ route('home') }}"><i class="fas fa-home"></i></a> <i class="fas fa-chevron-right"></i>
+                <a href="{{ localized_route('home') }}"><i class="fas fa-home"></i></a> <i class="fas fa-chevron-right"></i>
                 <p>Tin tức {{$post->categories[0]->name}}</p>
             </div>
             <div class="infoNews">

@@ -1,16 +1,21 @@
 <header>
     <!-- Thường chứa LOGO, MENU NAVIGATION,... -->
     <div class="hdContainer">
-        <a class="logo" href="/" style="background-image: url('/assets/fe/images/logo.png');">
-            <img src="/assets/fe/images/logo.png">
+        <a class="logo" href="{{ localized_route('home') }}" style="background-image: url('{{ asset('/assets/fe/images/logo.png') }}');">
+            <img src="{{ asset('/assets/fe/images/logo.png') }}">
         </a>
         <div class="hamburger-menu">
             <div class="bar"></div>
         </div>
         <div class="botHd">
-            <a class="btnSearch" href="/tim-kiem"></a>
+            <a class="btnSearch" href="{{ localized_route('cms.search') }}"></a>
             <p>
-                <a href="/en">EN</a><em>|</em><span>VN</span>
+                @if(app()->getLocale() === 'vi')
+                <a href="{{ current_route('en') }}">EN</a><em>|</em><span>VN</span>
+                @elseif(app()->getLocale() === 'en')
+                <span>EN</span><em>|</em><a href="{{ current_route('vi') }}">VN</a>
+
+                @endif
             </p>
         </div>
     </div>
@@ -18,10 +23,10 @@
     <div class="ctMenu">
         <nav>
             <ul id="nav">
-                <li><a href="/" class="active">Trang chủ</a></li>
-                <li><a href="/gioi-thieu" class="">Giới thiệu HLY</a></li>
+                <li><a href="{{ localized_route('home') }}" class="active">{{ __('Trang chủ') }}</a></li>
+                <li><a href="{{ localized_route('cms.introduce') }}" class="">{{ __('Giới thiệu HLY') }}</a></li>
                 <li class="hasSub">
-                    <a href="/linh-vuc-hoat-dong" class="">Lĩnh v&#7921;c ho&#7841;t đ&#7897;ng</a>
+                    <a href="/linh-vuc-hoat-dong" class="">{{ __('Lĩnh vực hoạt động') }}</a>
                     <div class="submenu">
                         <a href="/linh-vuc-hoat-dong">{{__("Công nghệ xanh")}}</a>
                         <a href="/linh-vuc-hoat-dong">{{__("Thương mai dịch vụ")}}</a>
@@ -31,13 +36,13 @@
                 </li>
                 <li>
                 </li>
-                <li><a href="/tin-tuc-su-kien" class="">Phát triển bền vững</a></li>
-                <li><a href="/tin-tuc-su-kien" class="">Nhà đầu tư</a></li>
-                <li><a href="/tin-tuc-su-kien" class="">Tin tức mới</a></li>
+                <li><a href="/tin-tuc-su-kien" class="">{{ __('Phát triển bền vững') }}</a></li>
+                <li><a href="/tin-tuc-su-kien" class="">{{ __('Nhà đầu tư') }}</a></li>
+                <li><a href="{{ localized_route('cms.news') }}" class="">{{ __('Tin tức mới') }}</a></li>
             </ul>
             <div class="subLink">
                 <a href="#" target="_blank" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Tuyển dụng</a>
-                <a href="/lien-he" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Liên hệ</a>
+                <a href="{{ localized_route('cms.contact') }}" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">{{ __('Liên hệ') }}</a>
             </div>
         </nav>
     </div>

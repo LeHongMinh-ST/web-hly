@@ -39,3 +39,4 @@ function deleteValue($array, $value): array
 
     return array_values($array);
 }
+
