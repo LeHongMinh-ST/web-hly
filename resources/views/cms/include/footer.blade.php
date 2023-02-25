@@ -25,7 +25,7 @@
                     <li><a href="/gioi-thieu"><strong>Giới thiệu HYL</strong> </a></li>
                     <li><a href="/linh-vuc-hoat-dong/cong-nghe"><strong>Lĩnh vực hoạt động</strong> </a>
                     </li>
-                    <li><a href="/quan-he-co-dong"><strong>Quan hệ cổ đông</strong> </a></li>
+                    <li><a href="/quan-he-co-dong"><strong>Nhà đầu tư</strong> </a></li>
                     <li><a href="/tin-tuc-su-kien">Tin tức sự kiện</a> </li>
                 </ul>
                 <ul>

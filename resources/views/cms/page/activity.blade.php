@@ -4,21 +4,23 @@
 @endsection
 @section('content')
 
-    <section class="bannerPd stagger-up" style="padding-top: 40px;">
+    <section class="bannerPd stagger-up" >
 
 
         <img src="./assets/fe/images/hl3.jpg">
 
 
         <div class="linkPage">
-            <a class=active href="/linh-vuc-hoat-dong/cong-nghe-br-cong-nghiep">Công ngh&#7879; - Công nghi&#7879;p</a>
-            <a href="/linh-vuc-hoat-dong/thuong-mai-br-dich-vu">Thương m&#7841;i D&#7883;ch v&#7909;</a>
-            <a href="/linh-vuc-hoat-dong/thien-nguyen-br-xa-hoi">Thi&#7879;n nguy&#7879;n Xã h&#7897;i</a>
+            <a class=active href="/linh-vuc-hoat-dong/cong-nghe-br-cong-nghiep">{{__("Công nghệ xanh")}}</a>
+            <a href="/linh-vuc-hoat-dong/thuong-mai-br-dich-vu">{{__("Thương mai dịch vụ")}}</a>
+            <a href="/linh-vuc-hoat-dong/thien-nguyen-br-xa-hoi">{{__("Thực phẩm xanh")}}</a>
+            <a href="/linh-vuc-hoat-dong/thien-nguyen-br-xa-hoi">{{__("Nam y và Chăm sóc sức khỏe")}}</a>
         </div>
         <select class="slNews js-select-redirect">
-            <option selected=selected value="/linh-vuc-hoat-dong/cong-nghe-br-cong-nghiep">Công ngh&#7879; - Công nghi&#7879;p</option>
-            <option value="/linh-vuc-hoat-dong/thuong-mai-br-dich-vu">Thương m&#7841;i D&#7883;ch v&#7909;</option>
-            <option value="/linh-vuc-hoat-dong/thien-nguyen-br-xa-hoi">Thi&#7879;n nguy&#7879;n Xã h&#7897;i</option>
+            <option selected=selected value="/linh-vuc-hoat-dong/cong-nghe-br-cong-nghiep">{{__("Công nghệ xanh")}}</option>
+            <option value="/linh-vuc-hoat-dong/thuong-mai-br-dich-vu">{{__("Thương mai dịch vụ")}}</option>
+            <option value="/linh-vuc-hoat-dong/thien-nguyen-br-xa-hoi">{{__("Thực phẩm xanh")}}</option>
+            <option value="/linh-vuc-hoat-dong/thien-nguyen-br-xa-hoi">{{__("Nam y và Chăm sóc sức khỏe")}}</option>
         </select>
     </section>
     <section class="infoDetailPd stagger-up">
