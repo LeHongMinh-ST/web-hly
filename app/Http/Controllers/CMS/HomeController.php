@@ -16,7 +16,7 @@ class HomeController extends Controller
 {
     public function __construct(
         private PostRepository     $postRepository,
-        private CategoryRepository  $categoryRepository,
+        private CategoryRepository $categoryRepository,
     )
     {
     }
@@ -24,24 +24,27 @@ class HomeController extends Controller
     public function index()
     {
         $posts = $this->postRepository->with('categories')->all();
+        $featuredPosts = $this->postRepository->getFeaturedPosts(5);
         return view('cms.page.index')->with([
-            'posts'=>$posts
+            'posts' => $posts,
+            'featuredPosts' => $featuredPosts
         ]);
     }
 
-    public function postPage(Request $request){
-        if (!empty($request->input('category_id'))){
+    public function postPage(Request $request)
+    {
+        if (!empty($request->input('category_id'))) {
             $posts = Post::whereHas('categories', function ($query) use ($request) {
                 $query->where('category_id', $request->input('category_id'));
             })->with(['categories'])->paginate(5);
-        }else{
+        } else {
             $posts = $this->postRepository->with(['categories', 'slug'])->paginate(7);
         }
         $categories = Category::where('status', 1)->orderBy('order')->get();
 
         return view('cms.page.news')->with([
-            'posts'=>$posts,
-            'categories'=>$categories,
+            'posts' => $posts,
+            'categories' => $categories,
         ]);
     }
 }

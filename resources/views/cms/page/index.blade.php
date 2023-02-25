@@ -12,7 +12,7 @@
                     <h2>Rừng xanh <br> hạnh phúc </h2>
                 </div>
                 <div class="slideBanner" style="background-color: white;">
-                    @foreach($posts as $post)
+                    @foreach($featuredPosts as $post)
                     <div class="" style="">
                         <div class="subSlide">
                             <div style="display: flex; flex-direction: column; gap: 10px;">
