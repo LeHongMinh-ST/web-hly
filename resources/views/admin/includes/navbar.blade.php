@@ -17,7 +17,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li class="">
-                <a href="{{ route('home') }}">
+                <a href="{{ localized_route('home') }}">
                     <i class=" icon-home5"></i>
                     <span class=" position-right">Trang chủ</span>
                 </a>

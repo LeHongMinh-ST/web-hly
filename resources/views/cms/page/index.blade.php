@@ -9,7 +9,7 @@
         <div class="bannerHome slider stagger-up">
             <div class="item" style="background: url('./assets/fe/images/hl2.jpg') center no-repeat; box-shadow: rgb(14 100 71 / 72%) 50vw 0 70vw 0 inset;">
                 <div class="copy">
-                    <h2>Rừng xanh <br> hạnh phúc </h2>
+                    <h2>{!! __("Rừng xanh <br> hạnh phúc") !!} </h2>
                 </div>
                 <div class="slideBanner" style="background-color: white;">
                     @foreach($posts as $post)
@@ -41,7 +41,7 @@
     <section class="newsHomeWrap">
         <div section=".newsHomeWrap" data="200" class="container paralax">
             <a href="/tin-tuc-su-kien.html">
-                <h2 class="title">Tin tức sự kiện</h2>
+                <h2 class="title">{{ __('Tin tức sự kiện') }}</h2>
             </a>
             <div class="newsHomeList" style="display: flex; gap: 20px">
                 @php($i=0)
