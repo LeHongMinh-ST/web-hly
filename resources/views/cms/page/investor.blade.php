@@ -33,90 +33,50 @@
 @section('content')
     <div class="inventorsWrap">
         <div class="container">
-            <div class="events">
-                <div class="item-event">
-                    <div class="top">
-                        <div class="title-event">Đại hội cổ đông</div>
-                        <div class="description-event">
-                            <p class="content">
-                                <img src="./assets/fe/images/icons/right.png">
-                                Nghị quyết và biên bản đại hội cổ đông 2022
-                            </p>
-                            <p class="content">
-                                <img src="./assets/fe/images/icons/right.png">
-                                Lorem ipsum dolor sit amet, consectetur.
-                            </p>
+            <ul class="listCateInvestor" >
+                <div class="item cate-1">
+                    <div class="ico"><img src="./assets/fe/images/b.gif"></div>
+                    <h2>CÔNG NGHỆ XANH</h2>
+                    <div class="content">
+                        <div class="img" style="background: url('./assets/fe/images/hl1.jpg') center">
+                            <img src="./assets/fe/images/thumb-cate.gif">
+                        </div>
+                        <div class="copy">
+                            <!-- <p>- Sản xuất thuốc</p> -->
+                            <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
                         </div>
                     </div>
-                    <div class="bottom">
-                        <div class="icon-event">
-                            <img src="./assets/fe/images/icons/icon1.png">
-                        </div>
-                        <div class="show-more-text">
-                            <a href="#">
-                                <span>XEM THÊM</span>
-                                <img src="./assets/fe/images/icons/right.png">
-                            </a>
-                        </div>
-                    </div>
+                    <a class="link" href="/linh-vuc-hoat-dong"></a>
                 </div>
-                <div class="item-event">
-                    <div class="top">
-                        <div class="title-event">Đại hội cổ đông</div>
-                        <div class="description-event">
-                            <p class="content">
-                                <img src="./assets/fe/images/icons/right.png">
-                                Lorem ipsum dolor sit amet, consectetur.
-                            </p>
-                            <p class="content">
-                                <img src="./assets/fe/images/icons/right.png">
-                                Lorem ipsum dolor sit amet, consectetur.
-                            </p>
+                <div class="item cate-3">
+                    <div class="ico"><img src="./assets/fe/images/b.gif"></div>
+                    <h2>THƯƠNG MẠI DỊCH VỤ</h2>
+                    <div class="content">
+                        <div class="img" style="background: url('./assets/fe/images/hl2.jpg') center">
+                            <img src="./assets/fe/images/thumb-cate.gif">
+                        </div>
+                        <div class="copy">
+                            <!-- <p>- Du lịch nghỉ dưỡng</p>
+                            <p>- Dưỡng sinh</p> -->
+                            <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
                         </div>
                     </div>
-                    <div class="bottom">
-                        <div class="icon-event">
-                            <img src="./assets/fe/images/icons/icon1.png">
-                        </div>
-                        <div class="show-more-text">
-                            <a href="#">
-                                <span>XEM THÊM</span>
-                                <img src="./assets/fe/images/icons/right.png">
-                            </a>
-                        </div>
-                    </div>
+                    <a class="link" href="/linh-vuc-hoat-dong"></a>
                 </div>
-                <div class="item-event">
-                    <div class="top">
-                        <div class="title-event">Đại hội cổ đông</div>
-                        <div class="description-event">
-                            <p class="content">
-                                <img src="./assets/fe/images/icons/right.png">
-                                Lorem ipsum dolor sit amet, consectetur.
-                            </p>
-                            <p class="content">
-                                <img src="./assets/fe/images/icons/right.png">
-                                Lorem ipsum dolor sit amet, consectetur.
-                            </p>
-                            <p class="content">
-                                <img src="./assets/fe/images/icons/right.png">
-                                Lorem ipsum dolor sit amet, consectetur.
-                            </p>
+                <div class="item cate-3">
+                        <div class="ico"><img src="./assets/fe/images/b.gif"></div>
+                        <h2>THỰC PHẨM XANH</h2>
+                        <div class="content">
+                            <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
+                                <img src="./assets/fe/images/thumb-cate.gif">
+                            </div>
+                            <div class="copy text-white">
+                                <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                            </div>
                         </div>
+                        <a class="link" href="/linh-vuc-hoat-dong"></a>
                     </div>
-                    <div class="bottom">
-                        <div class="icon-event">
-                            <img src="./assets/fe/images/icons/icon1.png">
-                        </div>
-                        <div class="show-more-text">
-                            <a href="#">
-                                <span>XEM THÊM</span>
-                                <img src="./assets/fe/images/icons/right.png">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </ul>
         </div>
         <div class="stockInformation">
             <div class="chartStockWrap">
