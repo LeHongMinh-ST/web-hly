@@ -67,6 +67,7 @@ class PostController extends Controller
         DB::beginTransaction();
         try {
             $data = $request->all();
+            dd($data);
 
             $post = $this->postRepository->create(array_merge($data, [
                 'create_by' => auth()->id(),

@@ -23,9 +23,9 @@ class Category extends Model
         'update_by',
     ];
 
-    public function posts(): BelongsToMany
+    public function posts(): HasMany
     {
-        return $this->belongsToMany(Post::Class, 'post_categories');
+        return $this->hasMany(Post::class);
     }
 
     public function slug(): MorphOne

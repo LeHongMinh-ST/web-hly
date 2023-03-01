@@ -72,6 +72,8 @@ class CategoryController extends Controller
                 'views' => 0
             ]));
 
+
+
             $category?->slug()->create(['content' => $this->slugService->generateSlug(Category::class, $category->name)]);
 
             $refLanguage = $data['ref_language'] ?? Language::Vietnamese;
