@@ -7482,7 +7482,7 @@ nav {
 }
 
 footer {
-    background: var(--color-green-blur1);
+    background: #0e6447;
     padding-top: 50px;
     /* margin-top: 40px */
 }
@@ -7543,7 +7543,8 @@ footer .right ul li a:hover {
 
 .botFooter {
     border-top: 1px solid #eee;
-    padding: 20px 0
+    padding: 20px 0;
+    margin-top: 20px;
 }
 
 .botFooter p {
@@ -9054,7 +9055,7 @@ main {
     float: left;
     display: block;
     padding: 0 35px;
-    border-right: 1px solid #dedede;
+    /* border-right: 1px solid #dedede; */
     margin-bottom: 50px
 }
 
@@ -10974,4 +10975,6 @@ main {
         margin-right: 0;
         margin-bottom: 0
     }
+
+
 }

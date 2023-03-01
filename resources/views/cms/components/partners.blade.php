@@ -12,34 +12,34 @@
             </div>
             <div class="list-partners pc">
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/1.jpg" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/2.PNG" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/3.jpg" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/4.png" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/5.png" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/6.jpg" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/6.png" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/7.png" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/8.jpg" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
                 <div class="item-partner">
-                    <img src="./assets/fe/images/partners/9.png" alt="">
+                    <img src="./assets/fe/images/logo.png" alt="">
                 </div>
             </div>
         </div>
@@ -47,34 +47,34 @@
     <div class="mb">
         <div class="list-partners">
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/1.jpg" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/2.PNG" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/3.jpg" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/4.png" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/5.png" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/6.jpg" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/6.png" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/7.png" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/8.jpg" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
             <div class="item-partner">
-                <img src="./assets/fe/images/partners/9.png" alt="">
+                <img src="./assets/fe/images/logo.png" alt="">
             </div>
         </div>
     </div>
