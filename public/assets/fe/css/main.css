@@ -7484,7 +7484,7 @@ nav {
 footer {
     background: var(--color-green-blur1);
     padding-top: 50px;
-    margin-top: 40px
+    /* margin-top: 40px */
 }
 
 footer .left>div {
