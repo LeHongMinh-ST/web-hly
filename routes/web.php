@@ -33,6 +33,11 @@ Route::multilingual('/linh-vuc-hoat-dong', function () {
     return view('cms.page.activity');
 })->name('cms.business');
 
+
+Route::multilingual('/phat-trien-ben-vung', function () {
+    return view('cms.page.sustainableDevelopment');
+})->name('cms.sustainableDevelopment');
+
 Route::get('/he-sinh-thai/suc-khoe', function () {
     return view('cms.page.ecosystem.health');
 })->name('cms.ecosystem');

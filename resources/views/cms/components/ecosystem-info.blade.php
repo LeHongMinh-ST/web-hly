@@ -14,45 +14,36 @@
             </div>
         </div>
         <div class="container">
-            <h2 class="title">Các thương hi&#7879;u</h2>
+            <h2 class="title">Các thương hiệu</h2>
             <ul>
                 <li>
-                    <div class="item">
-                        <a href="#">
-                            <img src="../assets/fe/images/hg3.jpg">
-                        </a>
-                        <div>
-                            <h2>HÀ YÊN</h2>
-                            <a href="#" target="_blank">www.HLYai.io</a>
+                    <div class="item" style="display: flex; gap: 10px; align-items: center;">
+                        <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
+                            <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
+                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
-                        <p>Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</p>
-                        <a class="btn-2" href="#">Xem chi ti&#7871;t</a>
+                        <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
                     </div>
                 </li>
                 <li>
-                    <div class="item">
-                        <a href="#">
-                            <img src="../assets/fe/images/hg2.jpg">
-                        </a>
-                        <div>
-                            <h2>AN LANG</h2>
-                            <a href="#" target="_blank">www.HLYai.io</a>
+                <div class="item" style="display: flex; gap: 10px; align-items: center;">
+                        <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
+                            <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
+                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
-                        <p>Thương hiệu cung cấp dịch vụ tư vấn y khoa mọi lúc mọi nơi</p>
-                        <a class="btn-2" href="#">Xem chi ti&#7871;t</a>
+                        <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
                     </div>
                 </li>
                 <li>
-                    <div class="item">
-                        <a href="#">
-                            <img src="../assets/fe/images/hg3.jpg">
-                        </a>
-                        <div>
-                            <h2>HLY1</h2>
-                            <a href="#" target="_blank">www.HLYai.io</a>
+                <div class="item" style="display: flex; gap: 10px; align-items: center;">
+                        <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
+                            <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
+                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
-                        <p>Thương hiệu hướng tới bảo vệ trọn vẹn hạnh phúc gia đình bạn.</p>
-                        <a class="btn-2" href="#">Xem chi ti&#7871;t</a>
+                        <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
                     </div>
                 </li>
             </ul>

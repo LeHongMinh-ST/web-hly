@@ -69,18 +69,18 @@
             </div>
             <ul section="#block1" data="200" class="crsPartner paralax-hor" style="display: flex; justify-content: space-evenly;">
                     <li style="width: 180px;">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/logo_Vinfast-20190724T075546806189.png">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/Logo_Vinsmart-20190724T080557080845.png">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
                     </li>
                     <li style="width: 180px;">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/logo_Vinhomes-20190724T080402028663.png">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/logo_Vinpearl-20190724T075858560451.png">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
                     </li><li style="width: 180px;">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/Logo_vinschool-20190724T080746392057.png">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/logo_Vinmec-20190724T080653218385.png">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
                     </li><li style="width: 180px;">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/Logo_vinuni-20190724T080031613411.png">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/Public/2022/VFP.png">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
                 </li>
             </li>
         </ul>

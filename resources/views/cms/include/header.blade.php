@@ -36,7 +36,7 @@
                 </li>
                 <li>
                 </li>
-                <li><a href="/tin-tuc-su-kien" class="">{{ __('Phát triển bền vững') }}</a></li>
+                <li><a href="/phat-trien-ben-vung" class="">{{ __('Phát triển bền vững') }}</a></li>
                 <li><a href="/tin-tuc-su-kien" class="">{{ __('Nhà đầu tư') }}</a></li>
                 <li><a href="{{ localized_route('cms.news') }}" class="">{{ __('Tin tức mới') }}</a></li>
             </ul>
