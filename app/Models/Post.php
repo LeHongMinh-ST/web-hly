@@ -19,6 +19,7 @@ class Post extends Model
         'title',
         'content',
         'status',
+        'is_featured',
         'description',
         'thumbnail',
         'language',

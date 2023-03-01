@@ -66,12 +66,13 @@ class PostController extends Controller
     {
         DB::beginTransaction();
         try {
-            $data = $request->all();
 
+            $data = $request->all();
             $post = $this->postRepository->create(array_merge($data, [
                 'create_by' => auth()->id(),
                 'update_by' => auth()->id(),
-                'views' => 0
+                'views' => 0,
+                'is_featured' => array_key_exists('is_featured', $data)
             ]));
 
             $post?->categories()->attach(@$data['category_ids'] ?? []);
@@ -131,6 +132,7 @@ class PostController extends Controller
 
             $post?->fill(array_merge($data, [
                 'update_by' => auth()->id(),
+                'is_featured' => array_key_exists('is_featured', $data)
             ]));
 
             $post?->save();
