@@ -86,7 +86,7 @@ input.has-error:-moz-placeholder {
     width: 100%;
 }
 .slideBanner{
-    border-radius: 8px;
+    /* border-radius: 8px; */
     overflow: hidden;
     width: 37%;
     height: auto;
@@ -121,9 +121,9 @@ input.has-error:-moz-placeholder {
     color: gray;
 }
 .btn-show-more{
+    cursor: pointer;
     padding: 10px 20px;
     background-color: #008155;
-    border-radius:5px;
     color: white;
     margin: 30px 0 10px 0;
     max-width: 120px;
@@ -171,14 +171,9 @@ max-width: none
     padding: 20px;
 }
 
-.wrapper-ecosytem .block-info:hover {
-    border: 1px solid #ececef!important;;
-}
-
 .wrapper-ecosytem .img-block {
     width: 60%;
     object-fit: cover;
-    border-radius: 30px;
 }
 
 .wrapper-ecosytem .block-info h3 {
@@ -192,8 +187,429 @@ max-width: none
 .wrapper-ecosytem .block-info .btn-show-more {
     padding: 10px 20px;
     background-color: #008155;
-    border-radius:5px;
+    cursor: pointer;
     color: white;
     margin: 30px 0;
     max-width: 120px;
 }
+.partnersWrap{
+    padding: 50px;
+}
+.partnersWrap .contentWrapPartners{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.partnersWrap .contentWrapPartners .content-leader {
+    position: relative;
+    width: 41.5%;
+    margin-right: 8.5%;
+}
+.partnersWrap .contentWrapPartners .content-leader .imageLeader{
+    border-radius: 0 33% 0 0;
+    margin: 12.5%;
+    width: 75%;
+}
+.partnersWrap .contentWrapPartners .content-leader .lineSoft{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 12.5%;
+}
+.partnersWrap .contentWrapPartners .content-list-partner{
+    width: 50%;
+    padding: 120px 50px 50px 50px;
+}
+.partnersWrap .contentWrapPartners .content-list-partner hr{
+    width:  100px;
+    height: 3px;
+    background-color: #008155;
+}
+.partnersWrap .contentWrapPartners .content-list-partner .list-partners{
+    padding-right: 30px;
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.partnersWrap .contentWrapPartners .content-list-partner .list-partners .item-partner{
+    padding: 30px 30px;
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+.partnersWrap .contentWrapPartners .content-list-partner .list-partners .item-partner img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.partnersWrap .mb .list-partners{
+   display: flex;
+    flex-wrap: wrap;
+}
+.partnersWrap .mb .list-partners .item-partner{
+    padding: 20px;
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+.partnersWrap .mb .list-partners .item-partner img{
+    width: 100%;
+    object-fit: cover;
+}
+.pc{
+    display: block;
+}
+.mb{
+    display: none;
+}
+@media (max-width: 1640px) {
+    .partnersWrap .contentWrapPartners .content-leader {
+        margin-right: 0;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        width: 58.5%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .partnersWrap .contentWrapPartners .content-list-partner .list-partners .item-partner{
+        padding: 20px 20px;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner .list-partners{
+        padding-right: 0;
+        padding-top: 0;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        padding: 70px 50px 50px 50px;
+    }
+}
+@media (max-width: 1165px) {
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        padding: 70px 10px 10px 50px;
+    }
+}
+
+@media (max-width: 1096px) {
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        padding: 50px 0px 10px 0px;
+    }
+}
+@media (max-width: 900px) {
+    .partnersWrap .contentWrapPartners .content-list-partner .title-partner{
+        font-size: 35px;
+        font-weight: bold;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner .list-partners .item-partner{
+        padding: 10px 10px 0 10px;
+    }
+    .pc{
+        display: none!important;
+    }
+    .mb{
+        display: block!important;
+    }
+    .partnersWrap .contentWrapPartners .content-leader {
+        width: 50%;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        width: 50%;
+    }
+}
+@media (max-width: 874px) {
+    .partnersWrap .contentWrapPartners .content-list-partner .title-partner {
+        font-size: 30px;
+        font-weight: bold;
+    }
+}
+@media (max-width: 600px) {
+    .partnersWrap{
+        padding: 50px 0;
+    }
+}
+@media (max-width: 550px) {
+    .partnersWrap .mb .list-partners .item-partner{
+        padding: 15px 15px 0 15px;
+    }
+}
+@media (max-width: 486px) {
+    .partnersWrap .contentWrapPartners .content-list-partner{
+        padding: 20px 0px 10px 0px;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner .title-partner {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .partnersWrap .contentWrapPartners .content-list-partner hr{
+        margin: 10px 0;
+        width: 70px;
+    }
+    .partnersWrap .mb .list-partners .item-partner{
+        width: 25%;
+        padding: 10px 10px 0 10px;
+    }
+}
+
+/* .ecosytem-info */
+
+.ecosystem-info {
+    max-width: 1700px; margin: auto;
+}
+
+.ecosystem-info .info {
+    display: flex;
+    margin: 40px 0;
+    padding: 0 10px;
+}
+
+.ecosystem-info .info .poster {
+    width: 50%;
+    position: relative;
+    aspect-ratio: 5/3;
+}
+
+.ecosystem-info .info .poster {
+    width: 50%;
+    position: relative;
+    aspect-ratio: 5/3;
+}
+
+.ecosystem-info .info .poster img:first-child {
+    width: 80%;
+    object-fit: cover;
+    aspect-ratio: 5/3;
+}
+
+.ecosystem-info .info .poster img:last-child {
+    aspect-ratio: 16/9;
+    width: 50%;
+    position: absolute;
+    padding: 10px;
+    background-color: #ffffff;
+    bottom: 30px;
+    right: 30px;
+    object-fit: cover;
+}
+
+.ecosystem-info .info .content {
+    width: 50%;
+    padding-right: 10px
+}
+
+.ecosystem-info .info .description{
+    font-size:20px;
+    font-weight: 400;
+    margin-top: 20px;
+    line-height: 1.3;
+}
+
+.ecosystem-info .info .content .title {
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 53px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .ecosystem-info .content .description {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .ecosystem-info .info{
+        flex-direction: column;
+    }
+
+    .ecosystem-info .info .poster {
+        width: 90%;
+        margin: auto;
+    }
+
+    .ecosystem-info .info .content {
+        width: 100%;
+        padding: 0 10px;
+        margin: auto;
+    }
+
+    .ecosystem-info .info .content .title {
+        margin-top: 0px;
+        padding-bottom: 0px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .ecosystem-info .content .description {
+        font-size: 18px; font-weight: 300;
+    }
+}
+/*inventorsWrap*/
+.inventorsWrap{
+    padding: 50px;
+}
+.inventorsWrap .events{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.inventorsWrap .events .item-event{
+    padding: 60px 30px;
+    width: 32%;
+    max-width: 470px;
+    background: #b7e0f1;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.inventorsWrap .events .item-event:first-of-type{
+    background-color: #fddab0;
+}
+.inventorsWrap .events .item-event:last-of-type{
+    background-color: #dadada;
+}
+.inventorsWrap .events .item-event .title-event{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.inventorsWrap .events .item-event .description-event{
+    margin: 100px 0;
+}
+.inventorsWrap .events .item-event .description-event .content{
+    margin: 15px 0;
+}
+.inventorsWrap .events .item-event .description-event .content img{
+    width: 15px;
+    margin-right: 5px;
+}
+.inventorsWrap .events .item-event .icon-event{
+    margin-bottom: 50px;
+}
+
+.inventorsWrap .events .item-event .show-more-text a{
+    display: flex;
+    align-items: center;
+    color: #0a001f;
+}
+.inventorsWrap .events .item-event .show-more-text img{
+    width: 20px;
+    margin-left: 30px;
+}
+
+.stockInformation{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.stockInformation .chartStockWrap{
+    width: 60%;
+    background: transparent;
+}
+
+.stockInformation .chartStockWrap .titleChartWrap{
+    margin-bottom: 70px;
+}
+.stockInformation .chartStockWrap .titleChart .titleStock1{
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.stockInformation .chartStockWrap .titleChart .titleStock2 .bigTitle{
+    color: #16b14b;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.stockInformation .chartStockWrap .titleChart .titleStock2 .smallTitle{
+    color: #16b14b;
+    font-weight: bold;
+}
+.stockInformation .chartStockWrap .titleChart .titleStock2 {
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+.stockInformation .chartStockWrap .titleChart .titleStock3 {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.stockInformation .newWrap{
+    width: 33%;
+    position: relative;
+}
+.stockInformation .newWrap .bgWrap{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 0 0 20px 20px;
+}
+
+.stockInformation .newWrap .contentWrap{
+    position: absolute;
+    width: 100%;
+    color: white;
+    bottom: 0;
+    padding: 30px;
+}
+.stockInformation .newWrap .contentWrap .show-more-text img{
+    width: 15px;
+}
+.stockInformation .newWrap .contentWrap .titleContentLeft{
+    margin-bottom: 25px;
+}
+
+.stockInformation .newWrap .contentWrap .descriptionContentLeft{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* nha dau tu */
+.container-sustainable-development {
+    display: flex;
+    max-width: 1700px;
+    margin: 20px auto;
+    width: 100%;
+    gap: 60px;
+    padding: 0 30px;
+}
+
+.container-sustainable-development .wrap-info {
+    width: 33%;
+    display: flex;
+    flex-direction:
+    column;
+    padding: 20px;
+    border: 2px solid #f1efef;
+    box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+    overflow: hidden;
+}
+
+.container-sustainable-development .wrap-info .poster {
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.container-sustainable-development .wrap-info .poster img {
+    width: 100%; aspect-ratio: 10/6; object-fit: cover;
+}
+
+.container-sustainable-development .wrap-info .poster .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255,255,255, 0.6);
+    padding: 20px 40px 20px 5px;
+    margin: 10px;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.container-sustainable-development .wrap-info .content {
+    width: 100%; font-size: 20px; padding: 0 10px; height: 200px;
+}
+

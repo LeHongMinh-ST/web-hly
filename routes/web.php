@@ -23,27 +23,34 @@ use UniSharp\LaravelFilemanager\Lfm;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::multilingual('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/gioi-thieu', function () {
+Route::multilingual('/gioi-thieu', function () {
     return view('cms.page.introduce');
-});
+})->name('cms.about');
 
-Route::get('/linh-vuc-hoat-dong', function () {
+Route::multilingual('/linh-vuc-hoat-dong', function () {
     return view('cms.page.activity');
-});
+})->name('cms.business');
 
-Route::prefix('/tin-tuc-su-kien')->group(function () {
-    Route::get('/', [HomeController::class, 'postPage'])->name('cms.news');
 
-    Route::get('bai-viet/{slug}', [BlogController::class, 'getPost'])->name('cms.news.post');
-});
+Route::multilingual('/phat-trien-ben-vung', function () {
+    return view('cms.page.sustainableDevelopment');
+})->name('cms.sustainableDevelopment');
 
-Route::get('/lien-he', function () {
+Route::get('/he-sinh-thai/suc-khoe', function () {
+    return view('cms.page.ecosystem.health');
+})->name('cms.ecosystem');
+
+Route::multilingual('/tin-tuc-su-kien', [HomeController::class, 'postPage'])->name('cms.news');
+Route::multilingual('/tin-tuc-su-kien/bai-viet/{slug}', [BlogController::class, 'getPost'])->name('cms.news.post');
+Route::multilingual('/lien-he', function () {
     return view('cms.page.contact');
-});
-
-
+})->name('cms.contact');
+Route::multilingual('/tim-kiem', function () {
+    return view('cms.page.search');
+})->name('cms.search');
+Route::get('/nha-dau-tu', [HomeController::class, 'investors']);
 
 Route::prefix('/admin')->group(function () {
 

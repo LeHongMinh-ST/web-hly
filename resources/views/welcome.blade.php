@@ -74,7 +74,7 @@
                 <li>
                 </li>
                 <li><a href="./tin-tuc-su-kien.html" class="">Phát triển bền vững</a></li>
-                <li><a href="./tin-tuc-su-kien.html" class="">Quan hệ cổ đông</a></li>
+                <li><a href="./tin-tuc-su-kien.html" class="">Nhà đầu tư</a></li>
                 <li><a href="./tin-tuc-su-kien.html" class="">Tin tức mới</a></li>
             </ul>
             <div class="subLink">
@@ -357,7 +357,7 @@
                         <li><a href="/gioi-thieu"><strong>Giới thiệu HYL</strong> </a></li>
                         <li><a href="/linh-vuc-hoat-dong/cong-nghe"><strong>Lĩnh vực hoạt động</strong> </a>
                         </li>
-                        <li><a href="/quan-he-co-dong"><strong>Quan hệ cổ đông</strong> </a></li>
+                        <li><a href="/quan-he-co-dong"><strong>Nhà đầu tư</strong> </a></li>
                         <li><a href="/tin-tuc-su-kien">Tin tức sự kiện</a> </li>
                     </ul>
                     <ul>
@@ -394,6 +394,14 @@
     autoplay: true,
     dots: true
   })
+  $('.relationshipShareholder').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      autoplay: true,
+      dots: true
+  });
+
 </script>
 <script src="./assets/fe/js/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="./assets/fe/js/main.js"></script>

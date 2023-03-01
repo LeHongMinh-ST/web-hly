@@ -6,17 +6,23 @@
 <section class="introWrap" style="padding-top: 40px;">
     <div class="container">
             <div class="breadcrumb">
-                <p>Giới thiệu HLY</p>
+                <a href="/"><i class="fas fa-home"></i></a>
+                <i class="fas fa-chevron-right"></i>
+                <p>Giới thiệu công ty</p>
             </div>
             <div class="content stagger-up">
                 <div class="banner">
                     <img src="./assets/fe/images/hg1.jpg" style="height: 500px; object-fit: cover;">
                 </div>
-                <h2 class="title">T&#7852;P ĐOÀN Abcgroup - CÔNG TY CP</h2>
-                <p style="text-align: justify;"><em>Tiền th&acirc;n của Abcgroup l&agrave; Tập đo&agrave;n Technocom, th&agrave;nh lập năm 1993 tại Ucraina. Đầu những năm 2000, Technocom trở về Việt Nam, tập trung đầu tư v&agrave;o lĩnh vực du lịch v&agrave; bất động sản với hai thương hiệu chiến lược ban đầu l&agrave; Vinpearl v&agrave; Vincom. Đến th&aacute;ng 1/2012, c&ocirc;ng ty CP Vincom v&agrave; C&ocirc;ng ty CP Vinpearl s&aacute;p nhập, ch&iacute;nh thức hoạt động dưới m&ocirc; h&igrave;nh Tập đo&agrave;n với t&ecirc;n gọi Tập đo&agrave;n Abcgroup &ndash; C&ocirc;ng ty CP.</em></p>
-                <p style="text-align: justify;"><em>3 nh&oacute;m hoạt động trọng t&acirc;m của Tập đo&agrave;n bao gồm:</em></p>
-                <p style="text-align: justify;"><em>- C&ocirc;ng nghệ - C&ocirc;ng nghiệp</em><br /><em>- Thương mại Dịch vụ</em><br /><em>- Thiện nguyện X&atilde; hội</em></p>
-                <p style="text-align: justify;"><em>Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo ti&ecirc;u chuẩn quốc tế v&agrave; những trải nghiệm ho&agrave;n to&agrave;n mới về phong c&aacute;ch sống hiện đại, ở bất cứ lĩnh vực n&agrave;o Abcgroup cũng chứng tỏ vai tr&ograve; ti&ecirc;n phong, dẫn dắt sự thay đổi xu hướng ti&ecirc;u d&ugrave;ng.&nbsp;</em></p>
+                <h2 class="title">{{__("CÔNG TY CỔ PHẦN XÃ HỘI HLY")}}</h2>
+                <p style="text-align: justify; font-size: 18px;"><em>
+                    {{__("Là một công ty cổ phần, được thành lập từ ngày 4/1/2023 tại Thành phố Hà Nội, Việt Nam. Với sự tham gia sáng lập của 7 thành viên, đến từ nhiều lĩnh vực như: Bất động sản, Luật sư, Nam y, Nông nghiệp và Xây dựng tạo thành một mái nhà chung là hệ sinh thái HLY. Đến ngày 12/1/2023, ra đời Công ty cổ phần Triệu Gia HLY tiền thân là Công ty TNHH Triệu Gia. Mô hình gia nhập vào đại gia đình hệ sinh thái HLY thông qua mô hình liên kết chéo cổ phần.")}}
+                </em></p>
+                <p style="text-align: justify; font-size: 18px;"><em>{{__("Công ty cổ phần xã hội HLY với 3 nhóm công nghệ tiên phong gồm:")}}</em></p>
+                <p style="text-align: justify; font-size: 18px;"><em>{{__("- Công nghệ xanh")}}</em>
+                <br /><em>{{__("- Thương mại Dịch vụ")}}</em>
+                <br /><em>{{__("- Nam y và Chăm sóc sức khỏe")}}</em></p>
+                <p style="text-align: justify; font-size: 18px;"><em>{{__("Với mong muốn đem đến cho mọi người, mọi gia đình có sức khỏe, thực phẩm xanh thân thiện với môi trường và môi trường sống trọn đời vui khỏe hạnh phúc.")}}</em></p>
             </div>
         </div>
     </section>
@@ -26,8 +32,7 @@
                 <li>
                     <div>
                         <h3>Đội ngũ<br /> Nhân sự</h3>
-                        <p>Tr&#7843;i qua ch&#7863;ng đư&#7901;ng dài trư&#7903;ng thành và phát tri&#7875;n, chính nh&#7919;ng con ngư&#7901;i Abcgroup đã làm nên nh&#7919;ng giá tr&#7883; t&#7889;t đ&#7865;p, đóng góp vào thành công c&#7911;a T&#7853;p
-                            đoàn hôm nay.</p>
+                        <p>{{__("Tại HLY cũng như trong hệ sinh thái HLY, mỗi vị trí làm việc sẽ có những tiêu chuẩn riêng, song mọi thành viên đều đáp ứng yêu cầu: có trình độ chuyên môn, tâm huyết với nghề, có tinh thần trách nhiệm và kỉ luật cao ...")}}</p>
                         <a class="btn-2" href="#">
                             Xem chi ti&#7871;t
                         </a>
@@ -36,8 +41,7 @@
                 <li>
                     <div>
                         <h3>Tầm nhìn, Sứ mệnh<br /> và Giá trị cốt lõi</h3>
-                        <p>Abcgroup đ&#7863;t cho mình s&#7913; m&#7879;nh &quot;Vì m&#7897;t cu&#7897;c s&#7889;ng t&#7889;t đ&#7865;p hơn cho m&#7885;i ngư&#7901;i&quot;, v&#7899;i 3 tr&#7909; c&#7897;t c&#7889;t lõi là Công ngh&#7879; - Công nghi&#7879;p,
-                            Thương m&#7841;i D&#7883;ch v&#7909;, Thi&#7879;n nguy&#7879;n Xã h&#7897;i.</p>
+                        <p>{{__("Tầm nhìn cùng mọi người xây dựng hạnh phúc cho mình và cho cộng đồng. Sứ mệnh thức tỉnh ý thức và hành động chăm sóc sức khỏe cho mình và cho mọi người; vận dụng sáng tạo kiến thức Nam y để chăm sóc Nam nhân ...")}}</p>
                         <a class="btn-2" href="#">
                             Xem chi ti&#7871;t
                         </a>
@@ -65,22 +69,21 @@
             </div>
             <ul section="#block1" data="200" class="crsPartner paralax-hor" style="display: flex; justify-content: space-evenly;">
                     <li style="width: 180px;">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/logo_Vinfast-20190724T075546806189.png">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/Logo_Vinsmart-20190724T080557080845.png">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
                     </li>
                     <li style="width: 180px;">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/logo_Vinhomes-20190724T080402028663.png">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/logo_Vinpearl-20190724T075858560451.png">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
                     </li><li style="width: 180px;">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/Logo_vinschool-20190724T080746392057.png">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/logo_Vinmec-20190724T080653218385.png">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
                     </li><li style="width: 180px;">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/public/2019/07/Logo_vinuni-20190724T080031613411.png">
-                    <img style="width: 100%;" src="https://ircdn.vingroup.net/storage/Public/2022/VFP.png">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
+                    <img style="width: 80%;" src="./assets/fe/images/logo.png" alt="logo">
                 </li>
             </li>
         </ul>
         </div>
     </section>
-    @include('cms.components.ecosystem')
 @endsection

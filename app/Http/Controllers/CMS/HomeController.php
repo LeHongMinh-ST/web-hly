@@ -20,14 +20,18 @@ class HomeController extends Controller
     )
     {
     }
-
     public function index()
     {
         $posts = $this->postRepository->with('categories')->all();
-        $featuredPosts = $this->postRepository->getFeaturedPosts(5);
         return view('cms.page.index')->with([
-            'posts' => $posts,
-            'featuredPosts' => $featuredPosts
+            'posts' => $posts
+        ]);
+    }
+    public function investors()
+    {
+        $posts = $this->postRepository->with('categories')->all();
+        return view('cms.page.investor')->with([
+            'posts'=>$posts
         ]);
     }
 

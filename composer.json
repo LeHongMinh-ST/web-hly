@@ -7,6 +7,8 @@
     "require": {
         "php": "^8.0.2",
         "bensampo/laravel-enum": "^6.2",
+        "chinleung/laravel-locales": "^2.0",
+        "chinleung/laravel-multilingual-routes": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",

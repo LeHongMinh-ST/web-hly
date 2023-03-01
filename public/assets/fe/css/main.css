@@ -793,6 +793,9 @@ select {
 .slick-dots li.slick-active button {
     background: white;
 }
+.relationshipShareholder .slick-dots li.slick-active button {
+    background: #0e6447 !important;
+}
 .slick-dots li button:before{
     content: '' !important;
 }
@@ -7479,9 +7482,9 @@ nav {
 }
 
 footer {
-    background: var(--color-green-blur1);
+    background: #0e6447;
     padding-top: 50px;
-    margin-top: 40px
+    /* margin-top: 40px */
 }
 
 footer .left>div {
@@ -7540,7 +7543,8 @@ footer .right ul li a:hover {
 
 .botFooter {
     border-top: 1px solid #eee;
-    padding: 20px 0
+    padding: 20px 0;
+    margin-top: 20px;
 }
 
 .botFooter p {
@@ -8386,6 +8390,7 @@ main {
 }
 
 .paging {
+    text-align: center;
     padding-top: 20px
 }
 
@@ -9050,7 +9055,7 @@ main {
     float: left;
     display: block;
     padding: 0 35px;
-    border-right: 1px solid #dedede;
+    /* border-right: 1px solid #dedede; */
     margin-bottom: 50px
 }
 
@@ -10367,6 +10372,12 @@ main {
     .listCateHome .item h2 {
         font-size: 36px
     }
+    /*.listCateInvestor .item .content .copy p {*/
+    /*    font-size: 13px*/
+    /*}*/
+    /*.listCateInvestor .item h2 {*/
+    /*    font-size: 36px*/
+    /*}*/
     .infoCate>div p {
         font-size: 15px
     }
@@ -10405,6 +10416,15 @@ main {
     .listCateHome .item .content .copy p {
         font-size: 12px
     }
+    /*.listCateInvestor .item {*/
+    /*    padding: 70px 25px 25px*/
+    /*}*/
+    /*.listCateInvestor .slick-slide {*/
+    /*    padding: 0 10px*/
+    /*}*/
+    /*.listCateInvestor .item .content .copy p {*/
+    /*    font-size: 12px*/
+    /*}*/
     .mapContact .copy {
         width: 90%;
         position: relative;
@@ -10601,6 +10621,9 @@ main {
     .listCateHome .item .content .copy p {
         line-height: 17px
     }
+    /*.listCateInvestor .item .content .copy p {*/
+    /*    line-height: 17px*/
+    /*}*/
     .listSearch li .item .copy h3 {
         font-size: 20px
     }
@@ -10710,6 +10733,9 @@ main {
     .listCateHome {
         padding-left: 20px
     }
+    /*.listCateInvestor {*/
+    /*    padding-left: 20px*/
+    /*}*/
     .ir-finance-bar {
         display: none
     }
@@ -10786,6 +10812,16 @@ main {
         font-size: 33px;
         padding-bottom: 20px
     }
+    /*.listCateInvestor {*/
+    /*    width: 170%*/
+    /*}*/
+    /*.listCateInvestor .item .content .img img {*/
+    /*    height: 130px*/
+    /*}*/
+    /*.listCateInvestor .item h2 {*/
+    /*    font-size: 33px;*/
+    /*    padding-bottom: 20px*/
+    /*}*/
     .left,
     .right {
         width: 100%
@@ -10969,5 +11005,242 @@ main {
     .ir-annuallist .item:nth-child(1n) {
         margin-right: 0;
         margin-bottom: 0
+    }
+
+
+}
+
+.listCateInvestor {
+    opacity: 1;
+    width: 100%;
+    display: flex;
+}
+
+.listCateInvestor .slick-list {
+    padding: 20px 0;
+    margin-left: -20px;
+    overflow: inherit
+}
+
+.listCateInvestor .item {
+    width: 31.33%;
+    margin: 1%;
+    padding: 105px 48px 48px;
+    background: #fff;
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    overflow: hidden;
+    /*-webkit-transition: .3s;*/
+    /*-o-transition: .3s;*/
+    /*transition: .3s;*/
+    position: relative
+}
+
+.listCateInvestor .item:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 5px;
+    background: #0e6447;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s
+}
+
+.listCateInvestor .item:hover {
+    background: #0e6447
+}
+
+.listCateInvestor .item:hover:after {
+    height: 100%
+}
+
+.listCateInvestor .item:hover .ico:after {
+    background: #fff
+}
+
+.listCateInvestor .item:hover.cate-1 .ico {
+    background: url(../images/ico-cate-1-hv.png) 0 0/100% no-repeat
+}
+
+.listCateInvestor .item:hover.cate-2 .ico {
+    background: url(../images/ico-cate-2-hv.png) 0 0/100% no-repeat
+}
+
+.listCateInvestor .item:hover.cate-3 .ico {
+    background: url(../images/ico-cate-3-hv.png) 0 0/100% no-repeat
+}
+
+.listCateInvestor .item:hover h2 {
+    color: #fff
+}
+
+.listCateInvestor .item:hover .content .copy {
+    opacity: 1;
+    -webkit-transition-delay: .3s;
+    -o-transition-delay: .3s;
+    transition-delay: .3s
+}
+
+.listCateInvestor .item:hover .content .img {
+    opacity: 0
+}
+
+.listCateInvestor .item:hover .link {
+    display: block
+}
+
+.listCateInvestor .item.cate-1 .ico {
+    background: url(../images/ico-cate-1.png) 0 0/100% no-repeat
+}
+
+.listCateInvestor .item.cate-2 .ico {
+    background: url(../images/ico-cate-2.png) 0 0/100% no-repeat
+}
+
+.listCateInvestor .item.cate-3 .ico {
+    background: url(../images/ico-cate-3.png) 0 0/100% no-repeat
+}
+
+.listCateInvestor .item .ico {
+    width: 30%;
+    margin-bottom: 25px;
+    position: relative;
+    -webkit-transition: .3s .2s;
+    -o-transition: .3s .2s;
+    transition: .3s .2s;
+    z-index: 1
+}
+
+.listCateInvestor .item .ico:after {
+    content: '';
+    display: inline-block;
+    width: 1000px;
+    height: 2px;
+    background: #a7a7a7;
+    position: absolute;
+    left: calc(100% + 20px);
+    bottom: 0;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s
+}
+
+.listCateInvestor .item .ico img {
+    width: 100%;
+    opacity: 0
+}
+
+.listCateInvestor .item h2 {
+    font-size: 58px;
+    color: #0e6447;
+    padding-bottom: 40px;
+    -webkit-transition: .3s .2s;
+    -o-transition: .3s .2s;
+    transition: .3s .2s;
+    display: inline-block;
+    position: relative;
+    z-index: 1
+}
+
+.listCateInvestor .item .content {
+    position: relative;
+    overflow: hidden
+}
+
+.listCateInvestor .item .content .img {
+    position: relative;
+    background-size: cover !important;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s
+}
+
+.listCateInvestor .item .content .img img {
+    width: 100%;
+    opacity: 0
+}
+
+.listCateInvestor .item .content .copy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: #0e6447;
+    opacity: 0;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s
+}
+
+.listCateInvestor .item .content .copy p {
+    color: #fff
+}
+
+.listCateInvestor .item .content .copy a {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(../images/ar-w.png) right center/24px no-repeat
+}
+
+.listCateInvestor .item .link {
+    display: none
+}
+@media (max-width: 1400px) {
+    .listCateInvestor .item h2 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 1214px) {
+    .listCateInvestor .item h2 {
+        font-size: 30px;
+    }
+    .listCateInvestor .item {
+        padding: 81px 35px 35px;
+    }
+}
+
+@media (max-width: 936px) {
+    .listCateInvestor .item h2 {
+        font-size: 25px;
+    }
+    .listCateInvestor .item {
+        padding: 50px 30px 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .listCateInvestor .item {
+        padding: 50px 25px 35px;
+    }
+}
+
+@media (max-width: 686px) {
+    .listCateInvestor .item {
+        padding: 50px 15px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .listCateInvestor  {
+        flex-direction: column;
+    }
+    .listCateInvestor .item {
+        width: 100%;
+        padding: 20px;
+    }
+    .listCateInvestor .item .ico {
+        width: 70px;
+    }
+    .listCateInvestor .item h2 {
+        padding-bottom: 20px;
     }
 }

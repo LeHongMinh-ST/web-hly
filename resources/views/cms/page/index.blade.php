@@ -9,7 +9,7 @@
         <div class="bannerHome slider stagger-up">
             <div class="item" style="background: url('./assets/fe/images/hl2.jpg') center no-repeat; box-shadow: rgb(14 100 71 / 72%) 50vw 0 70vw 0 inset;">
                 <div class="copy">
-                    <h2>Rừng xanh <br> hạnh phúc </h2>
+                    <h2>{!! __("Rừng xanh <br> hạnh phúc") !!} </h2>
                 </div>
                 <div class="slideBanner" style="background-color: white;">
                     @foreach($featuredPosts as $post)
@@ -41,7 +41,7 @@
     <section class="newsHomeWrap">
         <div section=".newsHomeWrap" data="200" class="container paralax">
             <a href="/tin-tuc-su-kien.html">
-                <h2 class="title">Tin tức sự kiện</h2>
+                <h2 class="title">{{ __('Tin tức sự kiện') }}</h2>
             </a>
             <div class="newsHomeList" style="display: flex; gap: 20px">
                 @php($i=0)
@@ -97,10 +97,10 @@
                                 </div>
                                 <div class="copy">
                                     <!-- <p>- Sản xuất thuốc</p> -->
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong.html"></a>
+                            <a class="link" href="/linh-vuc-hoat-dong"></a>
                         </div>
                     </li>
                     <li>
@@ -114,10 +114,25 @@
                                 <div class="copy">
                                     <!-- <p>- Du lịch nghỉ dưỡng</p>
                                     <p>- Dưỡng sinh</p> -->
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong.html"></a>
+                            <a class="link" href="/linh-vuc-hoat-dong"></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item cate-3">
+                            <div class="ico"><img src="./assets/fe/images/b.gif"></div>
+                            <h2>THỰC PHẨM XANH</h2>
+                            <div class="content">
+                                <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
+                                    <img src="./assets/fe/images/thumb-cate.gif">
+                                </div>
+                                <div class="copy text-white">
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                                </div>
+                            </div>
+                            <a class="link" href="/linh-vuc-hoat-dong"></a>
                         </div>
                     </li>
                     <li>
@@ -129,27 +144,10 @@
                                     <img src="./assets/fe/images/thumb-cate.gif">
                                 </div>
                                 <div class="copy text-white">
-                                    <!-- <ul style="">
-                                        <li>
-                                            <p>
-                                                - Spa
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p >
-                                                - Trị liệu cơ sương khớp
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p >
-                                                - Phòng kê thuốc
-                                            </p>
-                                        </li>
-                                    </ul> -->
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong.html"></a>
+                            <a class="link" href="/linh-vuc-hoat-dong"></a>
                         </div>
                     </li>
                     <li></li>
@@ -157,38 +155,59 @@
             </div>
         </div>
     </section>
+    @include('cms.components.ecosystem')
 
     <section class="shareholdersHomeWrap">
         <div class="container">
             <a href="/quan-he-co-dong">
-                <h2 class="title">QUAN HỆ CỔ ĐÔNG</h2>
+                <h2 class="title">NHÀ ĐẦU TƯ</h2>
             </a>
             <div class="row">
-                <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                    <h3>Công ty HLY smart</h3>
-                    <img src="./assets/fe/images/hg1.jpg">
-                    Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                    tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                <div class="relationshipShareholder">
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
                 </div>
-                <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                    <h3>Công ty HLY smart</h3>
-                    <img src="./assets/fe/images/hg1.jpg">
-                    Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                    tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                </div>
-                <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                    <h3>Công ty HLY smart</h3>
-                    <img src="./assets/fe/images/hg1.jpg">
-                    Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                    tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                </div>
-
             </div>
-
-
         </div>
     </section>
-
 
     <section class="historyPd">
         <div class="container">

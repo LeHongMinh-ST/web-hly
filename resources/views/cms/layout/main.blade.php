@@ -42,6 +42,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{{ asset('/assets/fe/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/fe/css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     @yield('css')
 </head>
 
@@ -76,6 +77,14 @@
         autoplay: true,
         // dots: true
     })
+
+    $('.relationshipShareholder').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: true,
+        dots: true
+    });
 </script>
 <script src="{{ asset('/assets/fe/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 <script src="{{asset('/assets/fe/js/main.js')}}"></script>
