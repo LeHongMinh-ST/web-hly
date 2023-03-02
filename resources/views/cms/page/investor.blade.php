@@ -9,7 +9,7 @@
             <ul class="listCateInvestor" >
                 <div class="item cate-1">
                     <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                    <h2>CÔNG NGHỆ XANH</h2>
+                    <h2>ĐẠI HỘI CỔ ĐÔNG</h2>
                     <div class="content">
                         <div class="img" style="background: url('./assets/fe/images/hl1.jpg') center">
                             <img src="./assets/fe/images/thumb-cate.gif">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="item cate-3">
                     <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                    <h2>THƯƠNG MẠI DỊCH VỤ</h2>
+                    <h2>CÔNG BỐ THÔNG TIN</h2>
                     <div class="content">
                         <div class="img" style="background: url('./assets/fe/images/hl2.jpg') center">
                             <img src="./assets/fe/images/thumb-cate.gif">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="item cate-3">
                         <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                        <h2>THỰC PHẨM XANH</h2>
+                        <h2>QUẢN TRỊ CÔNG TY</h2>
                         <div class="content">
                             <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
                                 <img src="./assets/fe/images/thumb-cate.gif">

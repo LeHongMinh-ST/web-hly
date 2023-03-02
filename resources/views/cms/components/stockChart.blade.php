@@ -1,4 +1,4 @@
-<div class="stockInformation">
+<div class="stockInformation container">
     <div class="chartStockWrap">
         <div class="titleChartWrap">
             THÔNG TIN CỔ PHIẾU
@@ -26,8 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="newWrap">
-        <img class="bgWrap" src="./assets/fe/images/world.PNG">
+    <div class="newWrap" style="background-image: url('./assets/fe/images/world.PNG')">
         <div class="contentWrap">
             <div class="titleContentLeft">
                 THÔNG CÁO BÁO CHÍ
@@ -35,6 +34,17 @@
             <div class="descriptionContentLeft">
                 FPT Software là đối tác chến lược triển khai nhà máy thông minh cho Jullie Sandue
             </div>
+            <ul>
+                <li>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    Lorem ipsum dolor sit .
+                </li>
+                <li>
+                    Lorem ipsum dolor sit amet amet.
+                </li>
+            </ul>
             <div class="show-more-text">
                 XEM THÊM
                 <img class="ar" src="./assets/fe/images/ar-w.png">

@@ -11023,6 +11023,7 @@ main {
 }
 
 .listCateInvestor .item {
+    cursor: pointer;
     width: 31.33%;
     margin: 1%;
     padding: 105px 48px 48px;
