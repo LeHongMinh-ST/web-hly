@@ -503,7 +503,7 @@ max-width: none
 }
 
 .stockInformation .chartStockWrap{
-    width: 60%;
+    width: 66%;
     background: transparent;
 }
 
@@ -539,7 +539,7 @@ max-width: none
 .stockInformation .newWrap{
     width: 33%;
     position: relative;
-    background-position: center;
+    background-size: cover
 }
 .stockInformation .newWrap .bgWrap{
     width: 100%;
@@ -621,4 +621,23 @@ max-width: none
 .container-sustainable-development .wrap-info .content {
     width: 100%; font-size: 20px; padding: 0 10px; height: 200px;
 }
+@media (max-width: 1224px) {
+    .stockInformation{
+        padding: 0 10px;
+    }
+}
 
+@media (max-width: 1024px) {
+    .stockInformation{
+        flex-direction: column;
+    }
+    .stockInformation .chartStockWrap{
+        width: 100%;
+    }
+    .stockInformation .newWrap{
+        width: 100%;
+    }
+    .stockInformation .newWrap .contentWrap{
+        position: static;
+    }
+}
