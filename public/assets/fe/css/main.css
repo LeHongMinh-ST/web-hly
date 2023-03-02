@@ -11023,6 +11023,7 @@ main {
 }
 
 .listCateInvestor .item {
+    cursor: pointer;
     width: 31.33%;
     margin: 1%;
     padding: 105px 48px 48px;
@@ -11049,50 +11050,6 @@ main {
     -o-transition: .5s;
     transition: .5s
 }
-
-.listCateInvestor .item:hover {
-    background: #0e6447
-}
-
-.listCateInvestor .item:hover:after {
-    height: 100%
-}
-
-.listCateInvestor .item:hover .ico:after {
-    background: #fff
-}
-
-.listCateInvestor .item:hover.cate-1 .ico {
-    background: url(../images/ico-cate-1-hv.png) 0 0/100% no-repeat
-}
-
-.listCateInvestor .item:hover.cate-2 .ico {
-    background: url(../images/ico-cate-2-hv.png) 0 0/100% no-repeat
-}
-
-.listCateInvestor .item:hover.cate-3 .ico {
-    background: url(../images/ico-cate-3-hv.png) 0 0/100% no-repeat
-}
-
-.listCateInvestor .item:hover h2 {
-    color: #fff
-}
-
-.listCateInvestor .item:hover .content .copy {
-    opacity: 1;
-    -webkit-transition-delay: .3s;
-    -o-transition-delay: .3s;
-    transition-delay: .3s
-}
-
-.listCateInvestor .item:hover .content .img {
-    opacity: 0
-}
-
-.listCateInvestor .item:hover .link {
-    display: block
-}
-
 .listCateInvestor .item.cate-1 .ico {
     background: url(../images/ico-cate-1.png) 0 0/100% no-repeat
 }
