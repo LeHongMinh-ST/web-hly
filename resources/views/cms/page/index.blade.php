@@ -2,6 +2,34 @@
 @section('title')
     Trang chủ - Tập đoàn Abc
 @endsection
+@section('js')
+    <script type="text/javascript" src="{{ asset('/assets/fe/js/libraries/canvasjs.stock.min.js') }}"></script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var dataPoints = [];
+            var stockChart = new CanvasJS.StockChart("stockChartContainer",{
+                charts: [{
+                    data: [{
+                        type: "splineArea",
+                        color: "#ff9357",
+                        yValueFormatString: "€1 = $#,###.##",
+                        dataPoints : dataPoints
+                    }]
+                }],
+                //     rangeSelector: {
+                //       enabled: false
+                // },
+            });
+            $.getJSON("https://canvasjs.com/data/gallery/stock-chart/usdeur.json", function(data) {
+                for(var i = 0; i < data.length; i++){
+                    dataPoints.push({x: new Date(data[i].date), y: Number(data[i].price)});
+                }
+                stockChart.render();
+            });
+        }
+    </script>
+@endsection
 @section('content')
 
     <section id="bannerHome">
@@ -156,6 +184,8 @@
         </div>
     </section>
     @include('cms.components.ecosystem')
+
+    @include('cms.components.stockChart')
 
     <section class="shareholdersHomeWrap">
         <div class="container">

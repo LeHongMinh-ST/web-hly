@@ -20,4 +20,6 @@
     </section>
 
     @include('cms.components.news-orther', ['posts' => $posts])
+    @include('cms.components.investorNews', ['posts' => $posts])
+
 @endsection
