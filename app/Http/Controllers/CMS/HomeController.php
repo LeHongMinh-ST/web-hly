@@ -23,7 +23,6 @@ class HomeController extends Controller
     public function index()
     {
         $posts = $this->postRepository->with('categories')->all();
-        dd($posts);
         return view('cms.page.index')->with([
             'posts' => $posts
         ]);

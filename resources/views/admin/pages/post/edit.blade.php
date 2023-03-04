@@ -127,30 +127,48 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="panel panel-white">
                             <div class="panel-heading">
                                 <h6 class="panel-title"><i class="icon-folder2 position-left"></i> Danh mục</h6>
                             </div>
                             <div class="panel-body">
                                 <div>
-                                    @forelse(@$categories ?? [] as $category)
-                                        <div>
-                                            <label class="checkbox">
-                                                <input type="checkbox" name="category_ids[]"
-                                                       @if(in_array($category->id, $post->categories->pluck('id')->toArray())) checked
-                                                       @endif style="cursor: pointer"
-                                                       value="{{ $category->id }}">
-                                                <span
-                                                    style="font-size: 16px; margin-left: 16px">{{ $category->name }}</span>
-                                            </label>
-                                        </div>
-                                    @empty
-                                        Chưa có danh mục !
-                                    @endforelse
+                                    <select id="selectIsActive" name="category_id" class="select2 form-control select-lg">
+                                        <option selected disabled >{{@count($categories) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
+                                        @forelse(@$categories ?? [] as $category)
+                                            <option
+                                                @if($category->id == $post->category_id) selected
+                                                @endif style="cursor: pointer"
+                                                value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
                                 </div>
                             </div>
                         </div>
+{{--                        <div class="panel panel-white">--}}
+{{--                            <div class="panel-heading">--}}
+{{--                                <h6 class="panel-title"><i class="icon-folder2 position-left"></i> Danh mục</h6>--}}
+{{--                            </div>--}}
+{{--                            <div class="panel-body">--}}
+{{--                                <div>--}}
+{{--                                    @forelse(@$categories ?? [] as $category)--}}
+{{--                                        <div>--}}
+{{--                                            <label class="checkbox">--}}
+{{--                                                <input type="checkbox" name="category_ids[]"--}}
+{{--                                                       @if(in_array($category->id, $post->categories->pluck('id')->toArray())) checked--}}
+{{--                                                       @endif style="cursor: pointer"--}}
+{{--                                                       value="{{ $category->id }}">--}}
+{{--                                                <span--}}
+{{--                                                    style="font-size: 16px; margin-left: 16px">{{ $category->name }}</span>--}}
+{{--                                            </label>--}}
+{{--                                        </div>--}}
+{{--                                    @empty--}}
+{{--                                        Chưa có danh mục !--}}
+{{--                                    @endforelse--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="panel panel-white">
                             <div class="panel-heading">
                                 <h6 class="panel-title"><i class=" icon-image2 position-left"></i> Ảnh đại diện</h6>

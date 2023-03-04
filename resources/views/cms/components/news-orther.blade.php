@@ -12,7 +12,7 @@
                             <img src="{{ $post->thumbnail }}" style="width: 100%; height: 250px;">
                         </div>
                         <div class="copy">
-                            <h4>Tin {{$post->categories[0]->name}}</h4>
+                            <h4>Tin {{@$post->categories->name ?? ""}}</h4>
                             <h3>{{$post->title}}</h3>
                             <p>{{date_format(date_create($post->created_at), 'd-m-Y')}}</p>
                         </div>

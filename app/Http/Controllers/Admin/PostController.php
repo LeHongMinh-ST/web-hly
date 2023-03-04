@@ -67,7 +67,6 @@ class PostController extends Controller
         DB::beginTransaction();
         try {
             $data = $request->all();
-            dd($data);
 
             $post = $this->postRepository->create(array_merge($data, [
                 'create_by' => auth()->id(),
@@ -75,7 +74,6 @@ class PostController extends Controller
                 'views' => 0
             ]));
 
-            $post?->categories()->attach(@$data['category_ids'] ?? []);
 
             $post?->tags()->attach(@$data['tags'] ?? []);
 

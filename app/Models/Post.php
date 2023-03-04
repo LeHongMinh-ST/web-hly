@@ -23,6 +23,7 @@ class Post extends Model
         'thumbnail',
         'language',
         'views',
+        'category_id',
         'create_by',
         'update_by',
     ];
