@@ -23,6 +23,7 @@ class Post extends Model
         'thumbnail',
         'language',
         'views',
+        'category_id',
         'create_by',
         'update_by',
     ];
@@ -31,9 +32,9 @@ class Post extends Model
         'status' => 'integer',
     ];
 
-    public function categories(): BelongsToMany
+    public function categories(): BelongsTo
     {
-        return $this->belongsToMany(Category::class, 'post_categories');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function tags(): BelongsToMany

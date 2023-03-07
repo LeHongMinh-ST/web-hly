@@ -43,16 +43,7 @@
                         </div>
                         <div class="copy">
                             <h4>
-                                @if(count($post->categories) > 0)
-                                    @foreach($post->categories as $cate)
-                                        {{$cate->name}}
-                                        @if($cate->id != $post->categories[count($post->categories) - 1]->id)
-                                            ,
-                                        @endif
-                                    @endforeach
-                                @else
-                                    Tất cả danh mục
-                                @endif
+                            Tin {{@$post->categories->name ?? ""}}
                             </h4>
                             <h3>
                             {{$post->title}}

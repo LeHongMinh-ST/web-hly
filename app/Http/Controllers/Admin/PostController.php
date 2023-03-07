@@ -74,7 +74,6 @@ class PostController extends Controller
                 'views' => 0
             ]));
 
-            $post?->categories()->attach(@$data['category_ids'] ?? []);
 
             $post?->tags()->attach(@$data['tags'] ?? []);
 

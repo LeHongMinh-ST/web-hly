@@ -128,18 +128,13 @@
                             </div>
                             <div class="panel-body">
                                 <div>
-                                    @forelse(@$categories ?? [] as $category)
-                                        <div>
-                                            <label class="checkbox">
-                                                <input type="checkbox" name="category_ids" style="cursor: pointer"
-                                                       value="{{ $category->id }}">
-                                                <span
-                                                    style="font-size: 16px; margin-left: 16px">{{ $category->name }}</span>
-                                            </label>
-                                        </div>
+                                <select id="selectIsActive" name="category_id" class="select2 form-control select-lg">
+                                <option selected disabled >{{@count($categories) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
+                                @forelse(@$categories ?? [] as $category)
+                                    <option  value="{{ $category->id }}">{{ $category->name }}</option>
                                     @empty
-                                        Chưa có danh mục !
-                                    @endforelse
+                                @endforelse
+                                </select>
                                 </div>
                             </div>
                         </div>

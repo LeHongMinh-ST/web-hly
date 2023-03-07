@@ -7,7 +7,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="{{ localized_route('home') }}"><i class="fas fa-home"></i></a> <i class="fas fa-chevron-right"></i>
-                <p>Tin tức {{$post->categories[0]->name}}</p>
+                <p>Tin tức {{@$post->categories->name ?? ""}}</p>
             </div>
             <div class="infoNews">
                 <h2>{{ $post->title}}</h2>
