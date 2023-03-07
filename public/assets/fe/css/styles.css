@@ -640,4 +640,50 @@ max-width: none
     .stockInformation .newWrap .contentWrap{
         position: static;
     }
+/* tuyen dung */
+.container-recuitment {
+    width: 100%;
+    max-width: 1700px;
+    padding: 0 10px;
+    margin: 0 auto 200px auto;
+}
+
+.container-recuitment .title {
+    width: 100%; padding: 0 200px;
+}
+
+.container-recuitment .wrapp-info .context {
+    text-align: center; margin-bottom: 50px;
+}
+
+.container-recuitment .wrapp-info .context h2 {
+    font-size: 40px; font-weight: bold; margin-bottom: 20px;
+}
+
+.container-recuitment .wrapp-info .filter {
+    width: 100%; display: flex; gap: 30px; justify-content: center
+}
+
+.container-recuitment .wrapp-info .filter button {
+    color: white; background-color: #0e6447; width: 30%; padding: 10px 20px;
+}
+
+.container-recuitment .wrapp-content {
+    width: 100%; display: flex; margin: 70px auto 0 auto; max-width: 1200px;
+}
+
+.container-recuitment .wrapp-content .list-content-sub {
+    width: 40%; display: flex; flex-direction: column; gap: 30px; max-height: 100vh;
+    overflow: auto;
+}
+
+.container-recuitment .wrapp-content .list-content-sub .content-sub {
+    display: flex; gap: 50px; padding: 20px 30px;  border: 2px solid #f1efef; box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+    border-left: 10px solid white;
+    cursor: pointer;
+}
+
+.container-recuitment .wrapp-content .list-content-sub .content-sub:hover {
+    border-left: 10px solid #0e6447;
+}
 }
