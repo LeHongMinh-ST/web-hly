@@ -194,6 +194,7 @@ max-width: none
 }
 .partnersWrap{
     padding: 50px;
+    padding-top: 0px;
 }
 .partnersWrap .contentWrapPartners{
     display: flex;
@@ -445,6 +446,7 @@ max-width: none
 /*inventorsWrap*/
 .inventorsWrap{
     padding: 50px;
+    padding-bottom: 0px;
 }
 .inventorsWrap .events{
     display: flex;
@@ -489,7 +491,7 @@ max-width: none
 .inventorsWrap .events .item-event .show-more-text a{
     display: flex;
     align-items: center;
-    color: #0a001f;
+    color: white !important;
 }
 .inventorsWrap .events .item-event .show-more-text img{
     width: 20px;
@@ -640,6 +642,7 @@ max-width: none
     .stockInformation .newWrap .contentWrap{
         position: static;
     }
+}
 /* tuyen dung */
 .container-recuitment {
     width: 100%;
@@ -686,4 +689,4 @@ max-width: none
 .container-recuitment .wrapp-content .list-content-sub .content-sub:hover {
     border-left: 10px solid #0e6447;
 }
-}
+

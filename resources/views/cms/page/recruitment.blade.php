@@ -48,6 +48,7 @@
 </ul>
 ';
 @endphp
+    <div class="recuitment-block">
     <section class="introWrap" style="padding-top: 40px;">
         <div class="container">
             <div class="breadcrumb">
@@ -103,5 +104,6 @@
         </div>
         </div>
     </section>
+    </div>
 
 @endsection

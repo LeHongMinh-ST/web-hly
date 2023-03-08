@@ -53,7 +53,7 @@ Route::multilingual('/tim-kiem', function () {
 Route::multilingual('/tuyen-dung', function () {
     return view('cms.page.recruitment');
 })->name('cms.recruitment');
-Route::get('/nha-dau-tu', [HomeController::class, 'investors']);
+Route::multilingual('/nha-dau-tu', [HomeController::class, 'investors'])->name('cms.investors');;
 
 Route::prefix('/admin')->group(function () {
 
