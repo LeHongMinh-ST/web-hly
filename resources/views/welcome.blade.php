@@ -361,7 +361,7 @@
                         <li><a href="/tin-tuc-su-kien">Tin tức sự kiện</a> </li>
                     </ul>
                     <ul>
-                        <li><a href="/tuyen-dung" target="_blank" rel="noopener">Tuyển dụng</a>
+                        <li><a href="/tuyen-dung"  >Tuyển dụng</a>
                         </li>
                         <li><a href="/lien-he">Liên hệ</a> </li>
                     </ul>

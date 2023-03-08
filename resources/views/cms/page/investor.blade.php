@@ -51,6 +51,57 @@
                     </div>
             </ul>
         </div>
+        <section class="shareholdersHomeWrap">
+        <div class="container">
+            <a href="/quan-he-co-dong">
+                <h2 class="title">NHÀ ĐẦU TƯ</h2>
+            </a>
+            <div class="row">
+                <div class="relationshipShareholder">
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
+                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                        <a href="/nha-dau-tu">
+                            <h3>Công ty HLY smart</h3>
+                            <img src="./assets/fe/images/hg1.jpg">
+                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
+                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
         <section class="newsHomeWrap">
             <div class="container paralax">
                 <a href="/tin-tuc-su-kien.html">

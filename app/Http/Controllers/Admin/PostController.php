@@ -134,7 +134,6 @@ class PostController extends Controller
 
             $post?->save();
 
-            $post?->categories()->sync(@$data['category_ids'] ?? []);
 
             $post?->tags()->sync(@$data['tags'] ?? []);
 

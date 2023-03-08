@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="newWrap" style="background-image: url('./assets/fe/images/world.PNG')">
+    <div class="newWrap" style="background-image: url('./assets/fe/images/world.PNG'); " >
         <div class="contentWrap">
             <div class="titleContentLeft">
                 THÔNG CÁO BÁO CHÍ
@@ -36,18 +36,23 @@
             </div>
             <ul>
                 <li>
-                    Lorem ipsum dolor sit amet.
+                    Báo cáo
                 </li>
                 <li>
-                    Lorem ipsum dolor sit .
+                    Quản trị công ty
                 </li>
                 <li>
-                    Lorem ipsum dolor sit amet amet.
+                    Các tin tức nhà đầu tư
+                </li>
+                <li>
+                    Các nhà đầu tư
                 </li>
             </ul>
             <div class="show-more-text">
+            <a href="{{ localized_route('cms.investors') }}" style="color: white">
                 XEM THÊM
                 <img class="ar" src="./assets/fe/images/ar-w.png">
+            </a>
             </div>
         </div>
     </div>

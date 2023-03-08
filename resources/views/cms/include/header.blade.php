@@ -37,11 +37,11 @@
                 <li>
                 </li>
                 <li><a href="/phat-trien-ben-vung" class="">{{ __('Phát triển bền vững') }}</a></li>
-                <li><a href="/tin-tuc-su-kien" class="">{{ __('Nhà đầu tư') }}</a></li>
+                <li><a href="{{ localized_route('cms.investors') }}" class="">{{ __('Nhà đầu tư') }}</a></li>
                 <li><a href="{{ localized_route('cms.news') }}" class="">{{ __('Tin tức mới') }}</a></li>
             </ul>
             <div class="subLink">
-                <a href="#" target="_blank" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Tuyển dụng</a>
+                <a href="{{ localized_route('cms.recruitment') }}" target="_blank" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Tuyển dụng</a>
                 <a href="{{ localized_route('cms.contact') }}" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">{{ __('Liên hệ') }}</a>
             </div>
         </nav>
