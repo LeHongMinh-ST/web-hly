@@ -7,8 +7,6 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Post\PostRepository;
-use App\Services\Helper\SlugService;
-use App\Services\LanguageMeta\LanguageMetaService;
 use Illuminate\Http\Request;
 use function Termwind\ValueObjects\isEmpty;
 
@@ -23,8 +21,10 @@ class HomeController extends Controller
     public function index()
     {
         $posts = $this->postRepository->with('categories')->all();
+        $featuredPosts = $this->postRepository->getFeaturedPosts(5);
         return view('cms.page.index')->with([
-            'posts' => $posts
+            'posts' => $posts,
+            'featuredPosts' => $featuredPosts
         ]);
     }
     public function investors()

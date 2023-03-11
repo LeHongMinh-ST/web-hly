@@ -17,7 +17,7 @@ class PostTableSeeder extends Seeder
     public function run()
     {
         DB::table('posts')->truncate();
-        DB::table('post_categories')->truncate();
+//        DB::table('post_categories')->truncate();
         for ($i=1; $i<30; $i++){
             $post = Post::create([
                 'title'=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry ".$i,
