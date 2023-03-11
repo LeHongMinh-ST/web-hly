@@ -41,5 +41,10 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
         })->with(['categories', 'updateBy', 'createBy'])->paginate($limit);
     }
 
-
+    public function getFeaturedPosts(int $limit)
+    {
+        return $this->scopeQuery(function ($query) use($limit) {
+            return $query->where('is_featured', true)->limit($limit);
+        })->get();
+    }
 }

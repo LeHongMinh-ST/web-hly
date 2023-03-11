@@ -121,7 +121,18 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h6 class="panel-title"><i class="icon-medal position-left"></i> Nổi bật</h6>
+                            </div>
+                            <div class="panel-body">
+                                <div class="checkbox checkbox-switchery">
+                                    <label>
+                                        <input type="checkbox" class="form-control switchery" name="is_featured" value={{ old('is_featured', @$post->is_featured) ? 1 : 0 }} {{ old('is_featured', @$post->is_featured) ? 'checked' : '' }}>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel panel-white">
                             <div class="panel-heading">
                                 <h6 class="panel-title"><i class="icon-folder2 position-left"></i> Danh mục</h6>
