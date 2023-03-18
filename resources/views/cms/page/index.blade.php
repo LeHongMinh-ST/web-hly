@@ -186,28 +186,4 @@
     @include('cms.components.ecosystem')
 
     @include('cms.components.stockChart')
-
-
-
-    <section class="historyPd">
-        <div class="container">
-            <div section=".historyPd" data="-200" class="img paralax-hor">
-                <img src="./assets/fe/images/hg1.jpg">
-            </div>
-            <div section=".historyPd" data="200" class="copy paralax-hor">
-                <div>
-                    <h2>2022</h2>
-                    <h3>Công nghệ <br> - Công nghiệp</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet aspernatur cupiditate dolore ea
-                        enim id illum optio. Culpa ea facilis in incidunt, iusto nisi omnis quisquam suscipit temporibus
-                        voluptas?</p>
-
-                </div>
-                <div>
-                    <a class="btn-2" href="/linh-vuc-hoat-dong/cong-nghe-br-cong-nghiep">Xem thêm</a>
-
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection

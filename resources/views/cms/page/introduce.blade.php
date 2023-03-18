@@ -5,15 +5,18 @@
 @section('content')
 <section class="introWrap" style="padding-top: 40px;">
     <div class="container">
-            <div class="breadcrumb">
+            <div class="breadcrumb" style="margin: 20px 0;">
                 <a href="/"><i class="fas fa-home"></i></a>
                 <i class="fas fa-chevron-right"></i>
                 <p>Giới thiệu công ty</p>
             </div>
-            <div class="content stagger-up">
+            <div class="content stagger-up" style="padding-top: 0px;">
+                <div class="content stagger-up" style="padding-top: 0px;">
                 <div class="banner">
-                    <img src="./assets/fe/images/hg1.jpg" style="height: 500px; object-fit: cover;">
+                    <img src="../assets/fe/images/introduce.jpg" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">GIỚI THIỆU CÔNG TY</span>
                 </div>
+            </div>
                 <h2 class="title">{{__("CÔNG TY CỔ PHẦN XÃ HỘI HLY")}}</h2>
                 <p style="text-align: justify; font-size: 18px;"><em>
                     {{__("Là một công ty cổ phần, được thành lập từ ngày 4/1/2023 tại Thành phố Hà Nội, Việt Nam. Với sự tham gia sáng lập của 7 thành viên, đến từ nhiều lĩnh vực như: Bất động sản, Luật sư, Nam y, Nông nghiệp và Xây dựng tạo thành một mái nhà chung là hệ sinh thái HLY. Đến ngày 12/1/2023, ra đời Công ty cổ phần Triệu Gia HLY tiền thân là Công ty TNHH Triệu Gia. Mô hình gia nhập vào đại gia đình hệ sinh thái HLY thông qua mô hình liên kết chéo cổ phần.")}}

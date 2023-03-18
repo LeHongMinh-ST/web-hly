@@ -26,7 +26,8 @@
             </div>
         </div>
     </div>
-    <div class="newWrap" style="background-image: url('./assets/fe/images/world.PNG'); " >
+    <div class="newWrap"  >
+        <img src="./assets/fe/images/world.PNG" style="width: 100%; filter: brightness(50%); object-fit: cover; position: absolute; height: 100%0"/>
         <div class="contentWrap">
             <div class="titleContentLeft">
                 THÔNG CÁO BÁO CHÍ
@@ -34,7 +35,7 @@
             <div class="descriptionContentLeft">
                 FPT Software là đối tác chến lược triển khai nhà máy thông minh cho Jullie Sandue
             </div>
-            <ul>
+            <ul style="font-size: 20px;">
                 <li>
                     Báo cáo
                 </li>

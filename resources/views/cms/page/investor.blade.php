@@ -4,14 +4,25 @@
 @endsection
 
 @section('content')
-    <div class="inventorsWrap">
-        <div class="container">
+    <div class="inventorsWrap" style="padding: 0px;">
+        <div class="container" style="margin-top: 30px;">
+            <div class="breadcrumb" style="margin: 20px 0;">
+                        <a href="/"><i class="fas fa-home"></i></a>
+                        <i class="fas fa-chevron-right"></i>
+                        <p>Nhà đầu tư</p>
+                    </div>
+                    <div class="content stagger-up" style="padding-top: 0px;">
+                        <div class="content stagger-up" style="padding-top: 0px;">
+                        <div class="banner">
+                            <img src="../assets/fe/images/investor.jpg" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">NHÀ ĐẦU TƯ</span>
+                        </div>
+                    </div>
             <ul class="listCateInvestor" >
                 <div class="item cate-1">
-                    <div class="ico"><img src="./assets/fe/images/b.gif"></div>
                     <h2>ĐẠI HỘI CỔ ĐÔNG</h2>
                     <div class="content">
-                        <div class="img" style="background: url('./assets/fe/images/hl1.jpg') center">
+                        <div class="img" style="background: url('./assets/fe/images/introduce.jpg') center">
                             <img src="./assets/fe/images/thumb-cate.gif">
                         </div>
                         <div class="copy">
@@ -22,7 +33,6 @@
                     <a class="link" href="/linh-vuc-hoat-dong"></a>
                 </div>
                 <div class="item cate-3">
-                    <div class="ico"><img src="./assets/fe/images/b.gif"></div>
                     <h2>CÔNG BỐ THÔNG TIN</h2>
                     <div class="content">
                         <div class="img" style="background: url('./assets/fe/images/hl2.jpg') center">
@@ -37,7 +47,6 @@
                     <a class="link" href="/linh-vuc-hoat-dong"></a>
                 </div>
                 <div class="item cate-3">
-                        <div class="ico"><img src="./assets/fe/images/b.gif"></div>
                         <h2>QUẢN TRỊ CÔNG TY</h2>
                         <div class="content">
                             <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
@@ -102,35 +111,8 @@
             </div>
         </div>
     </section>
-        <section class="newsHomeWrap">
-            <div class="container paralax">
-                <a href="/tin-tuc-su-kien.html">
-                    <h2 class="title" style="text-align: center">Tin tức nhà đầu tư</h2>
-                </a>
-                <div class="newsHomeList" style="display: flex; gap: 20px">
-                @php($i=0)
-                @foreach($posts as $post)
-                    @if($i < 4)
-                        <!-- <div> -->
-                            <div class="itemNews" style="width: 25%; padding: 0 10px">
-                                <div class="img">
-                                    <div style="background: url('{{ $post->thumbnail }}') center; width: 100%; height: 250px; object-fit: cover"></div>
-                                    <img src="{{ $post->thumbnail }}" style="width: 100%; height: 250px;">
-                                </div>
-                                <div class="copy">
-                                    <h4>Tin {{@$post->categories->name ?? ""}}</h4>
-                                    <h3>{{$post->title}}</h3>
-                                    <p>{{date_format(date_create($post->created_at), 'd-m-Y')}}</p>
-                                </div>
-                                <a class="link" href="/tin-tuc-su-kien/bai-viet/{{$post->slug?->content}}"></a>
-                            </div>
-                            <!-- </div> -->
-                        @endif
-                        @php($i++)
-                    @endforeach
-                </div>
-            </div>
-        </section>
+    @include('cms.components.investorNews', ['posts' => $posts])
+
     </div>
     @include('cms.components.partners')
 @endsection
