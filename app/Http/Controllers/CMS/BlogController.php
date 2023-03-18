@@ -33,8 +33,6 @@ class BlogController extends Controller
         $posts = $this->postRepository->with(['categories', 'slug'])->limit(4);
 
         $data = $blogService->handleFrontRoutes($slug);
-//        dd($data['data']);
-//        $data['posts'] = $posts;
         return view('cms.page.post', [
             'post' => $data['data']['post'],
             'posts' => $posts

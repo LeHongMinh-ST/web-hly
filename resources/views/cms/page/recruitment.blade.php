@@ -49,16 +49,18 @@
 ';
 @endphp
     <div class="recuitment-block">
-    <section class="introWrap" style="padding-top: 40px;">
+    <section class="introWrap">
         <div class="container">
-            <div class="breadcrumb">
+            <div class="breadcrumb" style="    margin: 20px 0px;">
                 <a href="/"><i class="fas fa-home"></i></a>
                 <i class="fas fa-chevron-right"></i>
                 <p>Tuyển dụng</p>
             </div>
-            <div class="content stagger-up">
+            <div class="content stagger-up" style="padding-top: 0px;">
+                <div class="content stagger-up" style="padding-top: 0px;">
                 <div class="banner">
-                    <img src="./assets/fe/images/hg1.jpg" style="height: 500px; object-fit: cover;">
+                    <img src="../assets/fe/images/recruiment.png" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">TUYỂN DỤNG</span>
                 </div>
             </div>
         </div>
