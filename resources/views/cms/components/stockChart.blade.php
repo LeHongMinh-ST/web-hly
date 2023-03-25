@@ -22,7 +22,9 @@
         </div>
         <div class="chart">
             <div>
-                <div id="stockChartContainer" style="height: 450px; width: 100%;"></div>
+                <div id="stockChartContainer" style="height: 450px; width: 100%;">
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
         </div>
     </div>

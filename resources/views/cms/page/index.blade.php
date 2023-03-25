@@ -4,31 +4,38 @@
 @endsection
 @section('js')
     <script type="text/javascript" src="{{ asset('/assets/fe/js/libraries/canvasjs.stock.min.js') }}"></script>
+<script>
+  // data for the chart
+  const data = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    datasets: [{
+      label: 'Sales',
+      backgroundColor: ['#0000ff7d', '#ff000070', '#00800078', '#80008078', '#ffa50070', '#ffff0075'],
+      borderColor: 'black',
+      borderWidth: 1,
+      data: [12, 19, 3, 5, 2, 3]
+    }]
+  };
 
-    <script type="text/javascript">
-        window.onload = function () {
-            var dataPoints = [];
-            var stockChart = new CanvasJS.StockChart("stockChartContainer",{
-                charts: [{
-                    data: [{
-                        type: "splineArea",
-                        color: "#ff9357",
-                        yValueFormatString: "€1 = $#,###.##",
-                        dataPoints : dataPoints
-                    }]
-                }],
-                //     rangeSelector: {
-                //       enabled: false
-                // },
-            });
-            $.getJSON("https://canvasjs.com/data/gallery/stock-chart/usdeur.json", function(data) {
-                for(var i = 0; i < data.length; i++){
-                    dataPoints.push({x: new Date(data[i].date), y: Number(data[i].price)});
-                }
-                stockChart.render();
-            });
+  // options for the chart
+  const options = {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
         }
-    </script>
+      }]
+    }
+  };
+
+  // create the chart
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+  });
+</script>
 @endsection
 @section('content')
 
