@@ -3,6 +3,8 @@
 namespace App\Providers;
 use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Category\CategoryRepositoryEloquent;
+use App\Repositories\Config\SettingRepository;
+use App\Repositories\Config\SettingRepositoryEloquent;
 use App\Repositories\LanguageMeta\LanguageMetaRepository;
 use App\Repositories\LanguageMeta\LanguageMetaRepositoryEloquent;
 use App\Repositories\MemberBrand\MemberBrandRepository;
@@ -25,10 +27,8 @@ class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->app->bind(UserRepository::class, UserRepositoryEloquent::class);
         $this->app->bind(PostRepository::class, PostRepositoryEloquent::class);
@@ -39,14 +39,13 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(PermissionRepository::class, PermissionRepositoryEloquent::class);
         $this->app->bind(MemberBrandRepository::class, MemberBrandRepositoryEloquent::class);
         $this->app->bind(LanguageMetaRepository::class, LanguageMetaRepositoryEloquent::class);
+        $this->app->bind(SettingRepository::class, SettingRepositoryEloquent::class);
     }
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         //
     }

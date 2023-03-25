@@ -38,6 +38,7 @@ class PostController extends Controller
     {
         $data = $request->only(['q', 'limit']);
 
+
         $posts = $this->postRepository->getPostPaginate($data);
 
         return view('admin.pages.post.index')->with(compact('posts'));
