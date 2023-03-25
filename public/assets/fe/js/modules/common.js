@@ -189,6 +189,7 @@ HLY.global = {
             y: 200,
             autoAlpha: 0
         });
+
         new ScrollMagic.Scene({
             triggerElement: "#itemPageWrap",
             triggerHook: .6

@@ -11201,3 +11201,27 @@ main {
         padding-bottom: 20px;
     }
 }
+
+/* responsive ico wrap*/
+@media (max-width: 1950px) {
+    .listCateHome .item h2{
+        height: auto!important;
+        font-size: 48px;
+    }
+}
+@media (max-width: 1300px) {
+    .listCateHome .item h2{
+        font-size: 36px;
+    }
+    .listCateHome .item {
+        padding: 86px 30px 48px;
+    }
+    .infoCate{
+        top: 50%!important;
+    }
+}
+@media (max-width: 1000px) {
+    .infoCate h2{
+        font-size: 40px;
+    }
+}
