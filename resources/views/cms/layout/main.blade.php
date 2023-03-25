@@ -7,8 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="content-language" content="en"/>
 
-{{--    <title>@yield('title')</title>--}}
-    <title>{{config('seo.og:title')}}</title>
+    <title>@yield('title')</title>
     <meta name="title" content="HLY - Mãi mãi tinh thần khởi nghiệp"/>
     <meta name="description"
           content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
