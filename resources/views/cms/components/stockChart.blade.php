@@ -22,6 +22,15 @@
         </div>
         <div class="chart">
             <div>
+                <div class="filterChart">
+                    <select class="selectFilterChart">
+                        <option value="">Tất cả thời gian</option>
+                        <option value="amex">Năm</option>
+                        <option value="discover">Tháng</option>
+                        <option value="mastercard">Tuần</option>
+                        <option value="visa">Ngày</option>
+                    </select>
+                </div>
                 <div id="stockChartContainer" style="height: 450px; width: 100%;">
                     <canvas id="myChart"></canvas>
                 </div>
