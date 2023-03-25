@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\CategoryType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Category\StoreCategoryRequest;
@@ -51,7 +52,21 @@ class CategoryController extends Controller
      */
     public function create(): Factory|View|Application
     {
-        return view('admin.pages.category.create');
+        $categoryTypes = [
+            'news' => [
+                'key' => CategoryType::News,
+                'name' => 'Tin tức'
+            ],
+            'invesment' => [
+                'key' => CategoryType::Invesment,
+                'name' => 'Tin tức đầu tư'
+            ],
+            'recruitment' => [
+                'key' => CategoryType::Recruitment,
+                'name' => 'Tuyển dụng'
+            ],
+        ];
+        return view('admin.pages.category.create')->with(compact('categoryTypes'));;
     }
 
     /**
