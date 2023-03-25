@@ -2,9 +2,6 @@
 @section('title')
     Trang chủ - Tập đoàn Abc
 @endsection
-@section('og:locale')
-    $seoLocale
-@endsection
 @section('js')
     <script type="text/javascript" src="{{ asset('/assets/fe/js/libraries/canvasjs.stock.min.js') }}"></script>
 
