@@ -120,7 +120,7 @@
                             </div>
                             <div class="panel-body">
                                 <div>
-                                    <select id="selectIsActive" name="status" class="select2 form-control select-lg">
+                                    <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
                                         <option value="1">Công khai</option>
                                         <option value="0">Ẩn</option>
                                     </select>
@@ -146,7 +146,7 @@
                             </div>
                             <div class="panel-body">
                                 <div>
-                                    <select id="selectIsActive" name="category_id" class="select2 form-control select-lg">
+                                    <select id="selectIsActive" name="category_id" class="bootstrap-select form-control select-lg">
                                         <option selected disabled >{{@count($categories) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
                                         @forelse(@$categories ?? [] as $category)
                                             <option
@@ -159,29 +159,6 @@
                                 </div>
                             </div>
                         </div>
-{{--                        <div class="panel panel-white">--}}
-{{--                            <div class="panel-heading">--}}
-{{--                                <h6 class="panel-title"><i class="icon-folder2 position-left"></i> Danh mục</h6>--}}
-{{--                            </div>--}}
-{{--                            <div class="panel-body">--}}
-{{--                                <div>--}}
-{{--                                    @forelse(@$categories ?? [] as $category)--}}
-{{--                                        <div>--}}
-{{--                                            <label class="checkbox">--}}
-{{--                                                <input type="checkbox" name="category_ids[]"--}}
-{{--                                                       @if(in_array($category->id, $post->categories->pluck('id')->toArray())) checked--}}
-{{--                                                       @endif style="cursor: pointer"--}}
-{{--                                                       value="{{ $category->id }}">--}}
-{{--                                                <span--}}
-{{--                                                    style="font-size: 16px; margin-left: 16px">{{ $category->name }}</span>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    @empty--}}
-{{--                                        Chưa có danh mục !--}}
-{{--                                    @endforelse--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                         <div class="panel panel-white">
                             <div class="panel-heading">
                                 <h6 class="panel-title"><i class=" icon-image2 position-left"></i> Ảnh đại diện</h6>

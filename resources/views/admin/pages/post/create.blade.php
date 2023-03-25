@@ -113,7 +113,7 @@
                             </div>
                             <div class="panel-body">
                                 <div>
-                                    <select id="selectIsActive" name="status" class="select2 form-control select-lg">
+                                    <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
                                         <option value="1">Công khai</option>
                                         <option value="0">Ẩn</option>
 
@@ -139,7 +139,7 @@
                             </div>
                             <div class="panel-body">
                                 <div>
-                                <select id="selectIsActive" name="category_id" class="select2 form-control select-lg">
+                                <select id="selectIsActive" name="category_id" class="bootstrap-select form-control select-lg">
                                 <option selected disabled >{{@count($categories) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
                                 @forelse(@$categories ?? [] as $category)
                                     <option  value="{{ $category->id }}">{{ $category->name }}</option>
