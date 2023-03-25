@@ -51,6 +51,14 @@
                         @endif
                     @endif
 
+                    @if(checkPermission('setting-index'))
+                        <li class="navigation-header"><span>Giao diện</span> <i class="icon-menu" title="Giao diện"></i>
+                        </li>
+                        <li class="{{ request()->is('admin/settings*') ? 'active' : '' }}"><a
+                                href="{{ route('admin.settings.index') }}"><i class=" icon-users"></i> <span>Tuỳ chọn giao diện</span></a>
+                        </li>
+                    @endif
+
 
                     @if(checkPermission('users-index') || checkPermission('roles-index'))
                         <li class="navigation-header"><span>Hệ thống</span> <i class="icon-menu" title="Hệ thống"></i>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SlugController;
@@ -98,6 +99,10 @@ Route::prefix('/admin')->group(function () {
 
             Route::prefix('tags')->group(function () {
                 Route::get('/', [TagController::class, 'index'])->name('admin.tags.index');
+            });
+            Route::prefix('settings')->group(function () {
+                Route::get('/', [SettingController::class, 'index'])->name('admin.settings.index');
+                Route::post('/', [SettingController::class, 'update'])->name('admin.settings.update');
             });
 
             Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {
