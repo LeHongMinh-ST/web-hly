@@ -89,7 +89,22 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h6 class="panel-title"><i class="icon-gradient position-left"></i> Loại danh mục</h6>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <select id="selectIsActive" name="type" class="select2 form-control select-lg">
+                                        @foreach($categoryTypes as $type)
+                                            <option value="{{$type['key']}}">{{$type['name']}}</option>
+                                        @endforeach
+{{--                                        <option value="{{$categoryType}}">Danh mục tin thươờng</option>--}}
+{{--                                        <option value="0">Danh mục tin tức đầu tư</option>--}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel panel-white">
                             <div class="panel-heading">
                                 <h6 class="panel-title"><i class="icon-gradient position-left"></i> Trạng thái</h6>
