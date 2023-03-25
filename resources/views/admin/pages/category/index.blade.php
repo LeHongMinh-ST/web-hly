@@ -5,6 +5,8 @@
             $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
         @endphp
         <script type="module" src="/build/{{ $manifest['resources/js/category/index.js']['file'] }}"></script>
+        <script type="text/javascript" src="assets/admin/js/plugins/forms/selects/bootstrap_select.min.js"></script>
+
         @else
             @vite(['resources/js/category/index.js'])
             @endproduction
@@ -39,6 +41,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-md-4">
+                                    <label>Nội dung tìm kiếm</label>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Tìm kiếm...">
                                         <div class="form-control-feedback">
@@ -48,7 +51,16 @@
 
                                 </div>
                                 <div class="col-md-4">
-
+                                    <div class="form-group">
+                                        <label>Loại danh mục</label>
+                                        <select class="bootstrap-select" data-width="100%">
+                                            @foreach($categoryTypes as $type)
+                                                <option value="{{$type['key']}}">
+                                                    {{$type['name']}}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="row">

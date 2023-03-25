@@ -39,10 +39,24 @@ class CategoryController extends Controller
     public function index(Request $request): Factory|View|Application
     {
         $data = $request->only(['q', 'limit']);
+        $categoryTypes = [
+            'news' => [
+                'key' => CategoryType::News,
+                'name' => 'Tin tức'
+            ],
+            'invesment' => [
+                'key' => CategoryType::Invesment,
+                'name' => 'Tin tức đầu tư'
+            ],
+            'recruitment' => [
+                'key' => CategoryType::Recruitment,
+                'name' => 'Tuyển dụng'
+            ],
+        ];
 
         $categories = $this->categoryRepository->getCategoryPaginate($data);
 
-        return view('admin.pages.category.index')->with(compact('categories'));
+        return view('admin.pages.category.index')->with(compact('categories', 'categoryTypes'));
     }
 
     /**
@@ -132,8 +146,21 @@ class CategoryController extends Controller
     public function edit($id): Factory|View|Application
     {
         $category = $this->categoryRepository->find($id);
-
-        return view('admin.pages.category.edit')->with(compact('category'));
+        $categoryTypes = [
+            'news' => [
+                'key' => CategoryType::News,
+                'name' => 'Tin tức'
+            ],
+            'invesment' => [
+                'key' => CategoryType::Invesment,
+                'name' => 'Tin tức đầu tư'
+            ],
+            'recruitment' => [
+                'key' => CategoryType::Recruitment,
+                'name' => 'Tuyển dụng'
+            ],
+        ];
+        return view('admin.pages.category.edit')->with(compact('category', 'categoryTypes'));
     }
 
     /**

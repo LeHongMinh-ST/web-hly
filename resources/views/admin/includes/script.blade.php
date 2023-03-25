@@ -27,6 +27,7 @@
         src="{{ asset('assets/admin/js/plugins/forms/selects/form_checkboxes_radios.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/styling/switch.min.js') }}"></script>
 <script type="text/javascript" src="{{asset('assets/admin/js/core/app.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/pages/form_bootstrap_select.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/init.js')}}"></script>
 <script type="text/javascript" src="{{asset('libs/ckeditor/ckeditor.js')}}"></script>
 <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>

@@ -19,6 +19,7 @@ class Category extends Model
         'name',
         'order',
         'status',
+        'type',
         'create_by',
         'update_by',
     ];

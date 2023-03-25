@@ -94,17 +94,29 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h6 class="panel-title"><i class="icon-stack3 position-left"></i> Loại danh mục</h6>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <select id="selectIsActive" name="type" class="bootstrap-select form-control select-lg">
+                                        @foreach($categoryTypes as $type)
+                                            <option value="{{$type['key']}}" {{old('order', @$category->type) == $type['key'] ? 'selected' : ''}}>{{$type['name']}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel panel-white">
                             <div class="panel-heading">
                                 <h6 class="panel-title"><i class="icon-gradient position-left"></i> Trạng thái</h6>
                             </div>
                             <div class="panel-body">
                                 <div>
-                                    <select id="selectIsActive" name="status" class="select2 form-control select-lg">
-                                        <option value="1">Công khai</option>
-                                        <option value="0">Ẩn</option>
-
+                                    <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
+                                        <option value="1" {{old('order', @$category->status) == 1 ? 'selected' : ''}}>Công khai</option>
+                                        <option value="0" {{old('order', @$category->status) == 0 ? 'selected' : ''}}>Ẩn</option>
                                     </select>
                                 </div>
                             </div>
