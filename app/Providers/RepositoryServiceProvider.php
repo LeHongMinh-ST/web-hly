@@ -3,8 +3,8 @@
 namespace App\Providers;
 use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Category\CategoryRepositoryEloquent;
-use App\Repositories\Config\SettingRepository;
-use App\Repositories\Config\SettingRepositoryEloquent;
+use App\Repositories\Setting\SettingRepository;
+use App\Repositories\Setting\SettingRepositoryEloquent;
 use App\Repositories\LanguageMeta\LanguageMetaRepository;
 use App\Repositories\LanguageMeta\LanguageMetaRepositoryEloquent;
 use App\Repositories\MemberBrand\MemberBrandRepository;
