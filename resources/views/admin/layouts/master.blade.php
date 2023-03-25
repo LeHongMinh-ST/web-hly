@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-{{--    <title>@yield('title', 'Trang quản trị - HLY')</title>--}}
-    <title>@yield('str')</title>
+    <title>@yield('title', 'Trang quản trị - HLY')</title>
 
     @include('admin.includes.style')
 
