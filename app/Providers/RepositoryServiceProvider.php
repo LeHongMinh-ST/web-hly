@@ -13,6 +13,8 @@ use App\Repositories\Permission\PermissionRepository;
 use App\Repositories\Permission\PermissionRepositoryEloquent;
 use App\Repositories\Post\PostRepository;
 use App\Repositories\Post\PostRepositoryEloquent;
+use App\Repositories\Recruitment\RecruitmentRepository;
+use App\Repositories\Recruitment\RecruitmentRepositoryEloquent;
 use App\Repositories\Role\RoleRepository;
 use App\Repositories\Role\RoleRepositoryEloquent;
 use App\Repositories\Slug\SlugRepository;
@@ -40,6 +42,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(MemberBrandRepository::class, MemberBrandRepositoryEloquent::class);
         $this->app->bind(LanguageMetaRepository::class, LanguageMetaRepositoryEloquent::class);
         $this->app->bind(SettingRepository::class, SettingRepositoryEloquent::class);
+        $this->app->bind(RecruitmentRepository::class, RecruitmentRepositoryEloquent::class);
     }
 
     /**

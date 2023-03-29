@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\RecruitmentController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
@@ -54,7 +55,7 @@ Route::multilingual('/tim-kiem', function () {
 Route::multilingual('/tuyen-dung', function () {
     return view('cms.page.recruitment');
 })->name('cms.recruitment');
-Route::multilingual('/nha-dau-tu', [HomeController::class, 'investors'])->name('cms.investors');;
+Route::multilingual('/nha-dau-tu', [HomeController::class, 'investors'])->name('cms.investors');
 
 Route::prefix('/admin')->group(function () {
 
@@ -103,6 +104,16 @@ Route::prefix('/admin')->group(function () {
             Route::prefix('settings')->group(function () {
                 Route::get('/', [SettingController::class, 'index'])->name('admin.settings.index');
                 Route::post('/', [SettingController::class, 'update'])->name('admin.settings.update');
+            });
+
+            Route::prefix('recruitments')->group(function () {
+                Route::get('/', [RecruitmentController::class, 'index'])->name('admin.recruitments.index');
+                Route::post('/', [RecruitmentController::class, 'store'])->name('admin.recruitments.store');
+                Route::get('/create', [RecruitmentController::class, 'create'])->name('admin.recruitments.create');
+                Route::get('/{id}', [RecruitmentController::class, 'show'])->name('admin.recruitments.show');
+                Route::put('/{id}', [RecruitmentController::class, 'update'])->name('admin.recruitments.update');
+                Route::delete('/{id}', [RecruitmentController::class, 'destroy'])->name('admin.recruitments.destroy');
+                Route::get('/{id}/edit', [RecruitmentController::class, 'edit'])->name('admin.recruitments.edit');
             });
 
             Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {

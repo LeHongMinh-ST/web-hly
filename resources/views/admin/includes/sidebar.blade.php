@@ -39,6 +39,11 @@
                                     href="{{ route('admin.posts.index') }}"><i
                                         class="icon-magazine"></i> <span>Bài viết</span></a></li>
                         @endif
+                        @if(checkPermission('recruitment-index'))
+                            <li class="{{ request()->is('admin/recruitments*') ? 'active' : '' }}"><a
+                                    href="{{ route('admin.recruitments.index') }}"><i
+                                        class="icon-magazine"></i> <span>Bài tuyển dụng</span></a></li>
+                        @endif
                         @if(checkPermission('categories-index'))
                             <li class="{{ request()->is('admin/categories*') ? 'active' : '' }}"><a
                                     href="{{ route('admin.categories.index') }}"><i class="icon-stack"></i> <span>Danh mục bài viết</span></a>
