@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\CategoryType;
 use App\Enums\Language;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Recruitment\StoreRecruitmentRequest;
@@ -42,7 +43,7 @@ class RecruitmentController extends Controller
 
     public function create(): Factory|View|Application
     {
-        $categories = $this->categoryRepository->getCategory();
+        $categories = $this->categoryRepository->getByType(CategoryType::Recruitment);
 
         return view('admin.pages.recruitment.create')->with(compact('categories'));
     }
@@ -52,11 +53,7 @@ class RecruitmentController extends Controller
         DB::beginTransaction();
         try {
             $data = $request->all();
-//            dd(array_merge($data, [
-//                'create_by' => auth()->id(),
-//                'update_by' => auth()->id(),
-//                'views' => 0,
-//            ]));
+
             $recruitment = $this->recruitmentRepository->create(array_merge($data, [
                 'create_by' => auth()->id(),
                 'update_by' => auth()->id(),
@@ -92,7 +89,7 @@ class RecruitmentController extends Controller
     public function edit(int|string $id): Factory|View|Application
     {
         $recruitment = $this->recruitmentRepository->find($id);
-        $categories = $this->categoryRepository->getCategory();
+        $categories = $this->categoryRepository->getByType(CategoryType::Recruitment);
         return view('admin.pages.recruitment.edit')->with(compact('recruitment', 'categories'));
     }
 
