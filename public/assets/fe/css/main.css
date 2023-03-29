@@ -11225,3 +11225,10 @@ main {
         font-size: 40px;
     }
 }
+.selectFilterChart{
+    margin-bottom: 30px;
+    max-width: 300px;
+    background: white;
+    font-size: 15px;
+    border: 0.5px solid #c7c4c4;
+}
