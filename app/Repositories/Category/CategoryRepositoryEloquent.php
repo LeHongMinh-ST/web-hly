@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Category;
 
+use App\Enums\CategoryType;
 use App\Models\Category;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
@@ -49,4 +50,10 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
         })->with(['updateBy', 'createBy', 'slug'])->get();
     }
 
+    public function getByType(string $type)
+    {
+        return $this->scopeQuery(function ($query) use ($type) {
+            return $query->where('type', $type)->orderBy('created_at', 'desc');
+        })->with(['updateBy', 'createBy', 'slug'])->get();
+    }
 }
