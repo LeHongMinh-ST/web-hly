@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Role extends Model
 {
@@ -14,6 +16,7 @@ class Role extends Model
 
     protected $fillable = [
         'name',
+        'description',
         'create_by',
         'update_by',
     ];
@@ -36,5 +39,14 @@ class Role extends Model
     public function updateBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'update_by');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function (Role $post) {
+            $post->permissions()->detach();
+        });
     }
 }

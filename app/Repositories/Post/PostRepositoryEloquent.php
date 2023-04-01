@@ -35,8 +35,14 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     public function getPostPaginate(array $data)
     {
         $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
+        $q = $data['q'] ?? '';
 
-        return $this->scopeQuery(function ($query) {
+        return $this->scopeQuery(function ($query) use ($q) {
+
+            if ($q) {
+                $query->where('title', 'like',"%$q%");
+            }
+
             return $query->orderBy('created_at', 'desc');
         })->with(['categories', 'updateBy', 'createBy'])->paginate($limit);
     }

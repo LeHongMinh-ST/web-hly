@@ -15,10 +15,15 @@ export default defineConfig({
                 'resources/js/post/create.js',
                 'resources/js/post/edit.js',
 
-                //Post
+                //Category
                 'resources/js/category/index.js',
                 'resources/js/category/create.js',
                 'resources/js/category/edit.js',
+
+                //Role
+                'resources/js/role/index.js',
+                'resources/js/role/create.js',
+                'resources/js/role/edit.js',
 
             ],
             refresh: true,

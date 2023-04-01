@@ -33,19 +33,20 @@
 <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
 <!-- /theme JS files -->
 
-@production
-    @php
-        $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
-    @endphp
-    <script type="module" src="/build/{{ $manifest['resources/css/app.css']['file'] }}"></script>
 
-@endproduction
 <script>
     $(document).ready(function () {
         @if(\session()->has('success'))
         $.jGrowl('{{ \session()->pull('success') }}', {
             header: 'Thành công',
             theme: 'bg-teal'
+        });
+        @endif
+
+        @if(\session()->has('error'))
+        $.jGrowl('{{ \session()->pull('error') }}', {
+            header: 'Lỗi',
+            theme: 'bg-danger'
         });
         @endif
 

@@ -78,13 +78,6 @@
         // dots: true
     })
 
-    $('.relationshipShareholder').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        autoplay: true,
-        dots: true
-    });
 </script>
 <script src="{{ asset('/assets/fe/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 <script src="{{asset('/assets/fe/js/main.js')}}"></script>

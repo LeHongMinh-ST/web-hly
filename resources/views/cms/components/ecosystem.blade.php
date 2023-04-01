@@ -8,7 +8,7 @@
                 <img src="./assets/fe/images/hg1.jpg" class="img-block">
                 <div style="width: 40%; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <h3 >Công nghệ</h3>
+                    <h3 >Sức khỏe</h3>
                     <p>FPT là đối tác chiến lược quan trọng về tư vấn, đào tạo, triển khai chuyển đổi số của các tập đoàn, tổ chức hàng đầu trên thế giới và tại Việt Nam trong nhiều lĩnh vực</p>
                 </div>
                 <a type="button" style="" href="/he-sinh-thai/suc-khoe" class="btn-show-more">Xem thêm</a>

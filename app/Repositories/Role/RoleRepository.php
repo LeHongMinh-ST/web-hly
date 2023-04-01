@@ -11,5 +11,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface RoleRepository extends RepositoryInterface
 {
-    //
+    public function getRolesPaginate(array $data);
 }

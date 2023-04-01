@@ -8,10 +8,10 @@
             @foreach($posts as $post)
                 @if($i < 4)
                     <!-- <div> -->
-                    <div class="itemNews" style="width: 25%; padding: 0 10px">
+                    <div class="itemNews">
                         <div class="img">
-                            <div style="background: url('{{ $post->thumbnail }}') center; width: 100%; height: 250px; object-fit: cover"></div>
-                            <img src="{{ $post->thumbnail }}" style="width: 100%; height: 250px;">
+                            <div class="thumb" style="background: url('{{ $post->thumbnail }}') center"></div>
+                            <img src="{{ $post->thumbnail }}" >
                         </div>
                         <div class="copy">
                             <h4>Tin {{@$post->categories->name ?? ""}}</h4>

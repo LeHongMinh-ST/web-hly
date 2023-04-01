@@ -42,18 +42,18 @@
                         @if(checkPermission('recruitment-index'))
                             <li class="{{ request()->is('admin/recruitments*') ? 'active' : '' }}"><a
                                     href="{{ route('admin.recruitments.index') }}"><i
-                                        class="icon-magazine"></i> <span>Bài tuyển dụng</span></a></li>
+                                        class="icon-newspaper2"></i> <span>Bài tuyển dụng</span></a></li>
                         @endif
                         @if(checkPermission('categories-index'))
                             <li class="{{ request()->is('admin/categories*') ? 'active' : '' }}"><a
                                     href="{{ route('admin.categories.index') }}"><i class="icon-stack"></i> <span>Danh mục bài viết</span></a>
                             </li>
                         @endif
-                        @if(checkPermission('tags-index'))
-                            <li class="{{ request()->is('admin/tags*') ? 'active' : '' }}"><a
-                                    href="{{ route('admin.tags.index') }}"><i class="icon-price-tag2"></i>
-                                    <span>Tag</span></a></li>
-                        @endif
+{{--                        @if(checkPermission('tags-index'))--}}
+{{--                            <li class="{{ request()->is('admin/tags*') ? 'active' : '' }}"><a--}}
+{{--                                    href="{{ route('admin.tags.index') }}"><i class="icon-price-tag2"></i>--}}
+{{--                                    <span>Tag</span></a></li>--}}
+{{--                        @endif--}}
                     @endif
 
                     @if(checkPermission('setting-index'))

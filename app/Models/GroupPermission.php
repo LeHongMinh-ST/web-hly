@@ -19,6 +19,6 @@ class GroupPermission extends Model
 
     public function permissions(): HasMany
     {
-        return $this->hasMany(Permission::class, 'group_permission_id', 'code');
+        return $this->hasMany(Permission::class, 'group_code', 'code');
     }
 }

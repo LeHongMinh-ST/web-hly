@@ -171,6 +171,10 @@ max-width: none
     padding: 20px;
 }
 
+.wrapper-ecosytem .block-info:hover {
+    border: 1px solid lightgrey;
+}
+
 .wrapper-ecosytem .img-block {
     width: 60%;
     object-fit: cover;
@@ -196,10 +200,23 @@ max-width: none
     padding: 50px;
     padding-top: 0px;
 }
-.partnersWrap .contentWrapPartners{
+.partnersWrap .contentWrapPartners .flex{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+}
+.partnersWrap .slick-dots{
+    bottom: 0!important;
+    width: 100%!important;
+    width: 100%!important;
+    left: 0!important;
+}
+.relationshipShareholder .slick-dots{
+    width: 100%!important;
+    left: 0!important;
+}
+.partnersWrap .slick-dots li.slick-active button {
+    background: #0e6447!important;
 }
 .partnersWrap .contentWrapPartners .content-leader {
     position: relative;
@@ -296,11 +313,27 @@ max-width: none
     }
 }
 @media (max-width: 900px) {
+
+    .newsHomeList .itemNews  img{
+        height: 45vw;
+    }
+    .newsHomeList .itemNews  .thumb{
+        height: 45vw;
+    }
+
+    .newsHomeList{
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .newsHomeList .itemNews{
+        width: calc(50% - 20px);
+        padding: 0 20px;
+    }
     .partnersWrap .contentWrapPartners .content-list-partner .title-partner{
         font-size: 35px;
         font-weight: bold;
     }
-    .partnersWrap .contentWrapPartners .content-list-partner .list-partners .item-partner{
+    .partnersWrap .contentWrapPartners .list-partners .item-partner{
         padding: 10px 10px 0 10px;
     }
     .pc{
@@ -314,6 +347,14 @@ max-width: none
     }
     .partnersWrap .contentWrapPartners .content-list-partner{
         width: 50%;
+    }
+}
+@media (max-width: 1200px) {
+    .newsHomeList .itemNews  img{
+        height: 200px;
+    }
+    .newsHomeList .itemNews  .thumb{
+        height: 200px;
     }
 }
 @media (max-width: 874px) {
@@ -330,6 +371,10 @@ max-width: none
 @media (max-width: 550px) {
     .partnersWrap .mb .list-partners .item-partner{
         padding: 15px 15px 0 15px;
+    }
+    .newsHomeList .itemNews{
+        width: calc(50% - 10px);
+        padding: 0;
     }
 }
 @media (max-width: 486px) {

@@ -51,10 +51,11 @@
     font-weight: 400;
     font-style: normal
 } */
-:root{
+:root {
     --color-green-main: #0e6447;
     --color-green-blur1: #90ffcd47;
 }
+
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -431,13 +432,13 @@ sub {
 .ir-finance-bar ul:after,
 .itemPageWrap ul:after,
 .linkPage:after,
-.listEvent li .copy>div:after,
+.listEvent li .copy > div:after,
 .listSearch li .item:after,
 .listSearch:after,
 .mapContact .copy p:after,
 .newsHomeList:after,
 .newsList:after,
-.partnerPageWrap .item-2 .ir-homepage-r>div>div:after,
+.partnerPageWrap .item-2 .ir-homepage-r > div > div:after,
 .partnertPd ul:after,
 .row:after,
 footer .right:after {
@@ -706,12 +707,15 @@ select {
 .slick-arrow.slick-hidden {
     display: none
 }
+
 .slick-prev:before {
-    content: ''!important;
+    content: '' !important;
 }
+
 .slick-next:before {
-    content: ''!important;
+    content: '' !important;
 }
+
 .slick-next,
 .slick-prev {
     font-size: 0;
@@ -793,10 +797,12 @@ select {
 .slick-dots li.slick-active button {
     background: white;
 }
+
 .relationshipShareholder .slick-dots li.slick-active button {
     background: #0e6447 !important;
 }
-.slick-dots li button:before{
+
+.slick-dots li button:before {
     content: '' !important;
 }
 
@@ -893,7 +899,7 @@ select {
     padding-left: 0
 }
 
-.fa-ul>li {
+.fa-ul > li {
     position: relative
 }
 
@@ -6444,7 +6450,7 @@ select {
     background: #fff
 }
 
-.loading>div {
+.loading > div {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -6734,35 +6740,35 @@ select {
     display: none
 }
 
-.ctrl .fnavbar .fnav .fnav-item>a {
+.ctrl .fnavbar .fnav .fnav-item > a {
     padding: 10px;
     display: inline-block;
     color: #ccc
 }
 
-.ctrl .fnavbar .fnav>.active>a {
+.ctrl .fnavbar .fnav > .active > a {
     color: #fff
 }
 
-.ctrl .fnavbar .fnav .fnav-item>a:hover {
+.ctrl .fnavbar .fnav .fnav-item > a:hover {
     color: #fff;
     cursor: pointer
 }
 
-.ctrl .fnavbar .fnav .fnav-item>a:active {
+.ctrl .fnavbar .fnav .fnav-item > a:active {
     text-shadow: 0 0 2px #fff
 }
 
-.ctrl .fnavbar .fnav>.disabled>a {
+.ctrl .fnavbar .fnav > .disabled > a {
     color: #888
 }
 
-.ctrl .fnavbar .fnav>.disabled>a:hover {
+.ctrl .fnavbar .fnav > .disabled > a:hover {
     color: #888;
     cursor: not-allowed
 }
 
-.ctrl .fnavbar .fnav>.active {
+.ctrl .fnavbar .fnav > .active {
     background: #222
 }
 
@@ -7389,7 +7395,8 @@ header {
     padding-left: 220px;
     display: none
 }
-.ctMenu.active{
+
+.ctMenu.active {
     background-color: #d4e9e2;
 }
 
@@ -7406,20 +7413,20 @@ nav {
     width: 360px
 }
 
-#nav>li {
+#nav > li {
     display: block;
     position: relative;
     opacity: 0
 }
 
-#nav>li:hover>a,
-#nav>li>a.active,
-#nav>li>a:hover {
+#nav > li:hover > a,
+#nav > li > a.active,
+#nav > li > a:hover {
     color: #0e6447;
     font-weight: bold;
 }
 
-#nav>li>a {
+#nav > li > a {
     display: block;
     font-family: Arial, Helvetica, sans-serif, riftbold;
     font-size: 32px;
@@ -7487,33 +7494,33 @@ footer {
     /* margin-top: 40px */
 }
 
-footer .left>div {
+footer .left > div {
     padding-bottom: 35px
 }
 
-footer .left>div h4 {
+footer .left > div h4 {
     font-family: Arial, Helvetica, sans-serif, san_francisco_textbold;
     font-size: 16px;
     color: #2d3236;
     padding-bottom: 5px
 }
 
-footer .left>div ul {
+footer .left > div ul {
     margin-top: 10px
 }
 
-footer .left>div ul li {
+footer .left > div ul li {
     display: inline-block;
     vertical-align: bottom;
     margin-right: 10px
 }
 
-footer .left>div ul li .fab {
+footer .left > div ul li .fab {
     color: #a7a7a7;
     font-size: 22px
 }
 
-footer .left>div ul li a:hover .fab {
+footer .left > div ul li a:hover .fab {
     color: #0e6447
 }
 
@@ -7683,7 +7690,7 @@ main {
     width: 100%
 }
 
-.bannerHome .item  .copy {
+.bannerHome .item .copy {
     width: 45%;
     position: absolute;
     top: 50%;
@@ -7694,12 +7701,13 @@ main {
     padding-left: 2%
 }
 
-.bannerHome .item  .copy h3 {
+.bannerHome .item .copy h3 {
     color: #fff;
     font-size: 64px;
     padding-bottom: 25px;
     position: relative
 }
+
 .bannerHome .item .copy h2 {
     color: #fff;
     font-size: 84px;
@@ -7734,31 +7742,32 @@ main {
     color: #fff
 }
 
-@media (min-aspect-ratio:16 / 9) {
+@media (min-aspect-ratio: 16 / 9) {
     .video-foreground {
         height: 300%;
         top: -100%
     }
 }
 
-@media (max-aspect-ratio:16 / 9) {
+@media (max-aspect-ratio: 16 / 9) {
     .video-foreground {
         width: 300%;
         left: -100%
     }
 }
 
-@media all and (max-width:600px) {
+@media all and (max-width: 600px) {
     .vid-info {
         width: 50%;
         padding: .5rem
     }
+
     .vid-info h1 {
         margin-bottom: .2rem
     }
 }
 
-@media all and (max-width:500px) {
+@media all and (max-width: 500px) {
     .vid-info .acronym {
         display: none
     }
@@ -7862,6 +7871,22 @@ main {
     margin-bottom: 0
 }
 
+.newsHomeList .itemNews {
+    width: 25%;
+    padding: 0 10px;
+}
+
+.newsHomeList .itemNews .thumb {
+    width: 100%;
+    height: 250px;
+    object-fit: cover
+}
+.newsHomeList .itemNews  img{
+    width: 100%;
+    height: 250px;
+    max-height: 250px;
+}
+
 .itemNews {
     position: relative
 }
@@ -7959,7 +7984,7 @@ main {
     padding: 50px 0
 }
 
-.infoCate>div {
+.infoCate > div {
     position: relative;
     z-index: 1;
     padding-right: 20px
@@ -7995,7 +8020,7 @@ main {
     margin-top: 60px
 }
 
-.dragMouse>img {
+.dragMouse > img {
     width: 21px;
     -webkit-animation: 2s cubic-bezier(.215, .61, .355, 1) 1s infinite both rotateMouse;
     animation: 2s cubic-bezier(.215, .61, .355, 1) 1s infinite both rotateMouse
@@ -8258,13 +8283,13 @@ main {
     height: 493px
 }
 
-.shareholdersHomeWrap .right>p {
+.shareholdersHomeWrap .right > p {
     font-size: 14px;
     color: #a7a7a7;
     padding-top: 20px
 }
 
-.shareholdersHomeWrap .right>p strong {
+.shareholdersHomeWrap .right > p strong {
     font-family: Arial, Helvetica, sans-serif, san_francisco_textbold
 }
 
@@ -8345,7 +8370,7 @@ main {
     line-height: 45px
 }
 
-.listEvent li .copy>a {
+.listEvent li .copy > a {
     font-size: 13px;
     color: #2d3236;
     font-family: Arial, Helvetica, sans-serif, san_francisco_textbold;
@@ -8354,11 +8379,11 @@ main {
     display: block
 }
 
-.listEvent li .copy>a:hover {
+.listEvent li .copy > a:hover {
     color: #0e6447
 }
 
-.listEvent li .copy>div p {
+.listEvent li .copy > div p {
     display: inline-block;
     float: left;
     font-size: 10px;
@@ -8366,26 +8391,26 @@ main {
     margin-right: 10px
 }
 
-.listEvent li .copy>div p a {
+.listEvent li .copy > div p a {
     color: #bbb
 }
 
-.listEvent li .copy>div p a:hover {
+.listEvent li .copy > div p a:hover {
     color: #0e6447
 }
 
-.listEvent li .copy>div p i {
+.listEvent li .copy > div p i {
     margin-right: 3px;
     font-size: 9px
 }
 
-.listEvent li>p {
+.listEvent li > p {
     font-size: 18px;
     color: #2d3236;
     font-family: Arial, Helvetica, sans-serif, san_francisco_textbold
 }
 
-.listEvent li:hover>p {
+.listEvent li:hover > p {
     color: #0e6447
 }
 
@@ -8795,7 +8820,7 @@ main {
     color: #0e6447
 }
 
-.breadcrumb>i {
+.breadcrumb > i {
     font-size: 12px;
     color: #a7a7a7;
     margin: 0 5px
@@ -9106,7 +9131,7 @@ main {
     position: relative
 }
 
-.mapContact>img {
+.mapContact > img {
     width: 100%
 }
 
@@ -9659,32 +9684,32 @@ main {
     padding-bottom: 20px
 }
 
-.partnerPageWrap .item-1 .ir-homepage-r>div {
+.partnerPageWrap .item-1 .ir-homepage-r > div {
     padding: 0;
     height: 100%;
     overflow: hidden
 }
 
-.partnerPageWrap .item-1 .ir-homepage-l>div {
+.partnerPageWrap .item-1 .ir-homepage-l > div {
     position: relative;
     padding: 20px;
     border: 1px solid #eee;
     height: 100%
 }
 
-.partnerPageWrap .item-1 .ir-homepage-l>div>div>img {
+.partnerPageWrap .item-1 .ir-homepage-l > div > div > img {
     width: 100%;
     margin-bottom: 18px
 }
 
-.partnerPageWrap .item-1 .ir-homepage-l>div>div h4 {
+.partnerPageWrap .item-1 .ir-homepage-l > div > div h4 {
     display: inline-block;
     position: relative;
     padding-left: 20px;
     line-height: 18px
 }
 
-.partnerPageWrap .item-1 .ir-homepage-l>div>div h4 img {
+.partnerPageWrap .item-1 .ir-homepage-l > div > div h4 img {
     vertical-align: middle;
     display: inline-block;
     position: absolute;
@@ -9692,7 +9717,7 @@ main {
     left: 0
 }
 
-.partnerPageWrap .item-1 .ir-homepage-l>div>div h4 span {
+.partnerPageWrap .item-1 .ir-homepage-l > div > div h4 span {
     font-family: Arial, Helvetica, sans-serif, san_francisco_textbold;
     font-size: 13px;
     vertical-align: middle;
@@ -9700,36 +9725,36 @@ main {
     display: inline-block
 }
 
-.partnerPageWrap .item-2 .ir-homepage-r>div {
+.partnerPageWrap .item-2 .ir-homepage-r > div {
     height: 100%;
     overflow: hidden
 }
 
-.partnerPageWrap .item-2 .ir-homepage-r>div>div .img {
+.partnerPageWrap .item-2 .ir-homepage-r > div > div .img {
     background-size: cover !important;
     float: left;
     width: 46%;
     position: relative
 }
 
-.partnerPageWrap .item-2 .ir-homepage-r>div>div .img img {
+.partnerPageWrap .item-2 .ir-homepage-r > div > div .img img {
     width: 100%
 }
 
-.partnerPageWrap .item-2 .ir-homepage-r>div>div .right {
+.partnerPageWrap .item-2 .ir-homepage-r > div > div .right {
     float: right;
     padding-left: 30px;
     width: 54%
 }
 
-.partnerPageWrap .item-2 .ir-homepage-l>div {
+.partnerPageWrap .item-2 .ir-homepage-l > div {
     position: relative;
     padding: 20px;
     border: 1px solid #eee;
     height: 100%
 }
 
-.partnerPageWrap .item-2 .ir-homepage-l>div .nano {
+.partnerPageWrap .item-2 .ir-homepage-l > div .nano {
     width: 100%;
     height: 330px;
     overflow: auto
@@ -9745,14 +9770,14 @@ main {
     padding: 0 10px
 }
 
-.partnerPageWrap .item-3 .item>div {
+.partnerPageWrap .item-3 .item > div {
     position: relative;
     padding: 20px;
     border: 1px solid #eee;
     height: 100%
 }
 
-.partnerPageWrap .item-3 .itembot1>div>div>img {
+.partnerPageWrap .item-3 .itembot1 > div > div > img {
     width: 100%
 }
 
@@ -9789,22 +9814,22 @@ main {
     border: none
 }
 
-.partnerPageWrap .item-3 .itembot2>div {
+.partnerPageWrap .item-3 .itembot2 > div {
     position: relative;
     padding: 20px;
     border: 1px solid #eee;
     height: 100%
 }
 
-.partnerPageWrap .item-3 .itembot2>div>div>a>img {
+.partnerPageWrap .item-3 .itembot2 > div > div > a > img {
     width: 100%
 }
 
-.partnerPageWrap .item-3 .itembot2>div>div ul {
+.partnerPageWrap .item-3 .itembot2 > div > div ul {
     border: none
 }
 
-.partnerPageWrap .item-3 .itembot3>div {
+.partnerPageWrap .item-3 .itembot3 > div {
     height: auto;
     margin-bottom: 20px
 }
@@ -9820,7 +9845,7 @@ main {
     padding-left: 20px
 }
 
-.ir-homepage-r>div {
+.ir-homepage-r > div {
     position: relative;
     padding: 20px;
     border: 1px solid #eee
@@ -10289,36 +10314,42 @@ main {
     display: none
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width: 1024px) {
     .hdContainer {
         width: 100%;
         height: 50px
     }
+
     main {
         padding-left: 0;
         padding-top: 50px !important
     }
+
     .hamburger-menu {
         top: 50%;
         left: 20px;
         -webkit-transform: translate3d(0, -50%, 0);
         transform: translate3d(0, -50%, 0)
     }
+
     .botHd {
         left: auto;
         right: 20px;
         bottom: 12px;
         width: auto
     }
-    .botHd>a {
+
+    .botHd > a {
         display: inline-block;
         vertical-align: middle;
         margin-right: 10px
     }
+
     .botHd p {
         display: inline-block;
         vertical-align: middle
     }
+
     .logo {
         position: absolute;
         top: 50%;
@@ -10328,21 +10359,26 @@ main {
         margin-top: 0;
         margin-left: 0
     }
+
     .logo img {
         width: 44px
     }
+
     .ctMenu {
         padding-left: 20px
     }
+
     nav {
         top: 80px;
         -webkit-transform: translate(0);
         -ms-transform: translate(0);
         transform: translate(0)
     }
+
     #nav {
         width: 100%
     }
+
     .submenu {
         position: relative;
         top: 0;
@@ -10351,71 +10387,91 @@ main {
         padding-left: 0;
         display: block
     }
+
     .submenu a {
         font-size: 17px
     }
+
     .submenu:after {
         display: none
     }
-    #nav>li>a {
+
+    #nav > li > a {
         font-size: 24px
     }
+
     .bannerHome {
         height: calc(100vh - 50px)
     }
+
     .bannerHome .item .container .copy h3 {
         font-size: 45px
     }
+
     .listCateHome .item .content .copy p {
         font-size: 13px
     }
+
     .listCateHome .item h2 {
         font-size: 36px
     }
+
+
+
     /*.listCateInvestor .item .content .copy p {*/
     /*    font-size: 13px*/
     /*}*/
     /*.listCateInvestor .item h2 {*/
     /*    font-size: 36px*/
     /*}*/
-    .infoCate>div p {
+    .infoCate > div p {
         font-size: 15px
     }
+
     #pSearch {
         padding-top: 83px !important
     }
+
     .mapContact .copy {
         width: 50%;
         right: 5%
     }
+
     .breadcrumb {
         padding-top: 20px
     }
+
     #pDevelopment .itemPageWrap {
         padding-bottom: 0
     }
+
     .tabNews {
         margin-top: 20px
     }
+
     .historyPd .copy {
         width: 50%;
         padding: 15px 0 15px 15px
     }
 }
 
-@media screen and (max-width:1023px) {
+@media screen and (max-width: 1023px) {
     .infoCate {
         padding-right: 20px
     }
+
     .listCateHome .item {
         padding: 70px 25px 25px
     }
+
     .listCateHome .slick-slide {
         padding: 0 10px
     }
+
     .listCateHome .item .content .copy p {
         font-size: 12px
     }
+
     /*.listCateInvestor .item {*/
     /*    padding: 70px 25px 25px*/
     /*}*/
@@ -10435,79 +10491,99 @@ main {
         transform: translate(0, 0);
         margin: -30px auto 0
     }
+
     .devWrap .copy {
         width: 55%;
         padding-right: 30px
     }
+
     .devWrap .img {
         width: 45%
     }
+
     .itemPageWrap ul li div {
         padding: 30px 20px 50px
     }
+
     .tabNews li a {
         font-size: 16px
     }
+
     .historyPd .copy h2 {
         font-size: 80px
     }
+
     .historyPd .copy h3 {
         font-size: 45px
     }
+
     .introDtWrap2 .img {
         width: 50%
     }
+
     .introDtWrap2 .copy {
         width: 50%;
         padding-left: 30px
     }
+
     .introDtWrap3 .img {
         width: 50%
     }
+
     .introDtWrap3 .copy {
         width: 50%;
         padding-right: 30px
     }
+
     .partnerPageWrap .row {
         display: block
     }
+
     .ir-homepage-l {
         width: 100%
     }
+
     .ir-homepage-r {
         width: 100%;
         padding-left: 0
     }
-    .partnerPageWrap .item-1 .ir-homepage-r>div {
+
+    .partnerPageWrap .item-1 .ir-homepage-r > div {
         height: 300px
     }
+
     .partnerPageWrap .item-3 .item {
         width: 100%;
         padding: 0
     }
+
     .anotherLogo div {
         text-align: left
     }
+
     .anotherLogo div a {
         width: auto;
         height: 58px
     }
+
     .ir-homepage-l,
     .partnerPageWrap .item-3 .item {
         margin-bottom: 20px
     }
 }
 
-@media screen and (max-width:767px) {
-    .loading>div {
+@media screen and (max-width: 767px) {
+    .loading > div {
         width: 60px;
         height: 60px
     }
+
     .outerCircle {
         width: 60px;
         height: 60px;
         border-width: 4px
     }
+
     .innerCircle {
         width: 46px;
         height: 46px;
@@ -10515,18 +10591,22 @@ main {
         top: 7px;
         border-width: 4px
     }
+
     body {
         font-size: 13px
     }
+
     .stagger-down,
     .stagger-left,
     .stagger-right,
     .stagger-up {
         visibility: visible
     }
+
     .ctMenu {
         overflow: auto
     }
+
     .bannerHome .item .container .copy {
         width: 100%;
         top: 40px;
@@ -10534,23 +10614,29 @@ main {
         -ms-transform: translate(0, 0);
         transform: translate(0, 0)
     }
+
     .btn {
         font-size: 15px;
         padding: 0 20px
     }
+
     .btn span {
         line-height: 46px
     }
+
     .btn-2 {
         font-size: 15px
     }
+
     .btn-2 span {
         line-height: 46px
     }
+
     .newsHomeWrap,
     .shareholdersHomeWrap {
         padding: 40px 0
     }
+
     .infoCate h2,
     .infoNews h2,
     .mapContact .copy h2,
@@ -10558,23 +10644,29 @@ main {
         font-size: 40px;
         padding-bottom: 20px
     }
+
     .itemNews .copy {
         padding: 10px 0
     }
+
     .itemNews .copy h4 {
         padding-bottom: 10px;
         font-size: 13px
     }
+
     .itemNews .copy h3 {
         font-size: 16px;
         padding-bottom: 10px
     }
+
     .itemNews .copy p {
         font-size: 11px
     }
+
     .contentwrap {
         padding-left: 0
     }
+
     .infoCate {
         width: 100%;
         position: relative;
@@ -10585,32 +10677,41 @@ main {
         transform: translate(0, 0);
         padding: 30px 0
     }
-    .infoCate>div p {
+
+    .infoCate > div p {
         font-size: 13px
     }
+
     .dragMouse {
         width: 100%;
         margin: 20px auto 0
     }
+
     .left {
         padding-right: 0
     }
+
     .right {
         padding-left: 0
     }
-    .listEvent li>p {
+
+    .listEvent li > p {
         font-size: 14px
     }
+
     .shareholdersHomeWrap .left {
         width: 100%;
         padding: 0 20px
     }
+
     .shareholdersHomeWrap .right {
         width: 100%
     }
+
     .paging {
         text-align: center
     }
+
     .paging a,
     .paging span {
         width: 20px;
@@ -10618,70 +10719,90 @@ main {
         line-height: 16px;
         font-size: 13px
     }
+
     .listCateHome .item .content .copy p {
         line-height: 17px
     }
+
     /*.listCateInvestor .item .content .copy p {*/
     /*    line-height: 17px*/
     /*}*/
     .listSearch li .item .copy h3 {
         font-size: 20px
     }
+
     .listSearch li .item .copy span {
         font-size: 12px
     }
+
     .listSearch li .item .copy p {
         padding-top: 10px;
         font-size: 14px
     }
+
     .listSearch li {
         margin: 10px 0
     }
+
     .listSearch {
         margin-top: 20px
     }
+
     .mapContact .copy {
         padding: 20px
     }
+
     .mapContact .copy p {
         font-size: 12px
     }
+
     .formWrap {
         padding: 30px 10px 0
     }
+
     .mapContact .copy p strong {
         width: 100px
     }
+
     .mapContact .copy p span {
         width: calc(100% - 100px)
     }
+
     .itemPageWrap ul li h3 {
         font-size: 23px;
         padding-bottom: 20px
     }
+
     .itemPageWrap ul li p {
         font-size: 14px
     }
+
     .introDtWrap {
         padding-bottom: 0
     }
+
     .itemPageWrap ul li h3:after {
         height: 51px;
         left: -21px
     }
+
     .itemPageWrap ul li {
         margin-bottom: 0 !important
     }
+
     .itemPageWrap ul li a {
         left: 20px
     }
+
     .itemPageWrap,
     .partnerWrap {
         padding: 30px 0
     }
+
     .tabNews {
         display: none
     }
+
     .slNews {
         display: block;
         width: 100%;
@@ -10693,73 +10814,94 @@ main {
         font-family: Arial, Helvetica, sans-serif, riftdemi;
         background: url(../images/ar-d-w.png) right 10px top 9px/12px no-repeat #0e6447
     }
+
     #pProduct .slNews {
         margin-top: 0
     }
+
     .linkPage a {
         padding: 10px 0;
         font-size: 18px
     }
+
     .infoDetailPd {
         padding: 30px 0 0
     }
+
     .historyPd {
         padding-top: 30px
     }
+
     .partnertPd ul {
         margin: 0 -15px
     }
+
     .partnertPd ul li {
         padding: 0 15px
     }
+
     .partnertPd ul li .item div h2 {
         font-size: 20px
     }
+
     .partnertPd ul li .item p {
         font-size: 14px
     }
+
     .linkPage {
         display: none
     }
+
     .introDtWrap3 {
         padding-bottom: 30px
     }
+
     .introDtWrap2 {
         padding: 30px 0
     }
+
     .newsHomeWrap .btn-wrap {
         padding-top: 20px
     }
+
     .listCateHome {
         padding-left: 20px
     }
+
     /*.listCateInvestor {*/
     /*    padding-left: 20px*/
     /*}*/
     .ir-finance-bar {
         display: none
     }
+
     .slMb {
         display: block
     }
+
     .ir-annuallist .item {
         width: 49%
     }
+
     .ir-annuallist .item:nth-child(n) {
         margin-bottom: 2%;
         margin-right: 2%
     }
+
     .ir-annuallist .item:nth-child(2n) {
         margin-right: 0;
         margin-bottom: 0
     }
+
     .ir-docpage-r {
         width: 100%;
         margin-top: 20px
     }
+
     .ir-document-toggle {
         display: block
     }
+
     #submenuPage {
         position: absolute;
         z-index: 10;
@@ -10770,48 +10912,58 @@ main {
         -o-transition: .15s ease-in-out;
         transition: .15s ease-in-out
     }
+
     #submenuPage.active {
         left: 0
     }
 }
 
-@media all and (max-width:767px) and (orientation:landscape) {
+@media all and (max-width: 767px) and (orientation: landscape) {
     .bannerHome .item .container .copy h3 {
         font-size: 30px
     }
 }
 
-@media all and (max-width:767px) and (orientation:portrait) {
-    #nav>li>a {
+@media all and (max-width: 767px) and (orientation: portrait) {
+    #nav > li > a {
         padding: 0
     }
+
     .bannerHome .item {
         background-position: center right 32% !important
     }
+
     .bannerHome .item .container .copy h3 {
         font-size: 40px
     }
+
     .newsHomeList li {
         width: 100%
     }
+
     .newsHomeList li:nth-child(n) {
         margin-bottom: 0;
         margin-right: 0
     }
+
     .newsHomeList li:nth-child(1n) {
         margin-right: 0;
         margin-bottom: 0
     }
+
     .listCateHome {
         width: 170%
     }
+
     .listCateHome .item .content .img img {
         height: 130px
     }
+
     .listCateHome .item h2 {
         font-size: 33px;
         padding-bottom: 20px
     }
+
     /*.listCateInvestor {*/
     /*    width: 170%*/
     /*}*/
@@ -10826,97 +10978,124 @@ main {
     .right {
         width: 100%
     }
+
     footer {
         padding-top: 30px;
         margin-top: 30px
     }
-    footer .left>div {
+
+    footer .left > div {
         padding-bottom: 20px
     }
+
     .botFooter {
         text-align: center
     }
+
     .botFooter p {
         width: 100%
     }
+
     .botFooter p a {
         font-size: 13px
     }
+
     .botFooter span {
         font-size: 13px;
         width: 100%
     }
+
     footer .right ul li a {
         font-size: 13px
     }
+
     .listSearch li .item .img {
         width: 100%;
         margin-bottom: 10px
     }
+
     .listSearch li .item .copy {
         width: 100%
     }
+
     .listSearch li .item .copy p {
         display: none
     }
+
     .formWrap ul li {
         width: 100%
     }
+
     .formWrap .btnwrap {
         padding-top: 15px
     }
+
     .devWrap .img {
         width: 100%;
         margin-bottom: 20px
     }
+
     .devWrap .copy {
         width: 100%;
         padding-right: 0
     }
+
     .itemPageWrap {
         padding: 30px 0
     }
+
     .itemPageWrap ul li {
         width: 100%;
         margin-bottom: 20px !important
     }
+
     .itemPageWrap ul li:nth-child(n) {
         margin-bottom: 0;
         margin-right: 0
     }
+
     .itemPageWrap ul li:nth-child(1n) {
         margin-right: 0;
         margin-bottom: 0
     }
+
     .partnerWrap .copy,
     .partnerWrap .crsPartner {
         width: 100%
     }
+
     .partnerWrap .crsPartner .slick-next,
     .partnerWrap .crsPartner .slick-prev {
         top: 15px
     }
+
     .newsList {
         display: block;
         margin: 0
     }
+
     .newsList li {
         width: 100% !important;
         padding: 10px 0
     }
+
     .newsList li:first-child {
         width: 100% !important
     }
+
     .newsList li:first-child .itemNews .img img {
         width: 100%
     }
+
     .newsList li:first-child .itemNews .copy {
         width: 70%;
         padding: 15px
     }
+
     .historyPd .img {
         width: 100%
     }
+
     .historyPd .copy {
         width: 100%;
         position: relative;
@@ -10925,12 +11104,15 @@ main {
         -ms-transform: translate(0, 0);
         transform: translate(0, 0)
     }
+
     .partnertPd {
         padding-top: 30px
     }
+
     .partnertPd ul {
         margin: 0
     }
+
     .partnertPd ul li {
         width: 100%;
         border-bottom: 1px solid #dedede;
@@ -10938,70 +11120,90 @@ main {
         padding: 0 0 20px;
         margin-bottom: 30px
     }
+
     .partnertPd ul li .item div {
         padding-top: 20px
     }
+
     .partnertPd ul li:first-child {
         border-bottom: 1px solid #dedede
     }
+
     .partnertPd ul li:last-child {
         border-bottom: none
     }
+
     .introDtWrap .content {
         padding-right: 0
     }
+
     .quote p {
         width: 63%;
         font-size: 20px
     }
+
     .introDtWrap2 .img {
         width: 100%;
         margin-bottom: 20px
     }
+
     .introDtWrap2 .copy {
         width: 100%;
         padding-left: 0
     }
+
     .introDtWrap3 {
         padding: 30px 0
     }
+
     .introDtWrap3 .img {
         width: 100%;
         margin-bottom: 20px
     }
+
     .introDtWrap3 .copy {
         width: 100%;
         padding-right: 0
     }
+
     #ifrMobile2 {
         display: block
     }
+
     #ifrDesktop {
         display: none
     }
-    .partnerPageWrap .item-1 .ir-homepage-r>div {
+
+    .partnerPageWrap .item-1 .ir-homepage-r > div {
         height: 490px
     }
-    .partnerPageWrap .item-2 .ir-homepage-r>div>div .img {
+
+    .partnerPageWrap .item-2 .ir-homepage-r > div > div .img {
         width: 100%
     }
-    .partnerPageWrap .item-2 .ir-homepage-r>div>div .right {
+
+    .partnerPageWrap .item-2 .ir-homepage-r > div > div .right {
         width: 100%;
         padding-left: 0
     }
+
     .ir-finance-table {
         overflow: auto
     }
+
     .ir-finance-table table {
         width: 150%
     }
+
     .ir-annuallist .item {
         width: 100%
     }
+
     .ir-annuallist .item:nth-child(n) {
         margin-bottom: 0;
         margin-right: 0
     }
+
     .ir-annuallist .item:nth-child(1n) {
         margin-right: 0;
         margin-bottom: 0
@@ -11021,8 +11223,21 @@ main {
     margin-left: -20px;
     overflow: inherit
 }
+.listCateInvestor .content-top p img{
+    width: 20px;
+    margin-right: 20px;
+}
+.listCateInvestor .content-top p{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 10px;
+}
 
 .listCateInvestor .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     cursor: pointer;
     width: 31.33%;
     margin: 1%;
@@ -11050,6 +11265,7 @@ main {
     -o-transition: .5s;
     transition: .5s
 }
+
 .listCateInvestor .item.cate-1 .ico {
     background: url(../images/ico-cate-1.png) 0 0/100% no-repeat
 }
@@ -11150,6 +11366,7 @@ main {
 .listCateInvestor .item .link {
     display: none
 }
+
 @media (max-width: 1400px) {
     .listCateInvestor .item h2 {
         font-size: 35px;
@@ -11160,6 +11377,7 @@ main {
     .listCateInvestor .item h2 {
         font-size: 30px;
     }
+
     .listCateInvestor .item {
         padding: 81px 35px 35px;
     }
@@ -11169,6 +11387,7 @@ main {
     .listCateInvestor .item h2 {
         font-size: 25px;
     }
+
     .listCateInvestor .item {
         padding: 50px 30px 35px;
     }
@@ -11187,16 +11406,19 @@ main {
 }
 
 @media (max-width: 600px) {
-    .listCateInvestor  {
+    .listCateInvestor {
         flex-direction: column;
     }
+
     .listCateInvestor .item {
         width: 100%;
         padding: 20px;
     }
+
     .listCateInvestor .item .ico {
         width: 70px;
     }
+
     .listCateInvestor .item h2 {
         padding-bottom: 20px;
     }
@@ -11204,28 +11426,33 @@ main {
 
 /* responsive ico wrap*/
 @media (max-width: 1950px) {
-    .listCateHome .item h2{
-        height: auto!important;
+    .listCateHome .item h2 {
+        height: auto !important;
         font-size: 48px;
     }
 }
+
 @media (max-width: 1300px) {
-    .listCateHome .item h2{
+    .listCateHome .item h2 {
         font-size: 36px;
     }
+
     .listCateHome .item {
         padding: 86px 30px 48px;
     }
-    .infoCate{
-        top: 50%!important;
+
+    .infoCate {
+        top: 50% !important;
     }
 }
+
 @media (max-width: 1000px) {
-    .infoCate h2{
+    .infoCate h2 {
         font-size: 40px;
     }
 }
-.selectFilterChart{
+
+.selectFilterChart {
     margin-bottom: 30px;
     max-width: 300px;
     background: white;

@@ -80,7 +80,7 @@ class CategoryController extends Controller
                 'name' => 'Tuyển dụng'
             ],
         ];
-        return view('admin.pages.category.create')->with(compact('categoryTypes'));;
+        return view('admin.pages.category.create')->with(compact('categoryTypes'));
     }
 
     /**

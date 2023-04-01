@@ -45,7 +45,7 @@
                                             <h6 class="panel-title"><i class="icon-info22 position-left"></i> Thông tin
                                             </h6>
                                         </div>
-                                        <div class="panel-body display-flex"
+                                        <div class="panel-body"
                                              style="justify-content: center; height: 100%">
                                             <div class="form-group">
                                                 <label class="control-label text-bold">
@@ -95,83 +95,77 @@
                                                     @enderror
                                                 </div>
                                             </div>
-
-                                            <div class="form-group">
-                                                <div class="panel panel-white">
-                                                    <div class="panel-heading">
-                                                        <h6 class="panel-title">
-                                                            <i class=" icon-image2 position-left"></i> Logo
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="panel-body">
-                                                        <div>
-                                                            <input id="image" type="text"
-                                                                   value="{{ old('logo', @$settings['logo']) }}"
-                                                                   hidden name="logo">
-                                                            <a class="lfm" data-input="image" data-preview="holder">
-                                                                Chọn ảnh
-                                                            </a>
-                                                            <div id="holder" class="image-preview"
-                                                                 style="margin-top:15px;max-height:150px; max-width: 150px">
-                                                                @if(old('logo', @$settings['logo']))
-                                                                    <img style="width: 100%; height: 100%"
-                                                                         src="{{ @$settings['logo'] }}" alt="Ảnh logo">
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    @error('logo')
-                                                    <label id="error-content" class="validation-error-label"
-                                                           for="basic">{{ $message }}</label>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="panel panel-white">
-                                                    <div class="panel-heading">
-                                                        <h6 class="panel-title"><i
-                                                                class=" icon-image2 position-left"></i> Favicon
-                                                        </h6>
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <div>
-                                                            <input id="image" type="text"
-                                                                   value="{{ old('favicon', @$settings['favicon']) }}"
-                                                                   hidden name="favicon">
-                                                            <a class="lfm" data-input="image" data-preview="holder2">
-                                                                Chọn ảnh
-                                                            </a>
-                                                            <div id="holder2" class="image-preview"
-                                                                 style="margin-top:15px;max-height:150px; max-width: 150px">
-                                                                @if(old('favicon', @$settings['favicon']))
-                                                                    <img style="width: 100%; height: 100%"
-                                                                         src="{{ @$settings['favicon'] }}"
-                                                                         alt="Ảnh favicon">
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    @error('favicon')
-                                                    <label id="error-content" class="validation-error-label"
-                                                           for="basic">{{ $message }}</label>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
-                                    <div class="panel-body">
-                                        <div>
-                                            <button class="btn btn-success" type="submit">
-                                                <i class=" icon-paperplane"></i>
-                                                Lưu
-                                            </button>
+
+                                    <div class="panel panel-white">
+                                        <div class="panel-heading">
+                                            <h6 class="panel-title">
+                                                <i class=" icon-image2 position-left"></i> Logo
+                                            </h6>
                                         </div>
+
+                                        <div class="panel-body">
+                                            <div>
+                                                <input id="image" type="text"
+                                                       value="{{ old('logo', @$settings['logo']) }}"
+                                                       hidden name="logo">
+                                                <a class="lfm" data-input="image" data-preview="holder">
+                                                    Chọn ảnh
+                                                </a>
+                                                <div id="holder" class="image-preview"
+                                                     style="margin-top:15px;max-height:150px; max-width: 150px">
+                                                    @if(old('logo', @$settings['logo']))
+                                                        <img style="width: 100%; height: 100%"
+                                                             src="{{ @$settings['logo'] }}" alt="Ảnh logo">
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @error('logo')
+                                        <label id="error-content" class="validation-error-label"
+                                               for="basic">{{ $message }}</label>
+                                        @enderror
                                     </div>
+
+                                    <div class="panel panel-white">
+                                        <div class="panel-heading">
+                                            <h6 class="panel-title"><i
+                                                    class=" icon-image2 position-left"></i> Favicon
+                                            </h6>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div>
+                                                <input id="image" type="text"
+                                                       value="{{ old('favicon', @$settings['favicon']) }}"
+                                                       hidden name="favicon">
+                                                <a class="lfm" data-input="image" data-preview="holder2">
+                                                    Chọn ảnh
+                                                </a>
+                                                <div id="holder2" class="image-preview"
+                                                     style="margin-top:15px;max-height:150px; max-width: 150px">
+                                                    @if(old('favicon', @$settings['favicon']))
+                                                        <img style="width: 100%; height: 100%"
+                                                             src="{{ @$settings['favicon'] }}"
+                                                             alt="Ảnh favicon">
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @error('favicon')
+                                        <label id="error-content" class="validation-error-label"
+                                               for="basic">{{ $message }}</label>
+                                        @enderror
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <button class="btn btn-success" type="submit">
+                                        <i class=" icon-paperplane"></i>
+                                        Lưu
+                                    </button>
                                 </div>
 
                                 {{ implode(', ', $errors->all()) }}
