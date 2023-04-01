@@ -52,9 +52,7 @@ Route::multilingual('/lien-he', function () {
 Route::multilingual('/tim-kiem', function () {
     return view('cms.page.search');
 })->name('cms.search');
-Route::multilingual('/tuyen-dung', function () {
-    return view('cms.page.recruitment');
-})->name('cms.recruitment');
+Route::multilingual('/tuyen-dung', [\App\Http\Controllers\CMS\RecruitmentController::class, 'index'])->name('cms.recruitment');
 Route::multilingual('/nha-dau-tu', [HomeController::class, 'investors'])->name('cms.investors');
 
 Route::prefix('/admin')->group(function () {
