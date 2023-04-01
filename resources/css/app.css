@@ -6,6 +6,10 @@
     display: none !important;
 }
 
+.align-center {
+    align-items: center;
+}
+
 .image-preview img{
     width: 100%!important;
     height: 100%!important;

@@ -56,18 +56,13 @@
                                 <div class="col-md-4">
 
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="row">
-                                        <div class="col-md-9"></div>
-                                        <div class="col-md-3">
-                                            <div class="form-group has-feedback has-feedback-left"
-                                                 style="text-align: end">
-                                                <a type="button" href="{{ route('admin.recruitments.create') }}"
-                                                   class="btn btn-primary"><i
-                                                            class="icon-add"></i>
-                                                    Thêm mới</a>
-                                            </div>
-                                        </div>
+                                <div class="col-md-4 text-right">
+                                    <div class="form-group has-feedback has-feedback-left"
+                                         style="text-align: end">
+                                        <a type="button" href="{{ route('admin.posts.create') }}"
+                                           class="btn btn-primary"><i
+                                                class="icon-add"></i>
+                                            Thêm mới</a>
                                     </div>
                                 </div>
                             </div>

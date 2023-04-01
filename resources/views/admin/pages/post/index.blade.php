@@ -44,30 +44,31 @@
                     <div class="panel panel-flat">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
-                                        <div class="form-control-feedback">
-                                            <i class="icon-search4 text-size-base"></i>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-4">
-
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="row">
-                                        <div class="col-md-9"></div>
-                                        <div class="col-md-3">
-                                            <div class="form-group has-feedback has-feedback-left"
-                                                 style="text-align: end">
-                                                <a type="button" href="{{ route('admin.posts.create') }}"
-                                                   class="btn btn-primary"><i
-                                                            class="icon-add"></i>
-                                                    Thêm mới</a>
+                                <div class="col-md-6">
+                                    <form action="">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="q" value="{{ request()->query('q') }}" placeholder="Tìm kiếm...">
+                                                    <div class="form-control-feedback">
+                                                        <i class="icon-search4 text-size-base"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button class="btn-primary btn" type="submit">Tìm kiếm</button>
                                             </div>
                                         </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4 text-right">
+                                    <div class="form-group has-feedback has-feedback-left"
+                                         style="text-align: end">
+                                        <a type="button" href="{{ route('admin.posts.create') }}"
+                                           class="btn btn-primary"><i
+                                                class="icon-add"></i>
+                                            Thêm mới</a>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +132,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="8" style="text-align: center">
-                                                <img src="{{ asset('assets\admin\images\empty.png') }}" width="450px"
+                                                <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
                                                      alt="">
                                             </td>
                                         </tr>

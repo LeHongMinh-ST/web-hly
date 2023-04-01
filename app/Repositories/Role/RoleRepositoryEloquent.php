@@ -33,4 +33,18 @@ class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
+    public function getRolesPaginate($data)
+    {
+        $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
+
+        $q = $data['q'] ?? '';
+
+        return $this->scopeQuery(function ($query) use ($q) {
+
+            if ($q) {
+                $query->where('title', 'like',"%$q%");
+            }
+            return $query->orderBy('created_at', 'desc');
+        })->with(['createBy'])->paginate($limit);
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RecruitmentController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
@@ -76,7 +77,13 @@ Route::prefix('/admin')->group(function () {
             });
 
             Route::prefix('roles')->group(function () {
-                Route::get('/', [UserController::class, 'index'])->name('admin.roles.index');
+                Route::get('/', [RoleController::class, 'index'])->name('admin.roles.index');
+                Route::post('/', [RoleController::class, 'store'])->name('admin.roles.store');
+                Route::get('/create', [RoleController::class, 'create'])->name('admin.roles.create');
+                Route::get('/{id}', [RoleController::class, 'show'])->name('admin.roles.show');
+                Route::put('/{id}', [RoleController::class, 'update'])->name('admin.roles.update');
+                Route::delete('/{id}', [RoleController::class, 'destroy'])->name('admin.roles.destroy');
+                Route::get('/{id}/edit', [RoleController::class, 'edit'])->name('admin.roles.edit');
             });
 
             Route::prefix('posts')->group(function () {
