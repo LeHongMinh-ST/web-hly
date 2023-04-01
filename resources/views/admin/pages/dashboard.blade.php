@@ -58,7 +58,6 @@
 
                                 <h3 class="no-margin"><i class="icon-newspaper2"></i> {{ $recruitments }}</h3>
                                 Bài tuyển dụng
-
                             </div>
 
                             <div id="server-load"></div>
@@ -95,7 +94,7 @@
                     <div class="panel bg-orange-400">
                         <div class="panel-body">
 
-                            <h3 class="no-margin"><i class=" icon-users"></i> 100</h3>
+                            <h3 class="no-margin"><i class=" icon-users"></i> {{ $viewPage }}</h3>
                             Lượt truy cập
                         </div>
 

@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\ViewPage;
 use App\Events\ViewPost;
+use App\Listeners\ViewPageHandler;
 use App\Listeners\ViewPostHandler;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         ViewPost::class => [
             ViewPostHandler::class
+        ],
+        ViewPage::class => [
+            ViewPageHandler::class
         ]
     ];
 

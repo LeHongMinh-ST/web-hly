@@ -5,6 +5,8 @@ use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Category\CategoryRepositoryEloquent;
 use App\Repositories\GroupPermission\GroupPermissionRepository;
 use App\Repositories\GroupPermission\GroupPermissionRepositoryEloquent;
+use App\Repositories\ReportViewPage\ReportViewPageRepository;
+use App\Repositories\ReportViewPage\ReportViewPageRepositoryEloquent;
 use App\Repositories\Setting\SettingRepository;
 use App\Repositories\Setting\SettingRepositoryEloquent;
 use App\Repositories\LanguageMeta\LanguageMetaRepository;
@@ -46,6 +48,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(SettingRepository::class, SettingRepositoryEloquent::class);
         $this->app->bind(RecruitmentRepository::class, RecruitmentRepositoryEloquent::class);
         $this->app->bind(GroupPermissionRepository::class, GroupPermissionRepositoryEloquent::class);
+        $this->app->bind(ReportViewPageRepository::class, ReportViewPageRepositoryEloquent::class);
     }
 
     /**
