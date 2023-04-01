@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\CMS;
 
+use App\Events\ViewPost;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Repositories\Post\PostRepository;
@@ -10,6 +11,7 @@ use App\Services\Blog\BlogService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Event;
 
 class BlogController extends Controller
 {
@@ -33,6 +35,7 @@ class BlogController extends Controller
         $posts = $this->postRepository->with(['categories', 'slug'])->limit(4);
 
         $data = $blogService->handleFrontRoutes($slug);
+        Event::dispatch(new ViewPost($data['data']['post']));
         return view('cms.page.post', [
             'post' => $data['data']['post'],
             'posts' => $posts
