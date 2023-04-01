@@ -123,8 +123,9 @@
                                     @empty
                                         <tr>
                                             <td colspan="8" style="text-align: center">
-                                                <img src="{{ asset('assets\admin\images\empty.png') }}" width="450px"
+                                                <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
                                                      alt="">
+                                                <div>Không có dữ liệu</div>
                                             </td>
                                         </tr>
                                     @endforelse

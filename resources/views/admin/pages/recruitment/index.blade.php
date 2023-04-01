@@ -91,10 +91,10 @@
                                             <td style="text-align: center">{{ $loop->index + 1 + $recruitments->perPage() * ($recruitments->currentPage() - 1)   }}</td>
                                             <td>
                                                 @if($recruitment->thumbnail)
-                                                    <img style="width: 100px; height: 100px;object-fit: cover"
+                                                   <img style="width: 56px; height: 56px;object-fit: cover"
                                                          src="{{ $recruitment->thumbnail }}" alt="">
                                                 @else
-                                                    <img style="width: 100px; height: 100px;object-fit: cover"
+                                                   <img style="width: 56px; height: 56px;object-fit: cover"
                                                          src="{{ asset('assets/admin/images/default.jpg') }}" alt="">
                                                 @endif
                                             </td>
@@ -124,8 +124,9 @@
                                     @empty
                                         <tr>
                                             <td colspan="8" style="text-align: center">
-                                                <img src="{{ asset('assets\admin\images\empty.png') }}" width="450px"
+                                                <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
                                                      alt="">
+                                                <div>Không có dữ liệu</div>
                                             </td>
                                         </tr>
                                     @endforelse

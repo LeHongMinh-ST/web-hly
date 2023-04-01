@@ -95,7 +95,7 @@
                                                         <td style="text-align: center">{{ $loop->index + 1 + $roles->perPage() * ($roles->currentPage() - 1)   }}</td>
                                                         <td>
                                                 <span style="font-weight: bold"><a
-                                                        href="">{{ $role->name ?? ''}}</a></span>
+                                                        href="{{ route('admin.roles.edit', $role->id) }}">{{ $role->name ?? ''}}</a></span>
                                                         </td>
                                                         <td>{{ @$role->description ?? ''}}</td>
                                                         <td style="text-align: center">{{ @$role->createBy->fullname }}</td>

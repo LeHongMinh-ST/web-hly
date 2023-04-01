@@ -94,7 +94,7 @@
                                                         <td style="text-align: center">{{ $loop->index + 1 + $users->perPage() * ($users->currentPage() - 1)   }}</td>
                                                         <td>
                                                 <span style="font-weight: bold"><a
-                                                        href="{{ route('admin.users.show', $user->id) }}">{{ $user->fullname ?? ''}}</a></span>
+                                                        href="{{ route('admin.users.edit', $user->id) }}">{{ $user->fullname ?? ''}}</a></span>
                                                         </td>
                                                         <td>{{ $user->username ?? '' }}</td>
                                                         <td style="text-align: center">{{ $user->email }}</td>
@@ -120,8 +120,9 @@
                                                 @empty
                                                     <tr>
                                                         <td colspan="8" style="text-align: center">
-                                                            <img src="{{ asset('assets\admin\images\empty.png') }}" width="450px"
+                                                            <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
                                                                  alt="">
+                                                            <div>Không có dữ liệu</div>
                                                         </td>
                                                     </tr>
                                                 @endforelse

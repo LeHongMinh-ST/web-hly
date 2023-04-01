@@ -79,11 +79,11 @@
                         <div class="panel-body">
                             <div class="table">
 
-                                <table class="table table-bordered" id="post-table">
+                                <table class="table table-bordered table-scroll" id="post-table">
                                     <thead>
                                     <tr>
                                         <th style="width: 5%; text-align: center">STT</th>
-                                        <th width="100px" style="text-align: center">Ảnh</th>
+                                        <th width="56px" style="text-align: center">Ảnh</th>
                                         <th>Tên bài viết</th>
                                         <th>Slug</th>
                                         <th style="text-align: center">Ngày đăng</th>
@@ -97,17 +97,20 @@
                                         <tr>
                                             <td style="text-align: center">{{ $loop->index + 1 + $posts->perPage() * ($posts->currentPage() - 1)   }}</td>
                                             <td>
-                                                @if($post->thumbnail)
-                                                    <img style="width: 100px; height: 100px;object-fit: cover"
-                                                         src="{{ $post->thumbnail }}" alt="">
-                                                @else
-                                                    <img style="width: 100px; height: 100px;object-fit: cover"
-                                                         src="{{ asset('assets/admin/images/default.jpg') }}" alt="">
-                                                @endif
+                                                <a href="{{ localized_route('cms.news.post',@$post->slug->content) }}">
+                                                    @if($post->thumbnail)
+                                                        <img style="width: 56px; height: 56px;object-fit: cover"
+                                                             src="{{ $post->thumbnail }}" alt="">
+                                                    @else
+                                                        <img style="width: 56px; height: 56px;object-fit: cover"
+                                                             src="{{ asset('assets/admin/images/default.jpg') }}" alt="">
+                                                    @endif
+                                                </a>
+
                                             </td>
                                             <td>
                                                 <span style="font-weight: bold"><a
-                                                            href="">{{ $post->title ?? ''}}</a></span>
+                                                            href="{{ localized_route('cms.news.post',@$post->slug->content) }}">{{ $post->title ?? ''}}</a></span>
                                             </td>
                                             <td>{{ @$post->slug->content ?? '' }}</td>
                                             <td style="text-align: center">{{ @$post->textDatePublish }}</td>
@@ -134,6 +137,7 @@
                                             <td colspan="8" style="text-align: center">
                                                 <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
                                                      alt="">
+                                                <div>Không có dữ liệu</div>
                                             </td>
                                         </tr>
                                     @endforelse
