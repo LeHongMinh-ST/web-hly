@@ -49,11 +49,11 @@
                                     href="{{ route('admin.categories.index') }}"><i class="icon-stack"></i> <span>Danh mục bài viết</span></a>
                             </li>
                         @endif
-                        @if(checkPermission('tags-index'))
-                            <li class="{{ request()->is('admin/tags*') ? 'active' : '' }}"><a
-                                    href="{{ route('admin.tags.index') }}"><i class="icon-price-tag2"></i>
-                                    <span>Tag</span></a></li>
-                        @endif
+{{--                        @if(checkPermission('tags-index'))--}}
+{{--                            <li class="{{ request()->is('admin/tags*') ? 'active' : '' }}"><a--}}
+{{--                                    href="{{ route('admin.tags.index') }}"><i class="icon-price-tag2"></i>--}}
+{{--                                    <span>Tag</span></a></li>--}}
+{{--                        @endif--}}
                     @endif
 
                     @if(checkPermission('setting-index'))

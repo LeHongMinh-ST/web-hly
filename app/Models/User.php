@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -63,5 +64,19 @@ class User extends Authenticatable
     public function updateBy(): BelongsTo
     {
         return $this->belongsTo(self::class, 'update_by');
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
+
+    public function getIsActiveTextAttribute(): string
+    {
+        if($this->status == NULL) return '<span class="label label-primary">Công khai</span>';
+        return match ((int)$this->status) {
+            1 => '<span class="label label-primary">Hoạt động</span>',
+            0 => '<span class="label label-danger">Tạm khóa</span>',
+        };
     }
 }
