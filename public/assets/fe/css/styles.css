@@ -171,6 +171,10 @@ max-width: none
     padding: 20px;
 }
 
+.wrapper-ecosytem .block-info:hover {
+    border: 1px solid lightgrey;
+}
+
 .wrapper-ecosytem .img-block {
     width: 60%;
     object-fit: cover;
