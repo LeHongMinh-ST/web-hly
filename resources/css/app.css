@@ -29,3 +29,51 @@ a.text-link:visited {
     overflow: hidden;
 }
 
+
+.tree {
+    width: 100%;
+}
+
+.tree ul {
+    display: none;
+    margin: 4px auto 4px 6px;
+    border-left: 1px dashed #dfdfdf;
+}
+
+
+.tree li {
+    padding: 12px 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    background: #fff;
+    list-style-type: none;
+}
+
+.tree li:first-child {
+    border-radius: 3px 3px 0 0;
+}
+
+.tree li:last-child {
+    border-radius: 0 0 3px 3px;
+}
+
+.tree .active,
+.active li {
+    background: #efefef;
+}
+
+.tree label {
+    cursor: pointer;
+}
+
+.tree input[type=checkbox] {
+    margin: -2px 6px 0 0px;
+}
+
+.has > label {
+    color: #000;
+}
+
+.tree .total {
+    color: #e13300;
+}

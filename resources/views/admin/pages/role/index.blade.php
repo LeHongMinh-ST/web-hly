@@ -146,7 +146,7 @@
                         <!-- Footer -->
                         @include('admin.includes.footer')
                         <!-- /footer -->
-                        <form action="" method="role" id="frm-delete">
+                        <form action="" method="post" id="frm-delete">
                             @csrf
                             @method('delete')
                         </form>

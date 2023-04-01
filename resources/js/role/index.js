@@ -12,7 +12,7 @@ $(document).ready(function () {
             cancelButtonText: "Đóng!"
         }, async function (value) {
             if (value) {
-                const url = `/admin/posts/${id}`;
+                const url = `/admin/roles/${id}`;
                 $('#frm-delete').get(0).setAttribute('action', url)
                 $('#frm-delete').submit()
             }

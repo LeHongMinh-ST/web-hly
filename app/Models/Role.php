@@ -16,6 +16,7 @@ class Role extends Model
 
     protected $fillable = [
         'name',
+        'description',
         'create_by',
         'update_by',
     ];
@@ -44,7 +45,7 @@ class Role extends Model
     {
         parent::boot();
 
-        static::deleting(function (Post $post) {
+        static::deleting(function (Role $post) {
             $post->permissions()->detach();
         });
     }

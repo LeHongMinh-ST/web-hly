@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Role\StoreRoleRequest;
+use App\Repositories\GroupPermission\GroupPermissionRepository;
 use App\Repositories\Permission\PermissionRepository;
 use App\Repositories\Role\RoleRepository;
 use Illuminate\Contracts\Foundation\Application;
@@ -17,8 +18,9 @@ use Illuminate\Support\Facades\Log;
 class RoleController extends Controller
 {
     public function __construct(
-        private RoleRepository $roleRepository,
-        private PermissionRepository $permissionRepository
+        private RoleRepository            $roleRepository,
+        private PermissionRepository      $permissionRepository,
+        private GroupPermissionRepository $groupPermissionRepository
     )
     {
     }
@@ -47,8 +49,7 @@ class RoleController extends Controller
      */
     public function create(): Factory|View|Application
     {
-        $permissions = $this->permissionRepository->all();
-
+        $permissions = $this->groupPermissionRepository->with('permissions')->all();
         return view('admin.pages.role.create')->with(compact('permissions'));
     }
 
@@ -69,9 +70,6 @@ class RoleController extends Controller
                 'create_by' => auth()->id(),
                 'update_by' => auth()->id(),
             ]));
-
-
-            $role?->tags()->attach(@$data['tags'] ?? []);
 
             $role?->permissions()->attach($data['permissions']);
 
@@ -102,8 +100,16 @@ class RoleController extends Controller
     public function edit(int|string $id): Factory|View|Application
     {
         $role = $this->roleRepository->find($id);
-        $permissions = $this->permissionRepository->all();
-        return view('admin.pages.role.edit')->with(compact('role', 'permissions'));
+        $role->load('permissions');
+        $groupCheck = [];
+        $permissions = $this->groupPermissionRepository->with('permissions')->all();
+        foreach ($permissions as $group) {
+            $arrayPerId = $group->permissions->pluck('id')->toArray();
+            if (count(array_diff($arrayPerId, $role->permissions->pluck('id')->toArray())) === 0) {
+                $groupCheck[] = $group->id;
+            }
+        }
+        return view('admin.pages.role.edit')->with(compact('role', 'permissions', 'groupCheck'));
     }
 
     /**
