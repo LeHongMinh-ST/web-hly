@@ -68,7 +68,7 @@
             <div class="row">
                 <div class="relationshipShareholder">
                     <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu">
+                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
                             <h3>Công ty HLY smart</h3>
                             <img src="./assets/fe/images/hg1.jpg">
                             Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
@@ -76,7 +76,7 @@
                         </a>
                     </div>
                     <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu">
+                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
                             <h3>Công ty HLY smart</h3>
                             <img src="./assets/fe/images/hg1.jpg">
                             Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
@@ -84,7 +84,7 @@
                         </a>
                     </div>
                     <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu">
+                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
                             <h3>Công ty HLY smart</h3>
                             <img src="./assets/fe/images/hg1.jpg">
                             Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
@@ -92,7 +92,7 @@
                         </a>
                     </div>
                     <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu">
+                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
                             <h3>Công ty HLY smart</h3>
                             <img src="./assets/fe/images/hg1.jpg">
                             Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
@@ -100,7 +100,7 @@
                         </a>
                     </div>
                     <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu">
+                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
                             <h3>Công ty HLY smart</h3>
                             <img src="./assets/fe/images/hg1.jpg">
                             Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
