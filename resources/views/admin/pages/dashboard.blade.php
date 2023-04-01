@@ -28,14 +28,84 @@
 
             <!-- Dashboard content -->
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-3">
+
+                    <!-- Members online -->
+                    <a href="{{  route('admin.posts.index') }}">
+                        <div class="panel bg-teal-400">
+                            <div class="panel-body">
 
 
-                    <!-- /latest posts -->
+                                <h3 class="no-margin"><i class="icon-magazine"></i> {{ $posts }}</h3>
+                                Bài viết
+                            </div>
+
+                            <div class="container-fluid">
+                                <div id="members-online"></div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- /members online -->
 
                 </div>
 
+                <div class="col-lg-3">
+
+                    <a href="{{  route('admin.recruitments.index') }}">
+                        <div class="panel bg-pink-400">
+                            <div class="panel-body">
+
+
+                                <h3 class="no-margin"><i class="icon-newspaper2"></i> {{ $recruitments }}</h3>
+                                Bài tuyển dụng
+
+                            </div>
+
+                            <div id="server-load"></div>
+                        </div>
+                    </a>
+                    <!-- Current server load -->
+
+                    <!-- /current server load -->
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <!-- Today's revenue -->
+                    <a href="{{  route('admin.categories.index') }}">
+                        <div class="panel bg-blue-400">
+                            <div class="panel-body">
+
+
+                                <h3 class="no-margin"><i class="icon-stack2"></i> {{ $categories }}</h3>
+                                Danh mục
+                            </div>
+
+                            <div id="today-revenue"></div>
+                        </div>
+                    </a>
+                    <!-- /today's revenue -->
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <!-- Today's revenue -->
+                    <div class="panel bg-orange-400">
+                        <div class="panel-body">
+
+                            <h3 class="no-margin"><i class=" icon-users"></i> 100</h3>
+                            Lượt truy cập
+                        </div>
+
+                        <div id="today-revenue"></div>
+                    </div>
+                    <!-- /today's revenue -->
+
+                </div>
             </div>
+
             <!-- /dashboard content -->
 
 
