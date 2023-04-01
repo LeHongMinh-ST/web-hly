@@ -72,15 +72,13 @@ Route::get('/he-sinh-thai/suc-khoe', function () {
 
 Route::multilingual('/tin-tuc-su-kien', [HomeController::class, 'postPage'])->name('cms.news');
 Route::multilingual('/tin-tuc-su-kien/bai-viet/{slug}', [BlogController::class, 'getPost'])->name('cms.news.post');
+Route::multilingual('/tuyen-dung', [\App\Http\Controllers\CMS\RecruitmentController::class, 'index'])->name('cms.recruitment');
 Route::multilingual('/lien-he', function () {
     return view('cms.page.contact');
 })->name('cms.contact');
 Route::multilingual('/tim-kiem', function () {
     return view('cms.page.search');
 })->name('cms.search');
-Route::multilingual('/tuyen-dung', function () {
-    return view('cms.page.recruitment');
-})->name('cms.recruitment');
 Route::multilingual('/nha-dau-tu', [HomeController::class, 'investors'])->name('cms.investors');
 Route::multilingual('/nha-dau-tu/{slug}', function () {
     return view('cms.page.info.forCustomers');
