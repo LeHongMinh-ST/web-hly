@@ -34,8 +34,11 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     public function getUsersPaginate($data)
     {
         $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
-
-        return $this->scopeQuery(function ($query) {
+        $q = $data['q'] ?? '';
+        return $this->scopeQuery(function ($query) use ($q) {
+            if ($q) {
+                $query->where('username', 'like',"%$q%");
+            }
             return $query->orderBy('created_at', 'desc');
         })->with(['role', 'createBy'])->paginate($limit);
     }

@@ -102,7 +102,12 @@ Route::prefix('/admin')->group(function () {
             Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
             Route::prefix('users')->group(function () {
-                Route::get('/', [UserController::class, 'index'])->name('admin.users.index');
+                Route::get('/', [UserController::class, 'index'])->name('admin.users.index')->middleware('permission:user-index');
+                Route::get('/create', [UserController::class, 'create'])->name('admin.users.create')->middleware('permission:user-create');
+                Route::post('/', [UserController::class, 'store'])->name('admin.users.store')->middleware('permission:user-create');
+                Route::get('/{id}', [UserController::class, 'show'])->name('admin.users.show')->middleware('permission:user-update');
+                Route::put('/{id}', [UserController::class, 'update'])->name('admin.users.update')->middleware('permission:user-update');
+                Route::delete('/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy')->middleware('permission:user-delete');
             });
 
             Route::prefix('roles')->group(function () {

@@ -65,7 +65,7 @@
                                 <div class="col-md-4 text-right">
                                     <div class="form-group has-feedback has-feedback-left"
                                          style="text-align: end">
-                                        <a type="button" href="{{ route('admin.posts.create') }}"
+                                        <a type="button" href="{{ route('admin.categories.create') }}"
                                            class="btn btn-primary"><i
                                                 class="icon-add"></i>
                                             Thêm mới</a>
