@@ -45,7 +45,7 @@
                                             <h6 class="panel-title"><i class="icon-info22 position-left"></i> Thông tin
                                             </h6>
                                         </div>
-                                        <div class="panel-body display-flex"
+                                        <div class="panel-body"
                                              style="justify-content: center; height: 100%">
                                             <div class="form-group">
                                                 <label class="control-label text-bold">
