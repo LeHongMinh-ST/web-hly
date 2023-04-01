@@ -21,6 +21,16 @@
             <ul class="listCateInvestor" >
                 <div class="item cate-1">
                     <h2>ĐẠI HỘI CỔ ĐÔNG</h2>
+                    <div class="content-top">
+                        <p>
+                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            Nghị quyết và biên bản đại hội cổ đông 2022
+                        </p>
+                        <p>
+                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            Thông báo thay đổi nhân sự Hội đồng quản trị
+                        </p>
+                    </div>
                     <div class="content">
                         <div class="img" style="background: url('./assets/fe/images/introduce.jpg') center">
                             <img src="./assets/fe/images/thumb-cate.gif">
@@ -34,6 +44,16 @@
                 </div>
                 <div class="item cate-3">
                     <h2>CÔNG BỐ THÔNG TIN</h2>
+                    <div class="content-top">
+                        <p>
+                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            Báo cáo tài chính hợp nhất quý 3 năm 2022
+                        </p>
+                        <p>
+                            <img src="../assets/fe/images/ar-g.png" alt="">
+                           Báo cáo kết quả kinh doanh quý 3 năm 2022
+                        </p>
+                    </div>
                     <div class="content">
                         <div class="img" style="background: url('./assets/fe/images/hl2.jpg') center">
                             <img src="./assets/fe/images/thumb-cate.gif">
@@ -48,6 +68,20 @@
                 </div>
                 <div class="item cate-3">
                         <h2>QUẢN TRỊ CÔNG TY</h2>
+                    <div class="content-top">
+                        <p>
+                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            Quy chế công bố thông tin tại công ty FPT
+                        </p>
+                        <p>
+                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            Điều lệ công ty
+                        </p>
+                        <p>
+                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            Quy chế quản trị
+                        </p>
+                    </div>
                         <div class="content">
                             <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
                                 <img src="./assets/fe/images/thumb-cate.gif">
@@ -115,4 +149,35 @@
 
     </div>
     @include('cms.components.partners')
+@endsection
+@section('js')
+            <script>
+              $('.partnersWrap').slick({
+                dots: true
+              })
+
+              $('.relationshipShareholder').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                autoplay: true,
+                dots: true,
+                responsive: [
+                  {
+                    breakpoint: 800,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2,
+                    }
+                  },
+                  {
+                    breakpoint: 500,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                    }
+                  }
+                ]
+              });
+            </script>
 @endsection

@@ -392,15 +392,8 @@
 <script type="text/javascript">
   $('.slideBanner').slick({
     autoplay: true,
-    dots: true
+    dots: true,
   })
-  $('.relationshipShareholder').slick({
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 3,
-      autoplay: true,
-      dots: true
-  });
 
 </script>
 <script src="./assets/fe/js/plugins/sweetalert2/sweetalert2.min.js"></script>
