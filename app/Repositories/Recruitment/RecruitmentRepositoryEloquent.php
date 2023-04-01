@@ -27,4 +27,11 @@ class RecruitmentRepositoryEloquent extends BaseRepository implements Recruitmen
             return $query->orderBy('created_at', 'desc');
         })->with(['categories', 'updateBy', 'createBy'])->paginate($limit);
     }
+
+    public function getByCategoryId(int $categoryId)
+    {
+        return $this->scopeQuery(function ($query) use ($categoryId) {
+            return $query->where('category_id', $categoryId);
+        })->get();
+    }
 }

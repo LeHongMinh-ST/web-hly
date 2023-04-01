@@ -8,4 +8,5 @@ interface RecruitmentRepository extends RepositoryInterface
 {
     public function getRecruitmentPaginate(array $data);
 
+    public function getByCategoryId(int $categoryId);
 }

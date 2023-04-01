@@ -25,12 +25,14 @@
 
             if (contentSubs.length > 0) {
                 const firstContentSub = $('.content-sub:first-child');
+                firstContentSub.addClass('active');
                 setContentDetail({
                     title: firstContentSub.attr('data-title'),
                     content: firstContentSub.attr('data-content'),
                     createdAt: firstContentSub.attr('data-created-at'),
                 })
             }
+
         })
     </script>
 @endsection
@@ -61,15 +63,21 @@
                     <p>Chúng tôi tin rằng trung thực là khởi đầu cần thiết cho mọi mối quan hệ tốt đẹp.</p>
                 </div>
                 <div style="" class="filter">
-                    <select name="location" style="width: 30%;">
-                        <option value="1">Tất cả lĩnh vực</option>
-                        <option value="2">Lập trình viên</option>
-                        <option value="3">Kỹ sư nông nghiệp</option>
-                        <option value="4">Hành chính nhân sự</option>
-                    </select>
-                    <button style="">
-                        Tìm kiếm
-                    </button>
+                    <form method="get" action="/tuyen-dung" class="filter">
+                        <select name="category_id" style="width: 30%;" id="recruitment-area-select">
+                            <option value="">Tất cả lĩnh vực</option>
+                            @foreach($categories as $category)
+                                <option
+                                    value="{{ $category->id }}"
+                                    @selected($category->id == $categoryId)>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <button type="submit">
+                            Tìm kiếm
+                        </button>
+                    </form>
                 </div>
             </div>
 
@@ -94,9 +102,9 @@
                 </div>
 
                 <div class="contentDetail" style="width: 60%; padding-left: 30px;">
-                    <h3 style="margin-bottom: 20px;" id="detail-title">Game Tester</h3>
+                    <h3 style="margin-bottom: 20px;" id="detail-title"></h3>
                     <p style="margin-bottom: 20px;">Đăng ngày:
-                        <span id="detail-created-at">16:52 03/03/2023</span>
+                        <span id="detail-created-at"></span>
                     </p>
                     <div id="detail-content"></div>
                 </div>
