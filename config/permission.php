@@ -107,7 +107,7 @@ return [
         'group_code' => 'category',
     ],
     [
-        'code' => 'seo',
+        'code' => 'setting',
         'name' => 'Cập nhật các thuộc tính seo',
         'group_code' => 'ui',
     ],

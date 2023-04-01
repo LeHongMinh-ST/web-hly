@@ -106,50 +106,50 @@ Route::prefix('/admin')->group(function () {
             });
 
             Route::prefix('roles')->group(function () {
-                Route::get('/', [RoleController::class, 'index'])->name('admin.roles.index');
-                Route::post('/', [RoleController::class, 'store'])->name('admin.roles.store');
-                Route::get('/create', [RoleController::class, 'create'])->name('admin.roles.create');
-                Route::get('/{id}', [RoleController::class, 'show'])->name('admin.roles.show');
-                Route::put('/{id}', [RoleController::class, 'update'])->name('admin.roles.update');
-                Route::delete('/{id}', [RoleController::class, 'destroy'])->name('admin.roles.destroy');
-                Route::get('/{id}/edit', [RoleController::class, 'edit'])->name('admin.roles.edit');
+                Route::get('/', [RoleController::class, 'index'])->name('admin.roles.index')->middleware('permission:role-index');
+                Route::post('/', [RoleController::class, 'store'])->name('admin.roles.store')->middleware('permission:role-create');
+                Route::get('/create', [RoleController::class, 'create'])->name('admin.roles.create')->middleware('permission:role-create');
+                Route::get('/{id}', [RoleController::class, 'show'])->name('admin.roles.show')->middleware('permission:role-index');
+                Route::put('/{id}', [RoleController::class, 'update'])->name('admin.roles.update')->middleware('permission:role-update');
+                Route::delete('/{id}', [RoleController::class, 'destroy'])->name('admin.roles.destroy')->middleware('permission:role-delete');
+                Route::get('/{id}/edit', [RoleController::class, 'edit'])->name('admin.roles.edit')->middleware('permission:role-update');
             });
 
             Route::prefix('posts')->group(function () {
-                Route::get('/', [PostController::class, 'index'])->name('admin.posts.index');
-                Route::post('/', [PostController::class, 'store'])->name('admin.posts.store');
-                Route::get('/create', [PostController::class, 'create'])->name('admin.posts.create');
-                Route::get('/{id}', [PostController::class, 'show'])->name('admin.posts.show');
-                Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update');
-                Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
-                Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
+                Route::get('/', [PostController::class, 'index'])->name('admin.posts.index')->middleware('permission:post-index');
+                Route::post('/', [PostController::class, 'store'])->name('admin.posts.store')->middleware('permission:post-create');
+                Route::get('/create', [PostController::class, 'create'])->name('admin.posts.create')->middleware('permission:post-create');
+                Route::get('/{id}', [PostController::class, 'show'])->name('admin.posts.show')->middleware('permission:post-index');
+                Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update')->middleware('permission:post-update');
+                Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy')->middleware('permission:post-delete');
+                Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit')->middleware('permission:post-update');
             });
 
             Route::prefix('categories')->group(function () {
-                Route::get('/', [CategoryController::class, 'index'])->name('admin.categories.index');
-                Route::get('/create', [CategoryController::class, 'create'])->name('admin.categories.create');
-                Route::post('/', [CategoryController::class, 'store'])->name('admin.categories.store');
-                Route::put('/{id}', [CategoryController::class, 'update'])->name('admin.categories.update');
-                Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
-                Route::get('/{id}/edit', [CategoryController::class, 'edit'])->name('admin.categories.edit');
+                Route::get('/', [CategoryController::class, 'index'])->name('admin.categories.index')->middleware('permission:category-index');
+                Route::get('/create', [CategoryController::class, 'create'])->name('admin.categories.create')->middleware('permission:category-create');
+                Route::post('/', [CategoryController::class, 'store'])->name('admin.categories.store')->middleware('permission:category-create');
+                Route::put('/{id}', [CategoryController::class, 'update'])->name('admin.categories.update')->middleware('permission:category-update');
+                Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy')->middleware('permission:category-delete');
+                Route::get('/{id}/edit', [CategoryController::class, 'edit'])->name('admin.categories.edit')->middleware('permission:category-update');
             });
 
             Route::prefix('tags')->group(function () {
                 Route::get('/', [TagController::class, 'index'])->name('admin.tags.index');
             });
             Route::prefix('settings')->group(function () {
-                Route::get('/', [SettingController::class, 'index'])->name('admin.settings.index');
-                Route::post('/', [SettingController::class, 'update'])->name('admin.settings.update');
+                Route::get('/', [SettingController::class, 'index'])->name('admin.settings.index')->middleware('permission:setting');
+                Route::post('/', [SettingController::class, 'update'])->name('admin.settings.update')->middleware('permission:setting');
             });
 
             Route::prefix('recruitments')->group(function () {
-                Route::get('/', [RecruitmentController::class, 'index'])->name('admin.recruitments.index');
-                Route::post('/', [RecruitmentController::class, 'store'])->name('admin.recruitments.store');
-                Route::get('/create', [RecruitmentController::class, 'create'])->name('admin.recruitments.create');
-                Route::get('/{id}', [RecruitmentController::class, 'show'])->name('admin.recruitments.show');
-                Route::put('/{id}', [RecruitmentController::class, 'update'])->name('admin.recruitments.update');
-                Route::delete('/{id}', [RecruitmentController::class, 'destroy'])->name('admin.recruitments.destroy');
-                Route::get('/{id}/edit', [RecruitmentController::class, 'edit'])->name('admin.recruitments.edit');
+                Route::get('/', [RecruitmentController::class, 'index'])->name('admin.recruitments.index')->middleware('permission:recruitment-index');
+                Route::post('/', [RecruitmentController::class, 'store'])->name('admin.recruitments.store')->middleware('permission:recruitment-create');
+                Route::get('/create', [RecruitmentController::class, 'create'])->name('admin.recruitments.create')->middleware('permission:recruitment-create');
+                Route::get('/{id}', [RecruitmentController::class, 'show'])->name('admin.recruitments.show')->middleware('permission:recruitment-index');
+                Route::put('/{id}', [RecruitmentController::class, 'update'])->name('admin.recruitments.update')->middleware('permission:recruitment-update');
+                Route::delete('/{id}', [RecruitmentController::class, 'destroy'])->name('admin.recruitments.destroy')->middleware('permission:recruitment-delete');
+                Route::get('/{id}/edit', [RecruitmentController::class, 'edit'])->name('admin.recruitments.edit')->middleware('permission:recruitment-update');
             });
 
             Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {
