@@ -43,6 +43,13 @@
         });
         @endif
 
+        @if(\session()->has('error'))
+        $.jGrowl('{{ \session()->pull('error') }}', {
+            header: 'Lỗi',
+            theme: 'bg-danger'
+        });
+        @endif
+
         @error('error')
         $.jGrowl('{{ $message }}', {
             header: 'Lỗi',

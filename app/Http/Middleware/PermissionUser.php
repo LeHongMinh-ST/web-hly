@@ -23,7 +23,7 @@ class PermissionUser
     public function handle(Request $request, Closure $next, $namePermission): mixed
     {
         try {
-            $user = auth('admin')->user();
+            $user = auth()->user();
             $isSuperAdmin = $user->is_super_admin;
             if ($isSuperAdmin) {
                 return $next($request);
@@ -46,6 +46,7 @@ class PermissionUser
                 'method' => __METHOD__,
                 'message' => $e->getMessage()
             ]);
+            session()->flash('error', 'Có lỗi xảy ra, vui lògn thử lại sau');
 
             return redirect()->back();
         }
