@@ -4,11 +4,11 @@
         @php
             $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
         @endphp
-        <script type="module" src="/build/{{ $manifest['resources/js/category/index.js']['file'] }}"></script>
+        <script type="module" src="/build/{{ $manifest['resources/js/category/echarts.js']['file'] }}"></script>
         <script type="text/javascript" src="assets/admin/js/plugins/forms/selects/bootstrap_select.min.js"></script>
 
         @else
-            @vite(['resources/js/category/index.js'])
+            @vite(['resources/js/category/echarts.js'])
             @endproduction
 @endsection
 @section('content')

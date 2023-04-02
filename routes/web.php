@@ -100,6 +100,7 @@ Route::prefix('/admin')->group(function () {
                 return redirect()->route('admin.dashboard');
             });
             Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+            Route::get('/dashboard/view-page', [DashboardController::class, 'getViewPage'])->name('admin.get-view-page');
 
             Route::prefix('users')->group(function () {
                 Route::get('/', [UserController::class, 'index'])->name('admin.users.index')->middleware('permission:user-index');

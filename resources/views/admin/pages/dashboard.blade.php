@@ -1,5 +1,11 @@
 @extends('admin.layouts.master')
 
+@section('custom_js')
+    <script src="{{ asset('libs/echarts/echarts.js') }}"></script>
+
+
+@endsection
+
 @section('content')
     <div class="content-wrapper">
 
@@ -165,10 +171,10 @@
                 <div class="col-md-7">
                     <div class="panel">
                         <div class="panel-heading">
-                            <div class="panel-title"><i class="icon-stats-growth  position-left"></i>Thống kê lượt truy cập</div>
+                            <div class="panel-title"><i class="icon-stats-growth  position-left"></i>Thống kê lượt truy cập 15 ngày gần nhất</div>
                         </div>
                         <div class="panel-body">
-                            
+                            <div id="chart" style="height: calc(100vh - 481px); width: 100%"></div>
                         </div>
                     </div>
                 </div>
@@ -184,4 +190,34 @@
         <!-- /content area -->
 
     </div>
+
+    <script type="text/javascript">
+
+        (async function createChart() {
+            const res = await $.get('/admin/dashboard/view-page');
+            const myChart = echarts.init(document.getElementById('chart'));
+
+            const option = {
+                tooltip: {},
+                legend: {
+                    data: ['Lượt truy cập']
+                },
+                xAxis: {
+                    data: res.date
+                },
+                yAxis: {},
+                series: [
+                    {
+                        name: 'Lượt truy cập',
+                        type: 'bar',
+                        data: res.value
+                    }
+                ]
+            };
+
+            myChart.setOption(option);
+        })();
+
+
+    </script>
 @endsection

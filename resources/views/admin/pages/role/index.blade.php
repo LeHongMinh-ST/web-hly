@@ -4,9 +4,9 @@
         @php
             $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
         @endphp
-        <script type="module" src="/build/{{ $manifest['resources/js/role/index.js']['file'] }}"></script>
+        <script type="module" src="/build/{{ $manifest['resources/js/role/echarts.js']['file'] }}"></script>
         @else
-            @vite(['resources/js/role/index.js'])
+            @vite(['resources/js/role/echarts.js'])
             @endproduction
             @endsection
 
