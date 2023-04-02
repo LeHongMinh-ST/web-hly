@@ -25,6 +25,15 @@ class AuthController extends Controller
                 ->withErrors(['username' => ['Vui lòng kiểm tra lại tài khoản hoặc mật khẩu!']])
                 ->withInput();
         }
+
+        if (auth()->user()->status === 0) {
+            auth()->logout();
+
+            return redirect()->back()
+                ->withErrors(['username' => ['Tài khoản của bạn đã bị khoá, Vui lòng liên hệ quản trị viên!']])
+                ->withInput();
+        }
+
         return redirect()->route('admin.dashboard');
     }
 
