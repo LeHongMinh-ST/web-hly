@@ -107,7 +107,7 @@
                                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                                                        aria-expanded="false"><i class="icon-menu7"></i></a>
                                                                     <ul class="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="{{ route('admin.users.show', $user->id) }}"><i
+                                                                        <li><a href="{{ route('admin.users.edit', $user->id) }}"><i
                                                                                     class="icon-pencil7"></i> Chỉnh sửa</a></li>
                                                                         <li>
                                                                             <a href="javascript:void(0);" class="btn-delete" data-id="{{$user->id}}"><i class="icon-trash"></i> Xóa</a>
