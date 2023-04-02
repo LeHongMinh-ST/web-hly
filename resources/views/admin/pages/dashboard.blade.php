@@ -121,7 +121,7 @@
                         <div class="panel-body">
                             <table class="table text-nowrap">
                                 <tbody>
-                                @foreach($postViewCount as $post)
+                                @forelse($postViewCount as $post)
                                     <tr>
                                         <td class="">
                                             <div class="media-left media-middle">
@@ -159,8 +159,15 @@
                                                 <span>lượt xem</span></div>
                                         </td>
                                     </tr>
-
-                                @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="2" style="text-align: center">
+                                                <img src="{{ asset('assets\admin\images\empty.png') }}" width="310px"
+                                                     alt="">
+                                                <div>Không có dữ liệu</div>
+                                            </td>
+                                        </tr>
+                                @endforelse
 
 
                                 </tbody>
