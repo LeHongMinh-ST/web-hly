@@ -136,7 +136,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="8" style="text-align: center">
+                                            <td colspan="9" style="text-align: center">
                                                 <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
                                                      alt="">
                                                 <div>Không có dữ liệu</div>
