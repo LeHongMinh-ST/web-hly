@@ -40,3 +40,23 @@ function deleteValue($array, $value): array
     return array_values($array);
 }
 
+function abbreviateNumber($num) {
+    $abbreviations = [
+        1e6 => " Tr",
+        1e3 => " K"
+    ];
+
+    foreach ($abbreviations as $value => $abbreviation) {
+        if ($num >= $value) {
+            $result = $num / $value;
+            if (floor($result) == $result) {
+                return rtrim(sprintf("%.0f%s", $result, $abbreviation), ".");
+            } else {
+                return rtrim(sprintf("%.1f%s", $result, $abbreviation), ".");
+            }
+        }
+    }
+
+    return $num;
+}
+

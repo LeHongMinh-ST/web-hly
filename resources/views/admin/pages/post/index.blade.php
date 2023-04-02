@@ -116,7 +116,7 @@
                                             <td>{{ @$post->slug->content ?? '' }}</td>
                                             <td style="text-align: center">{{ @$post->textDatePublish }}</td>
                                             <td style="text-align: center">{{ @$post->createBy->fullname }}</td>
-                                            <td style="text-align: center">{{ @$post->view_count}}</td>
+                                            <td style="text-align: center">{{ abbreviateNumber($post->view_count)}}</td>
                                             <td style="text-align: center">{!! @$post->isActiveText !!}</td>
                                             <td style="text-align: center">
                                                 <ul class="icons-list">

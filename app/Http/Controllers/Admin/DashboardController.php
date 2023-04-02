@@ -31,6 +31,15 @@ class DashboardController extends Controller
         $viewPageModel = $this->reportViewPageRepository->getModel();
         $viewPage = $viewPageModel->sum('view_count');
 
-        return view('admin.pages.dashboard')->with(compact('posts', 'categories', 'recruitments', 'viewPage'));
+        $postViewCount = $this->postRepository->orderBy('view_count', 'desc')->paginate(5);
+
+
+        return view('admin.pages.dashboard')->with([
+            'posts' => $posts,
+            'categories' => $categories,
+            'recruitments' => $recruitments,
+            'viewPage' => $viewPage,
+            'postViewCount' => $postViewCount
+        ]);
     }
 }

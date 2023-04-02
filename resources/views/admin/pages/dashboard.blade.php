@@ -36,7 +36,7 @@
                             <div class="panel-body">
 
 
-                                <h3 class="no-margin"><i class="icon-magazine"></i> {{ $posts }}</h3>
+                                <h3 class="no-margin"><i class="icon-magazine"></i> {{ abbreviateNumber($posts) }}</h3>
                                 Bài viết
                             </div>
 
@@ -56,7 +56,7 @@
                             <div class="panel-body">
 
 
-                                <h3 class="no-margin"><i class="icon-newspaper2"></i> {{ $recruitments }}</h3>
+                                <h3 class="no-margin"><i class="icon-newspaper2"></i> {{ abbreviateNumber($recruitments) }}</h3>
                                 Bài tuyển dụng
                             </div>
 
@@ -77,7 +77,7 @@
                             <div class="panel-body">
 
 
-                                <h3 class="no-margin"><i class="icon-stack2"></i> {{ $categories }}</h3>
+                                <h3 class="no-margin"><i class="icon-stack2"></i> {{ abbreviateNumber($categories) }}</h3>
                                 Danh mục
                             </div>
 
@@ -94,7 +94,7 @@
                     <div class="panel bg-orange-400">
                         <div class="panel-body">
 
-                            <h3 class="no-margin"><i class=" icon-users"></i> {{ $viewPage }}</h3>
+                            <h3 class="no-margin"><i class=" icon-users"></i> {{ abbreviateNumber($viewPage) }}</h3>
                             Lượt truy cập
                         </div>
 
@@ -104,7 +104,75 @@
 
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-title"><i class="icon-podium  position-left"></i>Top bài viết được xem
+                                nhiều nhất
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table text-nowrap">
+                                <tbody>
+                                @foreach($postViewCount as $post)
+                                    <tr>
+                                        <td class="">
+                                            <div class="media-left media-middle">
+                                                <a href="{{ localized_route('cms.news.post',@$post->slug->content) }}">
+                                                    @if($post->thumbnail)
+                                                        <img style="width: 30px; height: 30px;object-fit: cover"
+                                                             src="{{ $post->thumbnail }}" alt="">
+                                                    @else
+                                                        <img style="width: 30px; height: 30px;object-fit: cover"
+                                                             src="{{ asset('assets/admin/images/default.jpg') }}"
+                                                             alt="">
+                                                    @endif
+                                                </a>
+                                            </div>
 
+                                            <div class="media-body">
+                                                <div class="media-heading text-break">
+                                                    <a href="{{ localized_route('cms.news.post',@$post->slug->content) }}"
+                                                       title="{{ $post->title }}"
+                                                       class="letter-icon-title">{{ $post->title }}</a>
+                                                </div>
+
+                                                <div class="text-muted text-size-small">
+                                                    <i class="icon-hour-glass text-size-mini position-left"></i> {{ @$post->textDatePublish }}
+                                                    -
+                                                    <i class="icon-user text-size-mini position-left"></i> {{ @$post->createBy->fullname }}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        {{--                                        <td>--}}
+                                        {{--                                            <span class="text-muted text-size-small">{{ @$post->textDatePublish }}</span>--}}
+                                        {{--                                        </td>--}}
+                                        <td class="text-center">
+                                            <div><span class="text-semibold no-margin">{{ abbreviateNumber($post->view_count)}}</span>
+                                                <span>lượt xem</span></div>
+                                        </td>
+                                    </tr>
+
+                                @endforeach
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-title"><i class="icon-stats-growth  position-left"></i>Thống kê lượt truy cập</div>
+                        </div>
+                        <div class="panel-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- /dashboard content -->
 
 

@@ -77,3 +77,15 @@ a.text-link:visited {
 .tree .total {
     color: #e13300;
 }
+
+.text-break {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 1;
+    height: 25px;
+    display: -webkit-box;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+}
