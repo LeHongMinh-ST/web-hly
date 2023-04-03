@@ -31,7 +31,7 @@
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a href="#"><i class="icon-cog5"></i> Tài khoản</a></li>
+                    <li><a href="{{route('admin.users.profile')}}"><i class="icon-cog5"></i> Tài khoản</a></li>
                     <li class="divider"></li>
                     <li><a href="{{ route('admin.logout') }}"><i class="icon-switch2"></i> Đăng xuất</a></li>
                 </ul>

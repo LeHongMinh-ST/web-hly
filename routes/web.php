@@ -112,6 +112,13 @@ Route::prefix('/admin')->group(function () {
                 Route::delete('/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy')->middleware('permission:user-delete');
             });
 
+            Route::prefix('profile')->group(function () {
+                Route::get('/', [UserController::class, 'profile'])->name('admin.users.profile');
+                Route::put('/{id}', [UserController::class, 'updateProfile'])->name('admin.users.updateProfile');
+                Route::post('/exist-password', [UserController::class, 'existPassword'])->name('admin.users.exist-password');
+                Route::post('/change-password', [UserController::class, 'changePassword'])->name('admin.users.change-password');
+            });
+
             Route::prefix('roles')->group(function () {
                 Route::get('/', [RoleController::class, 'index'])->name('admin.roles.index')->middleware('permission:role-index');
                 Route::post('/', [RoleController::class, 'store'])->name('admin.roles.store')->middleware('permission:role-create');
