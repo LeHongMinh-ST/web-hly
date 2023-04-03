@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\ProfileUserRequest;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Repositories\Role\RoleRepository;
@@ -74,6 +75,41 @@ class UserController extends Controller
         return view('admin.pages.user.update')->with(compact('user', 'roles'));
     }
 
+    public function profile(): Factory|View|Application
+    {
+        $user = $this->userRepository->find(auth()->id());
+        return view('admin.pages.user.profile')->with(compact('user'));
+    }
+
+    public function updateProfile(ProfileUserRequest $request, int|string $id): RedirectResponse
+    {
+        DB::beginTransaction();
+        try {
+            $data = $request->all();
+            $user = $this->userRepository->find($id);
+
+            $user?->fill(array_merge($data, [
+                'update_by' => auth()->id(),
+            ]));
+            $user?->save();
+            DB::commit();
+            $request->session()->flash('success', 'Cập nhật tài khoản thành công');
+
+            return redirect()->route('admin.users.profile');
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error('Error update user', [
+                'method' => __METHOD__,
+                'message' => $exception->getMessage()
+            ]);
+
+            return redirect()->back()
+                ->withErrors(['error' => ['Không thể cập nhật tài khoản']])
+                ->withInput();
+        }
+    }
+
     public function update(UpdateUserRequest $request, int|string $id): RedirectResponse
     {
         DB::beginTransaction();
@@ -124,6 +160,59 @@ class UserController extends Controller
 
             return redirect()->back()
                 ->withErrors(['error' => ['Không thể xóa tài khoản']])
+                ->withInput();
+        }
+    }
+
+    public function existPassword(Request $request)
+    {
+        try {
+            $credentials = [
+                'username'=> auth()->user()->username,
+                'password'=> $request->all()['password']
+            ];
+            $result = auth()->attempt($credentials);
+            return [
+                'result' => $result
+            ];
+
+        } catch (\Exception $exception) {
+            Log::error('Error delete user', [
+                'method' => __METHOD__,
+                'message' => $exception->getMessage()
+            ]);
+
+            return [
+                'result' => false
+            ];;
+        }
+    }
+
+    public function changePassword(Request $request): RedirectResponse
+    {
+        DB::beginTransaction();
+        try {
+            $data = $request->all();
+            $user = $this->userRepository->find(auth()->id());
+            $user?->fill(array_merge($data, [
+                'password'  => $data['newPassword'],
+                'update_by' => auth()->id(),
+            ]));
+            $user?->save();
+            DB::commit();
+            $request->session()->flash('success', 'Cập nhật mật khẩu thành công');
+
+            return redirect()->route('admin.users.profile');
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error('Error update user', [
+                'method' => __METHOD__,
+                'message' => $exception->getMessage()
+            ]);
+
+            return redirect()->back()
+                ->withErrors(['error' => ['Không thể cập nhật mật khẩu']])
                 ->withInput();
         }
     }
