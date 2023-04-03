@@ -92,8 +92,8 @@
     @php
         $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
     @endphp
-    <script type="module" src="/build/{{ $manifest['resources/js/login/echarts.js']['file'] }}"></script>
+    <script type="module" src="/build/{{ $manifest['resources/js/login/index.js']['file'] }}"></script>
     @else
-        @vite(['resources/js/login/echarts.js'])
+        @vite(['resources/js/login/index.js'])
         @endproduction
 </html>
