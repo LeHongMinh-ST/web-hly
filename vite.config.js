@@ -25,6 +25,10 @@ export default defineConfig({
                 'resources/js/role/create.js',
                 'resources/js/role/edit.js',
 
+                //User
+                'resources/js/user/index.js',
+                'resources/js/user/profile.js',
+
             ],
             refresh: true,
         }),

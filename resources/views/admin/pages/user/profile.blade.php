@@ -8,8 +8,8 @@
         <script type="module" src="/build/{{$manifest['resources/js/user/profile.js']['file']}}"></script>
         @else
             @vite(['resources/js/user/profile.js'])
-            @endproduction
-            @endsection
+    @endproduction
+@endsection
             @section('content')
                 <div class="content-wrapper">
 
