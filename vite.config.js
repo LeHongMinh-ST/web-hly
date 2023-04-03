@@ -29,6 +29,9 @@ export default defineConfig({
                 'resources/js/user/index.js',
                 'resources/js/user/profile.js',
 
+                'resources/js/recruitment/index.js',
+                'resources/js/recruitment/create.js',
+                'resources/js/setting/edit.js'
             ],
             refresh: true,
         }),
