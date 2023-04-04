@@ -94,7 +94,7 @@
                                                         </td>
                                                         <td>{{ @$contact->email ?? ''}}</td>
                                                         <td>{{ @$contact->subject ?? ''}}</td>
-                                                        <td>{{ @$contact->status ?? ''}}</td>
+                                                        <td>{{ @$contact->statusText ?? ''}}</td>
                                                         <td style="text-align: center">
                                                             <ul class="icons-list">
                                                                 <li class="dropdown">

@@ -9,4 +9,5 @@ final class ContactStatus extends Enum
     const Unread = 'unread';
 
     const Read = 'read';
+    const Reply = 'reply';
 }
