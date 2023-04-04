@@ -169,7 +169,7 @@ class UserController extends Controller
         try {
             $credentials = [
                 'username'=> auth()->user()->username,
-                'password'=> $request->all()['password']
+                'password'=> $request->input('password')
             ];
             $result = auth()->attempt($credentials);
             return [
