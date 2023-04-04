@@ -1,6 +1,10 @@
 $(document).ready(function () {
-    $("#message").on('change', function () {
-        $("#error-message").addClass('display-none')
+    CKEDITOR.replace('editorContent', options).on('change', function () {
+        $("#error-content").addClass('display-none')
     })
+
+    // $("#message").on('change', function () {
+    //     $("#error-message").addClass('display-none')
+    // })
 
 })

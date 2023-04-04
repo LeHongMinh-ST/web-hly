@@ -13,7 +13,7 @@
 
             @section('custom_css')
                 <style>
-                    .contact-content {
+                    .contact-content, .rep-content {
                         padding: 10px;
                         border-radius: 5px;
                         background-color: #F2F2F2;
@@ -94,17 +94,52 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="panel panel-white">
-                                        <div class="panel-heading">
-                                            <h6 class="panel-title"><i class="icon-mail-read position-left"></i> Trả lời
-                                            </h6>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="form-group">
+                                    @if(checkPermission('contact-reply'))
+                                        <div class="panel panel-white">
+                                            <div class="panel-heading">
+                                                <h6 class="panel-title"><i class="icon-mail-read position-left"></i> Trả
+                                                    lời
+                                                </h6>
                                             </div>
+                                            <div class="panel-body">
+                                                <div class="list-reply">
+                                                    @forelse($contact->contactReplies as $rep)
+                                                        <div class="rep-wrap mb-10">
+                                                            <div class="rep-time mb-5">{{ \Carbon\Carbon::create($rep->created_at)->format('H:m d-m-Y')  }}</div>
+                                                            <div class="rep-content">
+                                                                {!! $rep->message !!}
+                                                            </div>
+                                                        </div>
+                                                    @empty
+                                                        <div class="text-danger">Chưa trả lời</div>
+                                                    @endforelse
+                                                </div>
+                                                <hr>
+                                                <div class="form-reply">
+                                                    <form action="{{route('admin.contact.reply', $contact->id)}}" method="post">
+                                                        @csrf
+                                                        @method('put')
+                                                        <div class="form-group">
+                                                            <textarea rows="5" id="editorContent"
+                                                                      style="resize: vertical" cols="5" name="content"
+                                                                      class="form-control"
+                                                                      aria-required="true">{{ old('content') }}</textarea>
+                                                            @error('content')
+                                                            <label id="error-content" class="validation-error-label"
+                                                                   for="basic">{{ $message }}</label>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button class="btn btn-success"><i class="icon-bubble-lines3"></i> Gửi</button>
+                                                        </div>
 
+                                                    </form>
+                                                </div>
+
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
+
                                 </div>
                                 <div class="col-md-3">
                                     <div class="panel panel-white">
