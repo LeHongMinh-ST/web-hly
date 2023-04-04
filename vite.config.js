@@ -35,7 +35,7 @@ export default defineConfig({
 
                 //Role
                 'resources/js/contact/index.js',
-                'resources/js/contact/create.js',
+                'resources/js/contact/reply.js',
             ],
             refresh: true,
         }),
