@@ -57,6 +57,14 @@
                     @endif
 
                     @if(checkPermission('setting-index'))
+                        <li class="navigation-header"><span>Khách hàng</span> <i class="icon-menu" title="Giao diện"></i>
+                        </li>
+                        <li class="{{ request()->is('admin/contact*') ? 'active' : '' }}"><a
+                                    href="{{ route('admin.contact.index') }}"><i class=" icon-mail5"></i> <span>Liên hệ</span></a>
+                        </li>
+                    @endif
+
+                    @if(checkPermission('setting-index'))
                         <li class="navigation-header"><span>Giao diện</span> <i class="icon-menu" title="Giao diện"></i>
                         </li>
                         <li class="{{ request()->is('admin/settings*') ? 'active' : '' }}"><a

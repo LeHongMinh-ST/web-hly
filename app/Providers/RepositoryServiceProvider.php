@@ -3,6 +3,8 @@
 namespace App\Providers;
 use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Category\CategoryRepositoryEloquent;
+use App\Repositories\Contact\ContactRepository;
+use App\Repositories\Contact\ContactRepositoryEloquent;
 use App\Repositories\GroupPermission\GroupPermissionRepository;
 use App\Repositories\GroupPermission\GroupPermissionRepositoryEloquent;
 use App\Repositories\ReportViewPage\ReportViewPageRepository;
@@ -49,6 +51,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(RecruitmentRepository::class, RecruitmentRepositoryEloquent::class);
         $this->app->bind(GroupPermissionRepository::class, GroupPermissionRepositoryEloquent::class);
         $this->app->bind(ReportViewPageRepository::class, ReportViewPageRepositoryEloquent::class);
+        $this->app->bind(ContactRepository::class, ContactRepositoryEloquent::class);
     }
 
     /**

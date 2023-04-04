@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RecruitmentController;
@@ -154,6 +155,13 @@ Route::prefix('/admin')->group(function () {
             Route::prefix('settings')->group(function () {
                 Route::get('/', [SettingController::class, 'index'])->name('admin.settings.index')->middleware('permission:setting');
                 Route::post('/', [SettingController::class, 'update'])->name('admin.settings.update')->middleware('permission:setting');
+            });
+
+            Route::prefix('contacts')->group(function () {
+                Route::get('/', [ContactController::class, 'index'])->name('admin.contact.index')->middleware('permission:contact-index');
+                Route::get('/{id}', [ContactController::class, 'show'])->name('admin.contact.show')->middleware('permission:contact-index');
+                Route::put('/{id}', [ContactController::class, 'reply'])->name('admin.contact.reply')->middleware('permission:contact-reply');
+                Route::delete('/{id}', [ContactController::class, 'update'])->name('admin.contact.update')->middleware('permission:contact-delete');
             });
 
             Route::prefix('recruitments')->group(function () {

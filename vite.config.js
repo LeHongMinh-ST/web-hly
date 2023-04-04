@@ -31,7 +31,11 @@ export default defineConfig({
 
                 'resources/js/recruitment/index.js',
                 'resources/js/recruitment/create.js',
-                'resources/js/setting/edit.js'
+                'resources/js/setting/edit.js',
+
+                //Role
+                'resources/js/contact/index.js',
+                'resources/js/contact/create.js',
             ],
             refresh: true,
         }),
