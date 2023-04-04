@@ -23,10 +23,10 @@ class ContactController extends Controller
             $q = $data['q'] ?? '';
 
             if ($q) {
-                $query->where('name', 'like',"%$q%")
-                    ->orWhere('subject', 'like',"%$q%")
-                    ->orWhere('email', 'like',"%$q%")
-                    ->orWhere('phone', 'like',"%$q%");;
+                $query->where('name', 'like', "%$q%")
+                    ->orWhere('subject', 'like', "%$q%")
+                    ->orWhere('email', 'like', "%$q%")
+                    ->orWhere('phone', 'like', "%$q%");;
             }
 
             if (isset($data['status'])) {
@@ -36,5 +36,12 @@ class ContactController extends Controller
         })->paginate($limit);
 
         return view('admin.pages.contact.index')->with(compact('contacts'));
+    }
+
+    public function show($id)
+    {
+        $contact = $this->contactRepository->find($id);
+        $contact->load('contactReplies');
+        return view('admin.pages.contact.reply')->with(compact('contact'));
     }
 }

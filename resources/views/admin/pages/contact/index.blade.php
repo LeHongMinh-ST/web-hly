@@ -79,6 +79,7 @@
                                                     <th style="width: 5%; text-align: center">STT</th>
                                                     <th>Họ và tên</th>
                                                     <th>Email</th>
+                                                    <th>Số điện thoại</th>
                                                     <th>Chủ đề</th>
                                                     <th>Trạng thái</th>
                                                     <th style="width: 150px; text-align: center">Hành động</th>
@@ -90,19 +91,20 @@
                                                         <td style="text-align: center">{{ $loop->index + 1 + $contacts->perPage() * ($contacts->currentPage() - 1)   }}</td>
                                                         <td>
                                                 <span style="font-weight: bold"><a
-                                                            href="{{ route('admin.contacts.detail', $contact->id) }}">{{ $contact->name ?? ''}}</a></span>
+                                                            href="{{ route('admin.contact.show', $contact->id) }}">{{ $contact->name ?? ''}}</a></span>
                                                         </td>
                                                         <td>{{ @$contact->email ?? ''}}</td>
+                                                        <td>{{ @$contact->phone ?? ''}}</td>
                                                         <td>{{ @$contact->subject ?? ''}}</td>
-                                                        <td>{{ @$contact->statusText ?? ''}}</td>
+                                                        <td>{!! @$contact->statusText ?? '' !!}</td>
                                                         <td style="text-align: center">
                                                             <ul class="icons-list">
                                                                 <li class="dropdown">
                                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                                                        aria-expanded="false"><i class="icon-menu7"></i></a>
                                                                     <ul class="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="{{ route('admin.contacts.show', $contact->id) }}"><i
-                                                                                        class="icon-pencil7"></i> Chỉnh sửa</a></li>
+                                                                        <li><a href="{{ route('admin.contact.show', $contact->id) }}"><i
+                                                                                        class="icon-mail-read"></i> Chi tiết</a></li>
                                                                         <li>
                                                                             <a href="javascript:void(0);" class="btn-delete" data-id="{{$contact->id}}"><i class="icon-trash"></i> Xóa</a>
                                                                         </li>
@@ -113,7 +115,7 @@
                                                     </tr>
                                                 @empty
                                                     <tr>
-                                                        <td colspan="6" style="text-align: center">
+                                                        <td colspan="7" style="text-align: center">
                                                             <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
                                                                  alt="">
                                                             <div>Không có dữ liệu!</div>

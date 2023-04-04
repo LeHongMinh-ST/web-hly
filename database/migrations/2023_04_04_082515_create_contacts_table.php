@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ContactStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,8 +16,12 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->text('message')->nullable();
-            $table->bigInteger('contact_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->text('subject')->nullable();
+            $table->text('content')->nullable();
+            $table->string('status')->nullable()->default(ContactStatus::Unread);
             $table->timestamps();
         });
     }
