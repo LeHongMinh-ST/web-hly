@@ -111,4 +111,21 @@ return [
         'name' => 'Cập nhật các thuộc tính seo',
         'group_code' => 'ui',
     ],
+
+    [
+        'code' => 'contact-index',
+        'name' => 'Xoá dánh sách liên hệ',
+        'group_code' => 'contact',
+    ],
+    [
+        'code' => 'contact-reply',
+        'name' => 'Trả lời liên hệ',
+        'group_code' => 'contact',
+    ],
+
+    [
+        'code' => 'contact-delete',
+        'name' => 'Xoá liên hệ',
+        'group_code' => 'contact',
+    ],
 ];

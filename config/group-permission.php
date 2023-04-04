@@ -23,6 +23,11 @@ return [
     ],
 
     [
+        'name' => 'Quản lý liên hệ',
+        'code' => 'category',
+    ],
+
+    [
         'name' => 'Quản lý thông tin giao diện',
         'code' => 'ui',
     ],

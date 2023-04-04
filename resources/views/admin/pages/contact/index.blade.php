@@ -4,13 +4,12 @@
         @php
             $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
         @endphp
-        <script type="module" src="/build/{{ $manifest['resources/js/user/index.js']['file'] }}"></script>
-        <script type="text/javascript" src="assets/admin/js/plugins/forms/selects/bootstrap_select.min.js"></script>
-
+        <script type="module" src="/build/{{ $manifest['resources/js/contact/index.js']['file'] }}"></script>
         @else
-            @vite(['resources/js/user/index.js'])
+            @vite(['resources/js/contact/index.js'])
             @endproduction
             @endsection
+
             @section('content')
                 <div class="content-wrapper">
 
@@ -18,15 +17,18 @@
                     <div class="page-header">
                         <div class="page-header-content">
                             <div class="page-title">
-                                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Tài khoản</span> - Danh sách tài khoản</h4>
+                                <h4><a href="{{ route('admin.dashboard') }}" class="text-link"><i
+                                                class="icon-arrow-left52 position-left"></i></a> <span class="text-semibold">Liên hệ</span>
+                                    - Danh sách liên hệ</h4>
                             </div>
 
                         </div>
 
                         <div class="breadcrumb-line">
                             <ul class="breadcrumb">
-                                <li><a href="{{route('admin.dashboard')}}"><i class="icon-home2 position-left"></i> Bảng điều khiển</a></li>
-                                <li class="active">Danh mục</li>
+                                <li><a href="{{route('admin.dashboard')}}"><i class="icon-home2 position-left"></i> Bảng điều khiển</a>
+                                </li>
+                                <li class="active">Liên hệ</li>
                             </ul>
                         </div>
                     </div>
@@ -35,6 +37,8 @@
 
                     <!-- Content area -->
                     <div class="content">
+
+                        <!-- Dashboard content -->
                         <div class="row">
                             <div class="col">
                                 <div class="panel panel-flat">
@@ -59,13 +63,7 @@
                                             </div>
                                             <div class="col-md-2"></div>
                                             <div class="col-md-4 text-right">
-                                                <div class="form-group has-feedback has-feedback-left"
-                                                     style="text-align: end">
-                                                    <a type="button" href="{{ route('admin.users.create') }}"
-                                                       class="btn btn-primary"><i
-                                                            class="icon-add"></i>
-                                                        Thêm mới</a>
-                                                </div>
+
                                             </div>
                                         </div>
 
@@ -75,42 +73,40 @@
                                     <div class="panel-body">
                                         <div class="table">
 
-                                            <table class="table table-bordered" id="user-table">
+                                            <table class="table table-bordered" id="contact-table">
                                                 <thead>
                                                 <tr>
                                                     <th style="width: 5%; text-align: center">STT</th>
                                                     <th>Họ và tên</th>
-                                                    <th>Tên tài khoẻn</th>
-                                                    <th style="text-align: center">Email</th>
-                                                    <th style="text-align: center">Số điện thoại</th>
-                                                    <th style="text-align: center">Vai trò</th>
-                                                    <th style="text-align: center">Trạng thái</th>
+                                                    <th>Email</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Chủ đề</th>
+                                                    <th>Trạng thái</th>
                                                     <th style="width: 150px; text-align: center">Hành động</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @forelse($users as $user)
+                                                @forelse($contacts as $contact)
                                                     <tr>
-                                                        <td style="text-align: center">{{ $loop->index + 1 + $users->perPage() * ($users->currentPage() - 1)   }}</td>
+                                                        <td style="text-align: center">{{ $loop->index + 1 + $contacts->perPage() * ($contacts->currentPage() - 1)   }}</td>
                                                         <td>
                                                 <span style="font-weight: bold"><a
-                                                        href="{{ route('admin.users.edit', $user->id) }}">{{ $user->fullname ?? ''}}</a></span>
+                                                            href="{{ route('admin.contact.show', $contact->id) }}">{{ $contact->name ?? ''}}</a></span>
                                                         </td>
-                                                        <td>{{ $user->username ?? '' }}</td>
-                                                        <td style="text-align: center">{{ $user->email }}</td>
-                                                        <td style="text-align: center">{{ $user->phone_number }}</td>
-                                                        <td style="text-align: center">{{ $user->role->name ?? ''}}</td>
-                                                        <td style="text-align: center">{!! @$user->isActiveText !!}</td>
+                                                        <td>{{ @$contact->email ?? ''}}</td>
+                                                        <td>{{ @$contact->phone ?? ''}}</td>
+                                                        <td>{{ @$contact->subject ?? ''}}</td>
+                                                        <td>{!! @$contact->statusText ?? '' !!}</td>
                                                         <td style="text-align: center">
                                                             <ul class="icons-list">
                                                                 <li class="dropdown">
                                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                                                        aria-expanded="false"><i class="icon-menu7"></i></a>
                                                                     <ul class="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="{{ route('admin.users.edit', $user->id) }}"><i
-                                                                                    class="icon-pencil7"></i> Chỉnh sửa</a></li>
+                                                                        <li><a href="{{ route('admin.contact.show', $contact->id) }}"><i
+                                                                                        class="icon-mail-read"></i> Chi tiết</a></li>
                                                                         <li>
-                                                                            <a href="javascript:void(0);" class="btn-delete" data-id="{{$user->id}}"><i class="icon-trash"></i> Xóa</a>
+                                                                            <a href="javascript:void(0);" class="btn-delete" data-id="{{$contact->id}}"><i class="icon-trash"></i> Xóa</a>
                                                                         </li>
                                                                     </ul>
                                                                 </li>
@@ -119,10 +115,10 @@
                                                     </tr>
                                                 @empty
                                                     <tr>
-                                                        <td colspan="8" style="text-align: center">
+                                                        <td colspan="7" style="text-align: center">
                                                             <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
                                                                  alt="">
-                                                            <div>Không có dữ liệu</div>
+                                                            <div>Không có dữ liệu!</div>
                                                         </td>
                                                     </tr>
                                                 @endforelse
@@ -134,14 +130,14 @@
 
                                             </div>
                                             <div class="pagination">
-                                                {{ $users->appends(request()->input())->links() }}
+                                                {{ $contacts->appends(request()->input())->links() }}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Dashboard content -->
+
                         <!-- /dashboard content -->
 
 
@@ -152,6 +148,7 @@
                             @csrf
                             @method('delete')
                         </form>
+
                     </div>
                     <!-- /content area -->
 
