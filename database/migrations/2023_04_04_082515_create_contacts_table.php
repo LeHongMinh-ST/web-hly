@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
+            $table->text('message')->nullable();
+            $table->bigInteger('contact_id')->nullable();
             $table->timestamps();
         });
     }
