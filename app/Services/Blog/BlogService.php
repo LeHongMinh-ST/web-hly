@@ -33,9 +33,13 @@ class BlogService
 
                 $condition['id'] = $currentLanguage->reference_id;
 
-                $post = app(PostRepository::class)->scopeQuery(function ($query) use ($condition) {
+                $postLocale = app(PostRepository::class)->scopeQuery(function ($query) use ($condition) {
                     return $query->where($condition);
                 })->with(['categories', 'tags', 'categories.slug', 'slug'])->first();
+
+                if ($postLocale) {
+                    $post = $postLocale;
+                }
 
                 return [
                     'view' => 'cms.page.post',
