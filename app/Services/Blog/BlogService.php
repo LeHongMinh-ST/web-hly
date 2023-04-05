@@ -31,21 +31,23 @@ class BlogService
 
                 $currentLanguage = app(LanguageMetaRepository::class)->findWhere(['language_meta_origin' => $languageMeta->language_meta_origin, 'language_code' => app()->getLocale()])->first();
 
-                $condition['id'] = $currentLanguage->reference_id;
+                if ($currentLanguage) {
+                    $condition['id'] = $currentLanguage->reference_id;
 
-                $postLocale = app(PostRepository::class)->scopeQuery(function ($query) use ($condition) {
-                    return $query->where($condition);
-                })->with(['categories', 'tags', 'categories.slug', 'slug'])->first();
+                    $postLocale = app(PostRepository::class)->scopeQuery(function ($query) use ($condition) {
+                        return $query->where($condition);
+                    })->with(['categories', 'tags', 'categories.slug', 'slug'])->first();
 
-                if ($postLocale) {
-                    $post = $postLocale;
+                    if ($postLocale) {
+                        $post = $postLocale;
+                    }
                 }
 
                 return [
                     'view' => 'cms.page.post',
                     'data' => compact('post'),
                     'slug' => $post->slug,
-                    'locale' => $currentLanguage->language_code
+                    'locale' => $currentLanguage ? $currentLanguage->language_code : $languageMeta->language_code
                 ];
             case Category::class:
                 return 0;

@@ -41,7 +41,7 @@ class BlogController extends Controller
 
         $data = $blogService->handleFrontRoutes($slug);
 
-        if ($data['locale'] != app()->getLocale() || $slug->id != @$data['slug']->id) {
+        if ($slug->id != @$data['slug']->id) {
             return redirect(localized_route('cms.news.post', @$data['slug']->content));
         }
 
