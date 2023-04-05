@@ -5,6 +5,7 @@ namespace App\Services\Blog;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Repositories\LanguageMeta\LanguageMetaRepository;
 use App\Repositories\Post\PostRepository;
 
 class BlogService
@@ -26,13 +27,21 @@ class BlogService
                     abort(404);
                 }
 
-                $post->slug = $slug;
+                $languageMeta = app(LanguageMetaRepository::class)->findWhere(['reference_id' => $post->id, 'reference_type' => Post::class])->first();
 
+                $currentLanguage = app(LanguageMetaRepository::class)->findWhere(['language_meta_origin' => $languageMeta->language_meta_origin, 'language_code' => app()->getLocale()])->first();
+
+                $condition['id'] = $currentLanguage->reference_id;
+
+                $post = app(PostRepository::class)->scopeQuery(function ($query) use ($condition) {
+                    return $query->where($condition);
+                })->with(['categories', 'tags', 'categories.slug', 'slug'])->first();
 
                 return [
                     'view' => 'cms.page.post',
                     'data' => compact('post'),
                     'slug' => $post->slug,
+                    'locale' => $currentLanguage->language_code
                 ];
             case Category::class:
                 return 0;

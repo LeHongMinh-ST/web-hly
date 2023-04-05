@@ -38,7 +38,6 @@ class PostController extends Controller
     {
         $data = $request->only(['q', 'limit']);
 
-
         $posts = $this->postRepository->getPostPaginate($data);
 
         return view('admin.pages.post.index')->with(compact('posts'));
@@ -49,11 +48,18 @@ class PostController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function create(): Factory|View|Application
+    public function create(Request $request): Factory|View|Application
     {
+        $post = null;
+        $refLanguage = Language::Vietnamese;
+        if ($request->has('ref_language') && $request->has('from_id')) {
+            $post = $this->postRepository->find($request->get('from_id'));
+            $refLanguage = $request->get('ref_language');
+        }
+
         $categories = $this->categoryRepository->getCategory();
 
-        return view('admin.pages.post.create')->with(compact('categories'));
+        return view('admin.pages.post.create')->with(compact('categories', 'post', 'refLanguage'));
     }
 
 
@@ -112,6 +118,9 @@ class PostController extends Controller
     public function edit(int|string $id): Factory|View|Application
     {
         $post = $this->postRepository->find($id);
+        $post->load('language');
+        $post->locales = $this->languageMetaService->getArrayLocale($post->id, Post::class);
+        $post->localeIds = $this->languageMetaService->getArrayLocaleId($post->id, Post::class);
         $categories = $this->categoryRepository->getCategory();
         return view('admin.pages.post.edit')->with(compact('post', 'categories'));
     }
@@ -136,10 +145,8 @@ class PostController extends Controller
             ]));
 
             $post?->save();
-
-
             $post?->tags()->sync(@$data['tags'] ?? []);
-
+            $post?->slug()->delete();
             $post?->slug()->create(['content' => $this->slugService->generateSlug(Post::class, $post->title, $id)]);
 
             DB::commit();

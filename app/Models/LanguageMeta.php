@@ -17,4 +17,9 @@ class LanguageMeta extends Model
         'language_meta_origin',
         'language_code',
     ];
+
+    public function languageable(): MorphTo
+    {
+        return $this->morphTo(__FUNCTION__, 'reference_type', 'reference_id');
+    }
 }

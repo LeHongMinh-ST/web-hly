@@ -89,6 +89,7 @@
                                         <th style="text-align: center">Ngày đăng</th>
                                         <th style="text-align: center">Người đăng</th>
                                         <th style="text-align: center">Lượt xem</th>
+                                        <th style="text-align: center">Ngôn ngữ</th>
                                         <th style="text-align: center">Hiển thị</th>
                                         <th style="width: 150px; text-align: center">Hành động</th>
                                     </tr>
@@ -117,6 +118,7 @@
                                             <td style="text-align: center">{{ @$post->textDatePublish }}</td>
                                             <td style="text-align: center">{{ @$post->createBy->fullname }}</td>
                                             <td style="text-align: center">{{ abbreviateNumber($post->view_count)}}</td>
+                                            <td style="text-align: center"><img class="icon-flag" src="{{ @$post->languageIcon }}" alt="">{{ @$post->languageText}}</td>
                                             <td style="text-align: center">{!! @$post->isActiveText !!}</td>
                                             <td style="text-align: center">
                                                 <ul class="icons-list">

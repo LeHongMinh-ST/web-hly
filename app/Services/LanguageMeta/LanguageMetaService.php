@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\LanguageMeta;
 
 use App\Repositories\LanguageMeta\LanguageMetaRepository;
@@ -28,5 +29,25 @@ class LanguageMetaService
         }
 
         $this->languageMetaRepository->create($data);
+    }
+
+    public function getArrayLocale($referenceId, $referenceType)
+    {
+        $locale = $this->languageMetaRepository->findWhere(['reference_id' => $referenceId, 'reference_type' => $referenceType])->first();
+        if (!$locale) {
+            return [];
+        }
+
+        return $this->languageMetaRepository->findWhere(['language_meta_origin' => $locale->language_meta_origin])->pluck('language_code')->toArray();
+    }
+
+    public function getArrayLocaleId($referenceId, $referenceType)
+    {
+        $locale = $this->languageMetaRepository->findWhere(['reference_id' => $referenceId, 'reference_type' => $referenceType])->first();
+        if (!$locale) {
+            return [];
+        }
+
+        return $this->languageMetaRepository->findWhere(['language_meta_origin' => $locale->language_meta_origin])->keyBy('language_code')->toArray();
     }
 }

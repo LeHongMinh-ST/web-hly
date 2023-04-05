@@ -44,7 +44,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
             }
 
             return $query->orderBy('created_at', 'desc');
-        })->with(['categories', 'updateBy', 'createBy'])->paginate($limit);
+        })->with(['categories', 'createBy', 'language'])->paginate($limit);
     }
 
     public function getFeaturedPosts(int $limit)

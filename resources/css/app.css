@@ -89,3 +89,8 @@ a.text-link:visited {
     white-space: normal;
     -webkit-box-orient: vertical;
 }
+
+.icon-flag{
+    width: 20px;
+    margin-right: 5px;
+}
