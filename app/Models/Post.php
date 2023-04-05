@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,6 +33,11 @@ class Post extends Model
     protected $casts = [
         'status' => 'integer',
     ];
+
+    public function language(): MorphOne
+    {
+        return $this->morphOne(LanguageMeta::class, 'languageable', 'reference_type', 'reference_id');
+    }
 
     public function categories(): BelongsTo
     {
@@ -80,5 +86,40 @@ class Post extends Model
             1 => '<span class="label label-primary">Công khai</span>',
             0 => '<span class="label label-danger">Ẩn</span>',
         };
+    }
+
+    public function getLanguageTextAttribute()
+    {
+        $language = $this->language()->first();
+        if (!$language) {
+            return 'Tiếng Việt';
+        }
+        return match ($language->language_code) {
+            Language::Vietnamese => 'Tiếng Việt',
+            Language::English => 'Tiếng Anh',
+            Language::Chinese => 'Tiếng Trung',
+        };
+    }
+
+    public function getLanguageIconAttribute()
+    {
+        $language = $this->language()->first();
+        if (!$language) {
+            return asset('assets/admin/images/flags/vietnam-flag-icon.svg');
+        }
+        return match ($language->language_code) {
+            Language::Vietnamese => asset('assets/admin/images/flags/vietnam-flag-icon.svg'),
+            Language::English => asset('assets/admin/images/flags/united-kingdom-flag-icon.svg'),
+            Language::Chinese => asset('assets/admin/images/flags/china-flag-icon.svg'),
+        };
+    }
+
+    public function getLanguageCodeAttribute()
+    {
+        $language = $this->language()->first();
+        if (!$language) {
+            return Language::Vietnamese;
+        }
+        return $language->language_code;
     }
 }

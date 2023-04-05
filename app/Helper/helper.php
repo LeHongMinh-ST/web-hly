@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Language;
 use App\Models\Permission;
 use App\Models\Role;
 
@@ -60,3 +61,11 @@ function abbreviateNumber($num) {
     return $num;
 }
 
+function getIconFlag($locale): string
+{
+    return match ($locale) {
+        Language::Vietnamese => asset('assets/admin/images/flags/vietnam-flag-icon.svg'),
+        Language::English => asset('assets/admin/images/flags/united-kingdom-flag-icon.svg'),
+        Language::Chinese => asset('assets/admin/images/flags/china-flag-icon.svg'),
+    };
+}

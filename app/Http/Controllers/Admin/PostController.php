@@ -36,8 +36,7 @@ class PostController extends Controller
      */
     public function index(Request $request): Factory|View|Application
     {
-        $data = $request->only(['q', 'limit']);
-
+        $data = $request->only(['q', 'limit', 'locale']);
 
         $posts = $this->postRepository->getPostPaginate($data);
 
@@ -47,13 +46,21 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Request $request
      * @return Application|Factory|View
      */
-    public function create(): Factory|View|Application
+    public function create(Request $request): Factory|View|Application
     {
+        $post = null;
+        $refLanguage = Language::Vietnamese;
+        if ($request->has('ref_language') && $request->has('from_id')) {
+            $post = $this->postRepository->find($request->get('from_id'));
+            $refLanguage = $request->get('ref_language');
+        }
+
         $categories = $this->categoryRepository->getCategory();
 
-        return view('admin.pages.post.create')->with(compact('categories'));
+        return view('admin.pages.post.create')->with(compact('categories', 'post', 'refLanguage'));
     }
 
 
@@ -87,7 +94,7 @@ class PostController extends Controller
 
             DB::commit();
             $request->session()->flash('success', 'Tạo mới bài viết thành công');
-            return redirect()->route('admin.posts.index');
+            return redirect()->route('admin.posts.index', ['locale' => $refLanguage]);
 
         } catch (\Exception $exception) {
             DB::rollBack();
@@ -112,6 +119,9 @@ class PostController extends Controller
     public function edit(int|string $id): Factory|View|Application
     {
         $post = $this->postRepository->find($id);
+        $post->load('language');
+        $post->locales = $this->languageMetaService->getArrayLocale($post->id, Post::class);
+        $post->localeIds = $this->languageMetaService->getArrayLocaleId($post->id, Post::class);
         $categories = $this->categoryRepository->getCategory();
         return view('admin.pages.post.edit')->with(compact('post', 'categories'));
     }
@@ -136,10 +146,8 @@ class PostController extends Controller
             ]));
 
             $post?->save();
-
-
             $post?->tags()->sync(@$data['tags'] ?? []);
-
+            $post?->slug()->delete();
             $post?->slug()->create(['content' => $this->slugService->generateSlug(Post::class, $post->title, $id)]);
 
             DB::commit();
