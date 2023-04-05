@@ -26,4 +26,13 @@ final class Language extends Enum
 
         return parent::getDescription($value);
     }
+
+    public static function getIconFlag($locale): string
+    {
+        return match ($locale) {
+            Language::Vietnamese => asset('assets/admin/images/flags/vietnam-flag-icon.svg'),
+            Language::English => asset('assets/admin/images/flags/united-kingdom-flag-icon.svg'),
+            Language::Chinese => asset('assets/admin/images/flags/china-flag-icon.svg'),
+        };
+    }
 }

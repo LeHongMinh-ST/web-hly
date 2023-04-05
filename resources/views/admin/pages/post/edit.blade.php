@@ -139,82 +139,32 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="list-locale">
-                                                <div class="item">
-
-                                                    @if(in_array(\App\Enums\Language::Vietnamese, @$post->locales))
-                                                        @if($post->language()->first()->language_code === \App\Enums\Language::Vietnamese)
-                                                            <img class="icon-flag"
-                                                                 src="{{ asset('assets/admin/images/flags/vietnam-flag-icon.svg') }}"
-                                                                 alt="">Tiếng Việt
-                                                            <span class="check"><i class="icon-check"></i></span>
-                                                        @else
-                                                            <a href="{{ route('admin.posts.edit', @$post->localeIds[\App\Enums\Language::Vietnamese]['reference_id']) }}" title="Bản dịch tiếng việt">
+                                                @foreach(\App\Enums\Language::toSelectArray() as $keyLocale =>  $localeDes)
+                                                    <div class="item">
+                                                        @if(in_array($keyLocale, @$post->locales))
+                                                            @if($post->language()->first()->language_code === $keyLocale)
                                                                 <img class="icon-flag"
-                                                                     src="{{ asset('assets/admin/images/flags/vietnam-flag-icon.svg') }}"
-                                                                     alt="">Tiếng Việt
+                                                                     src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
+                                                                     alt="{{ $localeDes }}">{{ $localeDes }}
                                                                 <span class="check"><i class="icon-check"></i></span>
+                                                            @else
+                                                                <a href="{{ route('admin.posts.edit', @$post->localeIds[$keyLocale]['reference_id']) }}" title="Bản dịch {{ $localeDes }}">
+                                                                    <img class="icon-flag"
+                                                                         src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
+                                                                         alt="{{ $localeDes }}">{{ $localeDes }}
+                                                                    <span class="check"><i class="icon-check"></i></span>
+                                                                </a>
+                                                            @endif
+                                                        @else
+                                                            <a href="{{ route('admin.posts.create', ['ref_language' => $keyLocale, 'from_id' => $post->id ]) }}" title="Thêm mới bản dịch {{ $localeDes }}">
+                                                                <img class="icon-flag"
+                                                                     src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
+                                                                     alt="{{ $localeDes }}">{{ $localeDes }}
+                                                                <span class="check"><i class="icon-plus2"></i></span>
                                                             </a>
                                                         @endif
-                                                    @else
-                                                        <a href="{{ route('admin.posts.create', ['ref_language' => \App\Enums\Language::Vietnamese, 'from_id' => $post->id ]) }}" title="Thêm mới bản dịch tiếng việt">
-                                                            <img class="icon-flag"
-                                                                 src="{{ asset('assets/admin/images/flags/vietnam-flag-icon.svg') }}"
-                                                                 alt="">Tiếng Việt
-                                                            <span class="check"><i class="icon-plus2"></i></span>
-                                                        </a>
-                                                    @endif
-                                                </div>
-                                                <div class="item">
-
-                                                    @if(in_array(\App\Enums\Language::English, @$post->locales))
-                                                        @if($post->language()->first()->language_code === \App\Enums\Language::English)
-                                                            <img class="icon-flag"
-                                                                 src="{{ asset('assets/admin/images/flags/united-kingdom-flag-icon.svg') }}"
-                                                                 alt="">Tiếng Anh
-                                                            <span class="check"><i class="icon-check"></i></span>
-                                                        @else
-                                                            <a href="{{ route('admin.posts.edit', @$post->localeIds[\App\Enums\Language::English]['reference_id']) }}" title="Bản dịch tiếng anh">
-                                                                <img class="icon-flag"
-                                                                     src="{{ asset('assets/admin/images/flags/united-kingdom-flag-icon.svg') }}"
-                                                                     alt="">Tiếng Anh
-                                                                <span class="check"><i class="icon-check"></i></span>
-                                                            </a>
-                                                        @endif
-                                                    @else
-                                                        <a href="{{ route('admin.posts.create', ['ref_language' => \App\Enums\Language::English, 'from_id' => $post->id ]) }}" title="Thêm mới bản dịch tiếng anh">
-                                                            <img class="icon-flag"
-                                                                 src="{{ asset('assets/admin/images/flags/united-kingdom-flag-icon.svg') }}"
-                                                                 alt="">Tiếng Anh
-                                                            <span class="check"><i class="icon-plus2"></i></span>
-                                                        </a>
-                                                    @endif
-                                                </div>
-                                                <div class="item">
-
-                                                    @if(in_array(\App\Enums\Language::Chinese, @$post->locales))
-
-                                                        @if($post->language()->first()->language_code === \App\Enums\Language::Chinese)
-                                                            <img class="icon-flag"
-                                                                 src="{{ asset('assets/admin/images/flags/china-flag-icon.svg') }}"
-                                                                 alt="">Tiếng Trung
-                                                            <span class="check"><i class="icon-check"></i></span>
-                                                        @else
-                                                            <a href="{{ route('admin.posts.edit', @$post->localeIds[\App\Enums\Language::Chinese]['reference_id']) }}" title="Bản dịch tiếng trung">
-                                                                <img class="icon-flag"
-                                                                     src="{{ asset('assets/admin/images/flags/china-flag-icon.svg') }}"
-                                                                     alt="">Tiếng Trung
-                                                                <span class="check"><i class="icon-check"></i></span>
-                                                            </a>
-                                                        @endif
-                                                    @else
-                                                        <a href="{{ route('admin.posts.create', ['ref_language' => \App\Enums\Language::Chinese, 'from_id' => $post->id ]) }}" title="Thêm mới bản dịch tiếng trung">
-                                                            <img class="icon-flag"
-                                                                 src="{{ asset('assets/admin/images/flags/china-flag-icon.svg') }}"
-                                                                 alt="">Tiếng Trung
-                                                            <span class="check"><i class="icon-plus2"></i></span>
-                                                        </a>
-                                                    @endif
-                                                </div>
+                                                    </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

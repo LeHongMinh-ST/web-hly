@@ -47,10 +47,12 @@
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <form action="">
+                                                <form action="{{ route('admin.posts.index', array_merge(request()->all())) }}" method="get">
                                                     <div class="row">
                                                         <div class="col-md-8">
                                                             <div class="form-group">
+                                                                <input type="hidden" hidden="" class="form-control" name="locale"
+                                                                       value="{{ request()->query('locale', \App\Enums\Language::Vietnamese) }}">
                                                                 <input type="text" class="form-control" name="q"
                                                                        value="{{ request()->query('q') }}"
                                                                        placeholder="Tìm kiếm...">
@@ -74,7 +76,7 @@
                                                         <button type="button" class="btn btn-default dropdown-toggle"
                                                                 data-toggle="dropdown" aria-expanded="false"><img
                                                                 class="icon-flag"
-                                                                src="{{ getIconFlag(request()->query('locale', \App\Enums\Language::Vietnamese)) }}"
+                                                                src="{{ \App\Enums\Language::getIconFlag(request()->query('locale', \App\Enums\Language::Vietnamese)) }}"
                                                                 alt="flag">{{ \App\Enums\Language::getDescription(request()->query('locale', \App\Enums\Language::Vietnamese)) }}
                                                             <span class="caret"></span></button>
                                                         <ul class="dropdown-menu dropdown-menu-right">
@@ -82,7 +84,7 @@
                                                                 <li><a href="{{ route('admin.posts.index', array_merge(request()->all(), ['locale' => $key])) }}">
                                                                         <img
                                                                             class="icon-flag"
-                                                                            src="{{ getIconFlag($key) }}"
+                                                                            src="{{ \App\Enums\Language::getIconFlag($key) }}"
                                                                             alt="flag">
                                                                         {{ $locale }}</a></li>
                                                             @endforeach

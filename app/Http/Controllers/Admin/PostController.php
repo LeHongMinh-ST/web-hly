@@ -94,7 +94,7 @@ class PostController extends Controller
 
             DB::commit();
             $request->session()->flash('success', 'Tạo mới bài viết thành công');
-            return redirect()->route('admin.posts.index');
+            return redirect()->route('admin.posts.index', ['locale' => $refLanguage]);
 
         } catch (\Exception $exception) {
             DB::rollBack();

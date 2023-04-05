@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Post;
 
+use App\Enums\Language;
 use App\Models\Post;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
@@ -36,18 +37,16 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     {
         $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
         $q = $data['q'] ?? '';
-
-        return $this->scopeQuery(function ($query) use ($q, $data) {
+        $locale = $data['locale'] ?? Language::Vietnamese;
+        return $this->scopeQuery(function ($query) use ($q, $locale) {
 
             if ($q) {
                 $query->where('title', 'like',"%$q%");
             }
 
-            if ($data['locale']) {
-                $query->whereHas('language', function ($language) {
-                    return $language->where('language_code', app()->getLocale());
-                });
-            }
+            $query->whereHas('language', function ($language) use ($locale){
+                return $language->where('language_code', $locale);
+            });
 
             return $query->orderBy('created_at', 'desc');
         })->with(['categories', 'createBy', 'language'])->paginate($limit);
