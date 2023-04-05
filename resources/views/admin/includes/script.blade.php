@@ -21,7 +21,7 @@
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/styling/uniform.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/notifications/sweet_alert.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/admin/js/plugins/forms/selects/select2.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/admin/js/plugins/popup/sweetalert2.min.js') }}"></script>
+{{--<script type="text/javascript" src="{{ asset('assets/admin/js/plugins/popup/sweetalert2.min.js') }}"></script>--}}
 <script type="text/javascript"
         src="{{ asset('assets/admin/js/plugins/forms/selects/bootstrap_select.min.js') }}"></script>
 <script type="text/javascript"

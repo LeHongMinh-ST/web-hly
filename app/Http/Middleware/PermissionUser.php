@@ -13,14 +13,7 @@ use Illuminate\Support\Facades\Log;
 
 class PermissionUser
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle(Request $request, Closure $next, $namePermission): mixed
+    public function handle(Request $request, Closure $next, $namePermission)
     {
         try {
             $user = auth()->user();
@@ -30,15 +23,18 @@ class PermissionUser
             }
 
             $role = Role::find($user->role_id);
+
             if (!$role) {
-                abort(403);
+                 abort(403);
             }
-            if ($role->permissions) {
+
+            if (@$role->permissions) {
                 $isPermission = $this->hasPermission($role, $namePermission);
                 if ($isPermission) {
                     return $next($request);
                 }
             }
+
             abort(403);
 
         } catch (\Exception $e) {
@@ -46,7 +42,7 @@ class PermissionUser
                 'method' => __METHOD__,
                 'message' => $e->getMessage()
             ]);
-            session()->flash('error', 'Có lỗi xảy ra, vui lògn thử lại sau');
+            session()->flash('error', 'Bạn không có quyền truy cập chức năng này');
 
             return redirect()->back();
         }
@@ -56,6 +52,7 @@ class PermissionUser
     private function hasPermission($role, $codePermission)
     {
         $idPermission = Permission::where('code', $codePermission)->first();
+
         if ($idPermission)
             return $role->permissions->contains($idPermission->id);
         return false;

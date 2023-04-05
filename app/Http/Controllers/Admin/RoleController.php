@@ -19,7 +19,6 @@ class RoleController extends Controller
 {
     public function __construct(
         private RoleRepository            $roleRepository,
-        private PermissionRepository      $permissionRepository,
         private GroupPermissionRepository $groupPermissionRepository
     )
     {

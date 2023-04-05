@@ -109,7 +109,7 @@
                                                         class="text-danger">*</span></label>
                                                 <div>
                                                     <select id="selectIsActive" name="role_id" class="bootstrap-select form-control select-lg">
-                                                        <option selected disabled >{{@count($roles) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
+                                                        <option selected disabled >{{@count($roles) ? 'Chọn nhóm quyền ...' : 'Chưa có nhóm quyền'}} </option>
                                                         @forelse(@$roles ?? [] as $role)
                                                             <option value="{{$role['id']}}">{{$role['name']}}</option>
                                                         @empty
@@ -147,7 +147,7 @@
                                         <div class="panel-body">
                                             <div>
                                                 <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
-                                                    <option value="1">Công khai</option>
+                                                    <option value="1">Hoạt động</option>
                                                     <option value="0">Ẩn</option>
                                                 </select>
                                             </div>

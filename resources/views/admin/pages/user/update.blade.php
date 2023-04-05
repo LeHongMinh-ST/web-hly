@@ -99,7 +99,7 @@
                                                         class="text-danger">*</span></label>
                                                 <div>
                                                     <select id="selectIsActive" name="role_id" class="bootstrap-select form-control select-lg">
-                                                        <option selected disabled >{{@count($roles) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
+                                                        <option selected disabled >{{@count($roles) ? 'Chọn nhóm quyền ...' : 'Chưa có nhóm quyền'}} </option>
                                                         @forelse(@$roles ?? [] as $role)
                                                             <option
                                                                 @if($role->id == $user->role_id) selected

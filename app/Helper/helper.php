@@ -6,16 +6,13 @@ use App\Models\Role;
 
 function checkPermission($codePermission): bool
 {
-    return true;
-    $user = auth()->guard()->user();
+    $user = auth()->user();
     $role = Role::find($user->role_id);
-    if ($role->permissions) {
-        $isSuperAdmin = hasPermission($role, 'super-admin');
-        $isAdmin = hasPermission($role, 'admin');
-        if ($isSuperAdmin || $isAdmin) {
-            return true;
-        }
+    if ($user->is_super_admin) {
+        return true;
+    }
 
+    if (@$role->permissions) {
         $isPermission = hasPermission($role, $codePermission);
         if ($isPermission) {
             return true;

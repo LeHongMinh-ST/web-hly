@@ -90,10 +90,13 @@
                                                             @endforeach
                                                         </ul>
                                                     </div>
-                                                    <a type="button" href="{{ route('admin.posts.create') }}"
-                                                       class="btn btn-primary"><i
-                                                            class="icon-add"></i>
-                                                        Thêm mới</a>
+                                                    @if(checkPermission('post-create'))
+                                                        <a type="button" href="{{ route('admin.posts.create') }}"
+                                                           class="btn btn-primary"><i
+                                                                class="icon-add"></i>
+                                                            Thêm mới</a>
+                                                    @endif
+
                                                 </div>
                                             </div>
                                         </div>
@@ -156,16 +159,21 @@
                                                                        data-toggle="dropdown"
                                                                        aria-expanded="false"><i class="icon-menu7"></i></a>
                                                                     <ul class="dropdown-menu dropdown-menu-right">
-                                                                        <li>
-                                                                            <a href="{{ route('admin.posts.edit', $post->id) }}"><i
-                                                                                    class="icon-pencil7"></i> Chỉnh sửa</a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="javascript:void(0);"
-                                                                               class="btn-delete"
-                                                                               data-id="{{$post->id}}"><i
-                                                                                    class="icon-trash"></i> Xóa</a>
-                                                                        </li>
+                                                                        @if(checkPermission('post-update'))
+                                                                            <li>
+                                                                                <a href="{{ route('admin.posts.edit', $post->id) }}"><i
+                                                                                        class="icon-pencil7"></i> Chỉnh sửa</a>
+                                                                            </li>
+                                                                        @endif
+                                                                        @if(checkPermission('post-delete'))
+                                                                            <li>
+                                                                                <a href="javascript:void(0);"
+                                                                                   class="btn-delete"
+                                                                                   data-id="{{$post->id}}"><i
+                                                                                        class="icon-trash"></i> Xóa</a>
+                                                                            </li>
+                                                                        @endif
+
                                                                     </ul>
                                                                 </li>
                                                             </ul>

@@ -99,7 +99,7 @@
                                                         <td>{{ $user->username ?? '' }}</td>
                                                         <td style="text-align: center">{{ $user->email }}</td>
                                                         <td style="text-align: center">{{ $user->phone_number }}</td>
-                                                        <td style="text-align: center">{{ $user->role->name ?? ''}}</td>
+                                                        <td style="text-align: center">{!! $user->roleText !!}</td>
                                                         <td style="text-align: center">{!! @$user->isActiveText !!}</td>
                                                         <td style="text-align: center">
                                                             <ul class="icons-list">
