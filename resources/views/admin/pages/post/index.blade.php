@@ -99,7 +99,7 @@
                                         <tr>
                                             <td style="text-align: center">{{ $loop->index + 1 + $posts->perPage() * ($posts->currentPage() - 1)   }}</td>
                                             <td>
-                                                <a href="{{ localized_route('cms.news.post',@$post->slug->content) }}">
+                                                <a href="{{ localized_route('cms.news.post',@$post->slug->content, @$post->language()->first()->language_code) }}">
                                                     @if($post->thumbnail)
                                                         <img style="width: 56px; height: 56px;object-fit: cover"
                                                              src="{{ $post->thumbnail }}" alt="">
@@ -108,11 +108,10 @@
                                                              src="{{ asset('assets/admin/images/default.jpg') }}" alt="">
                                                     @endif
                                                 </a>
-
                                             </td>
                                             <td>
                                                 <span style="font-weight: bold"><a
-                                                            href="{{ localized_route('cms.news.post',@$post->slug->content) }}">{{ $post->title ?? ''}}</a></span>
+                                                            href="{{ localized_route('cms.news.post',@$post->slug->content, @$post->language()->first()->language_code) }}">{{ $post->title ?? ''}}</a></span>
                                             </td>
                                             <td>{{ @$post->slug->content ?? '' }}</td>
                                             <td style="text-align: center">{{ @$post->textDatePublish }}</td>
