@@ -37,10 +37,16 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
         $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
         $q = $data['q'] ?? '';
 
-        return $this->scopeQuery(function ($query) use ($q) {
+        return $this->scopeQuery(function ($query) use ($q, $data) {
 
             if ($q) {
                 $query->where('title', 'like',"%$q%");
+            }
+
+            if ($data['locale']) {
+                $query->whereHas('language', function ($language) {
+                    return $language->where('language_code', app()->getLocale());
+                });
             }
 
             return $query->orderBy('created_at', 'desc');

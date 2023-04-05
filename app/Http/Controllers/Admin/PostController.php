@@ -36,7 +36,7 @@ class PostController extends Controller
      */
     public function index(Request $request): Factory|View|Application
     {
-        $data = $request->only(['q', 'limit']);
+        $data = $request->only(['q', 'limit', 'locale']);
 
         $posts = $this->postRepository->getPostPaginate($data);
 
@@ -46,6 +46,7 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Request $request
      * @return Application|Factory|View
      */
     public function create(Request $request): Factory|View|Application
