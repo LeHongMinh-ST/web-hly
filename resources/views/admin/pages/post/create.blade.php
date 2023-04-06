@@ -42,16 +42,13 @@
                     <!-- Content area -->
                     <div class="content">
                         <!-- Dashboard content -->
+                        <div class="alert alert-primary alert-styled-left">
+                            Bản dịch <img class="icon-flag" src="{{ \App\Enums\Language::getIconFlag($refLanguage) }}" alt="{{ \App\Enums\Language::getDescription($refLanguage) }}"><b>{{ \App\Enums\Language::getDescription($refLanguage) }}</b>
+                        </div>
                         <div class="row">
                             <form action="{{ route('admin.posts.store', request()->all()) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="col-md-9">
-                                    @if($post)
-                                        <div class="alert alert-primary alert-styled-left">
-                                            Bản dịch <b>{{ \App\Enums\Language::getDescription($refLanguage) }}</b> của bài viết
-                                            <a href="{{ localized_route('cms.news.post',@$post->slug->content) }}"><b>{{ $post->title }}</b></a>
-                                        </div>
-                                    @endif
 
                                     <div class="panel panel-white">
                                         <div class="panel-heading">

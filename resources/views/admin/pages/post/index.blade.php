@@ -47,11 +47,14 @@
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <form action="{{ route('admin.posts.index', array_merge(request()->all())) }}" method="get">
+                                                <form
+                                                    action="{{ route('admin.posts.index', array_merge(request()->all())) }}"
+                                                    method="get">
                                                     <div class="row">
                                                         <div class="col-md-8">
                                                             <div class="form-group">
-                                                                <input type="hidden" hidden="" class="form-control" name="locale"
+                                                                <input type="hidden" hidden="" class="form-control"
+                                                                       name="locale"
                                                                        value="{{ request()->query('locale', \App\Enums\Language::Vietnamese) }}">
                                                                 <input type="text" class="form-control" name="q"
                                                                        value="{{ request()->query('q') }}"
@@ -81,7 +84,8 @@
                                                             <span class="caret"></span></button>
                                                         <ul class="dropdown-menu dropdown-menu-right">
                                                             @foreach(\App\Enums\Language::toSelectArray() as $key => $locale)
-                                                                <li><a href="{{ route('admin.posts.index', array_merge(request()->all(), ['locale' => $key])) }}">
+                                                                <li>
+                                                                    <a href="{{ route('admin.posts.index', array_merge(request()->all(), ['locale' => $key])) }}">
                                                                         <img
                                                                             class="icon-flag"
                                                                             src="{{ \App\Enums\Language::getIconFlag($key) }}"
@@ -91,7 +95,7 @@
                                                         </ul>
                                                     </div>
                                                     @if(checkPermission('post-create'))
-                                                        <a type="button" href="{{ route('admin.posts.create') }}"
+                                                        <a type="button" href="{{ route('admin.posts.create', ['ref_language' => request()->query('locale', \App\Enums\Language::Vietnamese)]) }}"
                                                            class="btn btn-primary"><i
                                                                 class="icon-add"></i>
                                                             Thêm mới</a>
@@ -162,7 +166,8 @@
                                                                         @if(checkPermission('post-update'))
                                                                             <li>
                                                                                 <a href="{{ route('admin.posts.edit', $post->id) }}"><i
-                                                                                        class="icon-pencil7"></i> Chỉnh sửa</a>
+                                                                                        class="icon-pencil7"></i> Chỉnh
+                                                                                    sửa</a>
                                                                             </li>
                                                                         @endif
                                                                         @if(checkPermission('post-delete'))
@@ -215,10 +220,10 @@
                         <form action="" method="post" id="frm-delete">
                             @csrf
                             @method('delete')
-            </form>
+                        </form>
 
-        </div>
-        <!-- /content area -->
+                    </div>
+                    <!-- /content area -->
 
-    </div>
-@endsection
+                </div>
+            @endsection

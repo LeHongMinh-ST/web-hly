@@ -52,11 +52,8 @@ class PostController extends Controller
     public function create(Request $request): Factory|View|Application
     {
         $post = null;
-        $refLanguage = Language::Vietnamese;
-        if ($request->has('ref_language') && $request->has('from_id')) {
-            $post = $this->postRepository->find($request->get('from_id'));
-            $refLanguage = $request->get('ref_language');
-        }
+
+        $refLanguage = $request->get('ref_language', Language::Vietnamese);
 
         $categories = $this->categoryRepository->getCategory();
 
