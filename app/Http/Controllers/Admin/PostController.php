@@ -119,6 +119,8 @@ class PostController extends Controller
     public function edit(int|string $id): Factory|View|Application
     {
         $post = $this->postRepository->find($id);
+        $this->authorize('edit', $post);
+
         $post->load('language');
         $post->locales = $this->languageMetaService->getArrayLocale($post->id, Post::class);
         $post->localeIds = $this->languageMetaService->getArrayLocaleId($post->id, Post::class);
@@ -139,6 +141,7 @@ class PostController extends Controller
         try {
             $data = $request->all();
             $post = $this->postRepository->find($id);
+            $this->authorize('update', $post);
 
             $post?->fill(array_merge($data, [
                 'update_by' => auth()->id(),
@@ -179,6 +182,9 @@ class PostController extends Controller
     {
         DB::beginTransaction();
         try {
+            $post = $this->postRepository->find($id);
+            $this->authorize('update', $post);
+
             $this->postRepository->delete($id);
 
             DB::commit();

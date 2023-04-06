@@ -135,9 +135,9 @@ Route::prefix('/admin')->group(function () {
                 Route::post('/', [PostController::class, 'store'])->name('admin.posts.store')->middleware('permission:post-create');
                 Route::get('/create', [PostController::class, 'create'])->name('admin.posts.create')->middleware('permission:post-create');
                 Route::get('/{id}', [PostController::class, 'show'])->name('admin.posts.show')->middleware('permission:post-index');
-                Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update')->middleware(['permission:post-update', 'can:update,post']);
-                Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy')->middleware(['permission:post-delete', 'can:delete,post']);
-                Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit')->middleware(['permission:post-update', 'can:edit,post']);
+                Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update')->middleware(['permission:post-update']);
+                Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy')->middleware(['permission:post-delete']);
+                Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit')->middleware(['permission:post-update']);
             });
 
             Route::prefix('categories')->group(function () {
