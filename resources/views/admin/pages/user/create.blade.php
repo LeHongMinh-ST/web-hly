@@ -148,7 +148,7 @@
                                             <div>
                                                 <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
                                                     <option value="1">Hoạt động</option>
-                                                    <option value="0">Ẩn</option>
+                                                    <option value="0">Tạm khóa</option>
                                                 </select>
                                             </div>
                                         </div>

@@ -103,7 +103,8 @@
                                                 <a href="{{ route('admin.users.index') }}" class="btn btn-default"><i
                                                         class=" icon-close2"></i>
                                                     Đóng</a>
-                                                <a data-id="{{@$user->id}}" class="btn btn-success btn-change-password" ><i class=" icon-lock"></i> Đổi mật khẩu
+                                                <a data-id="{{@$user->id}}" class="btn btn-success btn-change-password" data-toggle="modal"
+                                                   data-target="#modal_change_password" ><i class=" icon-lock"></i> Đổi mật khẩu
                                                 </a>
                                             </div>
                                         </div>
@@ -113,7 +114,57 @@
                         </form>
                     </div>
 
+                    <div id="modal_change_password" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" id="btnCloseFormChangPass" class="close" data-dismiss="modal">&times;</button>
+                                    <h5 class="modal-title">Đổi mật khẩu</h5>
+                                </div>
 
+                                <form action="#" id="form_change_password">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label>Mật khẩu hiện tại</label>
+                                                    <input id="modal_change_password-password" type="password" placeholder="Nhập mật khẩu hiện tại" class="form-control">
+                                                    <span id="modal_change_password-password_smg" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label>Mật khẩu mới</label>
+                                                    <input id="modal_change_password-password_new" type="password" placeholder="Nhập mật khẩu mới" class="form-control">
+                                                    <span id="modal_change_password-password_new_smg" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label>Xác nhận mật khẩu mới</label>
+                                                    <input id="modal_change_password-password_new_confirm" type="password" placeholder="Nhập mật khẩu mới" class="form-control">
+                                                    <span id="modal_change_password-password_new_confirm_smg" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary btn-change-password">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Footer -->
                     @include('admin.includes.footer')

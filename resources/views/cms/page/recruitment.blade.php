@@ -103,7 +103,7 @@
 
                 <div class="contentDetail" style="width: 60%; padding-left: 30px;">
                     <h3 style="margin-bottom: 20px;" id="detail-title"></h3>
-                    <p style="margin-bottom: 20px;">Đăng ngày:
+                    <p style="margin-bottom: 20px;">{{count($recruitmentPosts) ? 'Ngày đăng' : ''}}
                         <span id="detail-created-at"></span>
                     </p>
                     <div id="detail-content"></div>

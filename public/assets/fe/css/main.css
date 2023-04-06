@@ -11459,3 +11459,7 @@ main {
     font-size: 15px;
     border: 0.5px solid #c7c4c4;
 }
+
+.text-danger {
+    color: red;
+}

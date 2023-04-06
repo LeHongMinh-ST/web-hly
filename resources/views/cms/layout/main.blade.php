@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/fe/css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     @yield('css')
+    @yield('js-notication')
 </head>
 
 <body>

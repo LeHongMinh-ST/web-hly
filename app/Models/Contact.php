@@ -15,6 +15,7 @@ class Contact extends Model
         'name',
         'email',
         'subject',
+        'phone',
         'address',
         'content',
         'status'

@@ -2,6 +2,9 @@
 @section('title')
     Liên hệ - Tập đoàn HLY
 @endsection
+@section('js-notication')
+    @include('cms.include.script')
+@endsection
 @section('content')
 <div>
 
@@ -25,102 +28,75 @@
                 Hà Nội - Trụ sở chính
             </p><br/>
             <p>
-                FPT Tower, 10 Phạm Văn Bạch, P. Dịch Vọng, Q. Cầu Giấy, Hà Nội, Việt Nam
+                N02 - LK1, Hà Trì, Phường Hà Cầu, Quận Hà Đông, Thành phố Hà Nội, Việt Nam
             </p><br/>
-            <p style="font-weight: bold; ">
-                Hà Nội - Trụ sở chính
-            </p><br/>
-            <p>
-                FPT Tower, 10 Phạm Văn Bạch, P. Dịch Vọng, Q. Cầu Giấy, Hà Nội, Việt Nam
-            </p>
             </div>
         </div>
         <!-- <div class="form"> -->
         <div class="formWrap stagger-up" style="width: 60%; padding: 30px 0;">
         <h2 class="" style="font-size: 30px; font-weight: bold; text-align: center">Vui lòng điền vào mẫu đơn bên dưới để nhận thêm thông tin về các dịch vụ cung cấp của chúng tôi</h2>
-        <form name="frmContact" class="" style="margin-top: 30px; display: flex; flex-direction: column; gap: 20px;" action="/lien-he" method="POST" >
-           <div style="display: flex;  gap: 40px;">
-            <div style="width: 50%;">
-                    <label for="fullname">Tên *</label>
-                    <input class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="fullname"  />
-                </div>
-                <div style="width: 50%;">
-                    <label for="fullname">Họ *</label>
-                    <input class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="fullname"  />
-                </div>
-           </div>
-           <div style="display: flex;  gap: 40px;">
-            <div style="width: 50%;">
-                    <label for="fullname">Email doanh nghiệp *</label>
-                    <input class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="fullname"  />
-                </div>
-                <div style="width: 50%;">
-                    <label for="fullname">Số điện thoại *</label>
-                    <input class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="fullname"  />
+        <form name="frmContact" class="" style="margin-top: 30px; display: flex; flex-direction: column; gap: 20px;" action="{{ route('cms.contact.store') }}" method="POST" >
+            @csrf
+            <div style="display: flex;  gap: 40px;">
+                <div style="width: 100%;">
+                    <label for="name">Họ và tên <span class="text-danger">*</span></label>
+                    <input class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="name"  />
+
+                    @error('name')
+                    <label id="error-title" class="text-danger validation-error-label"
+                           for="basic">{{ $message }}</label>
+                    @enderror
                 </div>
            </div>
+           <div style="display: flex;  gap: 40px;">
+            <div style="width: 50%;">
+                    <label for="email">Email doanh nghiệp <span class="text-danger">*</span></label>
+                    <input  class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="email"  />
+                @error('email')
+                <label id="error-title" class="text-danger validation-error-label"
+                       for="basic">{{ $message }}</label>
+                @enderror
+            </div>
+                <div style="width: 50%;">
+                    <label for="phone">Số điện thoại <span class="text-danger">*</span></label>
+                    <input  class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="phone"  />
+                    @error('name')
+                    <label id="error-title" class="text-danger validation-error-label"
+                           for="basic">{{ $message }}</label>
+                    @enderror
+                </div>
+           </div>
             <div style="width: 100%;">
-                <label for="fullname">Doanh nghiệp *</label>
-                <input class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="fullname"  />
+                <label for="address">Địa chỉ <span class="text-danger">*</span></label>
+                <input  class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="address"  />
+                @error('address')
+                <label id="error-title" class="text-danger validation-error-label"
+                       for="basic">{{ $message }}</label>
+                @enderror
             </div>
             <div style="width: 100%;">
-                <label for="fullname">Câu hỏi/Thắc mắc cần giải đáp *</label>
-                <input class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="fullname"  />
+                <label for="subject">Chủ đề <span class="text-danger">*</span></label>
+                <input class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="subject"  />
+                @error('subject')
+                <label id="error-title" class="text-danger validation-error-label"
+                       for="basic">{{ $message }}</label>
+                @enderror
             </div>
             <div style="width: 100%;">
-                <label for="fullname">Chủ đề *</label>
-                <input class="form-control" style="border-radius: 2px; border-color: #9e9e9e" type="text" name="fullname"  />
-            </div>
-            <div style="width: 100%;">
-                <label for="fullname">Chi tiết cụ thể về câu hỏi/thắc mắc cần giải đáp *</label>
-                <textarea rows="5" class="form-control" style="border-radius: 2px; border-color: #9e9e9e height: 50px;" type="text" name="fullname"  >
+                <label for="content">Chi tiết cụ thể về câu hỏi/thắc mắc cần giải đáp <span class="text-danger">*</span></label>
+                <textarea  rows="5" class="form-control" style="border-radius: 2px; border-color: #9e9e9e; height: 150px;" type="text" name="content"  >
                 </textarea>
+                @error('content')
+                <label id="error-title" class="text-danger validation-error-label"
+                       for="basic">{{ $message }}</label>
+                @enderror
             </div>
-            <div class="g-recaptcha" data-sitekey="6Lftwq0UAAAAAD43amX4uFmDmkTvDM7m7KqQpv1v" data-message="Vui lòng nh&#7845;n ch&#7885;n &quot;Tôi không ph&#7843;i robot&quot;"></div>
             <div style="width: 100%; text-align: right;">
-                <button type="button" style="margin: 0; max-width: unset; border-color: unset;" class="btn-show-more">Gửi yêu cầu</button>
+                <button type="submit" style="margin: 0; max-width: unset; border-color: unset;" class="btn-show-more">Gửi yêu cầu</button>
             </div>
         </form>
-        <!-- <form name="frmContact" class="frmContact" action="/lien-he" method="POST">
-            <ul>
-                <li><input type="text" name="Name" class="js-required form-control" placeholder="H&#7885; và tên"></li>
-                <li><input type="text" name="Address" class="js-required form-control" placeholder="Đ&#7883;a ch&#7881;"></li>
-                <li><input type="text" name="Phone" class="js-required js-phone form-control" placeholder="Đi&#7879;n tho&#7841;i"></li>
-                <li><input type="text" name="Email" class="js-required js-email form-control" placeholder="Email"></li>
-                <li><textarea placeholder="N&#7897;i dung" name="Content" rows="5"></textarea></li>
-                <li>
-                    <div class="g-recaptcha" data-sitekey="6Lftwq0UAAAAAD43amX4uFmDmkTvDM7m7KqQpv1v" data-message="Vui lòng nh&#7845;n ch&#7885;n &quot;Tôi không ph&#7843;i robot&quot;"></div>
-                </li>
-            </ul>
-            <div class="btnwrap">
-                <input name="__RequestVerificationToken" type="hidden" value="OaqP-KgeFfn1k_8FbT812SVX7-XplvdpYigFw4YjuSKzSjgrl5PqdUUawjP3s3eHQOqzG3b_jpe27hETyQfFI6FK95-nmL7bE9p7DBEuUbE1" />
-                <a class="btn btn-submit" style="background-color: #008155" href="#"><span>G&#7917;i n&#7897;i dung</span></a>
-            </div>
-        </form> -->
     </div>
-        <!-- </div> -->
     </div>
 
-
-    <!-- <div class="formWrap stagger-up">
-        <h2 class="title">Liên h&#7879; v&#7899;i chúng tôi</h2>
-        <form name="frmContact" class="frmContact" action="/lien-he" method="POST">
-            <ul>
-                <li><input type="text" name="Name" class="js-required form-control" placeholder="H&#7885; và tên"></li>
-                <li><input type="text" name="Address" class="js-required form-control" placeholder="Đ&#7883;a ch&#7881;"></li>
-                <li><input type="text" name="Phone" class="js-required js-phone form-control" placeholder="Đi&#7879;n tho&#7841;i"></li>
-                <li><input type="text" name="Email" class="js-required js-email form-control" placeholder="Email"></li>
-                <li><textarea placeholder="N&#7897;i dung" name="Content"></textarea></li>
-                <li>
-                    <div class="g-recaptcha" data-sitekey="6Lftwq0UAAAAAD43amX4uFmDmkTvDM7m7KqQpv1v" data-message="Vui lòng nh&#7845;n ch&#7885;n &quot;Tôi không ph&#7843;i robot&quot;"></div>
-                </li>
-            </ul>
-            <div class="btnwrap">
-                <input name="__RequestVerificationToken" type="hidden" value="OaqP-KgeFfn1k_8FbT812SVX7-XplvdpYigFw4YjuSKzSjgrl5PqdUUawjP3s3eHQOqzG3b_jpe27hETyQfFI6FK95-nmL7bE9p7DBEuUbE1" />
-                <a class="btn btn-submit" style="background-color: #008155" href="#"><span>G&#7917;i n&#7897;i dung</span></a>
-            </div>
-        </form>
-    </div> -->
 </div>
-    <script src="https://www.google.com/recaptcha/api.js?hl=vi" async defer></script>
 @endsection
