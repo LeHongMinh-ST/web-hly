@@ -139,8 +139,8 @@
                                         <div class="panel-body">
                                             <div>
                                                 <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
-                                                    <option value="1" {{old('order', @$user->status) == 1 ? 'selected' : ''}}>Công khai</option>
-                                                    <option value="0" {{old('order', @$user->status) == 0 ? 'selected' : ''}}>Ẩn</option>
+                                                    <option value="1" {{old('order', @$user->status) == 1 ? 'selected' : ''}}>Hoạt động</option>
+                                                    <option value="0" {{old('order', @$user->status) == 0 ? 'selected' : ''}}>Tạm khóa</option>
                                                 </select>
                                             </div>
                                         </div>
