@@ -15,12 +15,28 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+
+    private static array $categoryTypes = [
+        'news' => [
+            'key' => CategoryType::News,
+            'name' => 'Tin tức'
+        ],
+        'invesment' => [
+            'key' => CategoryType::Invesment,
+            'name' => 'Tin tức đầu tư'
+        ],
+        'recruitment' => [
+            'key' => CategoryType::Recruitment,
+            'name' => 'Tuyển dụng'
+        ],
+    ];
 
     public function __construct(
         private CategoryRepository  $categoryRepository,
@@ -38,23 +54,11 @@ class CategoryController extends Controller
      */
     public function index(Request $request): Factory|View|Application
     {
-        $data = $request->only(['q', 'limit']);
-        $categoryTypes = [
-            'news' => [
-                'key' => CategoryType::News,
-                'name' => 'Tin tức'
-            ],
-            'invesment' => [
-                'key' => CategoryType::Invesment,
-                'name' => 'Tin tức đầu tư'
-            ],
-            'recruitment' => [
-                'key' => CategoryType::Recruitment,
-                'name' => 'Tuyển dụng'
-            ],
-        ];
+        $data = $request->only(['q', 'limit', 'locale']);
 
         $categories = $this->categoryRepository->getCategoryPaginate($data);
+
+        $categoryTypes = CategoryController::$categoryTypes;
 
         return view('admin.pages.category.index')->with(compact('categories', 'categoryTypes'));
     }
@@ -62,32 +66,31 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Factory|View|Application
      */
-    public function create(): Factory|View|Application
+    public function create(Request $request): Factory|View|Application
     {
-        $categoryTypes = [
-            'news' => [
-                'key' => CategoryType::News,
-                'name' => 'Tin tức'
-            ],
-            'invesment' => [
-                'key' => CategoryType::Invesment,
-                'name' => 'Tin tức đầu tư'
-            ],
-            'recruitment' => [
-                'key' => CategoryType::Recruitment,
-                'name' => 'Tuyển dụng'
-            ],
-        ];
-        return view('admin.pages.category.create')->with(compact('categoryTypes'));
+        $category = null;
+        $refLanguage = Language::Vietnamese;
+
+        if ($request->has('ref_language') && $request->has('from_id')) {
+            $category = $this->categoryRepository->find($request->get('from_id'));
+            $refLanguage = $request->get('ref_language');
+        }
+
+        return view('admin.pages.category.create')->with([
+            'categoryTypes' => self::$categoryTypes,
+            'category' => $category,
+            'refLanguage' => $refLanguage
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreCategoryRequest $request
+     * @return RedirectResponse
      */
     public function store(StoreCategoryRequest $request): RedirectResponse
     {
@@ -101,8 +104,6 @@ class CategoryController extends Controller
                 'views' => 0
             ]));
 
-
-
             $category?->slug()->create(['content' => $this->slugService->generateSlug(Category::class, $category->name)]);
 
             $refLanguage = $data['ref_language'] ?? Language::Vietnamese;
@@ -111,11 +112,11 @@ class CategoryController extends Controller
 
             DB::commit();
             $request->session()->flash('success', 'Tạo mới danh mục thành công');
-            return redirect()->route('admin.categories.index');
+            return redirect()->route('admin.categories.index', ['locale' => $refLanguage]);
 
         } catch (\Exception $exception) {
             DB::rollBack();
-            Log::error('Error store post', [
+            Log::error('Error store category', [
                 'method' => __METHOD__,
                 'message' => $exception->getMessage()
             ]);
@@ -129,8 +130,8 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
     public function show($id)
     {
@@ -140,56 +141,48 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Factory|View|Application
      */
-    public function edit($id): Factory|View|Application
+    public function edit(int $id): Factory|View|Application
     {
         $category = $this->categoryRepository->find($id);
-        $categoryTypes = [
-            'news' => [
-                'key' => CategoryType::News,
-                'name' => 'Tin tức'
-            ],
-            'invesment' => [
-                'key' => CategoryType::Invesment,
-                'name' => 'Tin tức đầu tư'
-            ],
-            'recruitment' => [
-                'key' => CategoryType::Recruitment,
-                'name' => 'Tuyển dụng'
-            ],
-        ];
+        $category->load('language');
+        $category->locales = $this->languageMetaService->getArrayLocale($category->id, Category::class);
+        $category->localeIds = $this->languageMetaService->getArrayLocaleId($category->id, Category::class);
+
+        $categoryTypes = self::$categoryTypes;
+
         return view('admin.pages.category.edit')->with(compact('category', 'categoryTypes'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  StoreCategoryRequest  $request
-     * @param  int | string $id
+     * @param StoreCategoryRequest $request
+     * @param int | string $id
      * @return RedirectResponse
      */
     public function update(StoreCategoryRequest $request, int|string $id): RedirectResponse
     {
         DB::beginTransaction();
         try {
-        $data = $request->all();
-        $category = $this->categoryRepository->find($id);
+            $data = $request->all();
+            $category = $this->categoryRepository->find($id);
 
-        $category?->fill(array_merge($data, [
-            'update_by' => auth()->id(),
-        ]));
+            $category?->fill(array_merge($data, [
+                'update_by' => auth()->id(),
+            ]));
 
-        $category?->save();
+            $category?->save();
 
-        $category?->slug()->create(['content' => $this->slugService->generateSlug(Category::class, $category->name, $id)]);
+            $category?->slug()->create(['content' => $this->slugService->generateSlug(Category::class, $category->name, $id)]);
 
-        DB::commit();
+            DB::commit();
 
-        $request->session()->flash('success', 'Cập nhật danh mục thành công');
+            $request->session()->flash('success', 'Cập nhật danh mục thành công');
 
-        return redirect()->route('admin.categories.index');
+            return redirect()->route('admin.categories.index');
 
         } catch (\Exception $exception) {
             DB::rollBack();
@@ -207,7 +200,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int|string  $id
+     * @param int|string $id
      * @return RedirectResponse
      */
     public function destroy(int|string $id): RedirectResponse

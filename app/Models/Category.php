@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Category extends Model
@@ -19,10 +20,16 @@ class Category extends Model
         'name',
         'order',
         'status',
+        'language',
         'type',
         'create_by',
         'update_by',
     ];
+
+    public function language(): MorphOne
+    {
+        return $this->morphOne(LanguageMeta::class, 'languageable', 'reference_type', 'reference_id');
+    }
 
     public function posts(): HasMany
     {
@@ -57,12 +64,47 @@ class Category extends Model
         };
     }
 
+    public function getLanguageTextAttribute()
+    {
+        $language = $this->language()->first();
+        if (!$language) {
+            return 'Tiếng Việt';
+        }
+        return match ($language->language_code) {
+            Language::Vietnamese => 'Tiếng Việt',
+            Language::English => 'Tiếng Anh',
+            Language::Chinese => 'Tiếng Trung',
+        };
+    }
+
+    public function getLanguageIconAttribute()
+    {
+        $language = $this->language()->first();
+        if (!$language) {
+            return asset('assets/admin/images/flags/vietnam-flag-icon.svg');
+        }
+        return match ($language->language_code) {
+            Language::Vietnamese => asset('assets/admin/images/flags/vietnam-flag-icon.svg'),
+            Language::English => asset('assets/admin/images/flags/united-kingdom-flag-icon.svg'),
+            Language::Chinese => asset('assets/admin/images/flags/china-flag-icon.svg'),
+        };
+    }
+
+    public function getLanguageCodeAttribute()
+    {
+        $language = $this->language()->first();
+        if (!$language) {
+            return Language::Vietnamese;
+        }
+        return $language->language_code;
+    }
+
     protected static function boot()
     {
         parent::boot();
 
-        static::deleting(function (Category $post) {
-            $post->posts()->detach();
+        static::deleting(function (Category $category) {
+            $category->posts()->update(['category_id' => null]);
         });
     }
 }
