@@ -1,4 +1,4 @@
-@php use App\Enums\Language; @endphp
+@php use App\Enums\CategoryType;use App\Enums\Language; @endphp
 @extends('admin.layouts.master')
 
 @section('custom_js')
@@ -106,9 +106,12 @@
                                             <div>
                                                 <select id="selectIsActive" name="type"
                                                         class="bootstrap-select form-control select-lg">
-                                                    @foreach($categoryTypes as $type)
+                                                    @foreach(CategoryType::toSelectArray() as $categoryType => $categoryTypeDesc)
                                                         <option
-                                                            value="{{$type['key']}}" {{old('order', @$category->type) == $type['key'] ? 'selected' : ''}}>{{$type['name']}}</option>
+                                                            value="{{$categoryType}}"
+                                                            {{old('order', @$category->type) == $categoryType ? 'selected' : ''}}>
+                                                            {{$categoryTypeDesc}}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                             </div>

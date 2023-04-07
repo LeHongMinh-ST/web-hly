@@ -1,4 +1,4 @@
-@php use App\Enums\Language; @endphp
+@php use App\Enums\CategoryType;use App\Enums\Language; @endphp
 @extends('admin.layouts.master')
 @section('custom_js')
     @production
@@ -57,10 +57,8 @@
                                                 <div class="form-group">
                                                     <label>Loại danh mục</label>
                                                     <select class="bootstrap-select" data-width="100%">
-                                                        @foreach($categoryTypes as $type)
-                                                            <option value="{{$type['key']}}">
-                                                                {{$type['name']}}
-                                                            </option>
+                                                        @foreach(CategoryType::toSelectArray() as $categoryType => $categoryTypeDesc)
+                                                            <option value="{{$categoryType}}">{{$categoryTypeDesc}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>

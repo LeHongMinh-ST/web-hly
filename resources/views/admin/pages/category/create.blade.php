@@ -1,4 +1,4 @@
-@php use App\Enums\Language; @endphp
+@php use App\Enums\CategoryType;use App\Enums\Language; @endphp
 @extends('admin.layouts.master')
 
 @section('custom_js')
@@ -49,7 +49,8 @@
                                               alt="{{ Language::getDescription($refLanguage) }}">
                                 <b>{{ Language::getDescription($refLanguage) }}</b>
                             </div>
-                            <form action="{{ route('admin.categories.store', request()->all()) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admin.categories.store', request()->all()) }}" method="post"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 <div class="col-md-9">
                                     <div class="panel panel-white">
@@ -108,8 +109,8 @@
                                             <div>
                                                 <select id="selectIsActive" name="type"
                                                         class="bootstrap-select form-control select-lg">
-                                                    @foreach($categoryTypes as $type)
-                                                        <option value="{{$type['key']}}">{{$type['name']}}</option>
+                                                    @foreach(CategoryType::toSelectArray() as $categoryType => $categoryTypeDesc)
+                                                        <option value="{{$categoryType}}">{{$categoryTypeDesc}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -135,15 +136,15 @@
                             </form>
                         </div>
 
-                    <!-- /dashboard content -->
+                        <!-- /dashboard content -->
 
 
-                    <!-- Footer -->
-                    @include('admin.includes.footer')
-                    <!-- /footer -->
+                        <!-- Footer -->
+                        @include('admin.includes.footer')
+                        <!-- /footer -->
 
-                </div>
-                <!-- /content area -->
+                    </div>
+                    <!-- /content area -->
 
                 </div>
             @endsection

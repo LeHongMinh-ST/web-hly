@@ -23,21 +23,6 @@ use Illuminate\Support\Str;
 class CategoryController extends Controller
 {
 
-    private static array $categoryTypes = [
-        'news' => [
-            'key' => CategoryType::News,
-            'name' => 'Tin tức'
-        ],
-        'invesment' => [
-            'key' => CategoryType::Invesment,
-            'name' => 'Tin tức đầu tư'
-        ],
-        'recruitment' => [
-            'key' => CategoryType::Recruitment,
-            'name' => 'Tuyển dụng'
-        ],
-    ];
-
     public function __construct(
         private CategoryRepository  $categoryRepository,
         private LanguageMetaService $languageMetaService,
@@ -58,9 +43,7 @@ class CategoryController extends Controller
 
         $categories = $this->categoryRepository->getCategoryPaginate($data);
 
-        $categoryTypes = CategoryController::$categoryTypes;
-
-        return view('admin.pages.category.index')->with(compact('categories', 'categoryTypes'));
+        return view('admin.pages.category.index')->with(compact('categories'));
     }
 
     /**
@@ -80,7 +63,6 @@ class CategoryController extends Controller
         }
 
         return view('admin.pages.category.create')->with([
-            'categoryTypes' => self::$categoryTypes,
             'category' => $category,
             'refLanguage' => $refLanguage
         ]);
@@ -151,9 +133,7 @@ class CategoryController extends Controller
         $category->locales = $this->languageMetaService->getArrayLocale($category->id, Category::class);
         $category->localeIds = $this->languageMetaService->getArrayLocaleId($category->id, Category::class);
 
-        $categoryTypes = self::$categoryTypes;
-
-        return view('admin.pages.category.edit')->with(compact('category', 'categoryTypes'));
+        return view('admin.pages.category.edit')->with(compact('category'));
     }
 
     /**
