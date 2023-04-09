@@ -61,7 +61,7 @@ class ContactController extends Controller
         try {
             $contact = $this->contactRepository->find($id);
 
-            if ($contact) {
+            if (!$contact) {
                 throw new ModelNotFoundException('Không tồn tại bản ghi');
             }
 
@@ -82,7 +82,7 @@ class ContactController extends Controller
 
             $request->session()->flash('success', 'Trả lời liên hệ thành công!');
 
-            return redirect()->route('admin.contact.index');
+            return redirect()->route('admin.contact.show', $id);
 
         } catch (ModelNotFoundException $exception) {
             DB::rollBack();
@@ -106,28 +106,5 @@ class ContactController extends Controller
                 ->withInput();
         }
 
-    }
-
-    public function store(StoreContactRequest $request): RedirectResponse
-    {
-        DB::beginTransaction();
-        try {
-            $data = $request->all();
-            $requestContact = $this->contactRepository->create($data);
-
-            DB::commit();
-            $request->session()->flash('success', 'Gửi yêu cầu thành công');
-            return redirect()->route('cms.contact');
-
-        } catch (\Exception $exception) {
-            DB::rollBack();
-            Log::error('Error store contact', [
-                'method' => __METHOD__,
-                'message' => $exception->getMessage()
-            ]);
-
-            return redirect()->back()
-                ->withErrors(['error' => ['Không thể Gửi yêu cầu']])->withInput();
-        }
     }
 }

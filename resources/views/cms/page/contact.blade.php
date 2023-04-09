@@ -86,8 +86,9 @@
             </div>
             <div style="width: 100%;">
                 <label for="content">Chi tiết cụ thể về câu hỏi/thắc mắc cần giải đáp <span class="text-danger">*</span></label>
-                <textarea  rows="5" class="form-control form-control-contact" style="border-radius: 2px; border-color: #9e9e9e; height: 150px;" type="text" name="content"  >
-                </textarea>
+                <label>
+                    <textarea  rows="5" class="form-control form-control-contact" style="border-radius: 2px; border-color: #9e9e9e; height: 150px;" type="text" name="content"  ></textarea>
+                </label>
                 @error('content')
                 <label id="error-title" class="text-danger validation-error-label"
                        for="basic">{{ $message }}</label>

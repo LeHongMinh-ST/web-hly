@@ -82,6 +82,9 @@
                                                                 href="tel:{{ $contact->phone  }}">{{ $contact->phone  }}</a></span>
                                                 </div>
                                                 <div class="item-info mb-5">
+                                                    <span>Đia chỉ: </span> <span class="text-black">{{ $contact->address  }}</span>
+                                                </div>
+                                                <div class="item-info mb-5">
                                                     <span>Chủ đề: </span> <span
                                                             class="text-black">{{ $contact->subject  }}</span>
                                                 </div>
