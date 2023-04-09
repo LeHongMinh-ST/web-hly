@@ -23,13 +23,21 @@ class RecruitmentController extends Controller
     {
         $categoryId = $request->input('category_id');
         if (!empty($categoryId)) {
-            $recruitmentPosts = $this->recruitmentRepository->getByCategoryId($categoryId);
+            $recruitmentPosts = $this->recruitmentRepository->scopeQuery(function ($query) {
+                return $query->whereHas('language', function ($language) {
+                    return $language->where('language_code', app()->getLocale());
+                });
+            })->getByCategoryId($categoryId);
         } else {
-            $recruitmentPosts = $this->recruitmentRepository->all();
+            $recruitmentPosts = $this->recruitmentRepository->scopeQuery(function ($query) {
+                return $query->whereHas('language', function ($language) {
+                    return $language->where('language_code', app()->getLocale());
+                });
+            })->findByField('status','1');
         }
-
+        $language = app()->getLocale();
         $categories = $this->categoryRepository->getByType(CategoryType::Recruitment);
         return view('cms.page.recruitment')
-            ->with(compact('recruitmentPosts', 'categories', 'categoryId'));
+            ->with(compact('recruitmentPosts', 'categories', 'categoryId', 'language'));
     }
 }

@@ -34,18 +34,20 @@ class RecruitmentController extends Controller
 
     public function index(Request $request): Factory|View|Application
     {
-        $data = $request->only(['q', 'limit']);
+        $data = $request->only(['q', 'limit', 'locale', 'category_id']);
 
         $recruitments = $this->recruitmentRepository->getRecruitmentPaginate($data);
-
-        return view('admin.pages.recruitment.index')->with(compact('recruitments'));
-    }
-
-    public function create(): Factory|View|Application
-    {
         $categories = $this->categoryRepository->getByType(CategoryType::Recruitment);
 
-        return view('admin.pages.recruitment.create')->with(compact('categories'));
+        return view('admin.pages.recruitment.index')->with(compact('recruitments', 'categories'));
+    }
+
+    public function create(Request $request): Factory|View|Application
+    {
+        $categories = $this->categoryRepository->getByType(CategoryType::Recruitment);
+        $refLanguage = $request->get('ref_language', Language::Vietnamese);
+        $category_id = $request->get('category_id', 0);
+        return view('admin.pages.recruitment.create')->with(compact('categories', 'refLanguage', 'category_id'));
     }
 
     public function store(StoreRecruitmentRequest $request): RedirectResponse
@@ -65,13 +67,12 @@ class RecruitmentController extends Controller
                 ->create(['content' => $this->slugService->generateSlug(Recruitment::class, $recruitment->title)]);
 
             $refLanguage = $data['ref_language'] ?? Language::Vietnamese;
-
             $this->languageMetaService
                 ->createPost($recruitment->id, Recruitment::class, $refLanguage, @$data['from_id']);
 
             DB::commit();
             $request->session()->flash('success', 'Tạo mới bài tuyển dụng thành công');
-            return redirect()->route('admin.recruitments.index');
+            return redirect()->route('admin.recruitments.index', ['locale' => $refLanguage]);
 
         } catch (Exception $exception) {
             DB::rollBack();
@@ -89,6 +90,10 @@ class RecruitmentController extends Controller
     public function edit(int|string $id): Factory|View|Application
     {
         $recruitment = $this->recruitmentRepository->find($id);
+//        $this->authorize('edit', $recruitment);
+        $recruitment->load('language');
+        $recruitment->locales = $this->languageMetaService->getArrayLocale($recruitment->id, Recruitment::class);
+        $recruitment->localeIds = $this->languageMetaService->getArrayLocaleId($recruitment->id, Recruitment::class);
         $categories = $this->categoryRepository->getByType(CategoryType::Recruitment);
         return view('admin.pages.recruitment.edit')->with(compact('recruitment', 'categories'));
     }

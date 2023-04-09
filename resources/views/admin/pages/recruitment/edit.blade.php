@@ -41,7 +41,11 @@
 
         <!-- Content area -->
         <div class="content">
-
+            <div class="alert alert-primary alert-styled-left">
+                Bản dịch <img class="icon-flag"
+                              src="{{ \App\Enums\Language::getIconFlag($recruitment->language()->first()->language_code) }}"
+                              alt="{{ \App\Enums\Language::getDescription($recruitment->language()->first()->language_code) }}"><b>{{ \App\Enums\Language::getDescription($recruitment->language()->first()->language_code) }}</b>
+            </div>
             <!-- Dashboard content -->
             <div class="row">
                 <form action="{{ route('admin.recruitments.update', @$recruitment->id) }}" method="post" enctype="multipart/form-data">
@@ -113,7 +117,58 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h6 class="panel-title"><i class="icon-gradient position-left"></i> Trạng thái</h6>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
+                                        <option value="1" {{old('status', @$recruitment->status) == 1 ? 'selected' : ''}}>Công khai</option>
+                                        <option value="0" {{old('status', @$recruitment->status) == 0 ? 'selected' : ''}}>Ẩn</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h6 class="panel-title"><i class=" icon-sphere position-left"></i> Ngôn ngữ
+                                </h6>
+                            </div>
+                            <div class="panel-body">
+                                <div class="list-locale">
+                                    @foreach(\App\Enums\Language::toSelectArray() as $keyLocale =>  $localeDes)
+                                        <div class="item">
+                                            @if(in_array($keyLocale, @$recruitment->locales))
+                                                @if($recruitment->language()->first()->language_code === $keyLocale)
+                                                    <img class="icon-flag"
+                                                         src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
+                                                         alt="{{ $localeDes }}">{{ $localeDes }}
+                                                    <span class="check"><i class="icon-check"></i></span>
+                                                @else
+                                                    <a href="{{ route('admin.recruitments.edit', @$recruitment->localeIds[$keyLocale]['reference_id']) }}"
+                                                       title="Bản dịch {{ $localeDes }}">
+                                                        <img class="icon-flag"
+                                                             src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
+                                                             alt="{{ $localeDes }}">{{ $localeDes }}
+                                                        <span class="check"><i
+                                                                class="icon-check"></i></span>
+                                                    </a>
+                                                @endif
+                                            @else
+                                                <a href="{{ route('admin.recruitments.create', ['ref_language' => $keyLocale, 'from_id' => $recruitment->id, 'category_id' => @$recruitment->category_id]) }}"
+                                                   title="Thêm mới bản dịch {{ $localeDes }}">
+                                                    <img class="icon-flag"
+                                                         src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
+                                                         alt="{{ $localeDes }}">{{ $localeDes }}
+                                                    <span class="check"><i class="icon-plus2"></i></span>
+                                                </a>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel panel-white">
                             <div class="panel-heading">
                                 <h6 class="panel-title"><i class="icon-folder2 position-left"></i> Danh mục</h6>
