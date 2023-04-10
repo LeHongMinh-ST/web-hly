@@ -36,7 +36,7 @@ class SendMailReplyContact implements ShouldQueue
      */
     public function handle()
     {
-        $email = new ReplyContact($this->user, $this->password);
+        $email = new ReplyContact($this->name, $this->message);
         Mail::to($this->email)->send($email);
     }
 }

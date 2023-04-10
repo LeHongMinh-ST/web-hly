@@ -102,70 +102,64 @@
                                     <div class="panel-body">
                                         <div class="table">
 
-                                            <table class="table table-bordered" id="category-table">
-                                                <thead>
-                                                <tr>
-                                                    <th style="width: 5%; text-align: center">STT</th>
-                                                    <!-- <th width="100px" style="text-align: center">Ảnh</th> -->
-                                                    <th>Tên danh mục</th>
-                                                    <th>Slug</th>
-                                                    <th style="text-align: center">Ngày đăng</th>
-                                                    <th style="text-align: center">Người đăng</th>
-                                                    <th style="text-align: center">Hiển thị</th>
-                                                    <th style="width: 150px; text-align: center">Hành động</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                @forelse($categories as $category)
-                                                    <tr>
-                                                        <td style="text-align: center">{{ $loop->index + 1 + $categories->perPage() * ($categories->currentPage() - 1)   }}</td>
-                                                        <td>
-                                                <span style="font-weight: bold">
-                                                    <a href="">{{ $category->name ?? ''}}</a>
-                                                </span>
-                                                        </td>
-                                                        <td>{{ @$category->slug->content ?? '' }}</td>
-                                                        <td style="text-align: center">{{ @$category->textDatePublish }}</td>
-                                                        <td style="text-align: center">{{ @$category->createBy->fullname }}</td>
-                                                        <td style="text-align: center">{!! @$category->isActiveText !!}</td>
-                                                        <td style="text-align: center">
-                                                            <ul class="icons-list">
-                                                                <li class="dropdown">
-                                                                    <a href="#" class="dropdown-toggle"
-                                                                       data-toggle="dropdown"
-                                                                       aria-expanded="false"><i class="icon-menu7"></i></a>
-                                                                    <ul class="dropdown-menu dropdown-menu-right">
-                                                                        <li>
-                                                                            <a href="{{ route('admin.categories.edit', $category->id) }}"><i
-                                                                                    class="icon-pencil7"></i> Chỉnh sửa</a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="javascript:void(0);"
-                                                                               class="btn-delete"
-                                                                               data-id="{{$category->id}}"><i
-                                                                                    class="icon-trash"></i> Xóa</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
-                                                @empty
-                                                    <tr>
-                                                        <td colspan="8" style="text-align: center">
-                                                            <img src="{{ asset('assets\admin\images\empty.png') }}"
-                                                                 width="350px"
-                                                                 alt="">
-                                                            <div>Không có dữ liệu</div>
-                                                        </td>
-                                                    </tr>
-                                                @endforelse
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div
-                                            style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px">
-                                            <div class="per_page">
+                                <table class="table table-bordered" id="category-table">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 5%; text-align: center">STT</th>
+                                        <!-- <th width="100px" style="text-align: center">Ảnh</th> -->
+                                        <th>Tên danh mục</th>
+                                        <th>Slug</th>
+                                        <th style="text-align: center">Ngày đăng</th>
+                                        <th style="text-align: center">Người đăng</th>
+                                        <th style="text-align: center">Hiển thị</th>
+                                        <th style="width: 150px; text-align: center">Hành động</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @forelse($categories as $category)
+                                        <tr>
+                                            <td style="text-align: center">{{ $loop->index + 1 + $categories->perPage() * ($categories->currentPage() - 1)   }}</td>
+                                            <td>
+                                                <span style="font-weight: bold"><a
+                                                            href="">{{ $category->name ?? ''}}</a></span>
+                                            </td>
+                                            <td>{{ @$category->slug->content ?? '' }}</td>
+                                            <td style="text-align: center">{{ @$category->textDatePublish }}</td>
+                                            <td style="text-align: center"><span><img
+                                                            class="img-circle img-sm mr-5"
+                                                            src="{{ Avatar::create(@$category->createBy->fullname)->toBase64()  }}"
+                                                            alt="{{ @$category->createBy->fullname }}"></span>{{ @$category->createBy->fullname }}</td>
+                                            <td style="text-align: center">{!! @$category->isActiveText !!}</td>
+                                            <td style="text-align: center">
+                                                <ul class="icons-list">
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                                           aria-expanded="false"><i class="icon-menu7"></i></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li><a href="{{ route('admin.categories.edit', $category->id) }}"><i
+                                                                            class="icon-pencil7"></i> Chỉnh sửa</a></li>
+                                                            <li>
+                                                                <a href="javascript:void(0);" class="btn-delete" data-id="{{$category->id}}"><i class="icon-trash"></i> Xóa</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="8" style="text-align: center">
+                                                <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
+                                                     alt="">
+                                                <div>Không có dữ liệu</div>
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px">
+                                <div class="per_page">
 
                                             </div>
                                             <div class="pagination">

@@ -86,7 +86,7 @@ Route::group(['middleware'=>['view-page']], function (){
     })->name('cms.info.forCustomers');
 });
 
-Route::post('/contact', [ContactController::class, 'store'])->name('cms.contact.store');
+Route::post('/contact', [HomeController::class, 'createContact'])->name('cms.contact.store');
 
 
 

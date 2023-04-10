@@ -18,14 +18,16 @@
                     <div class="page-header">
                         <div class="page-header-content">
                             <div class="page-title">
-                                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Tài khoản</span> - Danh sách tài khoản</h4>
+                                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Tài khoản</span>
+                                    - Danh sách tài khoản</h4>
                             </div>
 
                         </div>
 
                         <div class="breadcrumb-line">
                             <ul class="breadcrumb">
-                                <li><a href="{{route('admin.dashboard')}}"><i class="icon-home2 position-left"></i> Bảng điều khiển</a></li>
+                                <li><a href="{{route('admin.dashboard')}}"><i class="icon-home2 position-left"></i> Bảng
+                                        điều khiển</a></li>
                                 <li class="active">Danh mục</li>
                             </ul>
                         </div>
@@ -45,14 +47,17 @@
                                                     <div class="row">
                                                         <div class="col-md-8">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="q" value="{{ request()->query('q') }}" placeholder="Tìm kiếm...">
+                                                                <input type="text" class="form-control" name="q"
+                                                                       value="{{ request()->query('q') }}"
+                                                                       placeholder="Tìm kiếm...">
                                                                 <div class="form-control-feedback">
                                                                     <i class="icon-search4 text-size-base"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <button class="btn-primary btn" type="submit">Tìm kiếm</button>
+                                                            <button class="btn-primary btn" type="submit">Tìm kiếm
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -63,7 +68,7 @@
                                                      style="text-align: end">
                                                     <a type="button" href="{{ route('admin.users.create') }}"
                                                        class="btn btn-primary"><i
-                                                            class="icon-add"></i>
+                                                                class="icon-add"></i>
                                                         Thêm mới</a>
                                                 </div>
                                             </div>
@@ -94,7 +99,10 @@
                                                         <td style="text-align: center">{{ $loop->index + 1 + $users->perPage() * ($users->currentPage() - 1)   }}</td>
                                                         <td>
                                                 <span style="font-weight: bold"><a
-                                                        href="{{ route('admin.users.edit', $user->id) }}">{{ $user->fullname ?? ''}}</a></span>
+                                                            href="{{ route('admin.users.edit', $user->id) }}"><span><img
+                                                                    class="img-circle img-sm mr-5"
+                                                                    src="{{ Avatar::create($user->fullname)->toBase64()  }}"
+                                                                    alt="{{ $user->fullname }}"></span>{{ $user->fullname ?? ''}}</a></span>
                                                         </td>
                                                         <td>{{ $user->username ?? '' }}</td>
                                                         <td style="text-align: center">{{ $user->email }}</td>
@@ -104,13 +112,19 @@
                                                         <td style="text-align: center">
                                                             <ul class="icons-list">
                                                                 <li class="dropdown">
-                                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                                                    <a href="#" class="dropdown-toggle"
+                                                                       data-toggle="dropdown"
                                                                        aria-expanded="false"><i class="icon-menu7"></i></a>
                                                                     <ul class="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="{{ route('admin.users.edit', $user->id) }}"><i
-                                                                                    class="icon-pencil7"></i> Chỉnh sửa</a></li>
                                                                         <li>
-                                                                            <a href="javascript:void(0);" class="btn-delete" data-id="{{$user->id}}"><i class="icon-trash"></i> Xóa</a>
+                                                                            <a href="{{ route('admin.users.edit', $user->id) }}"><i
+                                                                                        class="icon-pencil7"></i> Chỉnh
+                                                                                sửa</a></li>
+                                                                        <li>
+                                                                            <a href="javascript:void(0);"
+                                                                               class="btn-delete"
+                                                                               data-id="{{$user->id}}"><i
+                                                                                        class="icon-trash"></i> Xóa</a>
                                                                         </li>
                                                                     </ul>
                                                                 </li>
@@ -120,7 +134,8 @@
                                                 @empty
                                                     <tr>
                                                         <td colspan="8" style="text-align: center">
-                                                            <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
+                                                            <img src="{{ asset('assets\admin\images\empty.png') }}"
+                                                                 width="350px"
                                                                  alt="">
                                                             <div>Không có dữ liệu</div>
                                                         </td>

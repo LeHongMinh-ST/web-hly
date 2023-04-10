@@ -82,6 +82,9 @@
                                                                 href="tel:{{ $contact->phone  }}">{{ $contact->phone  }}</a></span>
                                                 </div>
                                                 <div class="item-info mb-5">
+                                                    <span>Đia chỉ: </span> <span class="text-black">{{ $contact->address  }}</span>
+                                                </div>
+                                                <div class="item-info mb-5">
                                                     <span>Chủ đề: </span> <span
                                                             class="text-black">{{ $contact->subject  }}</span>
                                                 </div>
@@ -105,7 +108,11 @@
                                                 <div class="list-reply">
                                                     @forelse($contact->contactReplies as $rep)
                                                         <div class="rep-wrap mb-10">
-                                                            <div class="rep-time mb-5">{{ \Carbon\Carbon::create($rep->created_at)->format('H:m d-m-Y')  }}</div>
+                                                            <div class="rep-time mb-5">{{ \Carbon\Carbon::create($rep->created_at)->format('H:m d-m-Y')  }} -
+                                                                <span><img
+                                                                            class="img-circle img-sm mr-5"
+                                                                            src="{{ Avatar::create(@$rep->user->fullname)->toBase64()  }}"
+                                                                            alt="{{ @$rep->user->fullname }}"></span> {{ $rep->user->fullname }}</div>
                                                             <div class="rep-content">
                                                                 {!! $rep->message !!}
                                                             </div>

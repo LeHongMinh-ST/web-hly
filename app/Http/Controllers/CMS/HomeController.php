@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Contact\StoreContactRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Repositories\Category\CategoryRepository;
+use App\Repositories\Contact\ContactRepository;
 use App\Repositories\Post\PostRepository;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use function Termwind\ValueObjects\isEmpty;
 
 class HomeController extends Controller
@@ -15,6 +20,7 @@ class HomeController extends Controller
     public function __construct(
         private PostRepository     $postRepository,
         private CategoryRepository $categoryRepository,
+        private ContactRepository $contactRepository
     )
     {
     }
@@ -50,5 +56,28 @@ class HomeController extends Controller
             'posts' => $posts,
             'categories' => $categories,
         ]);
+    }
+
+    public function createContact(StoreContactRequest $request): RedirectResponse
+    {
+        DB::beginTransaction();
+        try {
+            $data = $request->all();
+            $this->contactRepository->create($data);
+
+            DB::commit();
+            $request->session()->flash('success', 'Gửi yêu cầu thành công');
+            return redirect()->route('cms.contact');
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error('Error store contact', [
+                'method' => __METHOD__,
+                'message' => $exception->getMessage()
+            ]);
+
+            return redirect()->back()
+                ->withErrors(['error' => ['Không thể Gửi yêu cầu']])->withInput();
+        }
     }
 }

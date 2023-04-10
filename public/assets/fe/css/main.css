@@ -11381,6 +11381,9 @@ main {
     .listCateInvestor .item {
         padding: 81px 35px 35px;
     }
+    .frmContact{
+        padding: 20px;
+    }
 }
 
 @media (max-width: 936px) {
@@ -11440,10 +11443,14 @@ main {
     .listCateHome .item {
         padding: 86px 30px 48px;
     }
-
-    .infoCate {
-        top: 50% !important;
+    .infoCate{
+        top: 50%!important;
+    }   
+    .frmContact{
+        padding: 20px;
     }
+
+
 }
 
 @media (max-width: 1000px) {
@@ -11463,3 +11470,188 @@ main {
 .text-danger {
     color: red;
 }
+
+/* Contact */
+.form-control-contact{
+    border-radius: 2px !important;
+    border-color: #9e9e9e ;
+    border-radius: 0px !important;
+}
+.address_contact{
+    width: 40%; 
+    background-color: #f3f3f5; 
+    display: flex; 
+    justify-content: end; 
+    padding-top: 30px;
+
+}
+.formWrap stagger-up{
+    width: 60%; 
+    padding: 30px 0;
+}
+.frmContact {
+    margin-top: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px;
+}
+.add_contact{
+    width: 60%;
+}
+
+.heading1{
+    width: 60%; 
+    font-size: 18px; 
+    font-weight: 400;
+    
+}
+.heading2{
+    width: 30%; 
+    font-size: 30px; 
+    font-weight: bold;
+}
+
+.add_form{
+    width: 100%; 
+    margin: auto; 
+    display: flex; 
+    justify-content: space-between;
+}
+
+.fill_the_form{
+    font-size: 30px; 
+    font-weight: bold; 
+    text-align: center;
+}
+
+.fill_the_form2{
+    display: none;
+}
+
+.width_forminput{
+    width: 50%;
+}
+
+.frminput{
+    display: flex;  
+    flex-direction: row;
+    gap: 40px;
+}
+.heading{
+    display: flex; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #0e6447; 
+    font-size: 20px; 
+    padding:30px; 
+    color: #ffffff;
+}
+
+.mapContact stagger-up img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+
+/* For Tablet*/
+@media (max-width: 1024px) {
+    .add_form{
+        display:flex;
+        flex-direction: column-reverse;
+
+    }
+
+    .address_contact{
+        width: 100%;
+    }
+
+    .add_contact{
+        width: 100%; 
+        padding-left: 30px;
+        padding-bottom: 50px;
+
+    }
+    .heading1{
+        display: none;
+        
+    }
+    .heading2{
+        white-space:nowrap;
+    }
+
+    .fill_the_form2{
+        display: block;
+    }
+
+    .fill_the_form{
+        display: none;
+    }
+
+    .frminput{
+        display: flex;  
+        flex-direction: row;
+        gap: 40px;
+    }
+}
+
+/* For Mobile */
+@media (max-width: 480px) {
+
+    .add_contact{
+        width: 100%;
+    }
+    .address_contact{
+        width: 100%;
+    }
+    .heading1{
+        display: none;
+    }
+    .heading2{
+        white-space:nowrap;
+        font-size: 20px;
+    }
+
+    .fill_the_form{
+        display:none;
+    }
+
+    .fill_the_form2{
+        display: block;
+    }
+
+    .add_form{
+        display:flex;
+        flex-direction: column-reverse;
+    
+    }
+
+    .frminput{
+        display: flex;
+        flex-direction: column;
+        gap: 20px !important;
+        
+    }
+    .width_forminput{
+        width: 100%;
+    }
+    .heading{
+        height: 50px;
+        padding: 5px;
+    }
+    .formWrap stagger-up{
+        width: 90%;
+    }
+
+    .img{
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+
+}
+
+
+
+
+
