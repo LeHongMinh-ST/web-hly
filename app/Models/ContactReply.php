@@ -12,7 +12,8 @@ class ContactReply extends Model
 
     protected $fillable = [
         'contact_id',
-        'message'
+        'message',
+        'user_id'
     ];
 
     public function user(): BelongsTo

@@ -69,7 +69,6 @@ class ContactController extends Controller
                 'update_by' => auth()->id(),
                 'status' => ContactStatus::Reply
             ]);
-
             $contact->save();
             $message = $request->input('content');
             $contact->contactReplies()->create([
