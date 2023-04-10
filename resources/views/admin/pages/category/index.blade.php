@@ -102,7 +102,10 @@
                                             </td>
                                             <td>{{ @$category->slug->content ?? '' }}</td>
                                             <td style="text-align: center">{{ @$category->textDatePublish }}</td>
-                                            <td style="text-align: center">{{ @$category->createBy->fullname }}</td>
+                                            <td style="text-align: center"><span><img
+                                                            class="img-circle img-sm mr-5"
+                                                            src="{{ Avatar::create(@$category->createBy->fullname)->toBase64()  }}"
+                                                            alt="{{ @$category->createBy->fullname }}"></span>{{ @$category->createBy->fullname }}</td>
                                             <td style="text-align: center">{!! @$category->isActiveText !!}</td>
                                             <td style="text-align: center">
                                                 <ul class="icons-list">

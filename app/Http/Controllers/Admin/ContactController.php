@@ -49,7 +49,7 @@ class ContactController extends Controller
     public function show($id)
     {
         $contact = $this->contactRepository->find($id);
-        $contact->load('contactReplies');
+        $contact->load('contactReplies', 'contactReplies.user');
         return view('admin.pages.contact.reply')->with(compact('contact'));
     }
 
@@ -65,18 +65,20 @@ class ContactController extends Controller
                 throw new ModelNotFoundException('Không tồn tại bản ghi');
             }
 
-            $contact?->fill([
+            $contact->fill([
                 'update_by' => auth()->id(),
                 'status' => ContactStatus::Reply
             ]);
 
-            $contact?->save();
+            $contact->save();
             $message = $request->input('content');
-            $contact?->contactReplies()->create([
-                'message' => $message
+            $contact->contactReplies()->create([
+                'message' => $message,
+                'user_id' => auth()->id()
             ]);
 
             SendMailReplyContact::dispatch($contact->email, $contact->name, $message);
+
 
             DB::commit();
 

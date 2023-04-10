@@ -150,7 +150,10 @@
                                                         </td>
                                                         <td>{{ @$post->slug->content ?? '' }}</td>
                                                         <td style="text-align: center">{{ @$post->textDatePublish }}</td>
-                                                        <td style="text-align: center">{{ @$post->createBy->fullname }}</td>
+                                                        <td style="text-align: center"><span><img
+                                                                        class="img-circle img-sm mr-5"
+                                                                        src="{{ Avatar::create(@$post->createBy->fullname)->toBase64()  }}"
+                                                                        alt="{{ @$post->createBy->fullname }}"></span>{{ @$post->createBy->fullname }}</td>
                                                         <td style="text-align: center">{{ abbreviateNumber($post->view_count)}}</td>
                                                         <td style="text-align: center;width: 150px;"><img
                                                                 class="icon-flag" src="{{ @$post->languageIcon }}"
