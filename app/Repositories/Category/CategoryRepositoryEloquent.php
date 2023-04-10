@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Category;
 
-use App\Enums\CategoryType;
+use App\Enums\Language;
 use App\Models\Category;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
@@ -24,8 +24,6 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
         return Category::class;
     }
 
-
-
     /**
      * Boot up the repository, pushing criteria
      */
@@ -37,10 +35,20 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
     public function getCategoryPaginate(array $data)
     {
         $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
+        $q = $data['q'] ?? '';
+        $locale = $data['locale'] ?? Language::Vietnamese;
+        return $this->scopeQuery(function ($query) use ($q, $locale) {
 
-        return $this->scopeQuery(function ($query) {
+            if ($q) {
+                $query->where('name', 'like',"%$q%");
+            }
+
+            $query->whereHas('language', function ($language) use ($locale){
+                return $language->where('language_code', $locale);
+            });
+
             return $query->orderBy('created_at', 'desc');
-        })->with(['updateBy', 'createBy', 'slug'])->paginate($limit);
+        })->with(['createBy', 'language'])->paginate($limit);
     }
 
     public function getCategory()
