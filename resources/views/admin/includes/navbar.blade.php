@@ -25,7 +25,7 @@
 
             <li class="dropdown dropdown-user">
                 <a class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{ asset('assets/admin/images/placeholder.jpg') }}" alt="">
+                    <img src="{{ Avatar::create(auth()->user()->fullname)->toBase64() }}" alt="">
                     <span>{{ auth()->user()->fullname }}</span>
                     <i class="caret"></i>
                 </a>

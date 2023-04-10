@@ -5,7 +5,7 @@
         <div class="sidebar-user">
             <div class="category-content">
                 <div class="media">
-                    <a href="#" class="media-left"><img src="{{ asset('assets/admin/images/placeholder.jpg') }}"
+                    <a href="#" class="media-left"><img src="{{ Avatar::create(auth()->user()->fullname)->toBase64() }}"
                                                         class="img-circle img-sm" alt=""></a>
                     <div class="media-body">
                         <span class="media-heading text-semibold">{{ auth()->user()->fullname }}</span>
