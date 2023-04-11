@@ -105,9 +105,9 @@
                                                                     <ul class="dropdown-menu dropdown-menu-right">
                                                                         <li><a href="{{ route('admin.contact.show', $contact->id) }}"><i
                                                                                         class="icon-mail-read"></i> Chi tiết</a></li>
-                                                                        <li>
-                                                                            <a href="javascript:void(0);" class="btn-delete" data-id="{{$contact->id}}"><i class="icon-trash"></i> Xóa</a>
-                                                                        </li>
+{{--                                                                        <li>--}}
+{{--                                                                            <a href="javascript:void(0);" class="btn-delete" data-id="{{$contact->id}}"><i class="icon-trash"></i> Xóa</a>--}}
+{{--                                                                        </li>--}}
                                                                     </ul>
                                                                 </li>
                                                             </ul>

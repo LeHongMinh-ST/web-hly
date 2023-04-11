@@ -49,6 +49,10 @@ class ContactController extends Controller
     public function show($id)
     {
         $contact = $this->contactRepository->find($id);
+        if ($contact->status == ContactStatus::Unread) {
+            $contact->status = ContactStatus::Read;
+            $contact->save();
+        }
         $contact->load('contactReplies', 'contactReplies.user');
         return view('admin.pages.contact.reply')->with(compact('contact'));
     }
