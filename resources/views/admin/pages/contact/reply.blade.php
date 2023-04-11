@@ -110,7 +110,7 @@
                                                         <div class="rep-wrap mb-10">
                                                             <div class="rep-time mb-5">{{ \Carbon\Carbon::create($rep->created_at)->format('H:m d-m-Y')  }} -
                                                                 <span><img
-                                                                            class="img-circle img-sm mr-5"
+                                                                            class="img-circle img-xs mr-5"
                                                                             src="{{ Avatar::create(@$rep->user->fullname)->toBase64()  }}"
                                                                             alt="{{ @$rep->user->fullname }}"></span> {{ $rep->user->fullname }}</div>
                                                             <div class="rep-content">

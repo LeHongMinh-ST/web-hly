@@ -100,12 +100,13 @@
                                             <div class="d-grid gap-5">
                                                 <button class="btn btn-primary"><i class=" icon-paperplane"></i> Lưu
                                                 </button>
-                                                <a href="{{ route('admin.users.index') }}" class="btn btn-default"><i
-                                                        class=" icon-close2"></i>
-                                                    Đóng</a>
                                                 <a data-id="{{@$user->id}}" class="btn btn-success btn-change-password" data-toggle="modal"
                                                    data-target="#modal_change_password" ><i class=" icon-lock"></i> Đổi mật khẩu
                                                 </a>
+                                                <a href="{{ url()->previous() }}" class="btn btn-default"><i
+                                                        class=" icon-close2"></i>
+                                                    Đóng</a>
+
                                             </div>
                                         </div>
                                     </div>
@@ -158,8 +159,8 @@
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary btn-change-password">Submit form</button>
+                                        <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
+                                        <button type="button" class="btn btn-primary btn-change-password">Đồng ý</button>
                                     </div>
                                 </form>
                             </div>

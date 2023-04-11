@@ -100,7 +100,7 @@
                                                         <td>
                                                 <span style="font-weight: bold"><a
                                                             href="{{ route('admin.users.edit', $user->id) }}"><span><img
-                                                                    class="img-circle img-sm mr-5"
+                                                                    class="img-circle img-xs mr-5"
                                                                     src="{{ Avatar::create($user->fullname)->toBase64()  }}"
                                                                     alt="{{ $user->fullname }}"></span>{{ $user->fullname ?? ''}}</a></span>
                                                         </td>

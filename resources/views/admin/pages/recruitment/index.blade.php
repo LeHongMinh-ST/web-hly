@@ -157,7 +157,7 @@
                                             <td>{{ @$recruitment->slug->content ?? '' }}</td>
                                             <td style="text-align: center">{{ @$recruitment->textDatePublish }}</td>
                                             <td style="text-align: center"><span><img
-                                                            class="img-circle img-sm mr-5"
+                                                            class="img-circle img-xs mr-5"
                                                             src="{{ Avatar::create(@$recruitment->createBy->fullname)->toBase64()  }}"
                                                             alt="{{ @$recruitment->createBy->fullname }}"></span>{{ @$recruitment->createBy->fullname }}</td>
                                             <td style="text-align: center;width: 150px;"><img
