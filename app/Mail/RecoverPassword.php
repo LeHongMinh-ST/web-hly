@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ReplyContact extends Mailable
+class RecoverPassword extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -19,10 +19,11 @@ class ReplyContact extends Mailable
      * @return void
      */
     public function __construct(
-        private string $message,
+        private string $name,
+        private string $actionLink
     )
     {
-
+        //
     }
 
     /**
@@ -33,7 +34,7 @@ class ReplyContact extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: config('app.name') . ' - Phản hồi liên hệ',
+            subject: config('app.name') . ' - Đặt lại mật khẩu',
         );
     }
 
@@ -45,10 +46,11 @@ class ReplyContact extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mail.reply-contact',
+            view: 'mail.recover-password',
             with: [
-                'messageReply' => $this->message,
-            ],
+                'name' => $this->name,
+                'action_link' => $this->actionLink
+            ]
         );
     }
 

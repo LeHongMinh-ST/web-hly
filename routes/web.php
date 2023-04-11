@@ -95,6 +95,10 @@ Route::prefix('/admin')->group(function () {
     Route::middleware(['preventBackHistory'])->group(function () {
 
         Route::get('/login', [AuthController::class, 'getLoginForm'])->name('admin.getLoginForm');
+        Route::get('/recover-password', [AuthController::class, 'getRecoverPasswordForm'])->name('admin.getRecoverPasswordForm');
+        Route::get('/reset-password', [AuthController::class, 'getResetPasswordForm'])->name('admin.getResetPasswordForm');
+        Route::post('/reset-password', [AuthController::class, 'handleResetPassword'])->name('admin.handleResetPassword');
+        Route::post('/recover-password', [AuthController::class, 'handleRecoverPasswordForm'])->name('admin.handleRecoverPasswordForm');
         Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
         Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 

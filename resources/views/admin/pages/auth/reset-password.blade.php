@@ -27,30 +27,18 @@
             <!-- Content area -->
             <div class="content">
 
-                <!-- Simple login form -->
-                <form action="{{ route('admin.login') }}" method="post" id="loginForm">
+                <!-- Password recovery -->
+                <form action="{{ route('admin.handleResetPassword', ['token' => $token]) }}" method="post">
                     @csrf
                     <div class="panel panel-body login-form">
                         <div class="text-center">
-                            <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
-                            <h5 class="content-group">Chào mừng quay trở lại <small class="display-block">Đăng nhập bằng
-                                    tài khoản quản trị</small></h5>
-                        </div>
-
-                        <div class="form-group has-feedback has-feedback-left">
-                            <input type="text" class="form-control" id="username" value="{{ old('username') }}"
-                                   name="username" placeholder="Tên đăng nhập">
-                            <div class="form-control-feedback">
-                                <i class="icon-user text-muted"></i>
-                            </div>
-                            @error('username')
-                            <label id="error-username" class="validation-error-label" for="basic">{{ $message }}</label>
-                            @enderror
+                            <div class="icon-object border-warning text-warning"><i class="icon-lock2"></i></div>
+                            <h5 class="content-group">Đặt lại mật khẩu</h5>
                         </div>
 
                         <div class="form-group has-feedback has-feedback-left">
                             <input type="password" class="form-control" id="password" value="{{ old('password') }}"
-                                   name="password" placeholder="Mật khẩu">
+                                   name="password" placeholder="Mật khẩu mới">
                             <div class="form-control-feedback">
                                 <i class="icon-lock2 text-muted"></i>
                             </div>
@@ -59,21 +47,30 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
-                            <button type="submit" id="btn-login" class="btn btn-primary btn-block">Đăng nhập <i
-                                    class="icon-circle-right2 position-right"></i></button>
+                        <div class="form-group has-feedback has-feedback-left">
+                            <input type="password" class="form-control" id="password_confirmation" value="{{ old('password_confirmation') }}"
+                                   name="password_confirmation" placeholder="Nhập lại mật khẩu">
+                            <div class="form-control-feedback">
+                                <i class="icon-lock2 text-muted"></i>
+                            </div>
+                            @error('password_confirmation')
+                            <label id="error-password_confirmation" class="validation-error-label" for="basic">{{ $message }}</label>
+                            @enderror
                         </div>
 
-                        <div class="text-center">
-                            <a href="{{ route('admin.getRecoverPasswordForm') }}">Quên mật khẩu</a>
+                        <button type="submit" class="btn bg-blue btn-block btn-send">Đặt lại<i class="icon-arrow-right14 position-right"></i></button>
+                        <div class="text-center mt-10">
+                            <a href="{{ route('admin.getLoginForm') }}">Quay lại đăng nhập</a>
                         </div>
                     </div>
                 </form>
-                <!-- /simple login form -->
+                <!-- /password recovery -->
+
 
                 <!-- Footer -->
-            @include('admin.includes.footer')
-            <!-- /footer -->
+                @include('admin.includes.footer')
+
+                <!-- /footer -->
 
             </div>
             <!-- /content area -->

@@ -105,8 +105,8 @@
                                                                     alt="{{ $user->fullname }}"></span>{{ $user->fullname ?? ''}}</a></span>
                                                         </td>
                                                         <td>{{ $user->username ?? '' }}</td>
-                                                        <td style="text-align: center">{{ $user->email }}</td>
-                                                        <td style="text-align: center">{{ $user->phone_number }}</td>
+                                                        <td style="text-align: center">{{ $user->email ?? 'Đang cập nhật' }}</td>
+                                                        <td style="text-align: center">{{ $user->phone_number ?? "Đang cập nhật" }}</td>
                                                         <td style="text-align: center">{!! $user->roleText !!}</td>
                                                         <td style="text-align: center">{!! @$user->isActiveText !!}</td>
                                                         <td style="text-align: center">
