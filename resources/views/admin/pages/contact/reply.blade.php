@@ -98,6 +98,7 @@
                                         </div>
                                     </div>
                                     @if(checkPermission('contact-reply'))
+
                                         <div class="panel panel-white">
                                             <div class="panel-heading">
                                                 <h6 class="panel-title"><i class="icon-mail-read position-left"></i> Trả
@@ -122,7 +123,9 @@
                                                     @endforelse
                                                 </div>
                                                 <hr>
-                                                <div class="form-reply">
+                                                <button type="button" class="btn btn-success mb-5 btn-open-reply"><i class="icon-bubble-lines3"></i> Trả lời phản hồi</button>
+
+                                                <div class="form-reply display-none">
                                                     <form action="{{route('admin.contact.reply', $contact->id)}}" method="post">
                                                         @csrf
                                                         @method('put')
@@ -138,6 +141,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <button class="btn btn-success"><i class="icon-bubble-lines3"></i> Gửi</button>
+                                                            <button class="btn btn-default btn-close-reply" type="button"><i class="icon-close2"></i> Đóng</button>
                                                         </div>
 
                                                     </form>

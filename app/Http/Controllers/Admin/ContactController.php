@@ -76,7 +76,7 @@ class ContactController extends Controller
                 'user_id' => auth()->id()
             ]);
 
-            SendMailReplyContact::dispatch($contact->email, $contact->name, $message);
+            SendMailReplyContact::dispatch($contact->email,$message);
 
 
             DB::commit();

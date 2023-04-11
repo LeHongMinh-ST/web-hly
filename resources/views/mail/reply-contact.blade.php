@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="main">
-    {!! $message !!}
+    {!! $messageReply !!}
 </div>
 </body>
 </html>

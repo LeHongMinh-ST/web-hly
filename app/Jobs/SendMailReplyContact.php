@@ -21,9 +21,7 @@ class SendMailReplyContact implements ShouldQueue
      */
     public function __construct(
         private string $email,
-        private string $name,
         private string $message,
-
     )
     {
         //
@@ -36,7 +34,7 @@ class SendMailReplyContact implements ShouldQueue
      */
     public function handle()
     {
-        $email = new ReplyContact($this->name, $this->message);
+        $email = new ReplyContact($this->message);
         Mail::to($this->email)->send($email);
     }
 }
