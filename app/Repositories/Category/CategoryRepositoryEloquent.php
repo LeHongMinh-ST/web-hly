@@ -40,10 +40,10 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
         return $this->scopeQuery(function ($query) use ($q, $locale) {
 
             if ($q) {
-                $query->where('name', 'like',"%$q%");
+                $query->where('name', 'like', "%$q%");
             }
 
-            $query->whereHas('language', function ($language) use ($locale){
+            $query->whereHas('language', function ($language) use ($locale) {
                 return $language->where('language_code', $locale);
             });
 
@@ -51,10 +51,26 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
         })->with(['createBy', 'language'])->paginate($limit);
     }
 
-    public function getCategory()
+    public function getCategory($data = [])
+    {
+        $locale = $data['locale'] ?? Language::Vietnamese;
+
+        return $this->scopeQuery(function ($query) use ($locale) {
+            $query->whereHas('language', function ($language) use ($locale) {
+                return $language->where('language_code', $locale);
+            });
+            return $query->where('status', 1)->orderBy('created_at', 'desc');
+        })->with(['updateBy', 'createBy', 'slug'])->get();
+    }
+
+    public function getCategoryHome()
     {
         return $this->scopeQuery(function ($query) {
-            return $query->where('status', 1)->orderBy('created_at', 'desc');
+            return $query->where('status', 1)
+                ->whereHas('language', function ($language) {
+                    return $language->where('language_code', app()->getLocale());
+                })
+                ->orderBy('order', 'asc');
         })->with(['updateBy', 'createBy', 'slug'])->get();
     }
 

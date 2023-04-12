@@ -10,6 +10,8 @@ use App\Models\Post;
 use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Contact\ContactRepository;
 use App\Repositories\Post\PostRepository;
+use App\Repositories\Slug\SlugRepository;
+use App\Services\Blog\BlogService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -23,8 +25,10 @@ class HomeController extends Controller
 
     public function __construct(
         private PostRepository     $postRepository,
-//        private CategoryRepository $categoryRepository,
-        private ContactRepository  $contactRepository
+        private CategoryRepository $categoryRepository,
+        private ContactRepository  $contactRepository,
+        private SlugRepository $slugRepository,
+
     )
     {
     }
@@ -54,16 +58,26 @@ class HomeController extends Controller
         ]);
     }
 
-    public function postPage(Request $request)
+    public function postPage(Request $request, BlogService $blogService)
     {
-        if (!empty($request->input('category_id'))) {
-            $posts = Post::whereHas('categories', function ($query) use ($request) {
-                $query->where('category_id', $request->input('category_id'));
+        if (!empty($request->input('danh-muc'))) {
+
+            $slug = $this->slugRepository->findWhere([
+                'content' => $request->input('danh-muc'),
+                'slugable_type' => Category::class,
+            ])->first();
+
+            $data = $blogService->handleFrontRoutes($slug);
+
+            $posts = Post::whereHas('categories', function ($query) use ($data) {
+                $query->where('category_id', $data['data']['category']->id);
             })->with(['categories'])->paginate(5);
+
         } else {
             $posts = $this->postRepository->with(['categories', 'slug'])->paginate(7);
         }
-        $categories = Category::where('status', 1)->orderBy('order')->get();
+
+        $categories = $this->categoryRepository->getCategoryHome();
 
         return view('cms.page.news')->with([
             'posts' => $posts,

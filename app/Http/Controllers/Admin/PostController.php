@@ -57,7 +57,7 @@ class PostController extends Controller
 
         $refLanguage = $request->get('ref_language', Language::Vietnamese);
 
-        $categories = $this->categoryRepository->getCategory();
+        $categories = $this->categoryRepository->getCategory(['locale' => $refLanguage]);
 
         return view('admin.pages.post.create')->with(compact('categories', 'post', 'refLanguage'));
     }
