@@ -84,7 +84,10 @@
 
                                                     </textarea>
                                                 </div>
-
+                                                @error('description')
+                                                <label id="error-content" class="validation-error-label"
+                                                       for="basic">{{ $message }}</label>
+                                                @enderror
                                             </div>
 
                                             <div class="form-group">
@@ -95,10 +98,6 @@
                                                               class="form-control"
                                                               aria-required="true">{!! old('introduction', @$supplier->introduction) !!}</textarea>
                                                 </div>
-                                                @error('introduction')
-                                                <label id="error-content" class="validation-error-label"
-                                                       for="basic">{{ $message }}</label>
-                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -196,17 +195,21 @@
                                         <div class="panel-body">
                                             <div>
                                                 <input
-                                                    value="{{ old('description', @$supplier->thumbnail) }}"
+                                                    value="{{ old('thumbnail', @$supplier->thumbnail) }}"
                                                     id="image" type="text" hidden name="thumbnail">
                                                 <a class="lfm" data-input="image" data-preview="holder">Chọn ảnh</a>
                                                 <div id="holder" class="image-preview"
                                                      style="margin-top:15px;max-height:150px; max-width: 150px">
-                                                    @if(old('description', @$supplier->thumbnail))
+                                                    @if(old('thumbnail', @$supplier->thumbnail))
                                                         <img style="width: 100%; height: 100%"
                                                              src="{{ @$supplier->thumbnail }}" alt="">
                                                     @endif
                                                 </div>
                                             </div>
+                                            @error('thumbnail')
+                                            <label id="error-content" class="validation-error-label"
+                                                   for="basic">{{ $message }}</label>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="panel panel-white">

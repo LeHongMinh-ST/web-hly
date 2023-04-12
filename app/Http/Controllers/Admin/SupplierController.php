@@ -121,7 +121,7 @@ class SupplierController extends Controller
      * @param int|string $id
      * @return RedirectResponse
      */
-    public function update(Request $request, int|string $id): RedirectResponse
+    public function update(StoreSupplierRequest $request, int|string $id): RedirectResponse
     {
         DB::beginTransaction();
         try {
