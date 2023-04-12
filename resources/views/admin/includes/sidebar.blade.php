@@ -63,6 +63,17 @@
                                 href="{{ route('admin.contact.index') }}"><i class=" icon-mail5"></i>
                                 <span>Liên hệ</span></a>
                         </li>
+                        <li class="navigation-header"><span>Nhà đầu tư</span> <i class="icon-menu"
+                                                                                 title="Giao diện"></i>
+                        </li>
+                        <li class="{{ request()->is('admin/suppliers*') ? 'active' : '' }}"><a
+                                href="{{ route('admin.suppliers.index') }}"><i class="  icon-address-book"></i>
+                                <span>Nhà đầu tư</span></a>
+                        </li>
+                        <li class="{{ request()->is('admin/contact*') ? 'active' : '' }}"><a
+                                href="#"><i class="   icon-file-openoffice"></i>
+                                <span>Tin tức đầu tư</span></a>
+                        </li>
                     @endif
 
                     @if(checkPermission('setting-index'))

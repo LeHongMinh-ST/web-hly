@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RecruitmentController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SlugController;
@@ -144,6 +145,16 @@ Route::prefix('/admin')->group(function () {
                 Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update')->middleware(['permission:post-update']);
                 Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy')->middleware(['permission:post-delete']);
                 Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit')->middleware(['permission:post-update']);
+            });
+
+            Route::prefix('suppliers')->group(function () {
+                Route::get('/', [SupplierController::class, 'index'])->name('admin.suppliers.index');
+                Route::post('/', [SupplierController::class, 'store'])->name('admin.suppliers.store');
+                Route::get('/create', [SupplierController::class, 'create'])->name('admin.suppliers.create');
+                Route::get('/{id}', [SupplierController::class, 'show'])->name('admin.suppliers.show');
+                Route::put('/{id}', [SupplierController::class, 'update'])->name('admin.suppliers.update');
+                Route::delete('/{id}', [SupplierController::class, 'destroy'])->name('admin.suppliers.destroy');
+                Route::get('/{id}/edit', [SupplierController::class, 'edit'])->name('admin.suppliers.edit');
             });
 
             Route::prefix('categories')->group(function () {
