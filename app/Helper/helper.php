@@ -102,4 +102,13 @@ if (!function_exists('rememberAsync')) {
     }
 }
 
+if (!function_exists('removeCaches')) {
+    function removeCaches(array $arrayKey): void
+    {
+        foreach ($arrayKey as $value) {
+            Cache::forget($value);
+        }
+    }
+}
+
 

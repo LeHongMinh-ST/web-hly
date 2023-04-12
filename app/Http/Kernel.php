@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'permission' => \App\Http\Middleware\PermissionUser::class,
         'filter' => \App\Http\Middleware\Filter::class,
         'view-page' => \App\Http\Middleware\ViewPage::class,
+        'set-locale' => \App\Http\Middleware\SetLocale::class,
     ];
 }

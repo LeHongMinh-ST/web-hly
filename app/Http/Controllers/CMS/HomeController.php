@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\CMS;
 
+use App\Enums\CacheEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreContactRequest;
 use App\Models\Category;
@@ -11,33 +12,45 @@ use App\Repositories\Contact\ContactRepository;
 use App\Repositories\Post\PostRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use function Termwind\ValueObjects\isEmpty;
 
 class HomeController extends Controller
 {
+    const TIME_CACHE = 60 * 60 * 24;
+
     public function __construct(
         private PostRepository     $postRepository,
-        private CategoryRepository $categoryRepository,
-        private ContactRepository $contactRepository
+//        private CategoryRepository $categoryRepository,
+        private ContactRepository  $contactRepository
     )
     {
     }
+
     public function index()
     {
-        $posts = $this->postRepository->with('categories')->all();
-        $featuredPosts = $this->postRepository->getFeaturedPosts(5);
+
+        $posts = Cache::remember(CacheEnum::PostNewHome, self::TIME_CACHE, function () {
+            return $this->postRepository->getPostNew(config('constants.limit_post_new_home'));
+        });
+
+        $featuredPosts = Cache::remember(CacheEnum::PostFeatured, self::TIME_CACHE, function () {
+            return $this->postRepository->getFeaturedPosts(config('constants.limit_post_feature'));
+        });
+
         return view('cms.page.index')->with([
             'posts' => $posts,
-            'featuredPosts' => $featuredPosts
+            'featuredPosts' => $featuredPosts ?? []
         ]);
     }
+
     public function investors()
     {
         $posts = $this->postRepository->with('categories')->all();
         return view('cms.page.investor')->with([
-            'posts'=>$posts
+            'posts' => $posts
         ]);
     }
 

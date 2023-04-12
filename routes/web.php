@@ -27,7 +27,7 @@ use UniSharp\LaravelFilemanager\Lfm;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware'=>['view-page']], function (){
+Route::group(['middleware'=>['view-page', 'set-locale']], function (){
     Route::multilingual('/', [HomeController::class, 'index'])->name('home');
 
     Route::prefix('/gioi-thieu')->group(function () {

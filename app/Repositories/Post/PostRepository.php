@@ -14,4 +14,6 @@ interface PostRepository extends RepositoryInterface
     public function getPostPaginate(array $data);
 
     public function getFeaturedPosts(int $limit);
+
+    public function getPostNew(int $limit);
 }

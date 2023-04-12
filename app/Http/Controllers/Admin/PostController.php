@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\CacheEnum;
 use App\Enums\Language;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StorePostRequest;
@@ -15,6 +16,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -90,6 +92,7 @@ class PostController extends Controller
             $this->languageMetaService->createPost($post->id, Post::class, $refLanguage, @$data['from_id']);
 
             DB::commit();
+            removeCaches([CacheEnum::PostFeatured, CacheEnum::PostNewHome]);
             $request->session()->flash('success', 'Tạo mới bài viết thành công');
             return redirect()->route('admin.posts.index', ['locale' => $refLanguage]);
 
@@ -152,6 +155,8 @@ class PostController extends Controller
 
             DB::commit();
 
+            removeCaches([CacheEnum::PostFeatured, CacheEnum::PostNewHome]);
+
             $request->session()->flash('success', 'Cập nhật bài viết thành công');
 
             return redirect()->route('admin.posts.index');
@@ -185,6 +190,8 @@ class PostController extends Controller
             $this->postRepository->delete($id);
 
             DB::commit();
+
+            removeCaches([CacheEnum::PostFeatured, CacheEnum::PostNewHome]);
 
             session()->flash('success', 'Xóa bài viết thành công');
 
