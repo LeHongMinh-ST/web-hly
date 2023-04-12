@@ -122,9 +122,10 @@ class PostController extends Controller
         $this->authorize('edit', $post);
 
         $post->load('language');
+
         $post->locales = $this->languageMetaService->getArrayLocale($post->id, Post::class);
         $post->localeIds = $this->languageMetaService->getArrayLocaleId($post->id, Post::class);
-        $categories = $this->categoryRepository->getCategory();
+        $categories = $this->categoryRepository->getCategory(['locale' => $post->language()->first()->language_code]);
         return view('admin.pages.post.edit')->with(compact('post', 'categories'));
     }
 

@@ -69,8 +69,12 @@ class HomeController extends Controller
 
             $data = $blogService->handleFrontRoutes($slug);
 
-            $posts = Post::whereHas('categories', function ($query) use ($data) {
-                $query->where('category_id', $data['data']['category']->id);
+            if ($slug->id != @$data['slug']->id) {
+                return redirect(localized_route('cms.news', ['danh-muc'=>@$data['slug']->content]));
+            }
+
+            $posts = $this->postRepository->scopeQuery(function ($query) use ($data) {
+                return $query->where('category_id', $data['data']['category']->id);
             })->with(['categories'])->paginate(5);
 
         } else {
