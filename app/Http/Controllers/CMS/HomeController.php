@@ -75,7 +75,7 @@ class HomeController extends Controller
 
             $posts = $this->postRepository->scopeQuery(function ($query) use ($data) {
                 return $query->where('category_id', $data['data']['category']->id);
-            })->with(['categories'])->paginate(5);
+            })->with(['categories'])->paginate(7);
 
         } else {
             $posts = $this->postRepository->with(['categories', 'slug'])->paginate(7);

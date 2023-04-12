@@ -25,8 +25,7 @@
                         <div class="itemNews">
                             <div class="img">
                                 <div style="background: url({{ $post->thumbnail }}) center"></div>
-                                {{--                            <img src="{{ $post->thumbnail }}" >--}}
-                                <img src="./assets/fe/images/news-gif.png">
+                                <img class="img-news" src="{{ asset('assets/fe/images/news-gif.png') }}" alt="{{$post->title}}">
                             </div>
                             <div class="copy">
                                 <h4>
@@ -37,7 +36,7 @@
                                 </h3>
                                 <p>{{date_format(date_create($post->created_at), 'd-m-Y')}}</p>
                             </div>
-                            <a class="link" href="/tin-tuc-su-kien/bai-viet/{{$post->slug->content}}"></a>
+                            <a class="link" href="{{localized_route('cms.news.post',$post->slug->content)}}"></a>
                         </div>
                     </li>
                 @endforeach

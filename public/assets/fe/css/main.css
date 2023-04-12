@@ -11445,7 +11445,7 @@ main {
     }
     .infoCate{
         top: 50%!important;
-    }   
+    }
     .frmContact{
         padding: 20px;
     }
@@ -11478,21 +11478,21 @@ main {
     border-radius: 0px !important;
 }
 .address_contact{
-    width: 40%; 
-    background-color: #f3f3f5; 
-    display: flex; 
-    justify-content: end; 
+    width: 40%;
+    background-color: #f3f3f5;
+    display: flex;
+    justify-content: end;
     padding-top: 30px;
 
 }
 .formWrap stagger-up{
-    width: 60%; 
+    width: 60%;
     padding: 30px 0;
 }
 .frmContact {
-    margin-top: 30px; 
-    display: flex; 
-    flex-direction: column; 
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 .add_contact{
@@ -11500,27 +11500,27 @@ main {
 }
 
 .heading1{
-    width: 60%; 
-    font-size: 18px; 
+    width: 60%;
+    font-size: 18px;
     font-weight: 400;
-    
+
 }
 .heading2{
-    width: 30%; 
-    font-size: 30px; 
+    width: 30%;
+    font-size: 30px;
     font-weight: bold;
 }
 
 .add_form{
-    width: 100%; 
-    margin: auto; 
-    display: flex; 
+    width: 100%;
+    margin: auto;
+    display: flex;
     justify-content: space-between;
 }
 
 .fill_the_form{
-    font-size: 30px; 
-    font-weight: bold; 
+    font-size: 30px;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -11533,17 +11533,17 @@ main {
 }
 
 .frminput{
-    display: flex;  
+    display: flex;
     flex-direction: row;
     gap: 40px;
 }
 .heading{
-    display: flex; 
-    width: 100%; 
-    height: 100%; 
-    background-color: #0e6447; 
-    font-size: 20px; 
-    padding:30px; 
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #0e6447;
+    font-size: 20px;
+    padding:30px;
     color: #ffffff;
 }
 
@@ -11567,14 +11567,14 @@ main {
     }
 
     .add_contact{
-        width: 100%; 
+        width: 100%;
         padding-left: 30px;
         padding-bottom: 50px;
 
     }
     .heading1{
         display: none;
-        
+
     }
     .heading2{
         white-space:nowrap;
@@ -11589,7 +11589,7 @@ main {
     }
 
     .frminput{
-        display: flex;  
+        display: flex;
         flex-direction: row;
         gap: 40px;
     }
@@ -11623,14 +11623,14 @@ main {
     .add_form{
         display:flex;
         flex-direction: column-reverse;
-    
+
     }
 
     .frminput{
         display: flex;
         flex-direction: column;
         gap: 20px !important;
-        
+
     }
     .width_forminput{
         width: 100%;
@@ -11648,10 +11648,13 @@ main {
         aspect-ratio: 16/9;
         object-fit: cover;
     }
-
 }
 
-
+.img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
 
 
 
