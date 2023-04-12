@@ -123,7 +123,7 @@
                                                     <th style="text-align: center">Lượt xem</th>
                                                     <th style="text-align: center">Ngôn ngữ</th>
                                                     <th style="text-align: center">Hiển thị</th>
-                                                    <th style="width: 150px; text-align: center">Hành động</th>
+                                                    <th style="width: 100px; text-align: center">Hành động</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
