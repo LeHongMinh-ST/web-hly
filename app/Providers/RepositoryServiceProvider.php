@@ -25,6 +25,8 @@ use App\Repositories\Role\RoleRepository;
 use App\Repositories\Role\RoleRepositoryEloquent;
 use App\Repositories\Slug\SlugRepository;
 use App\Repositories\Slug\SlugRepositoryEloquent;
+use App\Repositories\Supplier\SupplierRepository;
+use App\Repositories\Supplier\SupplierRepositoryEloquent;
 use App\Repositories\Tag\TagRepository;
 use App\Repositories\Tag\TagRepositoryEloquent;
 use App\Repositories\User\UserRepository;
@@ -52,6 +54,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(GroupPermissionRepository::class, GroupPermissionRepositoryEloquent::class);
         $this->app->bind(ReportViewPageRepository::class, ReportViewPageRepositoryEloquent::class);
         $this->app->bind(ContactRepository::class, ContactRepositoryEloquent::class);
+        $this->app->bind(SupplierRepository::class, SupplierRepositoryEloquent::class);
     }
 
     /**
