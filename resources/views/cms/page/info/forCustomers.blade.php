@@ -1,6 +1,6 @@
 @extends('cms.layout.main')
 @section('title')
-    Giới thiệu - Tập đoàn Abc
+    Giới thiệu - Tập đoàn HLY
 @endsection
 @section('content')
     <section class="introWrap" style="padding-top: 40px;">

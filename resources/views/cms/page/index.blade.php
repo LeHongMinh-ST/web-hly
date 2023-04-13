@@ -1,6 +1,6 @@
 @extends('cms.layout.main')
 @section('title')
-    Trang chủ - Tập đoàn Abc
+    Trang chủ - Tập đoàn HLY
 @endsection
 @section('js')
     <script type="text/javascript" src="{{ asset('/assets/fe/js/libraries/canvasjs.stock.min.js') }}"></script>
@@ -68,8 +68,8 @@
         </div>
                 <a class="scrolldown js-scrollCt" data='.newsHomeWrap' href="">
 {{--                    &lt;!&ndash; <span>Scroll Down</span> &ndash;&gt;--}}
-                    <span>Cuộn<br/>xuống</span>
-                    <img class="ar" src="./assets/fe/images/scrolldown-icon.png">
+                    <span>{{ __('Cuộn') }}<br/>{{ __('xuống') }}</span>
+                    <img class="ar" src=" {{ asset('assets/fe/images/scrolldown-icon.png') }}">
                 </a>
     </section>
 
@@ -107,28 +107,27 @@
             <div class="contentwrap" >
                 <div class="infoCate" style="top: 28%;">
                     <div section=".cateHomeWrap" data="-200" class="paralax-hor">
-                        <h2>LĨNH VỰC<br/>TIÊN PHONG</h2>
-                        <p>Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại,
-                            ở bất cứ lĩnh vực nào HLYgroup cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng.</p>
+                        <h2>{!! trans('cms.home_title_1') !!}</h2>
+                        <p>{{ trans('cms.home_note_1') }}</p>
                         <div class="dragMouse">
-                            <img src="./assets/fe/images/mouse.png">
-                            <p><img src="./assets/fe/images/ar-drag-l.png"><span>Trư&#7907;t đ&#7875; khám phá</span><img
-                                        src="./assets/fe/images/ar-drag-r.png"></p>
+                            <img src="{{ asset('assets/fe/images/mouse.png') }}">
+                            <p><img src="{{ asset('assets/fe/images/ar-drag-l.png') }}"><span>{{ __('Trượt để khám phá') }}</span><img
+                                        src="{{ asset('assets/fe/images/ar-drag-r.png') }}"></p>
                         </div>
                     </div>
                 </div>
                 <ul section=".cateHomeWrap" data="200" class="listCateHome paralax-hor" >
                     <li>
                         <div class="item cate-1">
-                            <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                            <h2>CÔNG NGHỆ XANH</h2>
+                            <div class="ico"><img src="{{ asset('assets/fe/images/b.gif') }}"></div>
+                            <h2>{{ __('CÔNG NGHỆ XANH') }}</h2>
                             <div class="content">
-                                <div class="img" style="background: url('./assets/fe/images/hl1.jpg') center">
-                                    <img src="./assets/fe/images/thumb-cate.gif">
+                                <div class="img" style="background: url({{asset('assets/fe/images/hl1.jpgÍ')}}) center">
+                                    <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                                 </div>
                                 <div class="copy">
                                     <!-- <p>- Sản xuất thuốc</p> -->
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
                             <a class="link" href="/linh-vuc-hoat-dong"></a>
@@ -136,16 +135,16 @@
                     </li>
                     <li>
                         <div class="item cate-3">
-                            <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                            <h2>THƯƠNG MẠI DỊCH VỤ</h2>
+                            <div class="ico"><img src="{{ asset('assets/fe/images/b.gif') }}"></div>
+                            <h2>{{ __('THƯƠNG MẠI DỊCH VỤ') }}</h2>
                             <div class="content">
-                                <div class="img" style="background: url('./assets/fe/images/hl2.jpg') center">
-                                    <img src="./assets/fe/images/thumb-cate.gif">
+                                <div class="img" style="background: url({{ asset('assets/fe/images/hl2.jpg') }}) center">
+                                    <img src="{{ asset('assets/fe/images/thumb-cate.gif') }}">
                                 </div>
                                 <div class="copy">
                                     <!-- <p>- Du lịch nghỉ dưỡng</p>
                                     <p>- Dưỡng sinh</p> -->
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
                             <a class="link" href="/linh-vuc-hoat-dong"></a>
@@ -153,14 +152,14 @@
                     </li>
                     <li>
                         <div class="item cate-3">
-                            <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                            <h2>THỰC PHẨM XANH</h2>
+                            <div class="ico"><img src="{{ __('assets/fe/images/b.gif') }}"></div>
+                            <h2>{{ __('THỰC PHẨM XANH') }}</h2>
                             <div class="content">
-                                <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
-                                    <img src="./assets/fe/images/thumb-cate.gif">
+                                <div class="img" style="background: url({{ asset('assets/fe/images/hg1.jpg') }}) center">
+                                    <img src="{{ __('assets/fe/images/thumb-cate.gif') }}">
                                 </div>
                                 <div class="copy text-white">
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
                             <a class="link" href="/linh-vuc-hoat-dong"></a>
@@ -168,14 +167,14 @@
                     </li>
                     <li>
                         <div class="item cate-3">
-                            <div class="ico"><img src="./assets/fe/images/b.gif"></div>
-                            <h2>NAM Y VÀ CHĂM SÓC SỨC KHỎE</h2>
+                            <div class="ico"><img src="{{ __('assets/fe/images/b.gif') }}"></div>
+                            <h2>{{ __('NAM Y VÀ CHĂM SÓC SỨC KHỎE') }}</h2>
                             <div class="content">
-                                <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
-                                    <img src="./assets/fe/images/thumb-cate.gif">
+                                <div class="img" style="background: url({{ __('assets/fe/images/hg1.jpg') }}) center">
+                                    <img src="{{ __('assets/fe/images/thumb-cate.gif') }}">
                                 </div>
                                 <div class="copy text-white">
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
                             <a class="link" href="/linh-vuc-hoat-dong"></a>

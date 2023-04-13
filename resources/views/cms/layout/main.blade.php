@@ -18,8 +18,8 @@
     <meta property="og:description"
           content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
     />
-{{--    <meta property="og:url" content="http://Abc.net/"/>--}}
-{{--    <meta property="og:site_name" content="Abc"/>--}}
+{{--    <meta property="og:url" content="http://HLY.net/"/>--}}
+{{--    <meta property="og:site_name" content="HLY"/>--}}
     <meta property="og:image" content="./assets/fe/images/share-social.jpg"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>

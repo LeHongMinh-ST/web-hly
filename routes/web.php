@@ -30,40 +30,34 @@ use UniSharp\LaravelFilemanager\Lfm;
 Route::group(['middleware'=>['view-page', 'set-locale']], function (){
     Route::multilingual('/', [HomeController::class, 'index'])->name('home');
 
-    Route::prefix('/gioi-thieu')->group(function () {
-        Route::multilingual('/', function () {
-            return view('cms.page.introduce');
-        })->name('cms.about');
-        Route::multilingual('/doi-ngu-nhan-su', function () {
-            return view('cms.page.info.humanResourcesTeam');
-        })->name('cms.about.activity');
-        Route::multilingual('/tam-nhin-su-menh-va-gia-tri-cot-loi', function () {
-            return view('cms.page.info.coreValues');
-        })->name('cms.about.coreValues');
-        Route::multilingual('/doi-voi-khach-hang', function () {
-            return view('cms.page.info.forCustomers');
-        })->name('cms.about.forCustomers');
-    });
+    Route::multilingual('/gioi-thieu', function () {
+        return view('cms.page.introduce');
+    })->name('cms.about');
+    Route::multilingual('/gioi-thieu/doi-ngu-nhan-su', function () {
+        return view('cms.page.info.humanResourcesTeam');
+    })->name('cms.about.activity');
+    Route::multilingual('/gioi-thieu/tam-nhin-su-menh-va-gia-tri-cot-loi', function () {
+        return view('cms.page.info.coreValues');
+    })->name('cms.about.coreValues');
+    Route::multilingual('/gioi-thieu/doi-voi-khach-hang', function () {
+        return view('cms.page.info.forCustomers');
+    })->name('cms.about.forCustomers');
 
-    Route::prefix('/linh-vuc-hoat-dong')->group(function () {
-        Route::multilingual('/', function () {
-            return view('cms.page.fieldOperation.activity');
-        })->name('cms.fieldOperation');
-        Route::multilingual('/cong-nghe-xanh', function () {
-            return view('cms.page.fieldOperation.activity');
-        })->name('cms.fieldOperation.activity');
-        Route::multilingual('/thuong-mai-dich-vu', function () {
-            return view('cms.page.fieldOperation.serviceCommerce');
-        })->name('cms.fieldOperation.serviceCommerce');
-        Route::multilingual('/nam-y-va-cham-soc-suc-khoe', function () {
-            return view('cms.page.fieldOperation.medicineHealthcare');
-        })->name('cms.fieldOperation.medicineHealthcare');
-        Route::multilingual('/thuc-pham-xanh', function () {
-            return view('cms.page.fieldOperation.greenTechnology');
-        })->name('cms.fieldOperation.greenTechnology');
-    });
-
-
+    Route::multilingual('/linh-vuc-hoat-dong', function () {
+        return view('cms.page.fieldOperation.activity');
+    })->name('cms.fieldOperation');
+    Route::multilingual('/linh-vuc-hoat-dong/cong-nghe-xanh', function () {
+        return view('cms.page.fieldOperation.activity');
+    })->name('cms.fieldOperation.activity');
+    Route::multilingual('/linh-vuc-hoat-dong/thuong-mai-dich-vu', function () {
+        return view('cms.page.fieldOperation.serviceCommerce');
+    })->name('cms.fieldOperation.serviceCommerce');
+    Route::multilingual('/linh-vuc-hoat-dong/nam-y-va-cham-soc-suc-khoe', function () {
+        return view('cms.page.fieldOperation.medicineHealthcare');
+    })->name('cms.fieldOperation.medicineHealthcare');
+    Route::multilingual('/linh-vuc-hoat-dong/thuc-pham-xanh', function () {
+        return view('cms.page.fieldOperation.greenTechnology');
+    })->name('cms.fieldOperation.greenFood');
     Route::multilingual('/phat-trien-ben-vung', function () {
         return view('cms.page.sustainableDevelopment');
     })->name('cms.sustainableDevelopment');

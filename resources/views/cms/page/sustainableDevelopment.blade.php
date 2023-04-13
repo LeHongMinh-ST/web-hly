@@ -1,6 +1,6 @@
 @extends('cms.layout.main')
 @section('title')
-    Nhà đầu tư - Tập đoàn Abc
+    Nhà đầu tư - Tập đoàn HLY
 @endsection
 @section('js')
 

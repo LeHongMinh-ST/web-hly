@@ -22,10 +22,10 @@
             <div class="right">
                 <ul style="color: white">
                     <li><a href="{{ localized_route('home') }}" style="color: white"><strong>{{ __('Trang chủ') }}</strong> </a></li>
-                    <li><a href="{{ localized_route('cms.about') }}" style="color: white"><strong>{{ __('Giới thiệu') }} HYL</strong> </a></li>
-                    <li><a href="/linh-vuc-hoat-dong/cong-nghe" style="color: white"><strong>{{ __('Lĩnh vực hoạt động') }}</strong> </a>
+                    <li><a href="{{ localized_route('cms.about') }}" style="color: white"><strong>{{ __('Giới thiệu HLY') }}</strong> </a></li>
+                    <li><a href="{{ localized_route('cms.fieldOperation') }}" style="color: white"><strong>{{ __('Lĩnh vực hoạt động') }}</strong> </a>
                     </li>
-                    <li><a href="/quan-he-co-dong" style="color: white"><strong>{{ __('Nhà đầu tư') }}</strong> </a></li>
+                    <li><a href="{{ localized_route('cms.sustainableDevelopment') }}" style="color: white"><strong>{{ __('Nhà đầu tư') }}</strong> </a></li>
                     <li><a href="{{ localized_route('cms.news') }}" style="color: white">{{ __('Tin tức sự kiện') }}</a> </li>
                 </ul>
                 <ul style="color: white">
