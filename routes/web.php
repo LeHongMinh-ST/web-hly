@@ -82,9 +82,7 @@ Route::group(['middleware'=>['view-page', 'set-locale']], function (){
         return view('cms.page.search');
     })->name('cms.search');
     Route::multilingual('/nha-dau-tu', [HomeController::class, 'investors'])->name('cms.investors');
-    Route::multilingual('/nha-dau-tu/{slug}', function () {
-        return view('cms.page.info.forCustomers');
-    })->name('cms.info.forCustomers');
+    Route::multilingual('/nha-dau-tu/{slug}', [HomeController::class, 'detailinvestor'])->name('cms.info.forCustomers');
 });
 
 Route::post('/contact', [HomeController::class, 'createContact'])->name('cms.contact.store');

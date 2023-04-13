@@ -63,13 +63,13 @@
                     <p>Chúng tôi tin rằng trung thực là khởi đầu cần thiết cho mọi mối quan hệ tốt đẹp.</p>
                 </div>
                 <div style="" class="filter">
-                    <form method="get" action="/tuyen-dung" class="filter">
-                        <select name="category_id" style="width: 30%;" id="recruitment-area-select">
-                            <option value="">Tất cả lĩnh vực</option>
+                    <form method="get" action="{{localized_route('cms.recruitment')}}" class="filter">
+                        <select name="danh_muc" style="width: 30%;" id="recruitment-area-select">
+                            <option value="tat-ca">Tất cả lĩnh vực</option>
                             @foreach($categories as $category)
                                 <option
-                                    value="{{ $category->id }}"
-                                    @selected($category->id == $categoryId)>
+                                    value="{{ $category->slug->content }}"
+                                    @selected($category->slug->content == $categorySlug)>
                                     {{ $category->name }}
                                 </option>
                             @endforeach

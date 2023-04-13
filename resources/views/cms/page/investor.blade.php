@@ -101,46 +101,19 @@
             </a>
             <div class="row">
                 <div class="relationshipShareholder">
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
+                    @forelse (@$suppliers ?? [] as $supplier)
+                        <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                            <a href="{{localized_route('cms.info.forCustomers', $supplier->slug->content)}}">
+                                <h3>{{$supplier->name}}</h3>
+                                <img style="aspect-ratio: 16 / 9; width: 100%; object-fit: cover" src="{{ $supplier->thumbnail }}" alt="{{$supplier->name}}">
+                                <p class="line-clamp-3">
+                                    {{ $supplier->description }}
+                                </p>
+                            </a>
+                        </div>
+                    @empty
+
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -148,7 +121,9 @@
     @include('cms.components.investorNews', ['posts' => $posts])
 
     </div>
-    @include('cms.components.partners')
+    @if(count(@$supplierTops ?? []))
+        @include('cms.components.partners')
+    @endif
 @endsection
 @section('js')
             <script>
