@@ -13,10 +13,10 @@
         </div>
 
         <div class="linkPage">
-            <a class=active href="/linh-vuc-hoat-dong/cong-nghe-xanh">{{__("Công nghệ xanh")}}</a>
-            <a href="/linh-vuc-hoat-dong/thuong-mai-dich-vu">{{__("Thương mai dịch vụ")}}</a>
-            <a href="/linh-vuc-hoat-dong/thuc-pham-xanh">{{__("Thực phẩm xanh")}}</a>
-            <a href="/linh-vuc-hoat-dong/nam-y-va-cham-soc-suc-khoe">{{__("Nam y và Chăm sóc sức khỏe")}}</a>
+            <a class=active href="{{ localized_route('cms.fieldOperation') }}">{{__("Công nghệ xanh")}}</a>
+            <a href="{{ localized_route('cms.fieldOperation.serviceCommerce') }}">{{__("Thương mại dịch vụ")}}</a>
+            <a href="{{ localized_route('cms.fieldOperation.greenFood') }}">{{__("Thực phẩm xanh")}}</a>
+            <a href="{{ localized_route('cms.fieldOperation.medicineHealthcare') }}">{{__("Nam y và Chăm sóc sức khỏe")}}</a>
         </div>
         <select class="slNews js-select-redirect">
             <option selected=selected value="/linh-vuc-hoat-dong/cong-nghe-xanh">{{__("Công nghệ xanh")}}</option>

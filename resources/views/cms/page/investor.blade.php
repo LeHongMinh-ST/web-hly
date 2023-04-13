@@ -1,6 +1,7 @@
 @extends('cms.layout.main')
 @section('title')
-    Nhà đầu tư - Tập đoàn HLY
+    {{__('Nhà đầu tư')}} - {{__('Tập đoàn HLY')}}
+
 @endsection
 
 @section('content')

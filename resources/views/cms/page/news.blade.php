@@ -1,6 +1,6 @@
 @extends('cms.layout.main')
 @section('title')
-    Tin tức sự kiện - Công ty cổ phần xã hội HLY
+     {{__('Tin tức sự kiện')}} - {{__('Tập đoàn HLY')}}
 @endsection
 @section('content')
     <section class="newsWrap" style="padding-top: 40px;">
@@ -19,6 +19,23 @@
                     </li>
                 @endforeach
             </ul>
+            <select class="slNews js-select-redirect">
+                <option
+                    @if(!request()->has('danh-muc'))
+                        selected=selected
+                    @endif
+                     value="{{ localized_route('cms.news') }}">Tin tức</option>
+                @foreach($categories as $category)
+
+                    <option
+                        @if(request('danh-muc') == $category->slug->content)
+                            selected=selected
+                        @endif
+                        value="{{localized_route('cms.news',['danh-muc'=>$category->slug->content])}}">{{ $category->name}}</option>
+
+                @endforeach
+            </select>
+
             <ul class="newsList stagger-up">
                 @foreach($posts as $post)
                     <li>
@@ -41,8 +58,10 @@
                     </li>
                 @endforeach
             </ul>
-            {{ $posts->render('vendor.pagination.name') }}
+            <div style="margin-bottom: 10px">
+                {{ $posts->render('vendor.pagination.name') }}
 
+            </div>
         </div>
     </section>
 

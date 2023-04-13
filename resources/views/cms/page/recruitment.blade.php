@@ -1,6 +1,6 @@
 @extends('cms.layout.main')
 @section('title')
-    Tuyển dụng
+    {{ __('Tuyển dụng') }} - {{__('Tập đoàn HLY')}}
 @endsection
 
 @section('js')

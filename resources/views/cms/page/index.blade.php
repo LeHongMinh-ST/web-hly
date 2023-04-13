@@ -42,7 +42,7 @@
     <section id="bannerHome">
         <script src="https://www.youtube.com/player_api"></script>
         <div class="bannerHome slider stagger-up">
-            <div class="item" style="background: url('./assets/fe/images/hl2.jpg') center no-repeat; box-shadow: rgb(14 100 71 / 72%) 50vw 0 70vw 0 inset;">
+            <div class="item" style="background: url({{asset('assets/fe/images/hl2.jpg')}}) center no-repeat; box-shadow: rgb(14 100 71 / 72%) 50vw 0 70vw 0 inset;">
                 <div class="copy">
                     <h2>{!! __("Rừng xanh <br> hạnh phúc") !!} </h2>
                 </div>
@@ -122,15 +122,15 @@
                             <div class="ico"><img src="{{ asset('assets/fe/images/b.gif') }}"></div>
                             <h2>{{ __('CÔNG NGHỆ XANH') }}</h2>
                             <div class="content">
-                                <div class="img" style="background: url({{asset('assets/fe/images/hl1.jpgÍ')}}) center">
+                                <div class="img" style="background: url({{asset('assets/fe/images/hl1.jpg')}}) center">
                                     <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                                 </div>
                                 <div class="copy">
                                     <!-- <p>- Sản xuất thuốc</p> -->
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
+                                    <a class="btn-2" href="{{localized_route('cms.fieldOperation') }}">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong"></a>
+                            <a class="link" href="{{localized_route('cms.fieldOperation') }}"></a>
                         </div>
                     </li>
                     <li>
@@ -144,10 +144,10 @@
                                 <div class="copy">
                                     <!-- <p>- Du lịch nghỉ dưỡng</p>
                                     <p>- Dưỡng sinh</p> -->
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
+                                    <a class="btn-2" href="{{localized_route('cms.fieldOperation.serviceCommerce')}}">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong"></a>
+                            <a class="link" href="{{localized_route('cms.fieldOperation.serviceCommerce')}}"></a>
                         </div>
                     </li>
                     <li>
@@ -159,10 +159,10 @@
                                     <img src="{{ __('assets/fe/images/thumb-cate.gif') }}">
                                 </div>
                                 <div class="copy text-white">
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
+                                    <a class="btn-2" href="{{localized_route('cms.fieldOperation.greenFood')}}">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong"></a>
+                            <a class="link" href="{{localized_route('cms.fieldOperation.greenFood')}}"></a>
                         </div>
                     </li>
                     <li>
@@ -174,10 +174,10 @@
                                     <img src="{{ __('assets/fe/images/thumb-cate.gif') }}">
                                 </div>
                                 <div class="copy text-white">
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
+                                    <a class="btn-2" href="{{localized_route('cms.fieldOperation.medicineHealthcare')}}">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
-                            <a class="link" href="/linh-vuc-hoat-dong"></a>
+                            <a class="link" href="{{ localized_route('cms.fieldOperation.medicineHealthcare') }}"></a>
                         </div>
                     </li>
                     <li></li>
