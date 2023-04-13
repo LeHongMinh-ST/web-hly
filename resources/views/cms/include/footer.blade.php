@@ -26,7 +26,7 @@
                     <li><a href="{{ localized_route('cms.fieldOperation') }}" style="color: white"><strong>{{ __('Lĩnh vực hoạt động') }}</strong> </a>
                     </li>
                     <li><a href="{{ localized_route('cms.sustainableDevelopment') }}" style="color: white"><strong>{{ __('Nhà đầu tư') }}</strong> </a></li>
-                    <li><a href="{{ localized_route('cms.news') }}" style="color: white">{{ __('Tin tức sự kiện') }}</a> </li>
+                    <li><a href="{{ localized_route('cms.news') }}" style="color: white"><strong>{{ __('Tin tức sự kiện') }}</strong></a> </li>
                 </ul>
                 <ul style="color: white">
                     <li><a href="{{ localized_route('cms.investors') }}" target="_blank" rel="noopener" style="color: white">{{ __('Tuyển dụng') }}</a>
