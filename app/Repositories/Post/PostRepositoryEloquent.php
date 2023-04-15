@@ -54,6 +54,26 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
         })->with(['categories', 'createBy', 'language'])->paginate($limit);
     }
 
+    public function getInvestmentArticlePaginate(array $data)
+    {
+        $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
+        $q = $data['q'] ?? '';
+        $categoryIds = $data['category_ids'] ?? [];
+        $locale = $data['locale'] ?? Language::Vietnamese;
+        return $this->scopeQuery(function ($query) use ($q, $locale, $categoryIds) {
+
+            if ($q) {
+                $query = $query->where('title', 'like', "%$q%");
+            }
+
+            $query = $query->whereIn('category_id',  $categoryIds)->whereHas('language', function ($language) use ($locale) {
+                return $language->where('language_code', $locale);
+            });
+
+            return $query->orderBy('created_at', 'desc');
+        })->with(['categories', 'createBy', 'language'])->paginate($limit);
+    }
+
     public function getFeaturedPosts(int $limit)
     {
         $posts = $this->scopeQuery(function ($query) use ($limit) {
@@ -77,6 +97,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
         }
 
         $posts->load('language');
+
 
         return $posts;
     }

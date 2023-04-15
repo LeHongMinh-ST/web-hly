@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\InvestmentArticleController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RecruitmentController;
 use App\Http\Controllers\Admin\RoleController;
@@ -139,14 +140,24 @@ Route::prefix('/admin')->group(function () {
                 Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit')->middleware(['permission:post-update']);
             });
 
+            Route::prefix('investment-articles')->group(function () {
+                Route::get('/', [InvestmentArticleController::class, 'index'])->name('admin.investment-article.index')->middleware('permission:investment-article-index');
+                Route::post('/', [InvestmentArticleController::class, 'store'])->name('admin.investment-article.store')->middleware('permission:investment-article-create');
+                Route::get('/create', [InvestmentArticleController::class, 'create'])->name('admin.investment-article.create')->middleware('permission:investment-article-create');
+                Route::get('/{id}', [InvestmentArticleController::class, 'show'])->name('admin.investment-article.show')->middleware('permission:investment-article-index');
+                Route::put('/{id}', [InvestmentArticleController::class, 'update'])->name('admin.investment-article.update')->middleware(['permission:investment-article-update']);
+                Route::delete('/{id}', [InvestmentArticleController::class, 'destroy'])->name('admin.investment-article.destroy')->middleware(['permission:investment-article-delete']);
+                Route::get('/{id}/edit', [InvestmentArticleController::class, 'edit'])->name('admin.investment-article.edit')->middleware(['permission:investment-article-update']);
+            });
+
             Route::prefix('suppliers')->group(function () {
-                Route::get('/', [SupplierController::class, 'index'])->name('admin.suppliers.index');
-                Route::post('/', [SupplierController::class, 'store'])->name('admin.suppliers.store');
-                Route::get('/create', [SupplierController::class, 'create'])->name('admin.suppliers.create');
-                Route::get('/{id}', [SupplierController::class, 'show'])->name('admin.suppliers.show');
-                Route::put('/{id}', [SupplierController::class, 'update'])->name('admin.suppliers.update');
-                Route::delete('/{id}', [SupplierController::class, 'destroy'])->name('admin.suppliers.destroy');
-                Route::get('/{id}/edit', [SupplierController::class, 'edit'])->name('admin.suppliers.edit');
+                Route::get('/', [SupplierController::class, 'index'])->name('admin.suppliers.index')->middleware('permission:supplier-index');
+                Route::post('/', [SupplierController::class, 'store'])->name('admin.suppliers.store')->middleware('permission:supplier-create');
+                Route::get('/create', [SupplierController::class, 'create'])->name('admin.suppliers.create')->middleware('permission:supplier-create');
+                Route::get('/{id}', [SupplierController::class, 'show'])->name('admin.suppliers.show')->middleware('permission:supplier-index');
+                Route::put('/{id}', [SupplierController::class, 'update'])->name('admin.suppliers.update')->middleware('permission:supplier-update');
+                Route::delete('/{id}', [SupplierController::class, 'destroy'])->name('admin.suppliers.destroy')->middleware('permission:supplier-delete');
+                Route::get('/{id}/edit', [SupplierController::class, 'edit'])->name('admin.suppliers.edit')->middleware('permission:supplier-update');
             });
 
             Route::prefix('categories')->group(function () {

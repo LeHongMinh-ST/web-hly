@@ -70,8 +70,8 @@
                                 href="{{ route('admin.suppliers.index') }}"><i class="  icon-address-book"></i>
                                 <span>Nhà đầu tư</span></a>
                         </li>
-                        <li class="{{ request()->is('admin/contact*') ? 'active' : '' }}"><a
-                                href="#"><i class="   icon-file-openoffice"></i>
+                        <li class="{{ request()->is('admin/investment-articles*') ? 'active' : '' }}"><a
+                                href="{{route('admin.investment-article.index')}}"><i class="   icon-file-openoffice"></i>
                                 <span>Tin tức đầu tư</span></a>
                         </li>
                     @endif

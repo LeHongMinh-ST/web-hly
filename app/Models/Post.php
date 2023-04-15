@@ -69,7 +69,6 @@ class Post extends Model
         parent::boot();
 
         static::deleting(function (Post $post) {
-            $post->categories()->detach();
             $post->tags()->detach();
             $post->slug()->delete();
         });

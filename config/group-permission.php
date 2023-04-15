@@ -31,4 +31,12 @@ return [
         'name' => 'Quản lý thông tin giao diện',
         'code' => 'ui',
     ],
+    [
+        'name' => 'Quản lý nhà đầu tư',
+        'code' => 'suppliers',
+    ],
+    [
+        'name' => 'Quản lý tin tức đầu tư',
+        'code' => 'investment-articles',
+    ],
 ];
