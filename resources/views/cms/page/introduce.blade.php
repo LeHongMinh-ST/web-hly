@@ -40,7 +40,7 @@
                     <div>
                         <h3>{!! trans('cms.about_title_1') !!}</h3>
                         <p>{{trans('cms.about_title_1_note')}}</p>
-                        <a class="btn-2" href="/gioi-thieu/doi-ngu-nhan-su">
+                        <a class="btn-2" href="{{localized_route('cms.about.activity')}}">
                             {{ __('Xem chi tiết') }}
                         </a>
                     </div>
@@ -49,7 +49,7 @@
                     <div>
                         <h3>{!! trans('cms.about_title_2') !!}</h3>
                         <p>{{trans('cms.about_title_2_note')}}</p>
-                        <a class="btn-2" href="/gioi-thieu/tam-nhin-su-menh-va-gia-tri-cot-loi">
+                        <a class="btn-2" href="{{localized_route('cms.about.coreValues')}}">
                             {{ __('Xem chi tiết') }}
                         </a>
                     </div>
@@ -59,7 +59,7 @@
                         <h3>{!! trans('cms.about_title_3') !!}</h3>
                         <p>{{trans('cms.about_title_3_note')}}</p>
 
-                        <a class="btn-2" href="/gioi-thieu/doi-voi-khach-hang">
+                        <a class="btn-2" href="{{localized_route('cms.about.forCustomers')}}">
                             {{ __('Xem chi tiết') }}
                         </a>
                     </div>

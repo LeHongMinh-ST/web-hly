@@ -168,12 +168,11 @@
                     </li>
                     <li>
                         <div class="item cate-3">
-                            <div class="ico"><img src="{{ __('assets/fe/images/b.gif') }}"></div>
+                            <div class="ico"><img src="{{asset('assets/fe/images/b.gif')}}"></div>
                             <h2>{{ __('THỰC PHẨM XANH') }}</h2>
                             <div class="content">
-                                <div class="img"
-                                     style="background: url({{ asset('assets/fe/images/hg1.jpg') }}) center">
-                                    <img src="{{ __('assets/fe/images/thumb-cate.gif') }}">
+                                <div class="img" style="background: url({{ asset('assets/fe/images/hg1.jpg') }}) center">
+                                    <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                                 </div>
                                 <div class="copy text-white">
                                     <a class="btn-2"
@@ -185,11 +184,11 @@
                     </li>
                     <li>
                         <div class="item cate-3">
-                            <div class="ico"><img src="{{ __('assets/fe/images/b.gif') }}"></div>
+                            <div class="ico"><img src="{{asset('assets/fe/images/b.gif')}}"></div>
                             <h2>{{ __('NAM Y VÀ CHĂM SÓC SỨC KHỎE') }}</h2>
                             <div class="content">
-                                <div class="img" style="background: url({{ __('assets/fe/images/hg1.jpg') }}) center">
-                                    <img src="{{ __('assets/fe/images/thumb-cate.gif') }}">
+                                <div class="img" style="background: url({{asset('assets/fe/images/hg1.jpg')}} center">
+                                    <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                                 </div>
                                 <div class="copy text-white">
                                     <a class="btn-2"

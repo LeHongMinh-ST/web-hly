@@ -7,7 +7,7 @@
     <section class="bannerPd stagger-up" >
         <div class="content stagger-up">
             <div class="banner">
-                <img src="../assets/fe/images/contact.jpg" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                <img src="{{asset('assets/fe/images/contact.jpg')}}" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
                 <span style="position: absolute; top: 50%; white-space: nowrap; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">LĨNH VỰC HOẠT ĐỘNG / CÔNG NGHỆ XANH</span>
             </div>
         </div>
@@ -60,7 +60,7 @@
                         style="font-size:14.0pt">Do đó, để phát triển thị trường, loại hình du lịch đầy tiềm năng này, ngành du lịch Việt Nam cần cải thiện chất lượng hệ thống dịch vụ du lịch chăm sóc sức khỏe sẵn có, đảm bảo tiêu chuẩn, tiêu chí về an toàn sức khỏe cho khách du lịch.</span></span></span>
         </p>
         <div style="margin: 0 auto; width: 100%; text-align: center;">
-            <img src="../assets/fe/images/contact.jpg" style="height: 500px; object-fit: cover; width: 70%; margin: 20px 0; ">
+            <img src="{{asset('assets/fe/images/contact.jpg')}}" style="height: 500px; object-fit: cover; width: 70%; margin: 20px 0; ">
         </div>
         <p style="text-align:justify"><span style="font-size:12pt"><span style="background-color:white"><span
                         style="font-size:14.0pt">Đồng thời, ngành xây dựng hệ thống sản phẩm, dịch vụ du lịch chăm sóc sức khỏe phù hợp từng phân khúc thị trường khách như theo độ tuổi, nền văn hóa, tạo được nét đặc thù của Việt Nam, có khả năng cạnh tranh với các quốc gia trong khu vực.</span></span></span>
@@ -87,7 +87,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="{{getValueKeySetting('logo')}}" alt="" style="width: 90%;">
+                            <img src="{{asset('assets/fe/images/logo.png')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
                         <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
@@ -97,7 +97,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="{{getValueKeySetting('logo')}}" alt="" style="width: 90%;">
+                            <img src="{{asset('assets/fe/images/logo.png')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
                         <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
@@ -107,7 +107,7 @@
                 <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="{{getValueKeySetting('logo')}}" alt="" style="width: 90%;">
+                            <img src="{{asset('assets/fe/images/logo.png')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
                         <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
@@ -117,7 +117,7 @@
                 <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="{{getValueKeySetting('logo')}}" alt="" style="width: 90%;">
+                            <img src="{{asset('assets/fe/images/logo.png')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
                         <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
