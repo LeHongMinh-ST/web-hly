@@ -16,7 +16,7 @@
                     <p>© {{ __('Bản quyền') }} HLY2019</p>
                 </div>
                 <div>
-                    <p>N02 - LK1, Hà Trì, Phường Hà Cầu, Quận Hà Đông, Thành phố Hà Nội, Việt Nam</p>
+                    <p>{{getValueKeySetting('contact_address')}}</p>
                 </div>
             </div>
             <div class="right">

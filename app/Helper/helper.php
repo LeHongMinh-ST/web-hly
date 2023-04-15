@@ -4,6 +4,7 @@ use App\Enums\Language;
 use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 if (!function_exists('checkPermission')) {
     function checkPermission($codePermission): bool
@@ -108,6 +109,14 @@ if (!function_exists('removeCaches')) {
         foreach ($arrayKey as $value) {
             Cache::forget($value);
         }
+    }
+}
+
+if (!function_exists('getValueKeySetting')) {
+    function getValueKeySetting($key): string
+    {
+        $record = DB::table('settings')->where('key', $key)->first();
+        return $record ? $record->value : '';
     }
 }
 
