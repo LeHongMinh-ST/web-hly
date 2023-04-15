@@ -54,8 +54,13 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
     public function getCategory($data = [])
     {
         $locale = $data['locale'] ?? Language::Vietnamese;
+        $type = $data['type'] ?? "";
 
-        return $this->scopeQuery(function ($query) use ($locale) {
+
+        return $this->scopeQuery(function ($query) use ($locale, $type) {
+            if ($type) {
+                $query = $query->where('type', $type);
+            }
             $query->whereHas('language', function ($language) use ($locale) {
                 return $language->where('language_code', $locale);
             });

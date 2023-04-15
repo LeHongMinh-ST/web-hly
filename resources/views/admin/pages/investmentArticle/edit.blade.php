@@ -6,9 +6,9 @@
         @php
             $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
         @endphp
-        <script type="module" src="/build/{{ $manifest['resources/js/post/edit.js']['file'] }}"></script>
+        <script type="module" src="/build/{{ $manifest['resources/js/investmentArticle/edit.js']['file'] }}"></script>
         @else
-            @vite(['resources/js/post/edit.js'])
+            @vite(['resources/js/investmentArticle/edit.js'])
             @endproduction
             @endsection
 
@@ -19,7 +19,7 @@
                     <div class="page-header">
                         <div class="page-header-content">
                             <div class="page-title">
-                                <h4><a href="{{ route('admin.posts.index') }}" class="text-link"><i
+                                <h4><a href="{{ route('admin.investment-article.index') }}" class="text-link"><i
                                             class="icon-arrow-left52 position-left"></i></a> <span
                                         class="text-semibold">Bài viết</span> -
                                     Chỉnh sửa </h4>
@@ -32,7 +32,7 @@
                                 <li><a href="{{route('admin.dashboard')}}"><i class="icon-home2 position-left"></i> Bảng
                                         điều khiển</a>
                                 </li>
-                                <li><a href="{{route('admin.posts.index')}}">Bài viết</a></li>
+                                <li><a href="{{route('admin.investment-article.index')}}">Bài viết</a></li>
                                 <li class="active">Chỉnh sửa</li>
                             </ul>
                         </div>
@@ -49,7 +49,7 @@
                         </div>
                         <!-- Dashboard content -->
                         <div class="row">
-                            <form action="{{ route('admin.posts.update', @$post->id) }}" method="post"
+                            <form action="{{ route('admin.investment-article.update', @$post->id) }}" method="post"
                                   enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
@@ -114,7 +114,7 @@
                                             <div>
                                                 <button class="btn btn-success"><i class=" icon-paperplane"></i> Lưu
                                                 </button>
-                                                <a href="{{ route('admin.posts.index') }}" class="btn btn-default"><i
+                                                <a href="{{ route('admin.investment-article.index') }}" class="btn btn-default"><i
                                                         class=" icon-close2"></i>
                                                     Đóng</a>
                                             </div>
@@ -128,9 +128,16 @@
                                         </div>
                                         <div class="panel-body">
                                             <div>
-                                                <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
-                                                    <option value="1" {{old('status', @$post->status) == 1 ? 'selected' : ''}}>Công khai</option>
-                                                    <option value="0" {{old('status', @$post->status) == 0 ? 'selected' : ''}}>Ẩn</option>
+                                                <select id="selectIsActive" name="status"
+                                                        class="bootstrap-select form-control select-lg">
+                                                    <option
+                                                        value="1" {{old('order', @$post->status) == 1 ? 'selected' : ''}}>
+                                                        Công khai
+                                                    </option>
+                                                    <option
+                                                        value="0" {{old('order', @$post->status) == 0 ? 'selected' : ''}}>
+                                                        Ẩn
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -152,7 +159,7 @@
                                                                      alt="{{ $localeDes }}">{{ $localeDes }}
                                                                 <span class="check"><i class="icon-check"></i></span>
                                                             @else
-                                                                <a href="{{ route('admin.posts.edit', @$post->localeIds[$keyLocale]['reference_id']) }}"
+                                                                <a href="{{ route('admin.investment-article.edit', @$post->localeIds[$keyLocale]['reference_id']) }}"
                                                                    title="Bản dịch {{ $localeDes }}">
                                                                     <img class="icon-flag"
                                                                          src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
@@ -162,7 +169,7 @@
                                                                 </a>
                                                             @endif
                                                         @else
-                                                            <a href="{{ route('admin.posts.create', ['ref_language' => $keyLocale, 'from_id' => $post->id ]) }}"
+                                                            <a href="{{ route('admin.investment-article.create', ['ref_language' => $keyLocale, 'from_id' => $post->id ]) }}"
                                                                title="Thêm mới bản dịch {{ $localeDes }}">
                                                                 <img class="icon-flag"
                                                                      src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
