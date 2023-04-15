@@ -27,6 +27,7 @@ class Post extends Model
         'views',
         'category_id',
         'create_by',
+        'type',
         'update_by',
     ];
 

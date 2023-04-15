@@ -4,6 +4,7 @@ namespace App\Repositories\Post;
 
 use App\Enums\CacheEnum;
 use App\Enums\Language;
+use App\Enums\PostType;
 use App\Models\Post;
 use Illuminate\Support\Facades\Cache;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -46,7 +47,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
                 $query->where('title', 'like', "%$q%");
             }
 
-            $query->whereHas('language', function ($language) use ($locale) {
+            $query->where('type', PostType::News)->whereHas('language', function ($language) use ($locale) {
                 return $language->where('language_code', $locale);
             });
 
@@ -58,15 +59,14 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     {
         $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
         $q = $data['q'] ?? '';
-        $categoryIds = $data['category_ids'] ?? [];
         $locale = $data['locale'] ?? Language::Vietnamese;
-        return $this->scopeQuery(function ($query) use ($q, $locale, $categoryIds) {
+        return $this->scopeQuery(function ($query) use ($q, $locale) {
 
             if ($q) {
                 $query = $query->where('title', 'like', "%$q%");
             }
 
-            $query = $query->whereIn('category_id',  $categoryIds)->whereHas('language', function ($language) use ($locale) {
+            $query = $query->where('type', PostType::Investment)->whereHas('language', function ($language) use ($locale) {
                 return $language->where('language_code', $locale);
             });
 

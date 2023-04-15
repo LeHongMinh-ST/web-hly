@@ -43,9 +43,9 @@ export default defineConfig({
                 'resources/js/supplier/edit.js',
 
                 //Investment Article
-                'resources/js/InvestmentArticle/index.js',
-                'resources/js/InvestmentArticle/create.js',
-                'resources/js/InvestmentArticle/edit.js',
+                'resources/js/investmentArticle/index.js',
+                'resources/js/investmentArticle/create.js',
+                'resources/js/investmentArticle/edit.js',
             ],
             refresh: true,
         }),
