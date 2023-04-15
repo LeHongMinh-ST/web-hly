@@ -13,7 +13,7 @@
         </div>
 
         <div class="linkPage">
-            <a  href="{{localized_route('ms.fieldOperation.activity')}}">{{__("Công nghệ xanh")}}</a>
+            <a  href="{{localized_route('cms.fieldOperation.activity')}}">{{__("Công nghệ xanh")}}</a>
             <a  href="{{localized_route('cms.fieldOperation.serviceCommerce')}}">{{__("Thương mai dịch vụ")}}</a>
             <a class=active href="{{localized_route('cms.fieldOperation.greenFood')}}">{{__("Thực phẩm xanh")}}</a>
             <a href="{{localized_route('cms.fieldOperation.medicineHealthcare')}}">{{__("Nam y và Chăm sóc sức khỏe")}}</a>
