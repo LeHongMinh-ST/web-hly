@@ -51,7 +51,7 @@
                             Báo cáo tài chính hợp nhất quý 3 năm 2022
                         </p>
                         <p>
-                            <img src="{{asset(assets/fe/images/ar-g.png')}}" alt="">
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
                            Báo cáo kết quả kinh doanh quý 3 năm 2022
                         </p>
                     </div>
