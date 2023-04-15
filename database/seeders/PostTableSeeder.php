@@ -27,7 +27,7 @@ class PostTableSeeder extends Seeder
             'thumbnail'=>'',
 //            'language',
             'views'=>0,
-//            'create_by',
+            'slug' => 'slug-'.$i,
 //            'update_by',
         ]);
             DB::table('post_categories')->insert([

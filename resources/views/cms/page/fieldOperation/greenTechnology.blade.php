@@ -86,7 +86,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <img src="{{getValueKeySetting('logo')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
                         <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
@@ -96,7 +96,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <img src="{{getValueKeySetting('logo')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
                         <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
@@ -106,7 +106,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <img src="{{getValueKeySetting('logo')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
                         <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>
@@ -116,7 +116,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <img src="{{getValueKeySetting('logo')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">Cơ sương khớp</span>
                         </div>
                         <div style="width: 70%">Thương hiệu chăm sóc sức khỏe xương khớp, hồi phục thể lực sau chấn thương</div>

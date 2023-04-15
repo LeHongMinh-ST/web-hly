@@ -77,20 +77,20 @@
             <ul section="#block1" data="200" class="crsPartner paralax-hor"
                 style="display: flex; justify-content: space-evenly;">
                 <li style="width: 180px;">
-                    <img style="width: 80%;" src="{{ asset('assets/fe/images/logo.png') }}" alt="logo">
-                    <img style="width: 80%;" src="{{ asset('assets/fe/images/logo.png') }}" alt="logo">
+                    <img style="width: 80%;" src="{{getValueKeySetting('logo')}}" alt="logo">
+                    <img style="width: 80%;" src="{{getValueKeySetting('logo')}}" alt="logo">
                 </li>
                 <li style="width: 180px;">
-                    <img style="width: 80%;" src="{{ asset('assets/fe/images/logo.png') }}" alt="logo">
-                    <img style="width: 80%;" src="{{ asset('assets/fe/images/logo.png') }}" alt="logo">
+                    <img style="width: 80%;" src="{{getValueKeySetting('logo')}}" alt="logo">
+                    <img style="width: 80%;" src="{{getValueKeySetting('logo')}}" alt="logo">
                 </li>
                 <li style="width: 180px;">
-                    <img style="width: 80%;" src="{{ asset('assets/fe/images/logo.png') }}" alt="logo">
-                    <img style="width: 80%;" src="{{ asset('assets/fe/images/logo.png') }}" alt="logo">
+                    <img style="width: 80%;" src="{{getValueKeySetting('logo')}}" alt="logo">
+                    <img style="width: 80%;" src="{{getValueKeySetting('logo')}}" alt="logo">
                 </li>
                 <li style="width: 180px;">
-                    <img style="width: 80%;" src="{{ asset('assets/fe/images/logo.png') }}" alt="logo">
-                    <img style="width: 80%;" src="{{ asset('assets/fe/images/logo.png') }}" alt="logo">
+                    <img style="width: 80%;" src="{{getValueKeySetting('logo')}}" alt="logo">
+                    <img style="width: 80%;" src="{{getValueKeySetting('logo')}}" alt="logo">
                 </li>
                 </li>
             </ul>

@@ -28,7 +28,7 @@
                 Hà Nội - Trụ sở chính
             </p><br/>
             <p>
-                N02 - LK1, Hà Trì, Phường Hà Cầu, Quận Hà Đông, Thành phố Hà Nội, Việt Nam
+                {{getValueKeySetting('contact_address')}}
             </p><br/>
             </div>
         </div>

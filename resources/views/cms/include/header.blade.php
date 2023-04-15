@@ -1,8 +1,8 @@
 <header>
     <!-- Thường chứa LOGO, MENU NAVIGATION,... -->
     <div class="hdContainer">
-        <a class="logo" href="{{ localized_route('home') }}" style="background-image: url('{{ asset('/assets/fe/images/logo.png') }}');">
-            <img src="{{ asset('/assets/fe/images/logo.png') }}">
+        <a class="logo" href="{{ localized_route('home') }}" style="background-image: url('{{getValueKeySetting('logo')}}');">
+            <img src="{{getValueKeySetting('logo')}}">
         </a>
         <div class="hamburger-menu">
             <div class="bar"></div>
