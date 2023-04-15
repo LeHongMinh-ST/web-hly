@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\CacheEnum;
 use App\Enums\CategoryType;
 use App\Enums\Language;
+use App\Enums\PostType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Models\Post;
@@ -40,10 +41,7 @@ class InvestmentArticleController extends Controller
     public function index(Request $request): Factory|View|Application
     {
         $data = $request->only(['q', 'limit', 'locale']);
-        $categoryInvestment = $this->categoryRepository->findByField('type', CategoryType::Investment, ['id'])->toArray();
-        $data['category_ids'] = array_map(function ($item) {
-            return $item['id'];
-        }, $categoryInvestment);
+
         $posts = $this->postRepository->getInvestmentArticlePaginate($data);
 
         return view('admin.pages.investmentArticle.index')->with(compact('posts'));
@@ -82,6 +80,7 @@ class InvestmentArticleController extends Controller
                 'create_by' => auth()->id(),
                 'update_by' => auth()->id(),
                 'views' => 0,
+                'type' => PostType::Investment,
                 'is_featured' => array_key_exists('is_featured', $data)
             ]));
 
