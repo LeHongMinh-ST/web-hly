@@ -15,7 +15,8 @@
         </div>
             <div class="content stagger-up">
                 <div class="banner">
-                    <img src="../assets/fe/images/contact.jpg" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                    
+                    <img src="{{asset('assets/fe/images/contact.jpg')}}" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
                     <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">PHÁT TRIỂN BỀN VỪNG</span>
                 </div>
             </div>
@@ -25,7 +26,7 @@
             @for ($i = 0; $i < 3; $i++)
             <div class="wrap-info" style="">
                 <div class="poster" style="">
-                    <img src="./assets/fe/images/contact.jpg" alt="" style="">
+                    <img src="{{asset('assets/fe/images/contact.jpg')}}" alt="" style="">
                     <p class="title" >DOANH NGHIỆP</p>
                 </div>
                 <div class="content" style="">

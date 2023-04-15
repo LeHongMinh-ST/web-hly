@@ -49,7 +49,7 @@
                 <div class="content stagger-up" style="padding-top: 0px;">
                     <div class="content stagger-up" style="padding-top: 0px;"></div>
                     <div class="banner">
-                        <img src="../assets/fe/images/recruiment.png" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                        <img src="{{asset('assets/fe/images/recruiment.png')}}" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
                         <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">TUYỂN DỤNG</span>
                     </div>
                 </div>
