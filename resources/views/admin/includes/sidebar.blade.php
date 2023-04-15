@@ -43,19 +43,14 @@
                                     href="{{ route('admin.recruitments.index') }}"><i
                                         class="icon-newspaper2"></i> <span>Bài tuyển dụng</span></a></li>
                         @endif
-                        @if(checkPermission('categories-index'))
+                        @if(checkPermission('category-index'))
                             <li class="{{ request()->is('admin/categories*') ? 'active' : '' }}"><a
                                     href="{{ route('admin.categories.index') }}"><i class="icon-stack"></i> <span>Danh mục bài viết</span></a>
                             </li>
                         @endif
-                        {{--                        @if(checkPermission('tags-index'))--}}
-                        {{--                            <li class="{{ request()->is('admin/tags*') ? 'active' : '' }}"><a--}}
-                        {{--                                    href="{{ route('admin.tags.index') }}"><i class="icon-price-tag2"></i>--}}
-                        {{--                                    <span>Tag</span></a></li>--}}
-                        {{--                        @endif--}}
                     @endif
 
-                    @if(checkPermission('setting-index'))
+                    @if(checkPermission('contact-index'))
                         <li class="navigation-header"><span>Khách hàng</span> <i class="icon-menu"
                                                                                  title="Giao diện"></i>
                         </li>
@@ -63,17 +58,24 @@
                                 href="{{ route('admin.contact.index') }}"><i class=" icon-mail5"></i>
                                 <span>Liên hệ</span></a>
                         </li>
+                    @endif
+
+                    @if(checkPermission('supplier-index') || checkPermission('investment-article-index'))
                         <li class="navigation-header"><span>Nhà đầu tư</span> <i class="icon-menu"
                                                                                  title="Giao diện"></i>
                         </li>
-                        <li class="{{ request()->is('admin/suppliers*') ? 'active' : '' }}"><a
-                                href="{{ route('admin.suppliers.index') }}"><i class="  icon-address-book"></i>
-                                <span>Nhà đầu tư</span></a>
-                        </li>
-                        <li class="{{ request()->is('admin/investment-articles*') ? 'active' : '' }}"><a
-                                href="{{route('admin.investment-article.index')}}"><i class="   icon-file-openoffice"></i>
-                                <span>Tin tức đầu tư</span></a>
-                        </li>
+                        @if(checkPermission('supplier-index'))
+                            <li class="{{ request()->is('admin/suppliers*') ? 'active' : '' }}"><a
+                                    href="{{ route('admin.suppliers.index') }}"><i class="  icon-address-book"></i>
+                                    <span>Nhà đầu tư</span></a>
+                            </li>
+                        @endif
+                        @if(checkPermission('investment-article-index'))
+                            <li class="{{ request()->is('admin/investment-articles*') ? 'active' : '' }}"><a
+                                    href="{{route('admin.investment-article.index')}}"><i class="   icon-file-openoffice"></i>
+                                    <span>Tin tức đầu tư</span></a>
+                            </li>
+                        @endif
                     @endif
 
                     @if(checkPermission('setting-index'))
