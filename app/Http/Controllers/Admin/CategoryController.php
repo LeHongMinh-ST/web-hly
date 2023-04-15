@@ -39,7 +39,7 @@ class CategoryController extends Controller
      */
     public function index(Request $request): Factory|View|Application
     {
-        $data = $request->only(['q', 'limit', 'locale']);
+        $data = $request->only(['q', 'limit', 'locale', 'type']);
 
         $categories = $this->categoryRepository->getCategoryPaginate($data);
 
