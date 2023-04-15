@@ -59,7 +59,7 @@ class PostController extends Controller
         $refLanguage = $request->get('ref_language', Language::Vietnamese);
 
         $categories = $this->categoryRepository->getCategory([
-            'locale' => app()->getLocale(),
+            'locale' => $refLanguage,
             'type' => CategoryType::News
         ]);;
 
