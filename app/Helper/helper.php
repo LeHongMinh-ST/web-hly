@@ -116,7 +116,7 @@ if (!function_exists('getValueKeySetting')) {
     function getValueKeySetting($key): string
     {
         $record = DB::table('settings')->where('key', $key)->first();
-        return $record ? $record->value : '';
+        return $record ? $record->value : config('seo.'.$key, '');
     }
 }
 
