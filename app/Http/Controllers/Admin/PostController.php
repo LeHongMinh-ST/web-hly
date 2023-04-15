@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Enums\CacheEnum;
+use App\Enums\CategoryType;
 use App\Enums\Language;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StorePostRequest;
@@ -57,7 +58,10 @@ class PostController extends Controller
 
         $refLanguage = $request->get('ref_language', Language::Vietnamese);
 
-        $categories = $this->categoryRepository->getCategory(['locale' => $refLanguage]);
+        $categories = $this->categoryRepository->getCategory([
+            'locale' => $refLanguage,
+            'type' => CategoryType::News
+        ]);;
 
         return view('admin.pages.post.create')->with(compact('categories', 'post', 'refLanguage'));
     }
@@ -73,7 +77,6 @@ class PostController extends Controller
     {
         DB::beginTransaction();
         try {
-
             $data = $request->all();
             $post = $this->postRepository->create(array_merge($data, [
                 'create_by' => auth()->id(),
@@ -81,7 +84,6 @@ class PostController extends Controller
                 'views' => 0,
                 'is_featured' => array_key_exists('is_featured', $data)
             ]));
-
 
             $post?->tags()->attach(@$data['tags'] ?? []);
 
@@ -125,7 +127,10 @@ class PostController extends Controller
 
         $post->locales = $this->languageMetaService->getArrayLocale($post->id, Post::class);
         $post->localeIds = $this->languageMetaService->getArrayLocaleId($post->id, Post::class);
-        $categories = $this->categoryRepository->getCategory(['locale' => $post->language()->first()->language_code]);
+        $categories = $this->categoryRepository->getCategory([
+            'locale' => $post->language()->first()->language_code,
+            'type' => CategoryType::News
+        ]);
         return view('admin.pages.post.edit')->with(compact('post', 'categories'));
     }
 
