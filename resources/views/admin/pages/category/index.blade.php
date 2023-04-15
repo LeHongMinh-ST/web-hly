@@ -42,59 +42,74 @@
                             <div class="col">
                                 <div class="panel panel-flat">
                                     <div class="panel-heading">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <label>Nội dung tìm kiếm</label>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
-                                                    <div class="form-control-feedback">
-                                                        <i class="icon-search4 text-size-base"></i>
+                                        <form action="{{ route('admin.categories.index', array_merge(request()->all())) }}"
+                                              method="get">
+                                            <div class="row display-flex">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control"
+                                                               name="q"
+                                                               value="{{ request()->query('q') }}"
+                                                               placeholder="Tìm kiếm...">
+                                                        <div class="form-control-feedback">
+                                                            <i class="icon-search4 text-size-base"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Loại danh mục</label>
-                                                    <select class="bootstrap-select" data-width="100%">
-                                                        @foreach(CategoryType::toSelectArray() as $categoryType => $categoryTypeDesc)
-                                                            <option value="{{$categoryType}}">{{$categoryTypeDesc}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 text-right">
-                                                <div class="form-group has-feedback has-feedback-left"
-                                                     style="text-align: end">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                                data-toggle="dropdown" aria-expanded="false"><img
-                                                                class="icon-flag"
-                                                                src="{{ Language::getIconFlag(request()->query('locale', Language::Vietnamese)) }}"
-                                                                alt="flag">{{ Language::getDescription(request()->query('locale', Language::Vietnamese)) }}
-                                                            <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu dropdown-menu-right">
-                                                            @foreach(Language::toSelectArray() as $key => $locale)
-                                                                <li>
-                                                                    <a href="{{ route('admin.categories.index', array_merge(request()->all(), ['locale' => $key])) }}">
-                                                                        <img
-                                                                            class="icon-flag"
-                                                                            src="{{ Language::getIconFlag($key) }}"
-                                                                            alt="flag">
-                                                                        {{ $locale }}
-                                                                    </a>
-                                                                </li>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" style="height: 100%">
+                                                        <select class="bootstrap-select form-control"
+                                                                name="type"
+                                                                data-width="100%">
+                                                            @foreach(CategoryType::toSelectArray() as $categoryType => $categoryTypeDesc)
+                                                                <option
+                                                                    value="{{$categoryType}}"
+                                                                    @selected(request()->query('type') == $categoryType)>
+                                                                    {{$categoryTypeDesc}}
+                                                                </option>
                                                             @endforeach
-                                                        </ul>
+                                                        </select>
                                                     </div>
-                                                    <a type="button" href="{{ route('admin.categories.create') }}"
-                                                       class="btn btn-primary"><i
-                                                            class="icon-add"></i>
-                                                        Thêm mới</a>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <button class="btn-primary btn" type="submit">Tìm kiếm
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 text-right">
+                                                    <div class="form-group has-feedback has-feedback-left"
+                                                         style="text-align: end">
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-default dropdown-toggle"
+                                                                    data-toggle="dropdown" aria-expanded="false"><img
+                                                                    class="icon-flag"
+                                                                    src="{{ Language::getIconFlag(request()->query('locale', Language::Vietnamese)) }}"
+                                                                    alt="flag">{{ Language::getDescription(request()->query('locale', Language::Vietnamese)) }}
+                                                                <span class="caret"></span>
+                                                            </button>
+                                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                                @foreach(Language::toSelectArray() as $key => $locale)
+                                                                    <li>
+                                                                        <a href="{{ route('admin.categories.index', array_merge(request()->all(), ['locale' => $key])) }}">
+                                                                            <img
+                                                                                class="icon-flag"
+                                                                                src="{{ Language::getIconFlag($key) }}"
+                                                                                alt="flag">
+                                                                            {{ $locale }}
+                                                                        </a>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                        <a type="button" href="{{ route('admin.categories.create') }}"
+                                                           class="btn btn-primary"><i
+                                                                class="icon-add"></i>
+                                                            Thêm mới</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </form>
 
                                     </div>
                                 </div>
