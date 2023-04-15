@@ -24,7 +24,7 @@ return [
 
     [
         'name' => 'Quản lý liên hệ',
-        'code' => 'category',
+        'code' => 'contact',
     ],
 
     [

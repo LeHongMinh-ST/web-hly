@@ -56,9 +56,8 @@
                         </p>
                     </div>
                     <div class="content">
-                        <div class="img" style="background: url('./assets/fe/images/hl2.jpg') center">
-                            <img src="./assets/fe/images/thumb-cate.gif">
-                        </div>
+
+
                         <div class="copy">
                             <!-- <p>- Du lịch nghỉ dưỡng</p>
                             <p>- Dưỡng sinh</p> -->
