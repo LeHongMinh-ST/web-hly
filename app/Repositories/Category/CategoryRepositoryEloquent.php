@@ -86,8 +86,9 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
 
     public function getByType(string $type)
     {
-        return $this->scopeQuery(function ($query) use ($type) {
-            return $query->where('type', $type)->orderBy('created_at', 'desc');
-        })->with(['updateBy', 'createBy', 'slug'])->get();
+        return $this->getCategory([
+            'locale' => app()->getLocale(),
+            'type' => $type
+        ]);
     }
 }
