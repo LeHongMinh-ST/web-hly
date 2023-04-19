@@ -12,9 +12,9 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\SlugController;
 use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\HomeController;
+use App\Http\Controllers\CMS\SearchController;
 use Illuminate\Support\Facades\Route;
 use UniSharp\LaravelFilemanager\Lfm;
 
@@ -70,12 +70,10 @@ Route::group(['middleware'=>['view-page', 'set-locale']], function (){
     Route::multilingual('/tin-tuc-su-kien', [HomeController::class, 'postPage'])->name('cms.news');
     Route::multilingual('/tin-tuc-su-kien/bai-viet/{slug}', [BlogController::class, 'getPost'])->name('cms.news.post')->middleware(['filter']);
     Route::multilingual('/tuyen-dung', [\App\Http\Controllers\CMS\RecruitmentController::class, 'index'])->name('cms.recruitment');
+    Route::multilingual('/tim-kiem', [SearchController::class, 'index'])->name('cms.search');
     Route::multilingual('/lien-he', function () {
         return view('cms.page.contact');
     })->name('cms.contact');
-    Route::multilingual('/tim-kiem', function () {
-        return view('cms.page.search');
-    })->name('cms.search');
     Route::multilingual('/nha-dau-tu', [HomeController::class, 'investors'])->name('cms.investors');
     Route::multilingual('/nha-dau-tu/{slug}', [HomeController::class, 'detailinvestor'])->name('cms.info.forCustomers');
 });
