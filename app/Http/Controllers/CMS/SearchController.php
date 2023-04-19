@@ -24,7 +24,7 @@ class SearchController extends Controller
     {
         $data = $request->only(['q', 'limit', 'locale']);
 
-        if (!$data['q']) {
+        if (!isset($data['q'])) {
             $result = new LengthAwarePaginator([], 0, 1);
         } else {
             $posts = $this->postRepository->getPostPaginate($data);
