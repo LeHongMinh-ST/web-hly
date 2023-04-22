@@ -21,14 +21,14 @@
             </div>
         </div>
         </div>
-        <div class="container-sustainable-development" style="">
+        <div class="container-sustainable-development" >
             @for ($i = 0; $i < 3; $i++)
-            <div class="wrap-info" style="">
-                <div class="poster" style="">
-                    <img src="./assets/fe/images/contact.jpg" alt="" style="">
+            <div class="wrap-info">
+                <div class="poster">
+                    <img src="./assets/fe/images/contact.jpg" alt="" >
                     <p class="title" >{{__("DOANH NGHIỆP")}}</p>
                 </div>
-                <div class="content" style="">
+                <div class="content">
                 {{trans('cms.about_brand_introduce')}}
                 </div>
             </div>
