@@ -48,10 +48,17 @@ class InvestingNewsController extends Controller
             })->with(['categories'])->paginate(7);
 
         } else {
-            $posts = $this->postRepository->with(['categories', 'slug'])->paginate(7);
+            $posts = $this->postRepository
+                ->whereHas('categories', fn($category) => $category->where('type', CategoryType::Investment))
+                ->whereHas('language', fn($language) => $language->where('language_code', app()->getLocale()))
+                ->with(['categories', 'slug'])
+                ->paginate(7);
         }
 
-        $categories = $this->categoryRepository->getCategoryHome();
+        $categories = $this->categoryRepository->getCategory([
+            'type' => CategoryType::Investment,
+            'locale' => app()->getLocale()
+        ]);
 
         return view('cms.page.investingNews')->with([
             'posts' => $posts,
