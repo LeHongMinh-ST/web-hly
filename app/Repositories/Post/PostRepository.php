@@ -19,4 +19,5 @@ interface PostRepository extends RepositoryInterface
 
     public function getInvestmentArticlePaginate(array $data);
 
+    public function getAllPostPaginate(array $data);
 }

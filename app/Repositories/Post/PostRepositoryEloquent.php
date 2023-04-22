@@ -110,4 +110,21 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
             })->orderBy('created_at')->limit($limit);
         })->with('categories')->get();
     }
+
+    public function getAllPostPaginate(array $data) {
+        $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
+        $q = $data['q'] ?? '';
+        $locale = $data['locale'] ?? Language::Vietnamese;
+        return $this->scopeQuery(function ($query) use ($q, $locale) {
+            if ($q) {
+                $query->where('title', 'like', "%$q%");
+            }
+
+            $query->whereHas('language', function ($language) use ($locale) {
+                return $language->where('language_code', $locale);
+            });
+
+            return $query->orderBy('created_at', 'desc');
+        })->with(['categories', 'createBy', 'language'])->paginate($limit);
+    }
 }

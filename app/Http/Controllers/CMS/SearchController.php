@@ -27,7 +27,7 @@ class SearchController extends Controller
         if (!isset($data['q'])) {
             $result = new LengthAwarePaginator([], 0, 1);
         } else {
-            $posts = $this->postRepository->getPostPaginate($data);
+            $posts = $this->postRepository->getAllPostPaginate($data);
             $recruitments = $this->recruitmentRepository->getRecruitmentPaginate($data);
 
             $result = new LengthAwarePaginator(
