@@ -44,13 +44,13 @@
                 <div class="breadcrumb" style="    margin: 20px 0px;">
                     <a href="/"><i class="fas fa-home"></i></a>
                     <i class="fas fa-chevron-right"></i>
-                    <p>Tuyển dụng</p>
+                    <p>{{__("Tuyển dụng")}}</p>
                 </div>
                 <div class="content stagger-up" style="padding-top: 0px;">
                     <div class="content stagger-up" style="padding-top: 0px;"></div>
                     <div class="banner">
                         <img src="../assets/fe/images/recruiment.png" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
-                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">TUYỂN DỤNG</span>
+                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">{{__("TUYỂN DỤNG")}}</span>
                     </div>
                 </div>
             </div>
@@ -59,13 +59,13 @@
         <section class="container-recuitment" >
             <div style="" class="wrapp-info">
                 <div style="" class="context">
-                    <h2 style="">Thông tin tuyển dụng</h2>
-                    <p>Chúng tôi tin rằng trung thực là khởi đầu cần thiết cho mọi mối quan hệ tốt đẹp.</p>
+                    <h2 style="">{{__("Thông tin tuyển dụng")}}</h2>
+                    <p>{{trans('cms.about_welcome_recruitment')}}</p>
                 </div>
                 <div style="" class="filter">
                     <form method="get" action="{{localized_route('cms.recruitment')}}" class="filter">
                         <select name="danh_muc" style="width: 30%;" id="recruitment-area-select">
-                            <option value="tat-ca">Tất cả lĩnh vực</option>
+                            <option value="tat-ca">{{__("Tất cả lĩnh vực")}}</option>
                             @foreach($categories as $category)
                                 <option
                                     value="{{ $category->slug->content }}"
@@ -75,7 +75,7 @@
                             @endforeach
                         </select>
                         <button type="submit">
-                            Tìm kiếm
+                            {{__("Tìm kiếm")}}
                         </button>
                     </form>
                 </div>

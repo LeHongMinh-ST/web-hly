@@ -16,20 +16,20 @@
                         <div class="content stagger-up" style="padding-top: 0px;">
                         <div class="banner">
                             <img src="../assets/fe/images/investor.jpg" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
-                            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">NHÀ ĐẦU TƯ</span>
+                            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">{{__("NHÀ ĐẦU TƯ")}}</span>
                         </div>
                     </div>
             <ul class="listCateInvestor" >
                 <div class="item cate-1">
-                    <h2>ĐẠI HỘI CỔ ĐÔNG</h2>
+                    <h2>{{__("ĐẠI HỘI CỔ ĐÔNG")}}</h2>
                     <div class="content-top">
                         <p>
                             <img src="../assets/fe/images/ar-g.png" alt="">
-                            Nghị quyết và biên bản đại hội cổ đông 2022
+                            {{trans('cms.about_annual_gerenal_meeting_1')}}
                         </p>
                         <p>
                             <img src="../assets/fe/images/ar-g.png" alt="">
-                            Thông báo thay đổi nhân sự Hội đồng quản trị
+                            {{trans('cms.about_annual_gerenal_meeting_2')}}
                         </p>
                     </div>
                     <div class="content">
@@ -44,15 +44,15 @@
                     <a class="link" href="/linh-vuc-hoat-dong"></a>
                 </div>
                 <div class="item cate-3">
-                    <h2>CÔNG BỐ THÔNG TIN</h2>
+                    <h2>{{__("CÔNG BỐ THÔNG TIN")}}</h2>
                     <div class="content-top">
                         <p>
                             <img src="../assets/fe/images/ar-g.png" alt="">
-                            Báo cáo tài chính hợp nhất quý 3 năm 2022
+                            {{trans('cms.about_information_1')}}
                         </p>
                         <p>
                             <img src="../assets/fe/images/ar-g.png" alt="">
-                           Báo cáo kết quả kinh doanh quý 3 năm 2022
+                            {{trans('cms.about_information_2')}}
                         </p>
                     </div>
                     <div class="content">
@@ -68,19 +68,19 @@
                     <a class="link" href="/linh-vuc-hoat-dong"></a>
                 </div>
                 <div class="item cate-3">
-                        <h2>QUẢN TRỊ CÔNG TY</h2>
+                        <h2>{{__("QUẢN TRỊ CÔNG TY")}}</h2>
                     <div class="content-top">
                         <p>
                             <img src="../assets/fe/images/ar-g.png" alt="">
-                            Quy chế công bố thông tin tại công ty FPT
+                            {{trans('cms.about_goverance_company_1')}}
                         </p>
                         <p>
                             <img src="../assets/fe/images/ar-g.png" alt="">
-                            Điều lệ công ty
+                            {{trans('cms.about_goverance_company_2')}}
                         </p>
                         <p>
                             <img src="../assets/fe/images/ar-g.png" alt="">
-                            Quy chế quản trị
+                            {{trans('cms.about_goverance_company_3')}}
                         </p>
                     </div>
                         <div class="content">
@@ -98,7 +98,7 @@
         <section class="shareholdersHomeWrap">
         <div class="container">
             <a href="/quan-he-co-dong">
-                <h2 class="title">NHÀ ĐẦU TƯ</h2>
+                <h2 class="title">{{__("NHÀ ĐẦU TƯ")}}</h2>
             </a>
             <div class="row">
                 <div class="relationshipShareholder">
