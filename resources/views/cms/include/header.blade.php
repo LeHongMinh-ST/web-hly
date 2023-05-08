@@ -39,6 +39,7 @@
                 <li><a href="{{ localized_route('cms.sustainableDevelopment') }}" class="">{{ __('Phát triển bền vững') }}</a></li>
                 <li><a href="{{ localized_route('cms.investors') }}" class="">{{ __('Nhà đầu tư') }}</a></li>
                 <li><a href="{{ localized_route('cms.news') }}" class="">{{ __('Tin tức mới') }}</a></li>
+                <li><a href="{{ localized_route('cms.investingNews') }}" class="">{{ __('Tin tức nhà đầu tư') }}</a></li>
             </ul>
             <div class="subLink">
                 <a href="{{ localized_route('cms.recruitment') }}" target="_blank" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">{{ __('Tuyển dụng') }}</a>

@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\HomeController;
+use App\Http\Controllers\CMS\InvestingNewsController;
 use App\Http\Controllers\CMS\SearchController;
 use Illuminate\Support\Facades\Route;
 use UniSharp\LaravelFilemanager\Lfm;
@@ -71,6 +72,8 @@ Route::group(['middleware'=>['view-page', 'set-locale']], function (){
     Route::multilingual('/tin-tuc-su-kien/bai-viet/{slug}', [BlogController::class, 'getPost'])->name('cms.news.post')->middleware(['filter']);
     Route::multilingual('/tuyen-dung', [\App\Http\Controllers\CMS\RecruitmentController::class, 'index'])->name('cms.recruitment');
     Route::multilingual('/tim-kiem', [SearchController::class, 'index'])->name('cms.search');
+    Route::multilingual('/tin-tuc-nha-dau-tu', [InvestingNewsController::class, 'index'])->name('cms.investingNews');
+    Route::multilingual('/tin-tuc-nha-dau-tu/bai-viet/{slug}', [InvestingNewsController::class, 'getPost'])->name('cms.investingNews.post');
     Route::multilingual('/lien-he', function () {
         return view('cms.page.contact');
     })->name('cms.contact');
