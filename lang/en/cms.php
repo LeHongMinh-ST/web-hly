@@ -123,5 +123,8 @@ return [
     'about_heading_contact'=>"To learn more about HLY, its consulting experts, services provided, and potential opportunities for development evaluation, we would be delighted to connect with your business.",
     'about_heading_form_contact'=>"Please fill out the form below to receive more information about our services provided.",
     'about_question_form_contact'=>"The specific details about the question/issue that needs to be addressed.",
-
+    'field_of_operation/green_tech'=>"FIELD OF OPERATION /GREEN TECHNOLOGY",
+    'field_of_operation/service_trade'=>"FIELD OF OPERATION /SERVICE TRADE",
+    'pioneering_field/green_food'=>"PIONEERING FIELD / GREEN FOOD",
+    'field_of_operation/vie_medicine'=>"FIELD OF OPERATION /VIETNAM'S MEDICINE HEALTH CARE",
 ];

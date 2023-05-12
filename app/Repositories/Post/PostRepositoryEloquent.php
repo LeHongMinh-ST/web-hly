@@ -4,6 +4,7 @@ namespace App\Repositories\Post;
 
 use App\Enums\CacheEnum;
 use App\Enums\Language;
+use App\Enums\PostType;
 use App\Models\Post;
 use Illuminate\Support\Facades\Cache;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -46,7 +47,26 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
                 $query->where('title', 'like', "%$q%");
             }
 
-            $query->whereHas('language', function ($language) use ($locale) {
+            $query->where('type', PostType::News)->whereHas('language', function ($language) use ($locale) {
+                return $language->where('language_code', $locale);
+            });
+
+            return $query->orderBy('created_at', 'desc');
+        })->with(['categories', 'createBy', 'language'])->paginate($limit);
+    }
+
+    public function getInvestmentArticlePaginate(array $data)
+    {
+        $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
+        $q = $data['q'] ?? '';
+        $locale = $data['locale'] ?? Language::Vietnamese;
+        return $this->scopeQuery(function ($query) use ($q, $locale) {
+
+            if ($q) {
+                $query = $query->where('title', 'like', "%$q%");
+            }
+
+            $query = $query->where('type', PostType::Investment)->whereHas('language', function ($language) use ($locale) {
                 return $language->where('language_code', $locale);
             });
 
@@ -78,6 +98,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
 
         $posts->load('language');
 
+
         return $posts;
     }
 
@@ -88,5 +109,22 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
                 return $language->where('language_code', app()->getLocale());
             })->orderBy('created_at')->limit($limit);
         })->with('categories')->get();
+    }
+
+    public function getAllPostPaginate(array $data) {
+        $limit = $data['limit'] ?? config('constants.limit_pagination', 20);
+        $q = $data['q'] ?? '';
+        $locale = $data['locale'] ?? Language::Vietnamese;
+        return $this->scopeQuery(function ($query) use ($q, $locale) {
+            if ($q) {
+                $query->where('title', 'like', "%$q%");
+            }
+
+            $query->whereHas('language', function ($language) use ($locale) {
+                return $language->where('language_code', $locale);
+            });
+
+            return $query->orderBy('created_at', 'desc');
+        })->with(['categories', 'createBy', 'language'])->paginate($limit);
     }
 }

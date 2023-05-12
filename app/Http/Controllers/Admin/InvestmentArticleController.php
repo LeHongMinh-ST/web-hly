@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\CacheEnum;
 use App\Enums\CategoryType;
 use App\Enums\Language;
+use App\Enums\PostType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Models\Post;
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-class PostController extends Controller
+class InvestmentArticleController extends Controller
 {
     public function __construct(
         private PostRepository      $postRepository,
@@ -41,9 +42,9 @@ class PostController extends Controller
     {
         $data = $request->only(['q', 'limit', 'locale']);
 
-        $posts = $this->postRepository->getPostPaginate($data);
+        $posts = $this->postRepository->getInvestmentArticlePaginate($data);
 
-        return view('admin.pages.post.index')->with(compact('posts'));
+        return view('admin.pages.investmentArticle.index')->with(compact('posts'));
     }
 
     /**
@@ -58,12 +59,8 @@ class PostController extends Controller
 
         $refLanguage = $request->get('ref_language', Language::Vietnamese);
 
-        $categories = $this->categoryRepository->getCategory([
-            'locale' => $refLanguage,
-            'type' => CategoryType::News
-        ]);;
-
-        return view('admin.pages.post.create')->with(compact('categories', 'post', 'refLanguage'));
+        $categories = $this->categoryRepository->getCategory(['locale' => $refLanguage, 'type' => CategoryType::Investment]);
+        return view('admin.pages.investmentArticle.create')->with(compact('categories', 'post', 'refLanguage'));
     }
 
 
@@ -77,13 +74,16 @@ class PostController extends Controller
     {
         DB::beginTransaction();
         try {
+
             $data = $request->all();
             $post = $this->postRepository->create(array_merge($data, [
                 'create_by' => auth()->id(),
                 'update_by' => auth()->id(),
                 'views' => 0,
+                'type' => PostType::Investment,
                 'is_featured' => array_key_exists('is_featured', $data)
             ]));
+
 
             $post?->tags()->attach(@$data['tags'] ?? []);
 
@@ -96,7 +96,7 @@ class PostController extends Controller
             DB::commit();
             removeCaches([CacheEnum::PostFeatured, CacheEnum::PostNewHome]);
             $request->session()->flash('success', 'Tạo mới bài viết thành công');
-            return redirect()->route('admin.posts.index', ['locale' => $refLanguage]);
+            return redirect()->route('admin.investment-article.index', ['locale' => $refLanguage]);
 
         } catch (\Exception $exception) {
             DB::rollBack();
@@ -127,11 +127,8 @@ class PostController extends Controller
 
         $post->locales = $this->languageMetaService->getArrayLocale($post->id, Post::class);
         $post->localeIds = $this->languageMetaService->getArrayLocaleId($post->id, Post::class);
-        $categories = $this->categoryRepository->getCategory([
-            'locale' => $post->language()->first()->language_code,
-            'type' => CategoryType::News
-        ]);
-        return view('admin.pages.post.edit')->with(compact('post', 'categories'));
+        $categories = $this->categoryRepository->getCategory(['locale' => $post->language()->first()->language_code, 'type' => CategoryType::Investment]);
+        return view('admin.pages.investmentArticle.edit')->with(compact('post', 'categories'));
     }
 
     /**
@@ -165,7 +162,7 @@ class PostController extends Controller
 
             $request->session()->flash('success', 'Cập nhật bài viết thành công');
 
-            return redirect()->route('admin.posts.index');
+            return redirect()->route('admin.investment-article.index');
 
         } catch (\Exception $exception) {
             DB::rollBack();
@@ -201,7 +198,7 @@ class PostController extends Controller
 
             session()->flash('success', 'Xóa bài viết thành công');
 
-            return redirect()->route('admin.posts.index');
+            return redirect()->route('admin.investment-article.index');
 
         } catch (\Exception $exception) {
             DB::rollBack();

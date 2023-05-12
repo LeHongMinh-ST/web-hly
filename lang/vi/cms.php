@@ -129,4 +129,8 @@ return [
     'about_heading_contact'=>"Để tìm hiểu thêm về  HLY, về các chuyên gia tư vấn, các dịch vụ cung cấp và đánh giá tiềm năng cơ hội phát triển, chúng tôi rất hân hạnh khi được kết nối với quý doanh nghiệp.",
     'about_heading_form_contact'=>"Vui lòng điền vào mẫu đơn bên dưới để nhận thêm thông tin về các dịch vụ cung cấp của chúng tôi",
     'about_question_form_contact'=>"Chi tiết cụ thể về câu hỏi/thắc mắc cần giải đáp",
+    'field_of_operation/green_tech'=>"LĨNH VỰC HOẠT ĐỘNG /CÔNG NGHỆ XANH",
+    'field_of_operation/service_trade'=>"LĨNH VỰC HOẠT ĐỘNG /THƯƠNG MẠI DỊCH VỤ",
+    'pioneering_field/green_food'=>"LĨNH VỰC TIÊN PHONG / THỰC PHÂM XANH",
+    'field_of_operation/vie_medicine'=>"LĨNH VỰC HOẠT ĐỘNG / NAM Y CHĂM SÓC SỨC KHỎE",
 ];

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\InvestmentArticleController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RecruitmentController;
 use App\Http\Controllers\Admin\RoleController;
@@ -11,9 +12,10 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\SlugController;
 use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\HomeController;
+use App\Http\Controllers\CMS\InvestingNewsController;
+use App\Http\Controllers\CMS\SearchController;
 use Illuminate\Support\Facades\Route;
 use UniSharp\LaravelFilemanager\Lfm;
 
@@ -69,12 +71,12 @@ Route::group(['middleware'=>['view-page', 'set-locale']], function (){
     Route::multilingual('/tin-tuc-su-kien', [HomeController::class, 'postPage'])->name('cms.news');
     Route::multilingual('/tin-tuc-su-kien/bai-viet/{slug}', [BlogController::class, 'getPost'])->name('cms.news.post')->middleware(['filter']);
     Route::multilingual('/tuyen-dung', [\App\Http\Controllers\CMS\RecruitmentController::class, 'index'])->name('cms.recruitment');
+    Route::multilingual('/tim-kiem', [SearchController::class, 'index'])->name('cms.search');
+    Route::multilingual('/tin-tuc-nha-dau-tu', [InvestingNewsController::class, 'index'])->name('cms.investingNews');
+    Route::multilingual('/tin-tuc-nha-dau-tu/bai-viet/{slug}', [InvestingNewsController::class, 'getPost'])->name('cms.investingNews.post');
     Route::multilingual('/lien-he', function () {
         return view('cms.page.contact');
     })->name('cms.contact');
-    Route::multilingual('/tim-kiem', function () {
-        return view('cms.page.search');
-    })->name('cms.search');
     Route::multilingual('/nha-dau-tu', [HomeController::class, 'investors'])->name('cms.investors');
     Route::multilingual('/nha-dau-tu/{slug}', [HomeController::class, 'detailinvestor'])->name('cms.info.forCustomers');
 });
@@ -139,14 +141,24 @@ Route::prefix('/admin')->group(function () {
                 Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit')->middleware(['permission:post-update']);
             });
 
+            Route::prefix('investment-articles')->group(function () {
+                Route::get('/', [InvestmentArticleController::class, 'index'])->name('admin.investment-article.index')->middleware('permission:investment-article-index');
+                Route::post('/', [InvestmentArticleController::class, 'store'])->name('admin.investment-article.store')->middleware('permission:investment-article-create');
+                Route::get('/create', [InvestmentArticleController::class, 'create'])->name('admin.investment-article.create')->middleware('permission:investment-article-create');
+                Route::get('/{id}', [InvestmentArticleController::class, 'show'])->name('admin.investment-article.show')->middleware('permission:investment-article-index');
+                Route::put('/{id}', [InvestmentArticleController::class, 'update'])->name('admin.investment-article.update')->middleware(['permission:investment-article-update']);
+                Route::delete('/{id}', [InvestmentArticleController::class, 'destroy'])->name('admin.investment-article.destroy')->middleware(['permission:investment-article-delete']);
+                Route::get('/{id}/edit', [InvestmentArticleController::class, 'edit'])->name('admin.investment-article.edit')->middleware(['permission:investment-article-update']);
+            });
+
             Route::prefix('suppliers')->group(function () {
-                Route::get('/', [SupplierController::class, 'index'])->name('admin.suppliers.index');
-                Route::post('/', [SupplierController::class, 'store'])->name('admin.suppliers.store');
-                Route::get('/create', [SupplierController::class, 'create'])->name('admin.suppliers.create');
-                Route::get('/{id}', [SupplierController::class, 'show'])->name('admin.suppliers.show');
-                Route::put('/{id}', [SupplierController::class, 'update'])->name('admin.suppliers.update');
-                Route::delete('/{id}', [SupplierController::class, 'destroy'])->name('admin.suppliers.destroy');
-                Route::get('/{id}/edit', [SupplierController::class, 'edit'])->name('admin.suppliers.edit');
+                Route::get('/', [SupplierController::class, 'index'])->name('admin.suppliers.index')->middleware('permission:supplier-index');
+                Route::post('/', [SupplierController::class, 'store'])->name('admin.suppliers.store')->middleware('permission:supplier-create');
+                Route::get('/create', [SupplierController::class, 'create'])->name('admin.suppliers.create')->middleware('permission:supplier-create');
+                Route::get('/{id}', [SupplierController::class, 'show'])->name('admin.suppliers.show')->middleware('permission:supplier-index');
+                Route::put('/{id}', [SupplierController::class, 'update'])->name('admin.suppliers.update')->middleware('permission:supplier-update');
+                Route::delete('/{id}', [SupplierController::class, 'destroy'])->name('admin.suppliers.destroy')->middleware('permission:supplier-delete');
+                Route::get('/{id}/edit', [SupplierController::class, 'edit'])->name('admin.suppliers.edit')->middleware('permission:supplier-update');
             });
 
             Route::prefix('categories')->group(function () {

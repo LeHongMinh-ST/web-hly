@@ -15,7 +15,7 @@
                     <div class="content stagger-up" style="padding-top: 0px;">
                         <div class="content stagger-up" style="padding-top: 0px;">
                         <div class="banner">
-                            <img src="../assets/fe/images/investor.jpg" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                            <img src="{{asset('assets/fe/images/investor.jpg')}}" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
                             <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">{{__("NHÀ ĐẦU TƯ")}}</span>
                         </div>
                     </div>
@@ -24,74 +24,74 @@
                     <h2>{{__("ĐẠI HỘI CỔ ĐÔNG")}}</h2>
                     <div class="content-top">
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
                             {{trans('cms.about_annual_gerenal_meeting_1')}}
                         </p>
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
                             {{trans('cms.about_annual_gerenal_meeting_2')}}
                         </p>
                     </div>
                     <div class="content">
-                        <div class="img" style="background: url('./assets/fe/images/introduce.jpg') center">
-                            <img src="./assets/fe/images/thumb-cate.gif">
+                        <div class="img" style="background: url({{asset('assets/fe/images/introduce.jpg')}}) center">
+                            <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                         </div>
                         <div class="copy">
                             <!-- <p>- Sản xuất thuốc</p> -->
-                            <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
+                            <a class="btn-2" href="{{localized_route('cms.fieldOperation')}}">{{ __('Xem thêm') }}</a>
                         </div>
                     </div>
-                    <a class="link" href="/linh-vuc-hoat-dong"></a>
+                    <a class="link" href="{{localized_route('cms.fieldOperation')}}"></a>
                 </div>
                 <div class="item cate-3">
                     <h2>{{__("CÔNG BỐ THÔNG TIN")}}</h2>
                     <div class="content-top">
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
                             {{trans('cms.about_information_1')}}
                         </p>
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
                             {{trans('cms.about_information_2')}}
                         </p>
                     </div>
                     <div class="content">
-                        <div class="img" style="background: url('./assets/fe/images/hl2.jpg') center">
-                            <img src="./assets/fe/images/thumb-cate.gif">
+                    <div class="img" style="background: url({{asset('assets/fe/images/hl1.jpg')}}) center">
+                            <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                         </div>
                         <div class="copy">
                             <!-- <p>- Du lịch nghỉ dưỡng</p>
                             <p>- Dưỡng sinh</p> -->
-                            <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
+                            <a class="btn-2" href="{{localized_route('cms.fieldOperation')}}">{{ __('Xem thêm') }}</a>
                         </div>
                     </div>
-                    <a class="link" href="/linh-vuc-hoat-dong"></a>
+                    <a class="link" href="{{localized_route('cms.fieldOperation')}}"></a>
                 </div>
                 <div class="item cate-3">
                         <h2>{{__("QUẢN TRỊ CÔNG TY")}}</h2>
                     <div class="content-top">
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
                             {{trans('cms.about_goverance_company_1')}}
                         </p>
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
                             {{trans('cms.about_goverance_company_2')}}
                         </p>
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
                             {{trans('cms.about_goverance_company_3')}}
                         </p>
                     </div>
                         <div class="content">
-                            <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
-                                <img src="./assets/fe/images/thumb-cate.gif">
+                            <div class="img" style="background: url({{asset('assets/fe/images/hg1.jpg')}}) center">
+                                <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                             </div>
                             <div class="copy text-white">
-                                <a class="btn-2" href="/linh-vuc-hoat-dong">{{ __('Xem thêm') }}</a>
+                                <a class="btn-2" href="{{localized_route('cms.fieldOperation')}}">{{ __('Xem thêm') }}</a>
                             </div>
                         </div>
-                        <a class="link" href="/linh-vuc-hoat-dong"></a>
+                        <a class="link" href="{{localized_route('cms.fieldOperation')}}"></a>
                     </div>
             </ul>
         </div>

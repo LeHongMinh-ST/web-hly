@@ -8,7 +8,7 @@
             <div class="breadcrumb" style="margin: 20px 0;">
                 <a href="/"><i class="fas fa-home"></i></a>
                 <i class="fas fa-chevron-right"></i>
-                <p><a href="/nha-dau-tu">Nhà đầu tư</a></p>
+                <p><a href="{{localized_route('cms.investors')}}">Nhà đầu tư</a></p>
                 <i class="fas fa-chevron-right"></i>
                 <p>Thông tin nhà đầu tư</p>
             </div>

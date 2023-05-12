@@ -9,7 +9,7 @@
 <div>
 
     <section class="mapContact stagger-up" >
-        <img class= "img" src="./assets/fe/images/contact.jpg" style="width: 100%;"/>
+        <img class= "img" src="{{asset('assets/fe/images/contact.jpg')}}" style="width: 100%;"/>
         <div class="heading">
         <div style="max-width: 1300px; margin: auto; display: flex; justify-content: space-between" >
             <div class="heading2">
@@ -28,7 +28,7 @@
                 Hà Nội - {{__("Trụ sở chính")}}
             </p><br/>
             <p>
-                N02 - LK1, Hà Trì, Phường Hà Cầu, Quận Hà Đông, Thành phố Hà Nội, Việt Nam
+                {{getValueKeySetting('contact_address')}}
             </p><br/>
             </div>
         </div>

@@ -27,6 +27,7 @@ class Post extends Model
         'views',
         'category_id',
         'create_by',
+        'type',
         'update_by',
     ];
 
@@ -69,7 +70,6 @@ class Post extends Model
         parent::boot();
 
         static::deleting(function (Post $post) {
-            $post->categories()->detach();
             $post->tags()->detach();
             $post->slug()->delete();
         });

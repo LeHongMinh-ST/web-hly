@@ -7,19 +7,19 @@
     <section class="bannerPd stagger-up" >
 
 
-        {{--        <img src="./assets/fe/images/hl3.jpg">--}}
+        {{--        <img src="{{asset('assets/fe/images/hl3.jpg')}}">--}}
         <div class="content stagger-up">
             <div class="banner">
-                <img src="../assets/fe/images/contact.jpg" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
-                <span style="position: absolute; top: 50%; white-space: nowrap; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">LĨNH VỰC HOẠT ĐỘNG / NAM Y CHĂM SÓC SỨC KHỎE</span>
+                <img src="{{asset('assets/fe/images/contact.jpg')}}" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                <span style="position: absolute; top: 50%; white-space: nowrap; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">{{trans('cms.field_of_operation/vie_medicine')}}</span>
             </div>
         </div>
         
         <div class="linkPage">
-            <a  href="/linh-vuc-hoat-dong/cong-nghe-xanh">{{__("Công nghệ xanh")}}</a>
-            <a href="/linh-vuc-hoat-dong/thuong-mai-dich-vu">{{__("Thương mai dịch vụ")}}</a>
-            <a href="/linh-vuc-hoat-dong/thuc-pham-xanh">{{__("Thực phẩm xanh")}}</a>
-            <a class=active href="/linh-vuc-hoat-dong/nam-y-va-cham-soc-suc-khoe">{{__("Nam y và Chăm sóc sức khỏe")}}</a>
+            <a  href="{{localized_route('cms.fieldOperation.activity')}}">{{__("Công nghệ xanh")}}</a>
+            <a href="{{localized_route('cms.fieldOperation.serviceCommerce')}}">{{__("Thương mai dịch vụ")}}</a>
+            <a href="{{localized_route('cms.fieldOperation.greenFood')}}">{{__("Thực phẩm xanh")}}</a>
+            <a class=active href="{{localized_route('cms.fieldOperation.medicineHealthcare')}}">{{__("Nam y và Chăm sóc sức khỏe")}}</a>
         </div>
         <select class="slNews js-select-redirect">
             <option  value="/linh-vuc-hoat-dong/cong-nghe-xanh">{{__("Công nghệ xanh")}}</option>
@@ -62,7 +62,7 @@
                         style="font-size:14.0pt">{{trans('cms.about_VN_medicine_10')}}</span></span></span>
         </p>
         <div style="margin: 0 auto; width: 100%; text-align: center;">
-            <img src="../assets/fe/images/contact.jpg" style="height: 500px; object-fit: cover; width: 70%; margin: 20px 0; ">
+            <img src="{{asset('assets/fe/images/contact.jpg')}}" style="height: 500px; object-fit: cover; width: 70%; margin: 20px 0; ">
         </div>
         <p style="text-align:justify"><span style="font-size:12pt"><span style="background-color:white"><span
                         style="font-size:14.0pt">{{trans('cms.about_VN_medicine_11')}}</span></span></span>
@@ -89,7 +89,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <img src="{{asset('assets/fe/images/logo.png')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">{{__("Cơ sương khớp")}}</span>
                         </div>
                         <div style="width: 70%">{{trans('cms.about_brand_title_1')}}</div>
@@ -99,7 +99,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <img src="{{asset('assets/fe/images/logo.png')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">{{__("Cơ sương khớp")}}</span>
                         </div>
                         <div style="width: 70%">{{trans('cms.about_brand_title_2')}}</div>
@@ -109,7 +109,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <img src="{{asset('assets/fe/images/logo.png')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">{{__("Cơ sương khớp")}}</span>
                         </div>
                         <div style="width: 70%">{{trans('cms.about_brand_title_3')}}</div>
@@ -119,7 +119,7 @@
                     <div class="item" style="display: flex; gap: 10px; align-items: center;">
                         <div style=" display: flex; flex-direction: column; width: 30%; justify-content: center; align-items: center; gap: 10px">
                             <span style="font-size: 20px; font-weight: 700;">HÀ YÊN</span>
-                            <img src="../assets/fe/images/logo.png" alt="" style="width: 90%;">
+                            <img src="{{asset('assets/fe/images/logo.png')}}" alt="" style="width: 90%;">
                             <span style="text-align: center; font-weight: 600;">{{__("Cơ sương khớp")}}</span>
                         </div>
                         <div style="width: 70%">{{trans('cms.about_brand_title_4')}}</div>

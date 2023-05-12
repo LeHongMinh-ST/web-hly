@@ -1,8 +1,8 @@
 <header>
     <!-- Thường chứa LOGO, MENU NAVIGATION,... -->
     <div class="hdContainer">
-        <a class="logo" href="{{ localized_route('home') }}" style="background-image: url('{{ asset('/assets/fe/images/logo.png') }}');">
-            <img src="{{ asset('/assets/fe/images/logo.png') }}">
+        <a class="logo" href="{{ localized_route('home') }}" style="background-image: url('{{getValueKeySetting('logo')}}');">
+            <img src="{{getValueKeySetting('logo')}}">
         </a>
         <div class="hamburger-menu">
             <div class="bar"></div>
@@ -39,6 +39,7 @@
                 <li><a href="{{ localized_route('cms.sustainableDevelopment') }}" class="">{{ __('Phát triển bền vững') }}</a></li>
                 <li><a href="{{ localized_route('cms.investors') }}" class="">{{ __('Nhà đầu tư') }}</a></li>
                 <li><a href="{{ localized_route('cms.news') }}" class="">{{ __('Tin tức mới') }}</a></li>
+                <li><a href="{{ localized_route('cms.investingNews') }}" class="">{{ __('Tin tức nhà đầu tư') }}</a></li>
             </ul>
             <div class="subLink">
                 <a href="{{ localized_route('cms.recruitment') }}" target="_blank" class="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">{{ __('Tuyển dụng') }}</a>

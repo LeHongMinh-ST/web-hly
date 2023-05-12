@@ -1,14 +1,13 @@
 @extends('admin.layouts.master')
 
-
 @section('custom_js')
     @production
         @php
             $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
         @endphp
-        <script type="module" src="/build/{{ $manifest['resources/js/post/edit.js']['file'] }}"></script>
+        <script type="module" src="/build/{{ $manifest['resources/js/investmentArticle/create.js']['file'] }}"></script>
         @else
-            @vite(['resources/js/post/edit.js'])
+            @vite(['resources/js/investmentArticle/create.js'])
             @endproduction
             @endsection
 
@@ -19,10 +18,10 @@
                     <div class="page-header">
                         <div class="page-header-content">
                             <div class="page-title">
-                                <h4><a href="{{ route('admin.posts.index') }}" class="text-link"><i
-                                            class="icon-arrow-left52 position-left"></i></a> <span
-                                        class="text-semibold">Bài viết</span> -
-                                    Chỉnh sửa </h4>
+                                <h4><a href="{{ route('admin.investment-article.index') }}" class="text-link"><i
+                                                class="icon-arrow-left52 position-left"></i></a> <span
+                                            class="text-semibold">Bài viết đầu tư</span> -
+                                    Tạo mới </h4>
                             </div>
 
                         </div>
@@ -32,8 +31,8 @@
                                 <li><a href="{{route('admin.dashboard')}}"><i class="icon-home2 position-left"></i> Bảng
                                         điều khiển</a>
                                 </li>
-                                <li><a href="{{route('admin.posts.index')}}">Bài viết</a></li>
-                                <li class="active">Chỉnh sửa</li>
+                                <li><a href="{{route('admin.investment-article.index')}}">Bài viết</a></li>
+                                <li class="active">Tạo mới</li>
                             </ul>
                         </div>
                     </div>
@@ -42,18 +41,15 @@
 
                     <!-- Content area -->
                     <div class="content">
-                        <div class="alert alert-primary alert-styled-left">
-                            Bản dịch <img class="icon-flag"
-                                          src="{{ \App\Enums\Language::getIconFlag($post->language()->first()->language_code) }}"
-                                          alt="{{ \App\Enums\Language::getDescription($post->language()->first()->language_code) }}"><b>{{ \App\Enums\Language::getDescription($post->language()->first()->language_code) }}</b>
-                        </div>
                         <!-- Dashboard content -->
+                        <div class="alert alert-primary alert-styled-left">
+                            Bản dịch <img class="icon-flag" src="{{ \App\Enums\Language::getIconFlag($refLanguage) }}" alt="{{ \App\Enums\Language::getDescription($refLanguage) }}"><b>{{ \App\Enums\Language::getDescription($refLanguage) }}</b>
+                        </div>
                         <div class="row">
-                            <form action="{{ route('admin.posts.update', @$post->id) }}" method="post"
-                                  enctype="multipart/form-data">
+                            <form action="{{ route('admin.investment-article.store', request()->all()) }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                @method('put')
                                 <div class="col-md-9">
+
                                     <div class="panel panel-white">
                                         <div class="panel-heading">
                                             <h6 class="panel-title"><i class="icon-info22 position-left"></i> Thông tin
@@ -62,11 +58,10 @@
                                         <div class="panel-body">
                                             <div class="form-group">
                                                 <label class="control-label text-bold">Tiêu đề<span
-                                                        class="text-danger">*</span></label>
+                                                            class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="title" id="title"
-                                                           value="{{ old('title', @$post->title) }}"
-                                                           class="form-control">
+                                                           value="{{ old('title') }}" class="form-control">
                                                     @error('title')
                                                     <label id="error-title" class="validation-error-label"
                                                            for="basic">{{ $message }}</label>
@@ -77,25 +72,21 @@
                                             <div class="form-group">
                                                 <label class="control-label text-bold">Mô tả</label>
                                                 <div>
-                                                    <textarea rows="5" id="editorDescription" style="resize: vertical"
-                                                              cols="5"
+                                                    <textarea rows="5" id="editorDescription" style="resize: vertical" cols="5"
                                                               name="description"
                                                               class="form-control"
-                                                              aria-required="true">{{ old('description', @$post->description) }}</textarea>
+                                                              aria-required="true"></textarea>
                                                 </div>
 
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="control-label text-bold">Nội dung<span
-                                                        class="text-danger">*</span></label>
+                                                            class="text-danger">*</span></label>
                                                 <div>
-                                        <textarea rows="5" id="editorContent" style="resize: vertical" cols="5"
-                                                  name="content"
-                                                  class="form-control"
-                                                  aria-required="true">
-                                            {!! old('content', @$post->content) !!}
-                                        </textarea>
+                                                    <textarea rows="5" id="editorContent" style="resize: vertical" cols="5" name="content"
+                                                              class="form-control"
+                                                              aria-required="true">{{ old('content') }}</textarea>
                                                 </div>
                                                 @error('content')
                                                 <label id="error-content" class="validation-error-label"
@@ -112,10 +103,11 @@
                                         </div>
                                         <div class="panel-body">
                                             <div>
-                                                <button class="btn btn-success"><i class=" icon-paperplane"></i> Lưu
+                                                <button class="btn btn-primary"><i class=" icon-paperplane"></i> Tạo
+                                                    mới
                                                 </button>
-                                                <a href="{{ route('admin.posts.index') }}" class="btn btn-default"><i
-                                                        class=" icon-close2"></i>
+                                                <a href="{{ route('admin.investment-article.index') }}" class="btn btn-default"><i
+                                                            class=" icon-close2"></i>
                                                     Đóng</a>
                                             </div>
                                         </div>
@@ -128,54 +120,15 @@
                                         </div>
                                         <div class="panel-body">
                                             <div>
-                                                <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
-                                                    <option value="1" {{old('status', @$post->status) == 1 ? 'selected' : ''}}>Công khai</option>
-                                                    <option value="0" {{old('status', @$post->status) == 0 ? 'selected' : ''}}>Ẩn</option>
+                                                <select id="selectIsActive" name="status"
+                                                        class="bootstrap-select form-control select-lg">
+                                                    <option value="1">Công khai</option>
+                                                    <option value="0">Ẩn</option>
+
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="panel panel-white">
-                                        <div class="panel-heading">
-                                            <h6 class="panel-title"><i class=" icon-sphere position-left"></i> Ngôn ngữ
-                                            </h6>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="list-locale">
-                                                @foreach(\App\Enums\Language::toSelectArray() as $keyLocale =>  $localeDes)
-                                                    <div class="item">
-                                                        @if(in_array($keyLocale, @$post->locales))
-                                                            @if($post->language()->first()->language_code === $keyLocale)
-                                                                <img class="icon-flag"
-                                                                     src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
-                                                                     alt="{{ $localeDes }}">{{ $localeDes }}
-                                                                <span class="check"><i class="icon-check"></i></span>
-                                                            @else
-                                                                <a href="{{ route('admin.posts.edit', @$post->localeIds[$keyLocale]['reference_id']) }}"
-                                                                   title="Bản dịch {{ $localeDes }}">
-                                                                    <img class="icon-flag"
-                                                                         src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
-                                                                         alt="{{ $localeDes }}">{{ $localeDes }}
-                                                                    <span class="check"><i
-                                                                            class="icon-check"></i></span>
-                                                                </a>
-                                                            @endif
-                                                        @else
-                                                            <a href="{{ route('admin.posts.create', ['ref_language' => $keyLocale, 'from_id' => $post->id ]) }}"
-                                                               title="Thêm mới bản dịch {{ $localeDes }}">
-                                                                <img class="icon-flag"
-                                                                     src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
-                                                                     alt="{{ $localeDes }}">{{ $localeDes }}
-                                                                <span class="check"><i class="icon-plus2"></i></span>
-                                                            </a>
-                                                        @endif
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="panel panel-white">
                                         <div class="panel-heading">
                                             <h6 class="panel-title"><i class="icon-medal position-left"></i> Nổi bật
@@ -191,7 +144,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="panel panel-white">
                                         <div class="panel-heading">
                                             <h6 class="panel-title"><i class="icon-folder2 position-left"></i> Danh mục
@@ -204,10 +156,7 @@
                                                     <option selected
                                                             disabled>{{@count($categories) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
                                                     @forelse(@$categories ?? [] as $category)
-                                                        <option
-                                                            @if($category->id == $post->category_id) selected
-                                                            @endif style="cursor: pointer"
-                                                            value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @empty
                                                     @endforelse
                                                 </select>
@@ -221,16 +170,10 @@
                                         </div>
                                         <div class="panel-body">
                                             <div>
-                                                <input id="image" type="text"
-                                                       value="{{ old('description', @$post->thumbnail) }}" hidden
-                                                       name="thumbnail">
+                                                <input id="image" type="text" hidden name="thumbnail">
                                                 <a id="lfm" data-input="image" data-preview="holder">Chọn ảnh</a>
                                                 <div id="holder" class="image-preview"
                                                      style="margin-top:15px;max-height:150px; max-width: 150px">
-                                                    @if(old('description', @$post->thumbnail))
-                                                        <img style="width: 100%; height: 100%"
-                                                             src="{{ @$post->thumbnail }}" alt="">
-                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
