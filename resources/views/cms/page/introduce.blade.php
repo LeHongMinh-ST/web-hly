@@ -23,7 +23,7 @@
                 <p style="text-align: justify; font-size: 18px;">
                     {{trans('cms.about_note_1')}}
                 </p>
-                <p style="text-align: justify; font-size: 18px;">{{__("Công ty cổ phần xã hội HLY với 3 nhóm công nghệ tiên phong gồm")}}
+                <p style="text-align: justify; font-size: 18px;">{{trans('cms.about_company_include')}}
                     :</p>
                 <p style="text-align: justify; font-size: 18px;">- {{__("Công nghệ xanh")}}
                     <br/>- {{__("Thương mại Dịch vụ")}}
