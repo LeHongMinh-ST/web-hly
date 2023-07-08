@@ -2,8 +2,6 @@
 
 @section('custom_js')
     <script src="{{ asset('libs/echarts/echarts.js') }}"></script>
-
-
 @endsection
 
 @section('content')

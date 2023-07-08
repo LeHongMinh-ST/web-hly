@@ -1,14 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('custom_js')
-    @production
-        @php
-            $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
-        @endphp
-            <script type="module" src="/build/{{ $manifest['resources/js/role/create.js']['file'] }}"></script>
-        @else
-            @vite(['resources/js/role/create.js'])
-    @endproduction
+    @vite(['resources/js/role/create.js'])
 @endsection
 
 @section('custom_css')

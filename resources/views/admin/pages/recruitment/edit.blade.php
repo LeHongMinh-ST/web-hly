@@ -2,14 +2,8 @@
 
 
 @section('custom_js')
-    @production
-        @php
-            $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
-        @endphp
-        <script type="module" src="/build/{{ $manifest['resources/js/recruitment/edit.js']['file'] }}"></script>
-        @else
-            @vite(['resources/js/recruitment/edit.js'])
-            @endproduction
+    @vite(['resources/js/recruitment/edit.js'])
+
 @endsection
 
 @section('content')
