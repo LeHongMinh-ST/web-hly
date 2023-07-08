@@ -107,13 +107,13 @@
 
                                         <div class="panel-body">
                                             <div>
-                                                <input id="image" type="text"
+                                                <input id="logo" type="text"
                                                        value="{{ old('logo', @$settings['logo']) }}"
                                                        hidden name="logo">
-                                                <a class="lfm" data-input="image" data-preview="holder">
+                                                <a class="lfm" data-input="logo" data-preview="logo-preview">
                                                     Chọn ảnh
                                                 </a>
-                                                <div id="holder" class="image-preview"
+                                                <div id="logo-preview" class="image-preview"
                                                      style="margin-top:15px;max-height:150px; max-width: 150px">
                                                     @if(old('logo', @$settings['logo']))
                                                         <img style="width: 100%; height: 100%"
@@ -137,13 +137,13 @@
                                         </div>
                                         <div class="panel-body">
                                             <div>
-                                                <input id="image" type="text"
+                                                <input id="favicon" type="text"
                                                        value="{{ old('favicon', @$settings['favicon']) }}"
                                                        hidden name="favicon">
-                                                <a class="lfm" data-input="image" data-preview="holder2">
+                                                <a class="lfm" data-input="favicon" data-preview="favicon-preview">
                                                     Chọn ảnh
                                                 </a>
-                                                <div id="holder2" class="image-preview"
+                                                <div id="favicon-preview" class="image-preview"
                                                      style="margin-top:15px;max-height:150px; max-width: 150px">
                                                     @if(old('favicon', @$settings['favicon']))
                                                         <img style="width: 100%; height: 100%"

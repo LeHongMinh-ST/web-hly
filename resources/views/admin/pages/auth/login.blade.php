@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="login_password_recover.html">Quên mật khẩu</a>
+                            <a href="{{ route('admin.getRecoverPasswordForm') }}">Quên mật khẩu</a>
                         </div>
                     </div>
                 </form>

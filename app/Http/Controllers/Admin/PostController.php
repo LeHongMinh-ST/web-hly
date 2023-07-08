@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\CacheEnum;
+use App\Enums\CategoryType;
 use App\Enums\Language;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StorePostRequest;
@@ -15,6 +17,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -52,13 +55,13 @@ class PostController extends Controller
     public function create(Request $request): Factory|View|Application
     {
         $post = null;
-        $refLanguage = Language::Vietnamese;
-        if ($request->has('ref_language') && $request->has('from_id')) {
-            $post = $this->postRepository->find($request->get('from_id'));
-            $refLanguage = $request->get('ref_language');
-        }
 
-        $categories = $this->categoryRepository->getCategory();
+        $refLanguage = $request->get('ref_language', Language::Vietnamese);
+
+        $categories = $this->categoryRepository->getCategory([
+            'locale' => $refLanguage,
+            'type' => CategoryType::News
+        ]);;
 
         return view('admin.pages.post.create')->with(compact('categories', 'post', 'refLanguage'));
     }
@@ -74,7 +77,6 @@ class PostController extends Controller
     {
         DB::beginTransaction();
         try {
-
             $data = $request->all();
             $post = $this->postRepository->create(array_merge($data, [
                 'create_by' => auth()->id(),
@@ -82,7 +84,6 @@ class PostController extends Controller
                 'views' => 0,
                 'is_featured' => array_key_exists('is_featured', $data)
             ]));
-
 
             $post?->tags()->attach(@$data['tags'] ?? []);
 
@@ -93,6 +94,7 @@ class PostController extends Controller
             $this->languageMetaService->createPost($post->id, Post::class, $refLanguage, @$data['from_id']);
 
             DB::commit();
+            removeCaches([CacheEnum::PostFeatured, CacheEnum::PostNewHome]);
             $request->session()->flash('success', 'Tạo mới bài viết thành công');
             return redirect()->route('admin.posts.index', ['locale' => $refLanguage]);
 
@@ -119,10 +121,16 @@ class PostController extends Controller
     public function edit(int|string $id): Factory|View|Application
     {
         $post = $this->postRepository->find($id);
+        $this->authorize('edit', $post);
+
         $post->load('language');
+
         $post->locales = $this->languageMetaService->getArrayLocale($post->id, Post::class);
         $post->localeIds = $this->languageMetaService->getArrayLocaleId($post->id, Post::class);
-        $categories = $this->categoryRepository->getCategory();
+        $categories = $this->categoryRepository->getCategory([
+            'locale' => $post->language()->first()->language_code,
+            'type' => CategoryType::News
+        ]);
         return view('admin.pages.post.edit')->with(compact('post', 'categories'));
     }
 
@@ -139,6 +147,7 @@ class PostController extends Controller
         try {
             $data = $request->all();
             $post = $this->postRepository->find($id);
+            $this->authorize('update', $post);
 
             $post?->fill(array_merge($data, [
                 'update_by' => auth()->id(),
@@ -151,6 +160,8 @@ class PostController extends Controller
             $post?->slug()->create(['content' => $this->slugService->generateSlug(Post::class, $post->title, $id)]);
 
             DB::commit();
+
+            removeCaches([CacheEnum::PostFeatured, CacheEnum::PostNewHome]);
 
             $request->session()->flash('success', 'Cập nhật bài viết thành công');
 
@@ -179,9 +190,14 @@ class PostController extends Controller
     {
         DB::beginTransaction();
         try {
+            $post = $this->postRepository->find($id);
+            $this->authorize('update', $post);
+
             $this->postRepository->delete($id);
 
             DB::commit();
+
+            removeCaches([CacheEnum::PostFeatured, CacheEnum::PostNewHome]);
 
             session()->flash('success', 'Xóa bài viết thành công');
 

@@ -10,8 +10,8 @@
                 <p>Tin tức {{@$post->categories->name ?? ""}}</p>
             </div>
             <div class="infoNews">
-                <h2>{{ $post->title}}</h2>
-                <p><i class="far fa-clock"></i>12-01-2023</p>
+                <h2>{{ $post->title }}</h2>
+                <p><i class="far fa-clock"></i>{{ \Illuminate\Support\Carbon::createFromTimeString($post->created_at)->format('H:m d/m/Y') }}</p>
             </div>
             <div class="content">
                 {!! $post->content !!}

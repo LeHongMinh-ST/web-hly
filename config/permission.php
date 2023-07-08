@@ -128,4 +128,44 @@ return [
         'name' => 'Xoá liên hệ',
         'group_code' => 'contact',
     ],
+    [
+        'code' => 'supplier-index',
+        'name' => 'Xem danh sách nhà đầu tư',
+        'group_code' => 'suppliers',
+    ],
+    [
+        'code' => 'supplier-create',
+        'name' => 'Tạo mới nhà đầu tư',
+        'group_code' => 'suppliers',
+    ],
+    [
+        'code' => 'supplier-update',
+        'name' => 'Cập nhật nhà đầu tư',
+        'group_code' => 'suppliers',
+    ],
+    [
+        'code' => 'supplier-delete',
+        'name' => 'Xoá nhà đầu tư',
+        'group_code' => 'suppliers',
+    ],
+    [
+        'code' => 'investment-article-index',
+        'name' => 'Xem danh sách tin tức đâ tư',
+        'group_code' => 'investment-articles',
+    ],
+    [
+        'code' => 'investment-article-create',
+        'name' => 'Tạo mới tin tức đâ tư',
+        'group_code' => 'investment-articles',
+    ],
+    [
+        'code' => 'investment-article-update',
+        'name' => 'Cập nhật tin tức đâ tư',
+        'group_code' => 'investment-articles',
+    ],
+    [
+        'code' => 'investment-article-delete',
+        'name' => 'Xoá tin tức đâ tư',
+        'group_code' => 'investment-articles',
+    ],
 ];

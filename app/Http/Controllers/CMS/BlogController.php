@@ -18,7 +18,8 @@ class BlogController extends Controller
 {
     public function __construct(
         private SlugRepository $slugRepository,
-        private PostRepository $postRepository)
+        private PostRepository $postRepository
+    )
     {
     }
 

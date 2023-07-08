@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\ContactStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\ReplyContactRequest;
+use App\Http\Requests\Contact\StoreContactRequest;
 use App\Jobs\SendMailReplyContact;
 use App\Repositories\Contact\ContactRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -47,7 +49,11 @@ class ContactController extends Controller
     public function show($id)
     {
         $contact = $this->contactRepository->find($id);
-        $contact->load('contactReplies');
+        if ($contact->status == ContactStatus::Unread) {
+            $contact->status = ContactStatus::Read;
+            $contact->save();
+        }
+        $contact->load('contactReplies', 'contactReplies.user');
         return view('admin.pages.contact.reply')->with(compact('contact'));
     }
 
@@ -59,28 +65,29 @@ class ContactController extends Controller
         try {
             $contact = $this->contactRepository->find($id);
 
-            if ($contact) {
+            if (!$contact) {
                 throw new ModelNotFoundException('Không tồn tại bản ghi');
             }
 
-            $contact?->fill([
+            $contact->fill([
                 'update_by' => auth()->id(),
                 'status' => ContactStatus::Reply
             ]);
-
-            $contact?->save();
+            $contact->save();
             $message = $request->input('content');
-            $contact?->contactReplies()->create([
-                'message' => $message
+            $contact->contactReplies()->create([
+                'message' => $message,
+                'user_id' => auth()->id()
             ]);
 
-            SendMailReplyContact::dispatch($contact->email, $contact->name, $message);
+            SendMailReplyContact::dispatch($contact->email,$message);
+
 
             DB::commit();
 
             $request->session()->flash('success', 'Trả lời liên hệ thành công!');
 
-            return redirect()->route('admin.contact.index');
+            return redirect()->route('admin.contact.show', $id);
 
         } catch (ModelNotFoundException $exception) {
             DB::rollBack();

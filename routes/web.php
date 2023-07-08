@@ -4,15 +4,18 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\InvestmentArticleController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RecruitmentController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\SlugController;
 use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\HomeController;
+use App\Http\Controllers\CMS\InvestingNewsController;
+use App\Http\Controllers\CMS\SearchController;
 use Illuminate\Support\Facades\Route;
 use UniSharp\LaravelFilemanager\Lfm;
 
@@ -26,43 +29,37 @@ use UniSharp\LaravelFilemanager\Lfm;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware'=>['view-page']], function (){
+Route::group(['middleware'=>['view-page', 'set-locale']], function (){
     Route::multilingual('/', [HomeController::class, 'index'])->name('home');
 
-    Route::prefix('/gioi-thieu')->group(function () {
-        Route::multilingual('/', function () {
-            return view('cms.page.introduce');
-        })->name('cms.about');
-        Route::multilingual('/doi-ngu-nhan-su', function () {
-            return view('cms.page.info.humanResourcesTeam');
-        })->name('cms.about.activity');
-        Route::multilingual('/tam-nhin-su-menh-va-gia-tri-cot-loi', function () {
-            return view('cms.page.info.coreValues');
-        })->name('cms.about.coreValues');
-        Route::multilingual('/doi-voi-khach-hang', function () {
-            return view('cms.page.info.forCustomers');
-        })->name('cms.about.forCustomers');
-    });
+    Route::multilingual('/gioi-thieu', function () {
+        return view('cms.page.introduce');
+    })->name('cms.about');
+    Route::multilingual('/gioi-thieu/doi-ngu-nhan-su', function () {
+        return view('cms.page.info.humanResourcesTeam');
+    })->name('cms.about.activity');
+    Route::multilingual('/gioi-thieu/tam-nhin-su-menh-va-gia-tri-cot-loi', function () {
+        return view('cms.page.info.coreValues');
+    })->name('cms.about.coreValues');
+    Route::multilingual('/gioi-thieu/doi-voi-khach-hang', function () {
+        return view('cms.page.info.forCustomers');
+    })->name('cms.about.forCustomers');
 
-    Route::prefix('/linh-vuc-hoat-dong')->group(function () {
-        Route::multilingual('/', function () {
-            return view('cms.page.fieldOperation.activity');
-        })->name('cms.fieldOperation');
-        Route::multilingual('/cong-nghe-xanh', function () {
-            return view('cms.page.fieldOperation.activity');
-        })->name('cms.fieldOperation.activity');
-        Route::multilingual('/thuong-mai-dich-vu', function () {
-            return view('cms.page.fieldOperation.serviceCommerce');
-        })->name('cms.fieldOperation.serviceCommerce');
-        Route::multilingual('/nam-y-va-cham-soc-suc-khoe', function () {
-            return view('cms.page.fieldOperation.medicineHealthcare');
-        })->name('cms.fieldOperation.medicineHealthcare');
-        Route::multilingual('/thuc-pham-xanh', function () {
-            return view('cms.page.fieldOperation.greenTechnology');
-        })->name('cms.fieldOperation.greenTechnology');
-    });
-
-
+    Route::multilingual('/linh-vuc-hoat-dong', function () {
+        return view('cms.page.fieldOperation.activity');
+    })->name('cms.fieldOperation');
+    Route::multilingual('/linh-vuc-hoat-dong/cong-nghe-xanh', function () {
+        return view('cms.page.fieldOperation.activity');
+    })->name('cms.fieldOperation.activity');
+    Route::multilingual('/linh-vuc-hoat-dong/thuong-mai-dich-vu', function () {
+        return view('cms.page.fieldOperation.serviceCommerce');
+    })->name('cms.fieldOperation.serviceCommerce');
+    Route::multilingual('/linh-vuc-hoat-dong/nam-y-va-cham-soc-suc-khoe', function () {
+        return view('cms.page.fieldOperation.medicineHealthcare');
+    })->name('cms.fieldOperation.medicineHealthcare');
+    Route::multilingual('/linh-vuc-hoat-dong/thuc-pham-xanh', function () {
+        return view('cms.page.fieldOperation.greenTechnology');
+    })->name('cms.fieldOperation.greenFood');
     Route::multilingual('/phat-trien-ben-vung', function () {
         return view('cms.page.sustainableDevelopment');
     })->name('cms.sustainableDevelopment');
@@ -74,17 +71,17 @@ Route::group(['middleware'=>['view-page']], function (){
     Route::multilingual('/tin-tuc-su-kien', [HomeController::class, 'postPage'])->name('cms.news');
     Route::multilingual('/tin-tuc-su-kien/bai-viet/{slug}', [BlogController::class, 'getPost'])->name('cms.news.post')->middleware(['filter']);
     Route::multilingual('/tuyen-dung', [\App\Http\Controllers\CMS\RecruitmentController::class, 'index'])->name('cms.recruitment');
+    Route::multilingual('/tim-kiem', [SearchController::class, 'index'])->name('cms.search');
+    Route::multilingual('/tin-tuc-nha-dau-tu', [InvestingNewsController::class, 'index'])->name('cms.investingNews');
+    Route::multilingual('/tin-tuc-nha-dau-tu/bai-viet/{slug}', [InvestingNewsController::class, 'getPost'])->name('cms.investingNews.post');
     Route::multilingual('/lien-he', function () {
         return view('cms.page.contact');
     })->name('cms.contact');
-    Route::multilingual('/tim-kiem', function () {
-        return view('cms.page.search');
-    })->name('cms.search');
     Route::multilingual('/nha-dau-tu', [HomeController::class, 'investors'])->name('cms.investors');
-    Route::multilingual('/nha-dau-tu/{slug}', function () {
-        return view('cms.page.info.forCustomers');
-    })->name('cms.info.forCustomers');
+    Route::multilingual('/nha-dau-tu/{slug}', [HomeController::class, 'detailinvestor'])->name('cms.info.forCustomers');
 });
+
+Route::post('/contact', [HomeController::class, 'createContact'])->name('cms.contact.store');
 
 
 
@@ -93,6 +90,10 @@ Route::prefix('/admin')->group(function () {
     Route::middleware(['preventBackHistory'])->group(function () {
 
         Route::get('/login', [AuthController::class, 'getLoginForm'])->name('admin.getLoginForm');
+        Route::get('/recover-password', [AuthController::class, 'getRecoverPasswordForm'])->name('admin.getRecoverPasswordForm');
+        Route::get('/reset-password', [AuthController::class, 'getResetPasswordForm'])->name('admin.getResetPasswordForm');
+        Route::post('/reset-password', [AuthController::class, 'handleResetPassword'])->name('admin.handleResetPassword');
+        Route::post('/recover-password', [AuthController::class, 'handleRecoverPasswordForm'])->name('admin.handleRecoverPasswordForm');
         Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
         Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
@@ -135,9 +136,29 @@ Route::prefix('/admin')->group(function () {
                 Route::post('/', [PostController::class, 'store'])->name('admin.posts.store')->middleware('permission:post-create');
                 Route::get('/create', [PostController::class, 'create'])->name('admin.posts.create')->middleware('permission:post-create');
                 Route::get('/{id}', [PostController::class, 'show'])->name('admin.posts.show')->middleware('permission:post-index');
-                Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update')->middleware('permission:post-update');
-                Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy')->middleware('permission:post-delete');
-                Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit')->middleware('permission:post-update');
+                Route::put('/{id}', [PostController::class, 'update'])->name('admin.posts.update')->middleware(['permission:post-update']);
+                Route::delete('/{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy')->middleware(['permission:post-delete']);
+                Route::get('/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit')->middleware(['permission:post-update']);
+            });
+
+            Route::prefix('investment-articles')->group(function () {
+                Route::get('/', [InvestmentArticleController::class, 'index'])->name('admin.investment-article.index')->middleware('permission:investment-article-index');
+                Route::post('/', [InvestmentArticleController::class, 'store'])->name('admin.investment-article.store')->middleware('permission:investment-article-create');
+                Route::get('/create', [InvestmentArticleController::class, 'create'])->name('admin.investment-article.create')->middleware('permission:investment-article-create');
+                Route::get('/{id}', [InvestmentArticleController::class, 'show'])->name('admin.investment-article.show')->middleware('permission:investment-article-index');
+                Route::put('/{id}', [InvestmentArticleController::class, 'update'])->name('admin.investment-article.update')->middleware(['permission:investment-article-update']);
+                Route::delete('/{id}', [InvestmentArticleController::class, 'destroy'])->name('admin.investment-article.destroy')->middleware(['permission:investment-article-delete']);
+                Route::get('/{id}/edit', [InvestmentArticleController::class, 'edit'])->name('admin.investment-article.edit')->middleware(['permission:investment-article-update']);
+            });
+
+            Route::prefix('suppliers')->group(function () {
+                Route::get('/', [SupplierController::class, 'index'])->name('admin.suppliers.index')->middleware('permission:supplier-index');
+                Route::post('/', [SupplierController::class, 'store'])->name('admin.suppliers.store')->middleware('permission:supplier-create');
+                Route::get('/create', [SupplierController::class, 'create'])->name('admin.suppliers.create')->middleware('permission:supplier-create');
+                Route::get('/{id}', [SupplierController::class, 'show'])->name('admin.suppliers.show')->middleware('permission:supplier-index');
+                Route::put('/{id}', [SupplierController::class, 'update'])->name('admin.suppliers.update')->middleware('permission:supplier-update');
+                Route::delete('/{id}', [SupplierController::class, 'destroy'])->name('admin.suppliers.destroy')->middleware('permission:supplier-delete');
+                Route::get('/{id}/edit', [SupplierController::class, 'edit'])->name('admin.suppliers.edit')->middleware('permission:supplier-update');
             });
 
             Route::prefix('categories')->group(function () {

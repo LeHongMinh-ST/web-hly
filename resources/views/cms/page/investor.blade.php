@@ -1,6 +1,7 @@
 @extends('cms.layout.main')
 @section('title')
-    Nhà đầu tư - Tập đoàn Abc
+    {{__('Nhà đầu tư')}} - {{__('Tập đoàn HLY')}}
+
 @endsection
 
 @section('content')
@@ -14,133 +15,106 @@
                     <div class="content stagger-up" style="padding-top: 0px;">
                         <div class="content stagger-up" style="padding-top: 0px;">
                         <div class="banner">
-                            <img src="../assets/fe/images/investor.jpg" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
-                            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">NHÀ ĐẦU TƯ</span>
+                            <img src="{{asset('assets/fe/images/investor.jpg')}}" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">{{__("NHÀ ĐẦU TƯ")}}</span>
                         </div>
                     </div>
             <ul class="listCateInvestor" >
                 <div class="item cate-1">
-                    <h2>ĐẠI HỘI CỔ ĐÔNG</h2>
+                    <h2>{{__("ĐẠI HỘI CỔ ĐÔNG")}}</h2>
                     <div class="content-top">
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
-                            Nghị quyết và biên bản đại hội cổ đông 2022
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
+                            {{trans('cms.about_annual_gerenal_meeting_1')}}
                         </p>
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
-                            Thông báo thay đổi nhân sự Hội đồng quản trị
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
+                            {{trans('cms.about_annual_gerenal_meeting_2')}}
                         </p>
                     </div>
                     <div class="content">
-                        <div class="img" style="background: url('./assets/fe/images/introduce.jpg') center">
-                            <img src="./assets/fe/images/thumb-cate.gif">
+                        <div class="img" style="background: url({{asset('assets/fe/images/introduce.jpg')}}) center">
+                            <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                         </div>
                         <div class="copy">
                             <!-- <p>- Sản xuất thuốc</p> -->
-                            <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                            <a class="btn-2" href="{{localized_route('cms.fieldOperation')}}">{{ __('Xem thêm') }}</a>
                         </div>
                     </div>
-                    <a class="link" href="/linh-vuc-hoat-dong"></a>
+                    <a class="link" href="{{localized_route('cms.fieldOperation')}}"></a>
                 </div>
                 <div class="item cate-3">
-                    <h2>CÔNG BỐ THÔNG TIN</h2>
+                    <h2>{{__("CÔNG BỐ THÔNG TIN")}}</h2>
                     <div class="content-top">
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
-                            Báo cáo tài chính hợp nhất quý 3 năm 2022
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
+                            {{trans('cms.about_information_1')}}
                         </p>
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
-                           Báo cáo kết quả kinh doanh quý 3 năm 2022
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
+                            {{trans('cms.about_information_2')}}
                         </p>
                     </div>
                     <div class="content">
-                        <div class="img" style="background: url('./assets/fe/images/hl2.jpg') center">
-                            <img src="./assets/fe/images/thumb-cate.gif">
+                    <div class="img" style="background: url({{asset('assets/fe/images/hl1.jpg')}}) center">
+                            <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                         </div>
                         <div class="copy">
                             <!-- <p>- Du lịch nghỉ dưỡng</p>
                             <p>- Dưỡng sinh</p> -->
-                            <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                            <a class="btn-2" href="{{localized_route('cms.fieldOperation')}}">{{ __('Xem thêm') }}</a>
                         </div>
                     </div>
-                    <a class="link" href="/linh-vuc-hoat-dong"></a>
+                    <a class="link" href="{{localized_route('cms.fieldOperation')}}"></a>
                 </div>
                 <div class="item cate-3">
-                        <h2>QUẢN TRỊ CÔNG TY</h2>
+                        <h2>{{__("QUẢN TRỊ CÔNG TY")}}</h2>
                     <div class="content-top">
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
-                            Quy chế công bố thông tin tại công ty FPT
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
+                            {{trans('cms.about_goverance_company_1')}}
                         </p>
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
-                            Điều lệ công ty
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
+                            {{trans('cms.about_goverance_company_2')}}
                         </p>
                         <p>
-                            <img src="../assets/fe/images/ar-g.png" alt="">
-                            Quy chế quản trị
+                            <img src="{{asset('assets/fe/images/ar-g.png')}}" alt="">
+                            {{trans('cms.about_goverance_company_3')}}
                         </p>
                     </div>
                         <div class="content">
-                            <div class="img" style="background: url('./assets/fe/images/hg1.jpg') center">
-                                <img src="./assets/fe/images/thumb-cate.gif">
+                            <div class="img" style="background: url({{asset('assets/fe/images/hg1.jpg')}}) center">
+                                <img src="{{asset('assets/fe/images/thumb-cate.gif')}}">
                             </div>
                             <div class="copy text-white">
-                                <a class="btn-2" href="/linh-vuc-hoat-dong">Xem thêm</a>
+                                <a class="btn-2" href="{{localized_route('cms.fieldOperation')}}">{{ __('Xem thêm') }}</a>
                             </div>
                         </div>
-                        <a class="link" href="/linh-vuc-hoat-dong"></a>
+                        <a class="link" href="{{localized_route('cms.fieldOperation')}}"></a>
                     </div>
             </ul>
         </div>
         <section class="shareholdersHomeWrap">
         <div class="container">
             <a href="/quan-he-co-dong">
-                <h2 class="title">NHÀ ĐẦU TƯ</h2>
+                <h2 class="title">{{__("NHÀ ĐẦU TƯ")}}</h2>
             </a>
             <div class="row">
                 <div class="relationshipShareholder">
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
-                    <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
-                        <a href="/nha-dau-tu/thong-tin-nha-dau-tu-a">
-                            <h3>Công ty HLY smart</h3>
-                            <img src="./assets/fe/images/hg1.jpg">
-                            Tiền thân của HLY là Tập đoàn HLY, thành lập năm 1993 tại Ucraina. Đầu những năm 2000, HLY trở về Việt Nam,
-                            tập trung đầu tư vào lĩnh vực du lịch và bất động sản với hai thương hiệu chiến lược ban đầu là HLY và HLY.
-                        </a>
-                    </div>
+                    @forelse (@$suppliers ?? [] as $supplier)
+                        <div section=".shareholdersHomeWrap" data="-200" class="left paralax-hor" style="width: 33%;">
+                            <a href="{{localized_route('cms.info.forCustomers', $supplier->slug->content)}}">
+                                <h3>{{$supplier->name}}</h3>
+                                <img style="aspect-ratio: 16 / 9; width: 100%; object-fit: cover" src="{{ $supplier->thumbnail }}" alt="{{$supplier->name}}">
+                                <p class="line-clamp-3">
+                                    {{ $supplier->description }}
+                                </p>
+                            </a>
+                        </div>
+                    @empty
+
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -148,7 +122,9 @@
     @include('cms.components.investorNews', ['posts' => $posts])
 
     </div>
-    @include('cms.components.partners')
+    @if(count(@$supplierTops ?? []))
+        @include('cms.components.partners')
+    @endif
 @endsection
 @section('js')
             <script>

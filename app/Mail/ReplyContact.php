@@ -19,7 +19,6 @@ class ReplyContact extends Mailable
      * @return void
      */
     public function __construct(
-        private string $name,
         private string $message,
     )
     {
@@ -34,7 +33,7 @@ class ReplyContact extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'HLY - Phản hồi liên hệ',
+            subject: config('app.name') . ' - Phản hồi liên hệ',
         );
     }
 
@@ -47,6 +46,9 @@ class ReplyContact extends Mailable
     {
         return new Content(
             view: 'mail.reply-contact',
+            with: [
+                'messageReply' => $this->message,
+            ],
         );
     }
 

@@ -8,18 +8,17 @@
     <meta http-equiv="content-language" content="en"/>
 
     <title>@yield('title')</title>
-    <meta name="title" content="HLY - Mãi mãi tinh thần khởi nghiệp"/>
+    <meta name="title" content="{{getValueKeySetting('seo_title')}}"/>
     <meta name="description"
-          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
-    />
+          content="{{getValueKeySetting('seo_description')}}" />
     <meta property="og:locale" content="vi_VN"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="HLY - Mãi mãi tinh thần khởi nghiệp"/>
+    <meta property="og:title" content="{{getValueKeySetting('seo_title')}}"/>
     <meta property="og:description"
-          content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
+          content="{{getValueKeySetting('seo_description')}}"
     />
-{{--    <meta property="og:url" content="http://Abc.net/"/>--}}
-{{--    <meta property="og:site_name" content="Abc"/>--}}
+{{--    <meta property="og:url" content="http://HLY.net/"/>--}}
+{{--    <meta property="og:site_name" content="HLY"/>--}}
     <meta property="og:image" content="./assets/fe/images/share-social.jpg"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
@@ -32,8 +31,8 @@
           content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
 
     <!-- FAVICON -->
-    <link rel="image_src" href="{{ asset('assets/fe/favicon.ico') }}"/>
-    <link rel="icon" type="image/jpeg" href="{{ asset('assets/fe/favicon.ico') }}"/>
+    <link rel="image_src" href="{{getValueKeySetting('favicon')}}"/>
+    <link rel="icon" type="image/jpeg" href="{{getValueKeySetting('favicon')}}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
           integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -44,6 +43,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/fe/css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     @yield('css')
+    @yield('js-notication')
 </head>
 
 <body>

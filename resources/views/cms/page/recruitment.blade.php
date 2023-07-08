@@ -1,6 +1,6 @@
 @extends('cms.layout.main')
 @section('title')
-    Tuyển dụng
+    {{ __('Tuyển dụng') }} - {{__('Tập đoàn HLY')}}
 @endsection
 
 @section('js')
@@ -44,13 +44,13 @@
                 <div class="breadcrumb" style="    margin: 20px 0px;">
                     <a href="/"><i class="fas fa-home"></i></a>
                     <i class="fas fa-chevron-right"></i>
-                    <p>Tuyển dụng</p>
+                    <p>{{__("Tuyển dụng")}}</p>
                 </div>
                 <div class="content stagger-up" style="padding-top: 0px;">
                     <div class="content stagger-up" style="padding-top: 0px;"></div>
                     <div class="banner">
-                        <img src="../assets/fe/images/recruiment.png" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
-                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">TUYỂN DỤNG</span>
+                        <img src="{{asset('assets/fe/images/recruiment.png')}}" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">{{__("TUYỂN DỤNG")}}</span>
                     </div>
                 </div>
             </div>
@@ -59,23 +59,23 @@
         <section class="container-recuitment" >
             <div style="" class="wrapp-info">
                 <div style="" class="context">
-                    <h2 style="">Thông tin tuyển dụng</h2>
-                    <p>Chúng tôi tin rằng trung thực là khởi đầu cần thiết cho mọi mối quan hệ tốt đẹp.</p>
+                    <h2 style="">{{__("Thông tin tuyển dụng")}}</h2>
+                    <p>{{trans('cms.about_welcome_recruitment')}}</p>
                 </div>
                 <div style="" class="filter">
-                    <form method="get" action="/tuyen-dung" class="filter">
-                        <select name="category_id" style="width: 30%;" id="recruitment-area-select">
-                            <option value="">Tất cả lĩnh vực</option>
+                    <form method="get" action="{{localized_route('cms.recruitment')}}" class="filter">
+                        <select name="danh_muc" style="width: 30%;" id="recruitment-area-select">
+                            <option value="tat-ca">{{__("Tất cả lĩnh vực")}}</option>
                             @foreach($categories as $category)
                                 <option
-                                    value="{{ $category->id }}"
-                                    @selected($category->id == $categoryId)>
+                                    value="{{ $category->slug->content }}"
+                                    @selected($category->slug->content == $categorySlug)>
                                     {{ $category->name }}
                                 </option>
                             @endforeach
                         </select>
                         <button type="submit">
-                            Tìm kiếm
+                            {{__("Tìm kiếm")}}
                         </button>
                     </form>
                 </div>
@@ -103,7 +103,7 @@
 
                 <div class="contentDetail" style="width: 60%; padding-left: 30px;">
                     <h3 style="margin-bottom: 20px;" id="detail-title"></h3>
-                    <p style="margin-bottom: 20px;">Đăng ngày:
+                    <p style="margin-bottom: 20px;">{{count($recruitmentPosts) ? 'Ngày đăng' : ''}}
                         <span id="detail-created-at"></span>
                     </p>
                     <div id="detail-content"></div>

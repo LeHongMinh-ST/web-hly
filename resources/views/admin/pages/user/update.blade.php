@@ -99,7 +99,7 @@
                                                         class="text-danger">*</span></label>
                                                 <div>
                                                     <select id="selectIsActive" name="role_id" class="bootstrap-select form-control select-lg">
-                                                        <option selected disabled >{{@count($roles) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
+                                                        <option selected disabled >{{@count($roles) ? 'Chọn nhóm quyền ...' : 'Chưa có nhóm quyền'}} </option>
                                                         @forelse(@$roles ?? [] as $role)
                                                             <option
                                                                 @if($role->id == $user->role_id) selected
@@ -139,8 +139,8 @@
                                         <div class="panel-body">
                                             <div>
                                                 <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
-                                                    <option value="1" {{old('order', @$user->status) == 1 ? 'selected' : ''}}>Công khai</option>
-                                                    <option value="0" {{old('order', @$user->status) == 0 ? 'selected' : ''}}>Ẩn</option>
+                                                    <option value="1" {{old('order', @$user->status) == 1 ? 'selected' : ''}}>Hoạt động</option>
+                                                    <option value="0" {{old('order', @$user->status) == 0 ? 'selected' : ''}}>Tạm khóa</option>
                                                 </select>
                                             </div>
                                         </div>

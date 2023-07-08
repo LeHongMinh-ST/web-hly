@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="content-language" content="en"/>
 
-    <title>Trang chủ - Tập đoàn Abc</title>
+    <title>Trang chủ - Tập đoàn HLY</title>
     <meta name="title" content="HLY - Mãi mãi tinh thần khởi nghiệp"/>
     <meta name="description"
           content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
@@ -18,8 +18,8 @@
     <meta property="og:description"
           content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào HLY cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng."
     />
-    <meta property="og:url" content="http://Abc.net/"/>
-    <meta property="og:site_name" content="Abc"/>
+    <meta property="og:url" content="http://HLY.net/"/>
+    <meta property="og:site_name" content="HLY"/>
     <meta property="og:image" content="./assets/fe/images/share-social.jpg"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
@@ -159,7 +159,7 @@
                             <img src="./assets/fe/images/post1.jpg" style="width: 370px; height: 250px;">
                         </div>
                         <div class="copy">
-                            <h4>Tin Abcgroup</h4>
+                            <h4>Tin HLYgroup</h4>
                             <h3>Từ bỏ ngay những thói quen có thể âm thầm tàn phá xương khớp</h3>
                             <p>09-01-2023</p>
                         </div>
@@ -175,7 +175,7 @@
                             <img src="./assets/fe/images/post2.jpg" style="width: 370px; height: 250px;">
                         </div>
                         <div class="copy">
-                            <h4>Tin Abcgroup</h4>
+                            <h4>Tin HLYgroup</h4>
                             <h3>Điều trị bệnh lý cơ xương khớp bằng
                                 phương pháp y học cổ truyền </h3>
                             <p>09-01-2023</p>
@@ -192,7 +192,7 @@
                             <img src="./assets/fe/images/post3.jpg" style="width: 370px; height: 250px;">
                         </div>
                         <div class="copy">
-                            <h4>Tin Abcgroup</h4>
+                            <h4>Tin HLYgroup</h4>
                             <h3>Điều trị bệnh lý cơ xương khớp theo y học cổ truyền
                             </h3>
                             <p>09-01-2023</p>
@@ -236,7 +236,7 @@
                                 </div>
                                 <div class="copy">
                                     <p></p>
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
                             <a class="link" href="/linh-vuc-hoat-dong.html"></a>
@@ -252,7 +252,7 @@
                                 </div>
                                 <div class="copy">
                                     <p></p>
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
                             <a class="link" href="/linh-vuc-hoat-dong.html"></a>
@@ -268,7 +268,7 @@
                                 </div>
                                 <div class="copy">
                                     <p></p>
-                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">Xem thêm</a>
+                                    <a class="btn-2" href="/linh-vuc-hoat-dong.html">{{ __('Xem thêm') }}</a>
                                 </div>
                             </div>
                             <a class="link" href="/linh-vuc-hoat-dong.html"></a>
@@ -322,7 +322,7 @@
 
                 </div>
                 <div>
-                    <a class="btn-2" href="/linh-vuc-hoat-dong/cong-nghe-br-cong-nghiep">Xem thêm</a>
+                    <a class="btn-2" href="/linh-vuc-hoat-dong/cong-nghe-br-cong-nghiep">{{ __('Xem thêm') }}</a>
 
                 </div>
             </div>
@@ -344,8 +344,8 @@
             <div class="row">
                 <div class="left">
                     <div>
-                        <h4>Tập đoàn Abc(AbcJSC)</h4>
-                        <p>© Bản quyền Abc2019</p>
+                        <h4>Tập đoàn HLY(HLYJSC)</h4>
+                        <p>© Bản quyền HLY2019</p>
                     </div>
                     <div>
                         <p>N02 - LK1, Hà Trì, Phường Hà Cầu, Quận Hà Đông, Thành phố Hà Nội, Việt Nam</p>

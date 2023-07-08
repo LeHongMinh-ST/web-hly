@@ -39,10 +39,12 @@
 
                     <!-- Content area -->
                     <div class="content">
-
+                        <div class="alert alert-primary alert-styled-left">
+                            Bản dịch <img class="icon-flag" src="{{ \App\Enums\Language::getIconFlag($refLanguage) }}" alt="{{ \App\Enums\Language::getDescription($refLanguage) }}"><b>{{ \App\Enums\Language::getDescription($refLanguage) }}</b>
+                        </div>
                         <!-- Dashboard content -->
                         <div class="row">
-                            <form action="{{ route('admin.recruitments.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admin.recruitments.store', request()->all()) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="col-md-9">
                                     <div class="panel panel-white">
@@ -109,10 +111,38 @@
 
                                     <div class="panel panel-white">
                                         <div class="panel-heading">
+                                            <h6 class="panel-title"><i class="icon-gradient position-left"></i> Trạng
+                                                thái</h6>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div>
+                                                <select id="selectIsActive" name="status"
+                                                        class="bootstrap-select form-control select-lg">
+                                                    <option value="1">Công khai</option>
+                                                    <option value="0">Ẩn</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-white">
+                                        <div class="panel-heading">
                                             <h6 class="panel-title"><i class="icon-folder2 position-left"></i> Danh mục</h6>
                                         </div>
                                         <div class="panel-body">
                                             <div>
+                                                @if($category_id)
+                                                    <select id="selectIsActive" name="category_id" class="bootstrap-select form-control select-lg">
+                                                        <option selected disabled >{{@count($categories) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
+                                                        @forelse(@$categories ?? [] as $category)
+                                                            <option
+                                                                @if($category->id == $category_id) selected
+                                                                @endif style="cursor: pointer"
+                                                                value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        @empty
+                                                        @endforelse
+                                                    </select>
+                                                @else
                                                 <select id="selectIsActive" name="category_id" class="bootstrap-select form-control select-lg">
                                                     <option selected disabled >{{@count($categories) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
                                                     @forelse(@$categories ?? [] as $category)
@@ -120,6 +150,7 @@
                                                     @empty
                                                     @endforelse
                                                 </select>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

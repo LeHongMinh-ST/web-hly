@@ -43,26 +43,76 @@
                 <div class="col">
                     <div class="panel panel-flat">
                         <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
-                                        <div class="form-control-feedback">
-                                            <i class="icon-search4 text-size-base"></i>
+                            <div class="row" style="display: flex; align-items: end;">
+
+                                <div class="col-md-8">
+                                    <form
+                                        action="{{ route('admin.recruitments.index', array_merge(request()->all())) }}"
+                                        method="get">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="hidden" hidden="" class="form-control"
+                                                           name="locale"
+                                                           value="{{ request()->query('locale', \App\Enums\Language::Vietnamese) }}">
+                                                    <input type="text" class="form-control" name="q"
+                                                           value="{{ request()->query('q') }}"
+                                                           placeholder="Tìm kiếm...">
+                                                    <div class="form-control-feedback">
+                                                        <i class="icon-search4 text-size-base"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <select class="bootstrap-select" data-width="100%" name="category_id">
+                                                        <option selected disabled >{{@count($categories) ? 'Tất cả danh mục' : 'Chưa có danh mục'}} </option>
+                                                        @forelse(@$categories ?? [] as $category)
+                                                            <option
+                                                            @if($category->id == request()->query('category_id')) selected
+                                                            @endif style="cursor: pointer"
+                                                             value="{{ $category->id }}">{{ $category->name }}</>
+                                                        @empty
+                                                        @endforelse
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button class="btn-primary btn" type="submit">Tìm kiếm
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-4">
-
+                                    </form>
                                 </div>
                                 <div class="col-md-4 text-right">
                                     <div class="form-group has-feedback has-feedback-left"
                                          style="text-align: end">
-                                        <a type="button" href="{{ route('admin.posts.create') }}"
-                                           class="btn btn-primary"><i
-                                                class="icon-add"></i>
-                                            Thêm mới</a>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle"
+                                                    data-toggle="dropdown" aria-expanded="false"><img
+                                                    class="icon-flag"
+                                                    src="{{ \App\Enums\Language::getIconFlag(request()->query('locale', \App\Enums\Language::Vietnamese)) }}"
+                                                    alt="flag">{{ \App\Enums\Language::getDescription(request()->query('locale', \App\Enums\Language::Vietnamese)) }}
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                @foreach(\App\Enums\Language::toSelectArray() as $key => $locale)
+                                                    <li>
+                                                        <a href="{{ route('admin.recruitments.index', array_merge(request()->all(), ['locale' => $key])) }}">
+                                                            <img
+                                                                class="icon-flag"
+                                                                src="{{ \App\Enums\Language::getIconFlag($key) }}"
+                                                                alt="flag">
+                                                            {{ $locale }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @if(checkPermission('post-create'))
+                                            <a type="button" href="{{ route('admin.recruitments.create', ['ref_language' => request()->query('locale', \App\Enums\Language::Vietnamese)]) }}"
+                                               class="btn btn-primary"><i
+                                                    class="icon-add"></i>
+                                                Thêm mới</a>
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>
@@ -82,6 +132,8 @@
                                         <th>Slug</th>
                                         <th style="text-align: center">Ngày đăng</th>
                                         <th style="text-align: center">Người đăng</th>
+                                        <th style="text-align: center">Ngôn ngữ</th>
+                                        <th style="text-align: center">Hiển thị</th>
                                         <th style="width: 150px; text-align: center">Hành động</th>
                                     </tr>
                                     </thead>
@@ -104,7 +156,14 @@
                                             </td>
                                             <td>{{ @$recruitment->slug->content ?? '' }}</td>
                                             <td style="text-align: center">{{ @$recruitment->textDatePublish }}</td>
-                                            <td style="text-align: center">{{ @$recruitment->createBy->fullname }}</td>
+                                            <td style="text-align: center"><span><img
+                                                            class="img-circle img-xs mr-5"
+                                                            src="{{ Avatar::create(@$recruitment->createBy->fullname)->toBase64()  }}"
+                                                            alt="{{ @$recruitment->createBy->fullname }}"></span>{{ @$recruitment->createBy->fullname }}</td>
+                                            <td style="text-align: center;width: 150px;"><img
+                                                    class="icon-flag" src="{{ @$recruitment->languageIcon }}"
+                                                    alt="">{{ @$recruitment->languageText}}</td>
+                                            <td style="text-align: center">{!! @$recruitment->isActiveText !!}</td>
                                             <td style="text-align: center">
                                                 <ul class="icons-list">
                                                     <li class="dropdown">
@@ -123,7 +182,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="8" style="text-align: center">
+                                            <td colspan="10" style="text-align: center">
                                                 <img src="{{ asset('assets\admin\images\empty.png') }}" width="350px"
                                                      alt="">
                                                 <div>Không có dữ liệu</div>

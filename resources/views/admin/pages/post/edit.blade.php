@@ -20,8 +20,8 @@
                         <div class="page-header-content">
                             <div class="page-title">
                                 <h4><a href="{{ route('admin.posts.index') }}" class="text-link"><i
-                                                class="icon-arrow-left52 position-left"></i></a> <span
-                                            class="text-semibold">Bài viết</span> -
+                                            class="icon-arrow-left52 position-left"></i></a> <span
+                                        class="text-semibold">Bài viết</span> -
                                     Chỉnh sửa </h4>
                             </div>
 
@@ -42,7 +42,11 @@
 
                     <!-- Content area -->
                     <div class="content">
-
+                        <div class="alert alert-primary alert-styled-left">
+                            Bản dịch <img class="icon-flag"
+                                          src="{{ \App\Enums\Language::getIconFlag($post->language()->first()->language_code) }}"
+                                          alt="{{ \App\Enums\Language::getDescription($post->language()->first()->language_code) }}"><b>{{ \App\Enums\Language::getDescription($post->language()->first()->language_code) }}</b>
+                        </div>
                         <!-- Dashboard content -->
                         <div class="row">
                             <form action="{{ route('admin.posts.update', @$post->id) }}" method="post"
@@ -58,7 +62,7 @@
                                         <div class="panel-body">
                                             <div class="form-group">
                                                 <label class="control-label text-bold">Tiêu đề<span
-                                                            class="text-danger">*</span></label>
+                                                        class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="title" id="title"
                                                            value="{{ old('title', @$post->title) }}"
@@ -73,7 +77,8 @@
                                             <div class="form-group">
                                                 <label class="control-label text-bold">Mô tả</label>
                                                 <div>
-                                                    <textarea rows="5" id="editorDescription" style="resize: vertical" cols="5"
+                                                    <textarea rows="5" id="editorDescription" style="resize: vertical"
+                                                              cols="5"
                                                               name="description"
                                                               class="form-control"
                                                               aria-required="true">{{ old('description', @$post->description) }}</textarea>
@@ -83,7 +88,7 @@
 
                                             <div class="form-group">
                                                 <label class="control-label text-bold">Nội dung<span
-                                                            class="text-danger">*</span></label>
+                                                        class="text-danger">*</span></label>
                                                 <div>
                                         <textarea rows="5" id="editorContent" style="resize: vertical" cols="5"
                                                   name="content"
@@ -110,7 +115,7 @@
                                                 <button class="btn btn-success"><i class=" icon-paperplane"></i> Lưu
                                                 </button>
                                                 <a href="{{ route('admin.posts.index') }}" class="btn btn-default"><i
-                                                            class=" icon-close2"></i>
+                                                        class=" icon-close2"></i>
                                                     Đóng</a>
                                             </div>
                                         </div>
@@ -123,10 +128,9 @@
                                         </div>
                                         <div class="panel-body">
                                             <div>
-                                                <select id="selectIsActive" name="status"
-                                                        class="bootstrap-select form-control select-lg">
-                                                    <option value="1">Công khai</option>
-                                                    <option value="0">Ẩn</option>
+                                                <select id="selectIsActive" name="status" class="bootstrap-select form-control select-lg">
+                                                    <option value="1" {{old('status', @$post->status) == 1 ? 'selected' : ''}}>Công khai</option>
+                                                    <option value="0" {{old('status', @$post->status) == 0 ? 'selected' : ''}}>Ẩn</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -148,15 +152,18 @@
                                                                      alt="{{ $localeDes }}">{{ $localeDes }}
                                                                 <span class="check"><i class="icon-check"></i></span>
                                                             @else
-                                                                <a href="{{ route('admin.posts.edit', @$post->localeIds[$keyLocale]['reference_id']) }}" title="Bản dịch {{ $localeDes }}">
+                                                                <a href="{{ route('admin.posts.edit', @$post->localeIds[$keyLocale]['reference_id']) }}"
+                                                                   title="Bản dịch {{ $localeDes }}">
                                                                     <img class="icon-flag"
                                                                          src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
                                                                          alt="{{ $localeDes }}">{{ $localeDes }}
-                                                                    <span class="check"><i class="icon-check"></i></span>
+                                                                    <span class="check"><i
+                                                                            class="icon-check"></i></span>
                                                                 </a>
                                                             @endif
                                                         @else
-                                                            <a href="{{ route('admin.posts.create', ['ref_language' => $keyLocale, 'from_id' => $post->id ]) }}" title="Thêm mới bản dịch {{ $localeDes }}">
+                                                            <a href="{{ route('admin.posts.create', ['ref_language' => $keyLocale, 'from_id' => $post->id ]) }}"
+                                                               title="Thêm mới bản dịch {{ $localeDes }}">
                                                                 <img class="icon-flag"
                                                                      src="{{ \App\Enums\Language::getIconFlag($keyLocale)}}"
                                                                      alt="{{ $localeDes }}">{{ $localeDes }}
@@ -198,9 +205,9 @@
                                                             disabled>{{@count($categories) ? 'Chọn danh mục ...' : 'Chưa có danh mục'}} </option>
                                                     @forelse(@$categories ?? [] as $category)
                                                         <option
-                                                                @if($category->id == $post->category_id) selected
-                                                                @endif style="cursor: pointer"
-                                                                value="{{ $category->id }}">{{ $category->name }}</option>
+                                                            @if($category->id == $post->category_id) selected
+                                                            @endif style="cursor: pointer"
+                                                            value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @empty
                                                     @endforelse
                                                 </select>

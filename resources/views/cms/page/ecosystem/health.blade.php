@@ -14,7 +14,7 @@
     </div>
     <div class="content stagger-up">
         <div class="banner">
-            <img src="../assets/fe/images/contact.jpg" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
+            <img src="{{asset('assets/fe/images/contact.jpg')}}" style="filter: brightness(50%); height: 500px; object-fit: cover; width: 100%">
             <span style="position: absolute; top: 50%; white-space: nowrap; left: 50%; transform: translate(-50%, -50%); font-size: 40px; font-weight: bold; color: white;">HỆ SINH THÁI / SỨC KHỎE</span>
         </div>
     </div>

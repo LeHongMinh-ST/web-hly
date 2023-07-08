@@ -73,10 +73,17 @@ class User extends Authenticatable
 
     public function getIsActiveTextAttribute(): string
     {
-        if($this->status == NULL) return '<span class="label label-primary">Công khai</span>';
+        if($this->status == NULL) return '<span class="label label-primary">Hoạt động</span>';
         return match ((int)$this->status) {
             1 => '<span class="label label-primary">Hoạt động</span>',
             0 => '<span class="label label-danger">Tạm khóa</span>',
         };
+    }
+
+    public function getRoleTextAttribute()
+    {
+        if ($this->is_super_admin) return ' <span class="label label-warning">Quyền siêu quản trị viên</span>';
+
+        return '<span class="label label-primary">'. $this->role->name.'</span>';
     }
 }

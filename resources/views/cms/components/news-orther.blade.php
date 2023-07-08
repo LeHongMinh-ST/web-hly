@@ -1,6 +1,6 @@
 <section section=".newsHomeWrap" data="200" class="newsHomeWrap paralax">
     <div class="container">
-        <h2 class="title">Tin t&#7913;c khác</h2>
+        <h2 class="title">{{ __('Tin tức khác') }}</h2>
         <div class="newsHomeList" style="display: flex; gap: 20px">
                 @php($i=0)
                 @foreach($posts as $post)
@@ -12,7 +12,7 @@
                             <img src="{{ $post->thumbnail }}" style="width: 100%; height: 250px;">
                         </div>
                         <div class="copy">
-                            <h4>Tin {{@$post->categories->name ?? ""}}</h4>
+                            <h4>{{@$post->categories->name ?? ""}}</h4>
                             <h3>{{$post->title}}</h3>
                             <p>{{date_format(date_create($post->created_at), 'd-m-Y')}}</p>
                         </div>

@@ -47,11 +47,14 @@
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <form action="{{ route('admin.posts.index', array_merge(request()->all())) }}" method="get">
+                                                <form
+                                                    action="{{ route('admin.posts.index', array_merge(request()->all())) }}"
+                                                    method="get">
                                                     <div class="row">
                                                         <div class="col-md-8">
                                                             <div class="form-group">
-                                                                <input type="hidden" hidden="" class="form-control" name="locale"
+                                                                <input type="hidden" hidden="" class="form-control"
+                                                                       name="locale"
                                                                        value="{{ request()->query('locale', \App\Enums\Language::Vietnamese) }}">
                                                                 <input type="text" class="form-control" name="q"
                                                                        value="{{ request()->query('q') }}"
@@ -81,7 +84,8 @@
                                                             <span class="caret"></span></button>
                                                         <ul class="dropdown-menu dropdown-menu-right">
                                                             @foreach(\App\Enums\Language::toSelectArray() as $key => $locale)
-                                                                <li><a href="{{ route('admin.posts.index', array_merge(request()->all(), ['locale' => $key])) }}">
+                                                                <li>
+                                                                    <a href="{{ route('admin.posts.index', array_merge(request()->all(), ['locale' => $key])) }}">
                                                                         <img
                                                                             class="icon-flag"
                                                                             src="{{ \App\Enums\Language::getIconFlag($key) }}"
@@ -90,10 +94,13 @@
                                                             @endforeach
                                                         </ul>
                                                     </div>
-                                                    <a type="button" href="{{ route('admin.posts.create') }}"
-                                                       class="btn btn-primary"><i
-                                                            class="icon-add"></i>
-                                                        Thêm mới</a>
+                                                    @if(checkPermission('post-create'))
+                                                        <a type="button" href="{{ route('admin.posts.create', ['ref_language' => request()->query('locale', \App\Enums\Language::Vietnamese)]) }}"
+                                                           class="btn btn-primary"><i
+                                                                class="icon-add"></i>
+                                                            Thêm mới</a>
+                                                    @endif
+
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +123,7 @@
                                                     <th style="text-align: center">Lượt xem</th>
                                                     <th style="text-align: center">Ngôn ngữ</th>
                                                     <th style="text-align: center">Hiển thị</th>
-                                                    <th style="width: 150px; text-align: center">Hành động</th>
+                                                    <th style="width: 100px; text-align: center">Hành động</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -143,7 +150,10 @@
                                                         </td>
                                                         <td>{{ @$post->slug->content ?? '' }}</td>
                                                         <td style="text-align: center">{{ @$post->textDatePublish }}</td>
-                                                        <td style="text-align: center">{{ @$post->createBy->fullname }}</td>
+                                                        <td style="text-align: center"><span><img
+                                                                        class="img-circle img-xs mr-5"
+                                                                        src="{{ Avatar::create(@$post->createBy->fullname)->toBase64()  }}"
+                                                                        alt="{{ @$post->createBy->fullname }}"></span>{{ @$post->createBy->fullname }}</td>
                                                         <td style="text-align: center">{{ abbreviateNumber($post->view_count)}}</td>
                                                         <td style="text-align: center;width: 150px;"><img
                                                                 class="icon-flag" src="{{ @$post->languageIcon }}"
@@ -156,16 +166,22 @@
                                                                        data-toggle="dropdown"
                                                                        aria-expanded="false"><i class="icon-menu7"></i></a>
                                                                     <ul class="dropdown-menu dropdown-menu-right">
-                                                                        <li>
-                                                                            <a href="{{ route('admin.posts.edit', $post->id) }}"><i
-                                                                                    class="icon-pencil7"></i> Chỉnh sửa</a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="javascript:void(0);"
-                                                                               class="btn-delete"
-                                                                               data-id="{{$post->id}}"><i
-                                                                                    class="icon-trash"></i> Xóa</a>
-                                                                        </li>
+                                                                        @if(checkPermission('post-update'))
+                                                                            <li>
+                                                                                <a href="{{ route('admin.posts.edit', $post->id) }}"><i
+                                                                                        class="icon-pencil7"></i> Chỉnh
+                                                                                    sửa</a>
+                                                                            </li>
+                                                                        @endif
+                                                                        @if(checkPermission('post-delete'))
+                                                                            <li>
+                                                                                <a href="javascript:void(0);"
+                                                                                   class="btn-delete"
+                                                                                   data-id="{{$post->id}}"><i
+                                                                                        class="icon-trash"></i> Xóa</a>
+                                                                            </li>
+                                                                        @endif
+
                                                                     </ul>
                                                                 </li>
                                                             </ul>
@@ -207,10 +223,10 @@
                         <form action="" method="post" id="frm-delete">
                             @csrf
                             @method('delete')
-            </form>
+                        </form>
 
-        </div>
-        <!-- /content area -->
+                    </div>
+                    <!-- /content area -->
 
-    </div>
-@endsection
+                </div>
+            @endsection

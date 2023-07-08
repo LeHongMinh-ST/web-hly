@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#role-table').on('click', '.btn-delete', function () {
+    $('#post-table').on('click', '.btn-delete', function () {
         const id = $(this).attr('data-id')
 
         swal({
