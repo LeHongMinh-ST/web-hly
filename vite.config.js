@@ -31,7 +31,6 @@ export default defineConfig({
 
                 'resources/js/recruitment/index.js',
                 'resources/js/recruitment/create.js',
-                'resources/js/setting/edit.js',
 
                 //Contact
                 'resources/js/contact/index.js',
@@ -46,6 +45,18 @@ export default defineConfig({
                 'resources/js/investmentArticle/index.js',
                 'resources/js/investmentArticle/create.js',
                 'resources/js/investmentArticle/edit.js',
+                //Recruitment
+                'resources/js/recruitment/index.js',
+                'resources/js/recruitment/create.js',
+                'resources/js/recruitment/edit.js',
+
+                //User
+                'resources/js/user/index.js',
+                'resources/js/user/create.js',
+                'resources/js/user/edit.js',
+
+                'resources/js/setting/edit.js'
+
             ],
             refresh: true,
         }),
